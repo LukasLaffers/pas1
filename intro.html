@@ -1,0 +1,341 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>1 Interpretácia pravdepodobnosti | Pravdepodobnosť a štatistika 1</title>
+  <meta name="description" content="Toto sú poznámky pre študentov a študentky matematiky Fakulty Prírodných Vied Univerzity Mateja Bela v Banskej Bystrici." />
+  <meta name="generator" content="bookdown 0.37 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="1 Interpretácia pravdepodobnosti | Pravdepodobnosť a štatistika 1" />
+  <meta property="og:type" content="book" />
+  
+  <meta property="og:description" content="Toto sú poznámky pre študentov a študentky matematiky Fakulty Prírodných Vied Univerzity Mateja Bela v Banskej Bystrici." />
+  
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="1 Interpretácia pravdepodobnosti | Pravdepodobnosť a štatistika 1" />
+  
+  <meta name="twitter:description" content="Toto sú poznámky pre študentov a študentky matematiky Fakulty Prírodných Vied Univerzity Mateja Bela v Banskej Bystrici." />
+  
+
+<meta name="author" content="Lukáš Lafférs" />
+
+
+<meta name="date" content="2024-02-04" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="index.html"/>
+<link rel="next" href="set.html"/>
+<script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+<link href="libs/anchor-sections-1.1.0/anchor-sections.css" rel="stylesheet" />
+<link href="libs/anchor-sections-1.1.0/anchor-sections-hash.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.1.0/anchor-sections.js"></script>
+
+
+
+<style type="text/css">
+  
+  div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+</style>
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="./">Pravdepodobnosť a štatistika 1</a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>O tomto kurze</a></li>
+<li class="chapter" data-level="1" data-path="intro.html"><a href="intro.html"><i class="fa fa-check"></i><b>1</b> Interpretácia pravdepodobnosti</a>
+<ul>
+<li class="chapter" data-level="1.1" data-path="intro.html"><a href="intro.html#frekventisitická-interpretácia"><i class="fa fa-check"></i><b>1.1</b> Frekventisitická interpretácia</a></li>
+<li class="chapter" data-level="1.2" data-path="intro.html"><a href="intro.html#subjektivistická-interpretácia"><i class="fa fa-check"></i><b>1.2</b> Subjektivistická interpretácia</a></li>
+<li class="chapter" data-level="1.3" data-path="intro.html"><a href="intro.html#zhrnutie"><i class="fa fa-check"></i><b>1.3</b> Zhrnutie</a></li>
+<li class="chapter" data-level="1.4" data-path="intro.html"><a href="intro.html#cvičenia"><i class="fa fa-check"></i><b>1.4</b> Cvičenia</a></li>
+</ul></li>
+<li class="chapter" data-level="2" data-path="set.html"><a href="set.html"><i class="fa fa-check"></i><b>2</b> Pravdepodobnosť</a>
+<ul>
+<li class="chapter" data-level="2.1" data-path="set.html"><a href="set.html#množinové-značenie"><i class="fa fa-check"></i><b>2.1</b> Množinové značenie</a></li>
+<li class="chapter" data-level="2.2" data-path="set.html"><a href="set.html#pravdepodobnostný-priestor"><i class="fa fa-check"></i><b>2.2</b> Pravdepodobnostný priestor</a></li>
+<li class="chapter" data-level="2.3" data-path="set.html"><a href="set.html#vlastnostipravdepodobnosti"><i class="fa fa-check"></i><b>2.3</b> Vlastnosti pravdepodobnosti</a></li>
+<li class="chapter" data-level="2.4" data-path="set.html"><a href="set.html#kombinatorika"><i class="fa fa-check"></i><b>2.4</b> Kombinatorika</a></li>
+<li class="chapter" data-level="2.5" data-path="set.html"><a href="set.html#zhrnutie-1"><i class="fa fa-check"></i><b>2.5</b> Zhrnutie</a></li>
+<li class="chapter" data-level="2.6" data-path="set.html"><a href="set.html#cvičenia-1"><i class="fa fa-check"></i><b>2.6</b> Cvičenia</a></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="cond.html"><a href="cond.html"><i class="fa fa-check"></i><b>3</b> Podmienená pravdepodobnosť</a>
+<ul>
+<li class="chapter" data-level="3.1" data-path="cond.html"><a href="cond.html#čo-je-to-podmienená-pravdepodobnosť"><i class="fa fa-check"></i><b>3.1</b> Čo je to podmienená pravdepodobnosť</a></li>
+<li class="chapter" data-level="3.2" data-path="cond.html"><a href="cond.html#bayes"><i class="fa fa-check"></i><b>3.2</b> Bayesova veta</a></li>
+<li class="chapter" data-level="3.3" data-path="cond.html"><a href="cond.html#indep"><i class="fa fa-check"></i><b>3.3</b> Nezávislosť</a></li>
+<li class="chapter" data-level="3.4" data-path="cond.html"><a href="cond.html#condprob"><i class="fa fa-check"></i><b>3.4</b> Podmienená pravdepodobnosť je tiež pravdepodobnosť</a></li>
+<li class="chapter" data-level="3.5" data-path="cond.html"><a href="cond.html#zhrnutie-2"><i class="fa fa-check"></i><b>3.5</b> Zhrnutie</a></li>
+<li class="chapter" data-level="3.6" data-path="cond.html"><a href="cond.html#cvičenia-2"><i class="fa fa-check"></i><b>3.6</b> Cvičenia</a></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="np.html"><a href="np.html"><i class="fa fa-check"></i><b>4</b> Náhodná premenná</a>
+<ul>
+<li class="chapter" data-level="4.1" data-path="np.html"><a href="np.html#čo-je-to-náhodná-premenná."><i class="fa fa-check"></i><b>4.1</b> Čo je to náhodná premenná.</a></li>
+<li class="chapter" data-level="4.2" data-path="np.html"><a href="np.html#kumulatívna-distribučná-funkcia"><i class="fa fa-check"></i><b>4.2</b> Kumulatívna distribučná funkcia</a></li>
+<li class="chapter" data-level="4.3" data-path="np.html"><a href="np.html#zhrnutie-3"><i class="fa fa-check"></i><b>4.3</b> Zhrnutie</a></li>
+<li class="chapter" data-level="4.4" data-path="np.html"><a href="np.html#cvičenia-3"><i class="fa fa-check"></i><b>4.4</b> Cvičenia</a></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="dnp.html"><a href="dnp.html"><i class="fa fa-check"></i><b>5</b> Diskrétna náhodná premenná</a>
+<ul>
+<li class="chapter" data-level="5.1" data-path="dnp.html"><a href="dnp.html#pravdepodobnostná-funkcia-diskrétnej-náhodnej-premennej"><i class="fa fa-check"></i><b>5.1</b> Pravdepodobnostná funkcia diskrétnej náhodnej premennej</a></li>
+<li class="chapter" data-level="5.2" data-path="dnp.html"><a href="dnp.html#charakteristiky-diskrétnych-náhodných-premenných"><i class="fa fa-check"></i><b>5.2</b> Charakteristiky diskrétnych náhodných premenných</a>
+<ul>
+<li class="chapter" data-level="5.2.1" data-path="dnp.html"><a href="dnp.html#stredná-hodnota"><i class="fa fa-check"></i><b>5.2.1</b> Stredná hodnota</a></li>
+<li class="chapter" data-level="5.2.2" data-path="dnp.html"><a href="dnp.html#variancia-rozptyl"><i class="fa fa-check"></i><b>5.2.2</b> Variancia (rozptyl)</a></li>
+</ul></li>
+<li class="chapter" data-level="5.3" data-path="dnp.html"><a href="dnp.html#rovnomerné-rozdelenie"><i class="fa fa-check"></i><b>5.3</b> Rovnomerné rozdelenie</a></li>
+<li class="chapter" data-level="5.4" data-path="dnp.html"><a href="dnp.html#bernoulliho-rozdelenie"><i class="fa fa-check"></i><b>5.4</b> Bernoulliho rozdelenie</a></li>
+<li class="chapter" data-level="5.5" data-path="dnp.html"><a href="dnp.html#binomické-rozdelenie"><i class="fa fa-check"></i><b>5.5</b> Binomické rozdelenie</a></li>
+<li class="chapter" data-level="5.6" data-path="dnp.html"><a href="dnp.html#poissonovo-rozdelenie"><i class="fa fa-check"></i><b>5.6</b> Poissonovo rozdelenie</a></li>
+<li class="chapter" data-level="5.7" data-path="dnp.html"><a href="dnp.html#geometrické-rozdelenie"><i class="fa fa-check"></i><b>5.7</b> Geometrické rozdelenie</a></li>
+<li class="chapter" data-level="5.8" data-path="dnp.html"><a href="dnp.html#hypergeometrické-rozdelenie"><i class="fa fa-check"></i><b>5.8</b> Hypergeometrické rozdelenie</a></li>
+<li class="chapter" data-level="5.9" data-path="dnp.html"><a href="dnp.html#negatívne-binomické-rozdelenie"><i class="fa fa-check"></i><b>5.9</b> Negatívne binomické rozdelenie</a></li>
+<li class="chapter" data-level="5.10" data-path="dnp.html"><a href="dnp.html#zhrnutie-4"><i class="fa fa-check"></i><b>5.10</b> Zhrnutie</a></li>
+<li class="chapter" data-level="5.11" data-path="dnp.html"><a href="dnp.html#cvičenia-4"><i class="fa fa-check"></i><b>5.11</b> Cvičenia</a></li>
+</ul></li>
+<li class="chapter" data-level="6" data-path="snp.html"><a href="snp.html"><i class="fa fa-check"></i><b>6</b> Spojitá náhodná premenná</a>
+<ul>
+<li class="chapter" data-level="6.1" data-path="snp.html"><a href="snp.html#funkcia-hustoty-spojite-rozdelenej-náhodnej-premennej"><i class="fa fa-check"></i><b>6.1</b> Funkcia hustoty spojite rozdelenej náhodnej premennej</a></li>
+<li class="chapter" data-level="6.2" data-path="snp.html"><a href="snp.html#charakteristiky-spojitých-náhodných-premenných"><i class="fa fa-check"></i><b>6.2</b> Charakteristiky spojitých náhodných premenných</a></li>
+<li class="chapter" data-level="6.3" data-path="snp.html"><a href="snp.html#rovnomerné-rozdelenie-1"><i class="fa fa-check"></i><b>6.3</b> Rovnomerné rozdelenie</a></li>
+<li class="chapter" data-level="6.4" data-path="snp.html"><a href="snp.html#normálne-rozdelenie"><i class="fa fa-check"></i><b>6.4</b> Normálne rozdelenie</a></li>
+<li class="chapter" data-level="6.5" data-path="snp.html"><a href="snp.html#exponenciálne-rozdelenie"><i class="fa fa-check"></i><b>6.5</b> Exponenciálne rozdelenie</a></li>
+<li class="chapter" data-level="6.6" data-path="snp.html"><a href="snp.html#chí-kvadrát-rozdelenie"><i class="fa fa-check"></i><b>6.6</b> Chí-kvadrát rozdelenie</a></li>
+<li class="chapter" data-level="6.7" data-path="snp.html"><a href="snp.html#studentovo-rozdelenie-t-rozdelenie"><i class="fa fa-check"></i><b>6.7</b> Studentovo rozdelenie (t-rozdelenie)</a></li>
+<li class="chapter" data-level="6.8" data-path="snp.html"><a href="snp.html#cvičenia-5"><i class="fa fa-check"></i><b>6.8</b> Cvičenia</a></li>
+</ul></li>
+<li class="chapter" data-level="7" data-path="cov.html"><a href="cov.html"><i class="fa fa-check"></i><b>7</b> Súvis medzi náhodnými premennými</a>
+<ul>
+<li class="chapter" data-level="7.1" data-path="cov.html"><a href="cov.html#nezávislé-náhodné-premenné"><i class="fa fa-check"></i><b>7.1</b> Nezávislé náhodné premenné</a></li>
+<li class="chapter" data-level="7.2" data-path="cov.html"><a href="cov.html#miera-závislosti"><i class="fa fa-check"></i><b>7.2</b> Miera závislosti</a></li>
+<li class="chapter" data-level="7.3" data-path="cov.html"><a href="cov.html#cvičenia-6"><i class="fa fa-check"></i><b>7.3</b> Cvičenia</a></li>
+</ul></li>
+<li class="chapter" data-level="8" data-path="zvc.html"><a href="zvc.html"><i class="fa fa-check"></i><b>8</b> Zákon veľkých čísel</a>
+<ul>
+<li class="chapter" data-level="8.1" data-path="zvc.html"><a href="zvc.html#konvergencia-podľa-pravdepodobnosti"><i class="fa fa-check"></i><b>8.1</b> Konvergencia podľa pravdepodobnosti</a></li>
+<li class="chapter" data-level="8.2" data-path="zvc.html"><a href="zvc.html#markovova-nerovnosť"><i class="fa fa-check"></i><b>8.2</b> Markovova nerovnosť</a></li>
+<li class="chapter" data-level="8.3" data-path="zvc.html"><a href="zvc.html#čebyševova-nerovnosť"><i class="fa fa-check"></i><b>8.3</b> Čebyševova nerovnosť</a></li>
+<li class="chapter" data-level="8.4" data-path="zvc.html"><a href="zvc.html#slabý-zákon-veľkých-čísel"><i class="fa fa-check"></i><b>8.4</b> Slabý Zákon Veľkých čísel</a></li>
+<li class="chapter" data-level="8.5" data-path="zvc.html"><a href="zvc.html#čo-zákon-o-veľkých-číslach-nehovorí"><i class="fa fa-check"></i><b>8.5</b> Čo zákon o veľkých číslach nehovorí</a></li>
+<li class="chapter" data-level="8.6" data-path="zvc.html"><a href="zvc.html#cvičenia-7"><i class="fa fa-check"></i><b>8.6</b> Cvičenia</a></li>
+</ul></li>
+<li class="chapter" data-level="9" data-path="clv.html"><a href="clv.html"><i class="fa fa-check"></i><b>9</b> Centrálna limitná veta</a>
+<ul>
+<li class="chapter" data-level="9.1" data-path="clv.html"><a href="clv.html#konvergencia-podľa-distribúcie"><i class="fa fa-check"></i><b>9.1</b> Konvergencia podľa distribúcie</a></li>
+<li class="chapter" data-level="9.2" data-path="clv.html"><a href="clv.html#centrálna-limitná-veta"><i class="fa fa-check"></i><b>9.2</b> Centrálna limitná veta</a></li>
+<li class="chapter" data-level="9.3" data-path="clv.html"><a href="clv.html#cvičenia-8"><i class="fa fa-check"></i><b>9.3</b> Cvičenia</a></li>
+</ul></li>
+<li class="chapter" data-level="10" data-path="opakovanie.html"><a href="opakovanie.html"><i class="fa fa-check"></i><b>10</b> Opakovanie</a>
+<ul>
+<li class="chapter" data-level="" data-path="opakovanie.html"><a href="opakovanie.html#cvičné-otázky"><i class="fa fa-check"></i>Cvičné otázky</a></li>
+</ul></li>
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Pravdepodobnosť a štatistika 1</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="intro" class="section level1 hasAnchor" number="1">
+<h1><span class="header-section-number">1</span> Interpretácia pravdepodobnosti<a href="intro.html#intro" class="anchor-section" aria-label="Anchor link to header"></a></h1>
+<p>Teória pravdepodobnosti je jazykom neistoty. V živote často čelíme neistote, rôznym typom neistoty. Pýtame sa nasledujúce otázky:</p>
+<ul>
+<li>Bude zajtra pršať?</li>
+<li>Bude prebiehať výučba tento semester konečne prezenčne?</li>
+<li>Prekoná cena ropy hranicu 100$ za barel do konca roka?</li>
+<li>Vyhrá politická strana XY voľby?</li>
+<li>Vybuchne tento rok elektráreň v Mochovciach?</li>
+<li>Vezmeš si ma?</li>
+</ul>
+<p>Férová a úprimná odpoveď na všetky tieto otázky je: <em>“Neviem.”</em> (No dobre, okrem tej poslednej.)</p>
+<p>Prečo? Nuž, lebo naozaj nevieme. V skutočnosti je však obrovský rozdiel v týchto otázkach: to “Nevieme.” zďaleka nie je rovnaké v týchto situáciách. Teda táto odpoveď vôbec nie je uspokojivá. Chceli by sme čosi viacej. Chceli by sme nejakým spôsobom kvantifikovať neistotu spojenú s týmito otázkami a tam aj teraz smerujeme. Práve za týmto účelom používame slovo pravdepodobnosť a teraz ideme budovať matematickú teóriu, aby sme neistote lepšie porozumeli a vedeli s ňou pracovať, spoznali jej štruktúru.</p>
+<p>Chceme vedieť: <strong>Koľko neistoty</strong> je spojenej s týmito otázkami? Chceme to nejak odmerať.</p>
+<p>Iná, tiež férová a tiež úprimná odpoveď na všetky tieto otázky by bola: <em>“Nevieme. Lebo je to náhodné.”</em></p>
+<p>No dobre, ale rôzne udalosti sú rôzne náhodné. Niektoré nastávajú často, iné menej často. U iných zasa nedáva moc zmysel pýtať sa, ako často nastávajú, nakoľko ide len o jednorázovú udalosť. U iných si veľmi ľahko vieme predstaviť opakovanie a tam sa môžeme pýtať ako často udalosť nastáva.</p>
+<div id="frekventisitická-interpretácia" class="section level2 hasAnchor" number="1.1">
+<h2><span class="header-section-number">1.1</span> Frekventisitická interpretácia<a href="intro.html#frekventisitická-interpretácia" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Môžeme sa pýtať aj iné otázky:</p>
+<ul>
+<li>Padne pri 5 nezávislých hodoch férovou kockou aspoň jedenkrát číslo 6?</li>
+<li>Padne pri 10 nezávislých hodoch férovou mincou najviac trikrát znak?</li>
+<li>Vyberiem z kartového balíčka srdcovú postupku?</li>
+</ul>
+<p>Asi uznáte, že tieto otázky sú <em>umelohmotné</em>. Vyskytujú sa najmä v učebniciach pravdepodobnosti a v reálnom živote už pomenej, ba až vôbec. To ale neznamená, že nie sú užitočné.
+Sú totiž užitočné na to, aby sme abstrahovali od zložitostí reálneho sveta, ktoré zneprehľadňujú naše rozmýšlanie o pravdepodobnosti a o neistote a sústredili sa len na podstatu.
+Pochopili koncept pravdepodobnosti. My sa na takýchto umelohmotných prípadoch musíme naučiť rozmýšľať a potom bude oveľa ľahšie vedieť správne priradiť tieto koncepty k reálnym aplikáciám.</p>
+<p> </p>
+<p>Vráťme sa naspäť k tým otázkach. Chceli by sme náhodu <em>kvantifikovať</em>.</p>
+<ul>
+<li>Aká je šanca, že pri 5 nezávislých hodoch férovou kockou padne aspoň jedenkrát číslo 6?</li>
+<li>Aká je šanca, že pri 10 nezávislých hodoch férovou mincou padne najviac trikrát znak?</li>
+<li>Aká je šanca, že vyberiem z kartového balíčka srdcovú postupku?</li>
+</ul>
+<p>Tu tak potichu predpokladáme, že máme akési <em>opakovateľné</em> experimenty v kontrolovanom prostredí. A že pri dostatočne veľkom počte opakovaní sa frekvencia nastatia danej udalosti (napr. pád aspoň 1 šestky z 5 hodov) bude blížiť k nejakému čislu. Toto číslo myslíme pod tým pojmom “šanca”. Áno, vidíte kam smerujem; tomuto číslu zvykneme hovoriť aj <strong>pravdepodobnosť</strong>.</p>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:intro-1"></span>
+<img src="fig_sestka.png" alt="Počet &quot;úspešných&quot; experimentov sa blíži k akejsi hodnote. Z prvých 800 experimentov padla šesťka aspon v jednom prípade z piatich 476 krát.  Červenou je skutočná pravdepodobnosť. (Zdroj: vlastná simulácia v R.)" width="80%" />
+<p class="caption">
+Obrázok 1.1: Počet “úspešných” experimentov sa blíži k akejsi hodnote. Z prvých 800 experimentov padla šesťka aspon v jednom prípade z piatich 476 krát. Červenou je skutočná pravdepodobnosť. (Zdroj: vlastná simulácia v R.)
+</p>
+</div>
+<p>Tento obrázok vyjadruje, ako sa postupne vyvíja frekvencia nastatia udalosti “pri 5 nezávislých hodoch férovou kockou padne aspoň jedenkrát číslo 6”. Blíži sa k akémusi číslu a toto nie je zhoda náhod. Súvisí to s jedným hlbokým výsledkom (nazýva sa Zákon o Veľkých Číslach), ktorému sa budeme venovať neskôr. Takejto interpretácii pravdepodobnosti, keď si vieme predstaviť opakujúci sa experiment hovoríme aj <strong>frekventistická</strong>. Táto interpretácia pravdepodobnosti je založená na tom, že jednotlivé experimenty sú rovnocenné.</p>
+</div>
+<div id="subjektivistická-interpretácia" class="section level2 hasAnchor" number="1.2">
+<h2><span class="header-section-number">1.2</span> Subjektivistická interpretácia<a href="intro.html#subjektivistická-interpretácia" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Ale svet nie sú kocky, mince a karty. Niektoré udalosti nástavajú len a nie je zmysluplné uvažovať o ich opakovaní. Skrátka a dobre, frekventistická interpretácia pravdepodobnosti v tomto prípade nesedí.</p>
+<ul>
+<li>Aká je pravdepodobnosť, že cena ropy prekoná hranicu 100$ za barel do konca roka?</li>
+<li>Aká je šanca, že strana XY zvládne zostaviť koalíciu v najbližších parlamentných voľbách?</li>
+<li>Aká je pravdepodobnosť zemetrasenia v Banskej Bystrici počas najbližších 5 rokov?</li>
+</ul>
+<p>Asi sa zhodneme na tom, že toto sú zaujímavé otázky, takže by sme konieckoncov chceli vedieť na ne nejakú odpoveď. Každopádne nám tu chýba niečo, čo pri kockách, minciach a kartách máme. Chýba nám objektívny rámec, ktorým by sme vedeli vyhodnotiť úspešnosť danej odpovede. Predtým sme vedeli experimenty opakovať, teraz to však robiť nevieme. Môžeme vytvoriť nejaký matematický <strong>model</strong>, ktorý bude modelovať dynamiku ceny ropy. Toto je samozrejme ohromne náročné. Takýto model je akási zjednodušenina sveta. Robí mnoho zjenodušujúcich predpokladov ale na niektoré otázky môže dávať čiastočne uspokojivé predpovede. Každopádne, či chceme, či nie, takéto vyhodnotenie pravdepodobnosti bude vždy <strong>subjektívne</strong>. Matematický model môže byť validovaný na predošlých dátach a vykazovať úspešné pravdepodobnostné predpovede ale nikdy nebudeme mať garanciu toho, že bude fungovať aj v budúcnosti. Čaro modelovania tkvie v tom urobiť jednoduchý model, ale nie príliš.</p>
+<p>Pred prezidentskými voľbami v USA v roku 2016 bola značnou favoritkou Hillary Clinton pred Donaldom Trumpom. Väčšina think-tankov prisudzovala víťazstvu Clinton vyše 80%, tá však voľby nevyhrala.</p>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:intro-2"></span>
+<img src="fig_clinton.png" alt="Toto je vrchná časť grafiky webu fivethirtyeight.com, ktorý odhadoval pravdepodobnosť víťazstva demokratickej kandidátky v prezidentských voľbách USA v roku 2016. (Zdroj: https://projects.fivethirtyeight.com/2016-election-forecast/, prístup 7.2.2022)" width="80%" />
+<p class="caption">
+Obrázok 1.2: Toto je vrchná časť grafiky webu fivethirtyeight.com, ktorý odhadoval pravdepodobnosť víťazstva demokratickej kandidátky v prezidentských voľbách USA v roku 2016. (Zdroj: <a href="https://projects.fivethirtyeight.com/2016-election-forecast/" class="uri">https://projects.fivethirtyeight.com/2016-election-forecast/</a>, prístup 7.2.2022)
+</p>
+</div>
+<p>Čo presne znamená toto číslo 71.4%?<a href="#fn1" class="footnote-ref" id="fnref1"><sup>1</sup></a> V tomto prípade šlo o to, že v 14180 prípadoch z 20000 model fivethirtyeight.com nasimuloval víťazstvo Clinton. Takže aj keď nemáme objektívny rámec, môžeme si pomôcť tým, že si <em>simulačný rámec vytvoríme pomocou matematického modelu</em>. Ich model zahŕňal mnoho expertnej skúsenosti sociológov, volebných expertov, ekonómov, demografov a podobne. Kontinuálne upravovali odhady podľa najčerstvejších prieskumov v jednotlivých štátov, do úvahy tiež brali vierohodnosť jednotlivých prieskumných agentúr (tie ktorých prieskumy boli v minulosti bližšie realite dostali väčšiu váhy). Ale tiež šlo len o subjektívne vyhodnotenie pravdepodobnosti. Subjektívnosť tkvie v tom, ako tento volebný model skonštruovali.<a href="#fn2" class="footnote-ref" id="fnref2"><sup>2</sup></a></p>
+<p>Predikovali 71.4%, a to je viacej ako 50%. Znamená to, že sa mýlili?</p>
+<p>Nie je to také jednoduché. Ak by sa takéto voľby konali 1000 krát, tak by sme vedeli vyhodnotiť ako úspešné toto číslo bolo. Nuž ale toto sa nestalo. Voľby boli unikátna udalosť, ktorá nastala presne jeden raz. No a teraz to nevyšlo.<a href="#fn3" class="footnote-ref" id="fnref3"><sup>3</sup></a></p>
+<p>“V najbližsiu hodinu bude na 90% snežiť.” Čo presne znamená tých 90%?</p>
+<p>Nuž, podobne ako pri voľbách, aj tu je to pravdepodobnostný odhad založený na základe modelu, konkrétne meterologického. Alebo priemeru mnohých meteorologických modelov.</p>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:intro-3"></span>
+<img src="fig_weather.jpg" alt="Čo znamená (Zdroj: Weather aplikácia, prístup 7.2.2022)" width="40%" />
+<p class="caption">
+Obrázok 1.3: Čo znamená (Zdroj: Weather aplikácia, prístup 7.2.2022)
+</p>
+</div>
+<p>Intuitívne to vnímame, že ako veľmi môžeme veriť tomu, že bude snežiť. Pri 10% veríme málo, pri 90% je zasa veľa. Kedy by sme chápali, že tých 90% je dobrý odhad? Ak by sme mali takú skúsenosť, že mnohokrát ako sme túto aplikáciu kontrolovali, tak keď nám telefón ukazoval 90%, tak snežilo v 9 prípadoch z 10. Takže, ak práve teraz nebude snežiť, tak to nutne neznamená, že táto predpoveď je zlá.</p>
+</div>
+<div id="zhrnutie" class="section level2 hasAnchor" number="1.3">
+<h2><span class="header-section-number">1.3</span> Zhrnutie<a href="intro.html#zhrnutie" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Pravdepodobnosť sa dá interpretovať rôzne. Napríklad <em>frekventisticky</em> alebo <em>subjektivisticky</em>. Povzbudením nám môže byť to, že nezávisle od typu interprácie je jazykom neistoty stále matematická teória pravdepodobnosti. Teórii pravdepodnosti je totiž tak trochu jedno, ako si vy čo interpretujete.<a href="#fn4" class="footnote-ref" id="fnref4"><sup>4</sup></a></p>
+</div>
+<div id="cvičenia" class="section level2 hasAnchor" number="1.4">
+<h2><span class="header-section-number">1.4</span> Cvičenia<a href="intro.html#cvičenia" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div class="exercise">
+<p><span id="exr:unlabeled-div-1" class="exercise"><strong>Cvičenie 1.1  </strong></span>Uveďte príklad na reálnu situáciu (žiadne karty, mince ani kocky), kedy je frekventistická interpretácia pravdepodobnosti adekvátna.</p>
+</div>
+<div class="exercise">
+<p><span id="exr:unlabeled-div-2" class="exercise"><strong>Cvičenie 1.2  </strong></span>Zamyslite sa, ako by ste overili, či mobilná aplikácia s počasím ukazuje presné predpovede.</p>
+</div>
+
+</div>
+</div>
+<div class="footnotes">
+<hr />
+<ol start="1">
+<li id="fn1"><p>Pozor predpoveď 71.4% neznamená, že Clinton mala získať v priemere 71.4% hlasov. Ide o úplne iné čísla.<a href="intro.html#fnref1" class="footnote-back">↩︎</a></p></li>
+<li id="fn2"><p>New York Times oslovil prominentných odhadovačov, dal im <strong>tie isté surové dáta</strong> z prieskumu v štáte Florida a požiadal ich o predikciu. Tieto predikcie boli výrazné iné. <a href="https://www.nytimes.com/interactive/2016/09/20/upshot/the-error-the-polling-world-rarely-talks-about.html" class="uri">https://www.nytimes.com/interactive/2016/09/20/upshot/the-error-the-polling-world-rarely-talks-about.html</a><a href="intro.html#fnref2" class="footnote-back">↩︎</a></p></li>
+<li id="fn3"><p>Toto je samozrejme prudké zjednodušenie. Každá volebná predikcia zahŕňala nielen celkový výsledok ale aj výsledky v jednotlivých štátoch. Takže vyhodnotiť úspešnosť predikcie nie je úplne nemožné. Ale nedá sa to urobiť len pomocou jednej vyšlo/nevyšlo otázky.<a href="intro.html#fnref3" class="footnote-back">↩︎</a></p></li>
+<li id="fn4"><p>Viacej si prečítajte tu: Stark, P. B., et al. “What is the chance of an earthquake.” NATO Science Series IV: Earth and Environmental Sciences 32 (2003): 201-213.<a href="intro.html#fnref4" class="footnote-back">↩︎</a></p></li>
+</ol>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="index.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="set.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"whatsapp": false,
+"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": null,
+"text": null
+},
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": null,
+"text": null
+},
+"download": ["PaS1bookdown.epub"],
+"search": {
+"engine": "fuse",
+"options": null
+},
+"toc": {
+"collapse": "subsection"
+}
+});
+});
+</script>
+
+</body>
+
+</html>

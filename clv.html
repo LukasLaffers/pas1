@@ -1,0 +1,388 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>9 Centrálna limitná veta | Pravdepodobnosť a štatistika 1</title>
+  <meta name="description" content="Toto sú poznámky pre študentov a študentky matematiky Fakulty Prírodných Vied Univerzity Mateja Bela v Banskej Bystrici." />
+  <meta name="generator" content="bookdown 0.37 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="9 Centrálna limitná veta | Pravdepodobnosť a štatistika 1" />
+  <meta property="og:type" content="book" />
+  
+  <meta property="og:description" content="Toto sú poznámky pre študentov a študentky matematiky Fakulty Prírodných Vied Univerzity Mateja Bela v Banskej Bystrici." />
+  
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="9 Centrálna limitná veta | Pravdepodobnosť a štatistika 1" />
+  
+  <meta name="twitter:description" content="Toto sú poznámky pre študentov a študentky matematiky Fakulty Prírodných Vied Univerzity Mateja Bela v Banskej Bystrici." />
+  
+
+<meta name="author" content="Lukáš Lafférs" />
+
+
+<meta name="date" content="2024-02-04" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="zvc.html"/>
+<link rel="next" href="opakovanie.html"/>
+<script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+<link href="libs/anchor-sections-1.1.0/anchor-sections.css" rel="stylesheet" />
+<link href="libs/anchor-sections-1.1.0/anchor-sections-hash.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.1.0/anchor-sections.js"></script>
+
+
+
+<style type="text/css">
+  
+  div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+</style>
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="./">Pravdepodobnosť a štatistika 1</a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>O tomto kurze</a></li>
+<li class="chapter" data-level="1" data-path="intro.html"><a href="intro.html"><i class="fa fa-check"></i><b>1</b> Interpretácia pravdepodobnosti</a>
+<ul>
+<li class="chapter" data-level="1.1" data-path="intro.html"><a href="intro.html#frekventisitická-interpretácia"><i class="fa fa-check"></i><b>1.1</b> Frekventisitická interpretácia</a></li>
+<li class="chapter" data-level="1.2" data-path="intro.html"><a href="intro.html#subjektivistická-interpretácia"><i class="fa fa-check"></i><b>1.2</b> Subjektivistická interpretácia</a></li>
+<li class="chapter" data-level="1.3" data-path="intro.html"><a href="intro.html#zhrnutie"><i class="fa fa-check"></i><b>1.3</b> Zhrnutie</a></li>
+<li class="chapter" data-level="1.4" data-path="intro.html"><a href="intro.html#cvičenia"><i class="fa fa-check"></i><b>1.4</b> Cvičenia</a></li>
+</ul></li>
+<li class="chapter" data-level="2" data-path="set.html"><a href="set.html"><i class="fa fa-check"></i><b>2</b> Pravdepodobnosť</a>
+<ul>
+<li class="chapter" data-level="2.1" data-path="set.html"><a href="set.html#množinové-značenie"><i class="fa fa-check"></i><b>2.1</b> Množinové značenie</a></li>
+<li class="chapter" data-level="2.2" data-path="set.html"><a href="set.html#pravdepodobnostný-priestor"><i class="fa fa-check"></i><b>2.2</b> Pravdepodobnostný priestor</a></li>
+<li class="chapter" data-level="2.3" data-path="set.html"><a href="set.html#vlastnostipravdepodobnosti"><i class="fa fa-check"></i><b>2.3</b> Vlastnosti pravdepodobnosti</a></li>
+<li class="chapter" data-level="2.4" data-path="set.html"><a href="set.html#kombinatorika"><i class="fa fa-check"></i><b>2.4</b> Kombinatorika</a></li>
+<li class="chapter" data-level="2.5" data-path="set.html"><a href="set.html#zhrnutie-1"><i class="fa fa-check"></i><b>2.5</b> Zhrnutie</a></li>
+<li class="chapter" data-level="2.6" data-path="set.html"><a href="set.html#cvičenia-1"><i class="fa fa-check"></i><b>2.6</b> Cvičenia</a></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="cond.html"><a href="cond.html"><i class="fa fa-check"></i><b>3</b> Podmienená pravdepodobnosť</a>
+<ul>
+<li class="chapter" data-level="3.1" data-path="cond.html"><a href="cond.html#čo-je-to-podmienená-pravdepodobnosť"><i class="fa fa-check"></i><b>3.1</b> Čo je to podmienená pravdepodobnosť</a></li>
+<li class="chapter" data-level="3.2" data-path="cond.html"><a href="cond.html#bayes"><i class="fa fa-check"></i><b>3.2</b> Bayesova veta</a></li>
+<li class="chapter" data-level="3.3" data-path="cond.html"><a href="cond.html#indep"><i class="fa fa-check"></i><b>3.3</b> Nezávislosť</a></li>
+<li class="chapter" data-level="3.4" data-path="cond.html"><a href="cond.html#condprob"><i class="fa fa-check"></i><b>3.4</b> Podmienená pravdepodobnosť je tiež pravdepodobnosť</a></li>
+<li class="chapter" data-level="3.5" data-path="cond.html"><a href="cond.html#zhrnutie-2"><i class="fa fa-check"></i><b>3.5</b> Zhrnutie</a></li>
+<li class="chapter" data-level="3.6" data-path="cond.html"><a href="cond.html#cvičenia-2"><i class="fa fa-check"></i><b>3.6</b> Cvičenia</a></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="np.html"><a href="np.html"><i class="fa fa-check"></i><b>4</b> Náhodná premenná</a>
+<ul>
+<li class="chapter" data-level="4.1" data-path="np.html"><a href="np.html#čo-je-to-náhodná-premenná."><i class="fa fa-check"></i><b>4.1</b> Čo je to náhodná premenná.</a></li>
+<li class="chapter" data-level="4.2" data-path="np.html"><a href="np.html#kumulatívna-distribučná-funkcia"><i class="fa fa-check"></i><b>4.2</b> Kumulatívna distribučná funkcia</a></li>
+<li class="chapter" data-level="4.3" data-path="np.html"><a href="np.html#zhrnutie-3"><i class="fa fa-check"></i><b>4.3</b> Zhrnutie</a></li>
+<li class="chapter" data-level="4.4" data-path="np.html"><a href="np.html#cvičenia-3"><i class="fa fa-check"></i><b>4.4</b> Cvičenia</a></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="dnp.html"><a href="dnp.html"><i class="fa fa-check"></i><b>5</b> Diskrétna náhodná premenná</a>
+<ul>
+<li class="chapter" data-level="5.1" data-path="dnp.html"><a href="dnp.html#pravdepodobnostná-funkcia-diskrétnej-náhodnej-premennej"><i class="fa fa-check"></i><b>5.1</b> Pravdepodobnostná funkcia diskrétnej náhodnej premennej</a></li>
+<li class="chapter" data-level="5.2" data-path="dnp.html"><a href="dnp.html#charakteristiky-diskrétnych-náhodných-premenných"><i class="fa fa-check"></i><b>5.2</b> Charakteristiky diskrétnych náhodných premenných</a>
+<ul>
+<li class="chapter" data-level="5.2.1" data-path="dnp.html"><a href="dnp.html#stredná-hodnota"><i class="fa fa-check"></i><b>5.2.1</b> Stredná hodnota</a></li>
+<li class="chapter" data-level="5.2.2" data-path="dnp.html"><a href="dnp.html#variancia-rozptyl"><i class="fa fa-check"></i><b>5.2.2</b> Variancia (rozptyl)</a></li>
+</ul></li>
+<li class="chapter" data-level="5.3" data-path="dnp.html"><a href="dnp.html#rovnomerné-rozdelenie"><i class="fa fa-check"></i><b>5.3</b> Rovnomerné rozdelenie</a></li>
+<li class="chapter" data-level="5.4" data-path="dnp.html"><a href="dnp.html#bernoulliho-rozdelenie"><i class="fa fa-check"></i><b>5.4</b> Bernoulliho rozdelenie</a></li>
+<li class="chapter" data-level="5.5" data-path="dnp.html"><a href="dnp.html#binomické-rozdelenie"><i class="fa fa-check"></i><b>5.5</b> Binomické rozdelenie</a></li>
+<li class="chapter" data-level="5.6" data-path="dnp.html"><a href="dnp.html#poissonovo-rozdelenie"><i class="fa fa-check"></i><b>5.6</b> Poissonovo rozdelenie</a></li>
+<li class="chapter" data-level="5.7" data-path="dnp.html"><a href="dnp.html#geometrické-rozdelenie"><i class="fa fa-check"></i><b>5.7</b> Geometrické rozdelenie</a></li>
+<li class="chapter" data-level="5.8" data-path="dnp.html"><a href="dnp.html#hypergeometrické-rozdelenie"><i class="fa fa-check"></i><b>5.8</b> Hypergeometrické rozdelenie</a></li>
+<li class="chapter" data-level="5.9" data-path="dnp.html"><a href="dnp.html#negatívne-binomické-rozdelenie"><i class="fa fa-check"></i><b>5.9</b> Negatívne binomické rozdelenie</a></li>
+<li class="chapter" data-level="5.10" data-path="dnp.html"><a href="dnp.html#zhrnutie-4"><i class="fa fa-check"></i><b>5.10</b> Zhrnutie</a></li>
+<li class="chapter" data-level="5.11" data-path="dnp.html"><a href="dnp.html#cvičenia-4"><i class="fa fa-check"></i><b>5.11</b> Cvičenia</a></li>
+</ul></li>
+<li class="chapter" data-level="6" data-path="snp.html"><a href="snp.html"><i class="fa fa-check"></i><b>6</b> Spojitá náhodná premenná</a>
+<ul>
+<li class="chapter" data-level="6.1" data-path="snp.html"><a href="snp.html#funkcia-hustoty-spojite-rozdelenej-náhodnej-premennej"><i class="fa fa-check"></i><b>6.1</b> Funkcia hustoty spojite rozdelenej náhodnej premennej</a></li>
+<li class="chapter" data-level="6.2" data-path="snp.html"><a href="snp.html#charakteristiky-spojitých-náhodných-premenných"><i class="fa fa-check"></i><b>6.2</b> Charakteristiky spojitých náhodných premenných</a></li>
+<li class="chapter" data-level="6.3" data-path="snp.html"><a href="snp.html#rovnomerné-rozdelenie-1"><i class="fa fa-check"></i><b>6.3</b> Rovnomerné rozdelenie</a></li>
+<li class="chapter" data-level="6.4" data-path="snp.html"><a href="snp.html#normálne-rozdelenie"><i class="fa fa-check"></i><b>6.4</b> Normálne rozdelenie</a></li>
+<li class="chapter" data-level="6.5" data-path="snp.html"><a href="snp.html#exponenciálne-rozdelenie"><i class="fa fa-check"></i><b>6.5</b> Exponenciálne rozdelenie</a></li>
+<li class="chapter" data-level="6.6" data-path="snp.html"><a href="snp.html#chí-kvadrát-rozdelenie"><i class="fa fa-check"></i><b>6.6</b> Chí-kvadrát rozdelenie</a></li>
+<li class="chapter" data-level="6.7" data-path="snp.html"><a href="snp.html#studentovo-rozdelenie-t-rozdelenie"><i class="fa fa-check"></i><b>6.7</b> Studentovo rozdelenie (t-rozdelenie)</a></li>
+<li class="chapter" data-level="6.8" data-path="snp.html"><a href="snp.html#cvičenia-5"><i class="fa fa-check"></i><b>6.8</b> Cvičenia</a></li>
+</ul></li>
+<li class="chapter" data-level="7" data-path="cov.html"><a href="cov.html"><i class="fa fa-check"></i><b>7</b> Súvis medzi náhodnými premennými</a>
+<ul>
+<li class="chapter" data-level="7.1" data-path="cov.html"><a href="cov.html#nezávislé-náhodné-premenné"><i class="fa fa-check"></i><b>7.1</b> Nezávislé náhodné premenné</a></li>
+<li class="chapter" data-level="7.2" data-path="cov.html"><a href="cov.html#miera-závislosti"><i class="fa fa-check"></i><b>7.2</b> Miera závislosti</a></li>
+<li class="chapter" data-level="7.3" data-path="cov.html"><a href="cov.html#cvičenia-6"><i class="fa fa-check"></i><b>7.3</b> Cvičenia</a></li>
+</ul></li>
+<li class="chapter" data-level="8" data-path="zvc.html"><a href="zvc.html"><i class="fa fa-check"></i><b>8</b> Zákon veľkých čísel</a>
+<ul>
+<li class="chapter" data-level="8.1" data-path="zvc.html"><a href="zvc.html#konvergencia-podľa-pravdepodobnosti"><i class="fa fa-check"></i><b>8.1</b> Konvergencia podľa pravdepodobnosti</a></li>
+<li class="chapter" data-level="8.2" data-path="zvc.html"><a href="zvc.html#markovova-nerovnosť"><i class="fa fa-check"></i><b>8.2</b> Markovova nerovnosť</a></li>
+<li class="chapter" data-level="8.3" data-path="zvc.html"><a href="zvc.html#čebyševova-nerovnosť"><i class="fa fa-check"></i><b>8.3</b> Čebyševova nerovnosť</a></li>
+<li class="chapter" data-level="8.4" data-path="zvc.html"><a href="zvc.html#slabý-zákon-veľkých-čísel"><i class="fa fa-check"></i><b>8.4</b> Slabý Zákon Veľkých čísel</a></li>
+<li class="chapter" data-level="8.5" data-path="zvc.html"><a href="zvc.html#čo-zákon-o-veľkých-číslach-nehovorí"><i class="fa fa-check"></i><b>8.5</b> Čo zákon o veľkých číslach nehovorí</a></li>
+<li class="chapter" data-level="8.6" data-path="zvc.html"><a href="zvc.html#cvičenia-7"><i class="fa fa-check"></i><b>8.6</b> Cvičenia</a></li>
+</ul></li>
+<li class="chapter" data-level="9" data-path="clv.html"><a href="clv.html"><i class="fa fa-check"></i><b>9</b> Centrálna limitná veta</a>
+<ul>
+<li class="chapter" data-level="9.1" data-path="clv.html"><a href="clv.html#konvergencia-podľa-distribúcie"><i class="fa fa-check"></i><b>9.1</b> Konvergencia podľa distribúcie</a></li>
+<li class="chapter" data-level="9.2" data-path="clv.html"><a href="clv.html#centrálna-limitná-veta"><i class="fa fa-check"></i><b>9.2</b> Centrálna limitná veta</a></li>
+<li class="chapter" data-level="9.3" data-path="clv.html"><a href="clv.html#cvičenia-8"><i class="fa fa-check"></i><b>9.3</b> Cvičenia</a></li>
+</ul></li>
+<li class="chapter" data-level="10" data-path="opakovanie.html"><a href="opakovanie.html"><i class="fa fa-check"></i><b>10</b> Opakovanie</a>
+<ul>
+<li class="chapter" data-level="" data-path="opakovanie.html"><a href="opakovanie.html#cvičné-otázky"><i class="fa fa-check"></i>Cvičné otázky</a></li>
+</ul></li>
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Pravdepodobnosť a štatistika 1</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="clv" class="section level1 hasAnchor" number="9">
+<h1><span class="header-section-number">9</span> Centrálna limitná veta<a href="clv.html#clv" class="anchor-section" aria-label="Anchor link to header"></a></h1>
+<p>Normálne rozdelenie hrá prekvapivo dôležitú úlohu v teórii pravdepodobnosti a v štatistike. Ukazuje sa, že aritmetický priemer z nezávislých, ale rovnako rozdelených náhodných premenných, pokiaľ je počítaný z dostatočne veľkého množstva premenných, sa správa ako normálne rozdelená náhodná premenná.</p>
+<div id="konvergencia-podľa-distribúcie" class="section level2 hasAnchor" number="9.1">
+<h2><span class="header-section-number">9.1</span> Konvergencia podľa distribúcie<a href="clv.html#konvergencia-podľa-distribúcie" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>V minulej kapitole sme si predstavili jeden zo spôsobov, ako sa môže postupnosť náhodných premenných blížiť k nejakej náhodnej premennej, konkrétne konvergenciu podľa pravdepodobnosti. Existuje aj iný spôsob. Niekedy chceme uvažovať situáciu, že pravdepodobnostné správnanie prvkov postupnosti náhodných premenných sa stále viacej a viacej podobá na pravdepodobnostné správanie akejsi limitnej náhodnej premennej.</p>
+<p>Hovoríme, že postupnosť náhodných premenných <span class="math inline">\(\{X_i\}_{i=1}^{\infty}\)</span> <strong>konverguje podľa distribúcie</strong> k náhodnej premennej <span class="math inline">\(X\)</span>, ak platí pre všetky body <span class="math inline">\(x\)</span> spojitosti funkcie <span class="math inline">\(F_X\)</span>:</p>
+<p><span class="math display">\[\lim_{n \rightarrow \infty}F_{X_n}(x) = F_X(x),\]</span>
+Označujeme <span class="math inline">\(X_n \rightarrow_D X.\)</span></p>
+<div class="theorem">
+<p><span id="thm:unlabeled-div-1" class="theorem"><strong>Veta 9.1  </strong></span>Platí <span class="math display">\[X_n \rightarrow_P X \implies X_n \rightarrow_D X.\]</span></p>
+</div>
+<div class="proof">
+<p><span id="unlabeled-div-2" class="proof"><em>Dôkaz</em>. </span>Nakoľko platí <span class="math inline">\(\{ X_n \leq x\} \subset \{ X \leq x + \epsilon\} \cup \{|X-X_n| &gt; \epsilon\}\)</span> (lebo ak platí <span class="math inline">\(X_n \leq x\)</span> a <span class="math inline">\(X &gt; x + \epsilon\)</span>, potom nutne aj <span class="math inline">\(|X-X_n| &gt; \epsilon\)</span>), dostávame:
+<span class="math display">\[\begin{eqnarray*}
+P(X_n \leq x) &amp;\leq&amp;  P(X \leq x + \epsilon) + P(|X_n - X|&gt;\epsilon).
+\end{eqnarray*}\]</span>
+Podobnou úvahou dostaneme</p>
+<p><span class="math display">\[\begin{eqnarray*}
+P(X \leq x-\epsilon) &amp;\leq&amp;   P(X_n \leq x) + P(|X_n - X|&gt;\epsilon).
+\end{eqnarray*}\]</span></p>
+<p>Preto platí</p>
+<p><span class="math display">\[P(X \leq x-\epsilon) - P(|X_n - X|&gt;\epsilon) \leq P(X_n \leq x) \leq   P(X \leq x + \epsilon) + P(|X_n - X|&gt;\epsilon).\]</span></p>
+<p>Ak aplikujeme operátor limity na tieto nerovnosti, spolu s využitím definície konvergencie podľa pravdepodobnosti dostávame</p>
+<p><span class="math display">\[F_{X}(x-\epsilon) \leq \lim_{n \rightarrow \infty}P(X_n \leq x) \leq   F_{X}(x+\epsilon),\]</span>
+a tieto nerovnosti platia pre akékoľvek <span class="math inline">\(\epsilon.\)</span></p>
+<p>V bode spojitosti <span class="math inline">\(F_X\)</span> platí <span class="math inline">\(\lim_{\epsilon \rightarrow 0}F_{X}(x-\epsilon) = \lim_{\epsilon \rightarrow 0}F_{X}(x+\epsilon) = F_X(x),\)</span> a preto <span class="math inline">\(\lim_{n \rightarrow \infty}P(X_n \leq x) = F_X(x)\)</span>, čo sme chceli ukázať.</p>
+</div>
+</div>
+<div id="centrálna-limitná-veta" class="section level2 hasAnchor" number="9.2">
+<h2><span class="header-section-number">9.2</span> Centrálna limitná veta<a href="clv.html#centrálna-limitná-veta" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div class="theorem">
+<p><span id="thm:unlabeled-div-3" class="theorem"><strong>Veta 9.2  </strong></span>Majme postupnosť nezávislých a rovnako rozdelených náhodných premenných <span class="math inline">\(X_1, X_2, X_3, \dots\)</span> s konečnou strednou hodnotou <span class="math inline">\(\mu\)</span> a konečnou varianciou <span class="math inline">\(\sigma^2.\)</span> Potom platí</p>
+<p><span class="math display">\[\sqrt{n}\frac{\bar{X}_n - \mu}{\sigma} \rightarrow_D Z,\]</span></p>
+<p>kde <span class="math inline">\(Z \sim \text{N}(0,1).\)</span></p>
+</div>
+<p>Alternatívnym zápisom je, že ak označíme <span class="math inline">\(Y_n = \sqrt{n}\frac{\bar{X}_n - \mu}{\sigma},\)</span> potom</p>
+<p><span class="math display">\[\forall x \in \mathbb{R}: \lim_{n \rightarrow \infty}F_{Y_n}(x) = \Phi(x).\]</span></p>
+<p>Dôkaz je nad rámec tohoto kurzu, a preto ho vynechávame.</p>
+<p>Tu je ilustrácie pre rovnomerné rozdelenie. Ide o obrázky odhadov funkcie hustoty. Napriek veľkému množstvu simulácií nie sú úplne hladké, viacej o takýchto odhadoch hustôt sa naučíme na druhom kurze regresie.</p>
+<p><img src="PaS1bookdown_files/figure-html/clv-1-1.png" width="672" /></p>
+<p>Tu pre exponenciálne rozdelenie:</p>
+<p><img src="PaS1bookdown_files/figure-html/clv-2-1.png" width="672" /></p>
+<p>A tu pre binomické rozdelenie:</p>
+<p><img src="PaS1bookdown_files/figure-html/clv-3-1.png" width="672" /></p>
+<p>Toto má dôležité praktické dôsledky. My vôbec nemusíme vedieť, aké má nejaká náhodná pravdepodobnostné rozdelenie. Ale vieme, že priemer nezávislých náhodných premenných sa už bude správať systematicky(!). Toto je veľmi všeobecný výsledok. Na tomto poznatku je založených mnoho štatistických testov.</p>
+<div class="example">
+<p><span id="exm:unlabeled-div-4" class="example"><strong>Príklad 9.1  </strong></span>Hádžeme férovou kockou 900 krát. Ideme aproximovať pravdepodobnosť, že uvidíme viacej ako 495 hláv.
+Každý hod mincou <span class="math inline">\(X_i \sim \text{Bern}(0.5)\)</span> a <span class="math inline">\(\text{E}[X_i] = 0.5, \text{Var}[X_i] = 0.25.\)</span></p>
+<p>Preto</p>
+<p><span class="math display">\[\begin{eqnarray*}
+P\left(\sum_{i=1}^{900} X_i &gt; 495\right)&amp;=&amp; P\left(\frac{\sum_{i=1}^{900} X_i}{900} &gt; \frac{495}{900}\right) \\
+&amp;=&amp; P\left(\bar{X}_n - 0.5 &gt; \frac{495}{900} -0.5\right)\\
+&amp;=&amp; P\left(\frac{\bar{X}_n - 0.5}{0.5} &gt; \frac{\frac{495}{900} -0.5}{0.5}\right)\\
+&amp;=&amp; P\left(\sqrt{900}\frac{\bar{X}_n - 0.5}{0.5} &gt; \sqrt{900}\frac{\frac{495}{900} -0.5}{0.5}\right)\\
+&amp;=&amp; P\left(\sqrt{900}\frac{\bar{X}_n - 0.5}{0.5} &gt; 30\frac{\frac{495}{900} -0.5}{0.5}\right)\\
+&amp;=&amp; P\left(\sqrt{900}\frac{\bar{X}_n - 0.5}{0.5} &gt; 3\right)\\
+&amp;\approx&amp; 1-\Phi(3) = 0.0013
+\end{eqnarray*}\]</span></p>
+<p>Princíp výpočtu takýchto aproximácií je vždy rovnaký. Začneme s tým, čo chceme vypočítať a ekvivalentnými úpravami to prevedieme na formuláciu CLV.</p>
+</div>
+<div class="example">
+<p><span id="exm:unlabeled-div-5" class="example"><strong>Príklad 9.2  </strong></span>Majme nezávislé <span class="math inline">\(X_1, X_2, \cdots X_{12}\)</span> kde <span class="math inline">\(X_i \sim \text{Unif}[0,1].\)</span> Pomocou CLV aproximujte <span class="math inline">\(P(|\bar{X}_n - 0.5| \leq 0.1).\)</span>
+<span class="math display">\[\begin{eqnarray*}
+P(|\bar{X}_n - 0.5| \leq 0.1) &amp;=&amp; P(\sqrt{12}(\bar{X}_n - 0.5)| \leq \sqrt{12}\cdot 0.1)\\
+&amp;=&amp; P\left(\left|\sqrt{12}\frac{\bar{X}_n - 0.5}{\sqrt{\frac{1}{12}}}\right| \leq \sqrt{12}\frac{0.1}{\sqrt{\frac{1}{12}}}\right)\\
+&amp;=&amp; P\left(\left|\sqrt{12}\frac{\bar{X}_n - 0.5}{\sqrt{\frac{1}{12}}}\right| \leq 1.2\right)\\
+&amp;\approx&amp; \Phi(1.2) - \Phi(-1.2) = 0.7698.
+\end{eqnarray*}\]</span></p>
+<p>Využili sme skutočnosť, že <span class="math inline">\(\sqrt{n}\frac{\bar{X}_n - \mu}{\sigma}\)</span> je približne normovane normálne rozdelená náhodná premenná (<span class="math inline">\(\text{N}(0,1)\)</span>).</p>
+</div>
+</div>
+<div id="cvičenia-8" class="section level2 hasAnchor" number="9.3">
+<h2><span class="header-section-number">9.3</span> Cvičenia<a href="clv.html#cvičenia-8" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div class="exercise">
+<p><span id="exr:unlabeled-div-6" class="exercise"><strong>Cvičenie 9.1  </strong></span>Majme postupnosť nezávislých a rovnako rozdelených náhodných premenných <span class="math inline">\(X_1,X_2,X_3,\cdots\)</span>, kde <span class="math inline">\(X_1 \sim \text{Exp}(1).\)</span></p>
+<p>Aké veľké musí byť <span class="math inline">\(n\)</span> aby platilo <span class="math inline">\(P(0.9 \leq \bar{X}_n \leq 1.1)\geq 0.9\)</span> ?</p>
+</div>
+<div class="exercise">
+<p><span id="exr:unlabeled-div-7" class="exercise"><strong>Cvičenie 9.2  </strong></span>Výťah unesie 4tony nákladu. Majme 100 krabíc, každá s priemernou váhou 39kg a so smerodajnou odchýlkou 2kg. Aproximujte pravdepodobnosť, že výťah bude preťažený.</p>
+</div>
+<div class="exercise">
+<p><span id="exr:unlabeled-div-8" class="exercise"><strong>Cvičenie 9.3  </strong></span>Majme postupnosť nezávislých a rovnako rozdelených náhodných premenných <span class="math inline">\(X_1,X_2,X_3,\cdots\)</span>, kde <span class="math inline">\(\text{E}[X_1] = 200, \text{Var}[X_1]=40, n=100.\)</span></p>
+<p>Aproximujte pomocou CLV hodnotu <span class="math inline">\(P(190 \leq \bar{X}_n \leq 210)\)</span>.</p>
+</div>
+<!-- ## Domáca úloha 11 {-} -->
+<!-- Odovzdať do 1.5.2023 do 23:59. -->
+<!-- Zvyšok ku kapitole 8 -->
+<!-- ::: {.exercise name="DÚ 11.1"} -->
+<!-- Majme postupnosť $X_1, X_2, \dots$ náhodných premenných so strednou hodnotou $6.5$ a varianciou $4$. Pomocou Čebyševovej nerovnosti odhadnite, aké veľké $n$ musíme zobrať, aby sme si boli istí, že -->
+<!-- $$P(6 < \bar{X}_n < 7) \geq 0.9 \quad?$$ -->
+<!-- Výsledok porovnajte s odhadom pomocou Centrálnej limitnej vety. -->
+<!-- ::: -->
+<!-- ::: {.exercise name="DÚ 11.2"} -->
+<!-- Zo sčítania obyvateľstva vieme, že v populácii máme $18.4\%$ vysokoškolsky vzdelaných ľudí. Náhodne vyberieme $n$ ľudí do prieskumu. -->
+<!-- (a) Pomocou Čebyševovej nerovnosti odhadnite, aká je pravdepodobnosť, že pomer vysokoškolsky vzdelaných ľudí v našej vzorke sa od reality bude líšiť o viac ako $2\%$, ak vezmeme vzorku $100$, resp. $1000$ ľudí? -->
+<!-- (b) Pomocou Čebyševovej nerovnosti odhadnite, koľkých ľudí sa musíme opýtať, ak chceme, aby sa s $95\%$-tnou istotou pomer vysokoškolsky vzdelaných ľudí v prieskume líšil od reality najviac o $2\%$, resp. $5\%$? -->
+<!-- ::: -->
+<!-- Kapitola 9 -->
+<!-- ::: {.exercise name="DÚ 11.3"} -->
+<!-- Na krst knihy je pozvaných 100 hostí. Každý hosť si zoberie 0, 1 alebo 2 brožúry o knihe s pravdepodobnosťou 1/4, 1/2 a 1/4. Ľudia si brožúry berú nezávisle. Koľko brožúr musíme dať vytlačiť, aby sme si boli na 95\% istý, že nebudú chýbať? -->
+<!-- ::: -->
+<!-- ::: {.exercise name="DÚ 11.4"} -->
+<!-- 200 ľudí čaká v rade na lístky na koncert. Každý človek v rade si kúpi v priemere 2.3 lístkov zo smerodajnou odchýlkou 2. V sále je 500 voľných miest. Aproximujte pravdepodobosť, že sa každému ujde toľko lístkov, koľko chce. Explicitne pomenujte zjednodušujúce predpoklady, ktoré urobíte. -->
+<!-- ::: -->
+<!-- ::: {.exercise name="DÚ 11.5"} -->
+<!-- V lekárni sa týždenne predá v priemere 25 krabičiek lieku na krvný tlak so smerodajnou odchýlkou 5 krabičiek. Lekáreň má v sklade 40 krabičiek lieku a každý týžden je naplánovaná dodávka 22 krabičiek. -->
+<!-- (a) Aproximujte pravdepodobnosť, že po 10 týždňoch bude mať lekáreň na sklade menej ako 15 krabičiek. -->
+<!-- (b) Aká by mala byť plánovaná týždenná dodávka, aby bola pravdepodobnosť, že po 10 týždňoch bude mať lekáreň na sklade menej ako 15 krabičiek, menšia ako 0.5\%? -->
+<!-- Explicitne pomenujte zjednodušujúce predpoklady, ktoré urobíte. -->
+<!-- ::: -->
+<!-- ## Domáca úloha 10 {-} -->
+<!-- ::: {.exercise name="DÚ 9.1"} -->
+<!-- Na svadbu je pozvaných 64 hostí. Každý hosť zje 0, 1 alebo 2 koláče s pravdepodobnosťou 1/4, 1/2 a 1/4. Ľudia jedia koláče nezávisle. Koľko koláčov musíme objednať, aby sme si boli na 95\% istý, že nebudú chýbať? -->
+<!-- :::  -->
+<!-- ::: {.exercise name="DÚ 9.2"} -->
+<!-- Výťah unesie 4tony nákladu. Majme 100 krabíc, každá s priemernou váhou 39kg a so smerodajnou odchýlkou 2kg. Aproximujte pravdepodobnosť, že výťah bude preťažený. -->
+<!-- :::  -->
+<!-- ::: {.exercise name="DÚ 9.3"} -->
+<!-- Zo skúseností vieme, že na matematický ples sa lístky veľmi rýchlo vypredajú: každý človek v rade si kúpi v priemere 2.3 lístkov zo smerodajnou odchýlkou 2. Máme 250 voľných miest a v rade čaká 100 ľudí. Aproximujte pravdepodobosť, že sa každému ujde toľko lístkov, koľko chce. Explicitne pomenujte zjednodušujúce predpoklady, ktoré urobíte.  -->
+<!-- :::  -->
+<!-- ::: {.exercise name="DÚ 9.4"} -->
+<!-- Na pumpe v Hronskej Breznici sa týždenne predá v priemere 50000 litrov benzínu so smerodajnou odchýlkou 10000 litrov. Na začiatku je v zásobníku 74000 litrov a každý týžden je naplánovaná dodávka 47000 litrov. -->
+<!-- * Aproximujte pravdepodobnosť, že po 11 týždňoch bude v zásobníku menej ako 20000 litrov. -->
+<!-- * Aká by mala byť plánovaná týždenná dodávka, aby bola pravdepodobnosť, že po 11 týždňoch bude v zásobníku menej ako 20000 litrov menšia ako 0.5\%? -->
+<!-- :::  -->
+
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="zvc.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="opakovanie.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"whatsapp": false,
+"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": null,
+"text": null
+},
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": null,
+"text": null
+},
+"download": ["PaS1bookdown.epub"],
+"search": {
+"engine": "fuse",
+"options": null
+},
+"toc": {
+"collapse": "subsection"
+}
+});
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.9/latest.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+</body>
+
+</html>
