@@ -6,7 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>2 Pravdepodobnosť | Pravdepodobnosť a štatistika 1</title>
   <meta name="description" content="Toto sú poznámky pre študentov a študentky matematiky Fakulty Prírodných Vied Univerzity Mateja Bela v Banskej Bystrici." />
-  <meta name="generator" content="bookdown 0.37 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.35 and GitBook 2.6.7" />
 
   <meta property="og:title" content="2 Pravdepodobnosť | Pravdepodobnosť a štatistika 1" />
   <meta property="og:type" content="book" />
@@ -23,7 +23,7 @@
 <meta name="author" content="Lukáš Lafférs" />
 
 
-<meta name="date" content="2024-02-04" />
+<meta name="date" content="2024-02-12" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -191,7 +191,7 @@
 <p>Množina <span class="math inline">\(M_1\)</span> je <strong>podmnožinou</strong> <span class="math inline">\(M_2,\)</span> označujeme <span class="math inline">\(M_1 \subseteq M_2\)</span> ak platí, že každý element <span class="math inline">\(M_1\)</span> je zároveň aj elementom v <span class="math inline">\(M_2,\)</span> teda ak platí <span class="math inline">\(\forall m: m \in M_1 \implies m \in M_2.\)</span></p>
 <p>Množinu <span class="math inline">\(M\)</span>, ktorá nemá žiadne prvky nazývame <strong>prázdna</strong> a označujeme <span class="math inline">\(M = \emptyset.\)</span></p>
 <p><strong>Zjednotením</strong> dvoch množín <span class="math inline">\(M_1\)</span> a <span class="math inline">\(M_2\)</span> nazývame množinu, ktorej prvky sa nachádzajú buď v množine <span class="math inline">\(M_1\)</span> alebo v množine <span class="math inline">\(M_2.\)</span> Zjednotenie dvoch množín označujeme ako <span class="math inline">\(M_1 \cup M_2\)</span>.</p>
-<p><strong>Zjednotením</strong> viacerých (nanajvýš spočitateľne veľa) množín <span class="math inline">\(M_1, M_2, M_3,\dots\)</span> nazývame množinu, ktorej prvky sa nachádzajú aspoň v jednej z množín <span class="math inline">\(M_1, M_2, M_3, \dots\)</span>. Zjednotenie viacerých množín označujeme ako <span class="math inline">\(M_1 \cup M_2 \cup M_3 \cup \dots = \cup_{i=1}^{\infty} M_i\)</span> alebo ako <span class="math inline">\(M_1 \cup M_2 \cup M_3 \cup \dots \cup M_n = \cup_{i=1}^{n} M_i\)</span> pre zjednotenie konečného počtu množín.</p>
+<p><strong>Zjednotením</strong> viacerých (nanajvýš spočitateľne veľa) množín <span class="math inline">\(M_1, M_2, M_3,\dots\)</span> nazývame množinu, ktorej prvky sa nachádzajú aspoň v jednej z množín <span class="math inline">\(M_1, M_2, M_3, \dots\)</span>. Zjednotenie viacerých množín označujeme ako <span class="math inline">\(M_1 \cup M_2 \cup M_3 \cup \dots = \cup_{i=1}^{\infty} M_i\)</span> pre zjednotenie nekonečne veľa množín alebo ako <span class="math inline">\(M_1 \cup M_2 \cup M_3 \cup \dots \cup M_n = \cup_{i=1}^{n} M_i\)</span> pre zjednotenie konečného počtu množín.</p>
 <p><strong>Prienikom</strong> dvoch množín <span class="math inline">\(M_1\)</span> a <span class="math inline">\(M_2\)</span> nazývame množinu, ktorej prvky sa nachádzajú aj v <span class="math inline">\(M_1\)</span> aj v <span class="math inline">\(M_2.\)</span> Prienik dvoch množín označujeme ako <span class="math inline">\(M_1 \cap M_2\)</span>.</p>
 <p>Dve množiny <span class="math inline">\(M_1\)</span> a <span class="math inline">\(M_2\)</span> nazývame <strong>disjunktné</strong>, ak ich spoločný prienik je prázdna množina, teda <span class="math inline">\(M_1 \cap M_2 = \emptyset.\)</span></p>
 <p><strong>Prienikom</strong> viacerých (nanajvýš spočitateľne veľa) množín <span class="math inline">\(M_1, M_2, M_3,\dots\)</span> nazývame množinu, ktorej prvky sa nachádzajú v každej jednej z množín <span class="math inline">\(M_1, M_2, M_3, \dots\)</span>. Prienik viacerých množín označujeme ako <span class="math inline">\(M_1 \cap M_2 \cap M_3 \cap \dots = \cap_{i=1}^{\infty} M_i\)</span> alebo ako <span class="math inline">\(M_1 \cap M_2 \cap M_3 \cap \dots \cap M_n = \cap_{i=1}^{n} M_i\)</span> pre prienik konečného počtu množín.</p>
@@ -202,8 +202,9 @@
 <li>Pre každú množinu <span class="math inline">\(M\)</span> platí:
 <ul>
 <li><span class="math inline">\(M \cup M = M\)</span>,</li>
-<li><span class="math inline">\(M \cap M = M\)</span> a</li>
-<li><span class="math inline">\(M \cap \emptyset = \emptyset.\)</span></li>
+<li><span class="math inline">\(M \cap M = M\)</span>,</li>
+<li><span class="math inline">\(M \cap \emptyset = \emptyset\)</span> a</li>
+<li><span class="math inline">\(M \cup \emptyset = M.\)</span></li>
 </ul></li>
 <li>Ak <span class="math inline">\(M_1 \subseteq M_2\)</span> potom
 <ul>
@@ -247,9 +248,11 @@
 <p><span class="math display">\[(\Omega, \mathcal{F}, P)\]</span>
 s týmito vlastnosťami:</p>
 <ul>
-<li><p><span class="math inline">\(\Omega\)</span> je <strong>priestor</strong>, teda nejaká neprázdna množina. Bude to množina všetkých možných prípadov, ako môže dopadnúť experiment.</p></li>
-<li><p><span class="math inline">\(\mathcal{F}\)</span> je množina podmnožín <span class="math inline">\(\Omega\)</span>. Teda prvky nachádzajúce sa v <span class="math inline">\(\mathcal{F}\)</span> sú množiny. <span class="math inline">\(\mathcal{F}\)</span> bude označovať množinu <strong>udalostí</strong>. No a udalostiam budeme chciet priraďovať pravdepodobnosť.<a href="#fn1" class="footnote-ref" id="fnref1"><sup>1</sup></a></p></li>
-<li><p><span class="math inline">\(P\)</span> je <strong>pravdepodobnostná funkcia</strong> alebo skrátene len <strong>pravdepodobnosť</strong>. Je to funkcia <span class="math inline">\(\mathcal{F} \rightarrow [0,1].\)</span> Každej udalosti priradí číslo medzi 0 a 1. Funkcia <span class="math inline">\(P\)</span> musí spĺňať nasledovné vlastnosti:</p>
+<li><span class="math inline">\(\Omega\)</span> je <strong>priestor</strong>, teda nejaká neprázdna množina. Bude to množina všetkých možných prípadov, ako môže dopadnúť experiment.</li>
+<li><span class="math inline">\(\mathcal{F}\)</span> je množina podmnožín <span class="math inline">\(\Omega\)</span>. Teda prvky nachádzajúce sa v <span class="math inline">\(\mathcal{F}\)</span> sú množiny. <span class="math inline">\(\mathcal{F}\)</span> bude označovať množinu <strong>udalostí</strong>. No a udalostiam budeme chciet priraďovať pravdepodobnosť. <a href="#fn1" class="footnote-ref" id="fnref1"><sup>1</sup></a></li>
+</ul>
+<ul>
+<li><span class="math inline">\(P\)</span> je <strong>pravdepodobnostná funkcia</strong> alebo skrátene len <strong>pravdepodobnosť</strong>. Je to funkcia <span class="math inline">\(\mathcal{F} \rightarrow [0,1].\)</span> <a href="#fn2" class="footnote-ref" id="fnref2"><sup>2</sup></a> Každej udalosti priradí číslo medzi 0 a 1. Funkcia <span class="math inline">\(P\)</span> musí spĺňať nasledovné vlastnosti:
 <ol style="list-style-type: decimal">
 <li><span class="math inline">\(P(A) \geq 0\)</span> pre všetky udalosti <span class="math inline">\(A.\)</span> Pravdepodobnosť je <em>nezáporná</em> funkcia.</li>
 <li><span class="math inline">\(P(\Omega) = 1.\)</span> Pravdepodobnosť je <em>zhora ohraničená funkcia číslom 1</em>.</li>
@@ -279,7 +282,7 @@ s týmito vlastnosťami:</p>
 </ul>
 <p>Všimnime si, že teraz nám netreba zadefinovať pravdepodobnosť <span class="math inline">\(P\)</span> pre úplne všetky možné udalosti. Využítím vlastnosti funkcie <span class="math inline">\(P\)</span> vieme napríklad, že
 <span class="math inline">\(P(\{1,2\}) = P(\{1\} \cup \{2\}) = P(\{1\}) + P(\{2\}) = \frac{1}{7} + \frac{1}{7} = \frac{2}{7},\)</span>
-kvôli tomu, že udalosti <span class="math inline">\(\{1\})\)</span> a <span class="math inline">\(\{2\}\)</span> sú <em>disjunktné</em>.
+kvôli tomu, že udalosti <span class="math inline">\(\{1\}\)</span> a <span class="math inline">\(\{2\}\)</span> sú <em>disjunktné</em>.
 Preto sme nepotrebovali zadefinovať samotnú <span class="math inline">\(P(\{1,2\}).\)</span> Poľahky sme si ju dopočítali.</p>
 <p>Ďalej si môžeme všimnúť, že</p>
 <p><span class="math display">\[\begin{eqnarray*}
@@ -292,7 +295,7 @@ P(\Omega) &amp;=&amp; P(\{1\} \cup \{2\} \cup \{3\} \cup \{4\} \cup \{5\} \cup \
 <li>Aká je pravdepodobnosť, že párne číslo? <span class="math inline">\(P(\{2,4,6\}) = P(\{2\})+P(\{4\})+P(\{6\}) = \frac{1}{7} + \frac{1}{7} + \frac{2}{7} = \frac{4}{7}\)</span></li>
 </ul>
 </div>
-<p>Odteraz aj potom neskôr, pri akejkoľvek otázke/úlohe/cvičení budeme potichu predpokladať, že pravdepodobnostný priestor v rámci ktorého sa dá odpovedať na danú otázku/úlohu/cvičenie <em>existuje</em>.<a href="#fn2" class="footnote-ref" id="fnref2"><sup>2</sup></a> <a href="#fn3" class="footnote-ref" id="fnref3"><sup>3</sup></a></p>
+<p>Odteraz aj potom neskôr, pri akejkoľvek otázke/úlohe/cvičení budeme potichu predpokladať, že pravdepodobnostný priestor v rámci ktorého sa dá odpovedať na danú otázku/úlohu/cvičenie <em>existuje</em>.<a href="#fn3" class="footnote-ref" id="fnref3"><sup>3</sup></a> <a href="#fn4" class="footnote-ref" id="fnref4"><sup>4</sup></a></p>
 </div>
 <div id="vlastnostipravdepodobnosti" class="section level2 hasAnchor" number="2.3">
 <h2><span class="header-section-number">2.3</span> Vlastnosti pravdepodobnosti<a href="set.html#vlastnostipravdepodobnosti" class="anchor-section" aria-label="Anchor link to header"></a></h2>
@@ -321,9 +324,9 @@ Takže stačí nám ak budeme vedieť efektívne počítať počet možností. P
 <p>Využívajú sa nasledovné zákonistosti:</p>
 <ul>
 <li><div class="line-block">Koľkými možnými spôsobmi môžeme usporiadať všetky objekty množiny <span class="math inline">\(\{a_1, a_2, a_3, \dots a_n\}\)</span> do radu <em>keď záleží</em> na poradí?<br />
- Na prvé miesto môžeme dať <span class="math inline">\(n\)</span> rôznych objektov, na druhé miesto už len <span class="math inline">\(n-1\)</span> rôznych objektov (lebo sme si už jeden objekt minule) at ďalej a na posledné miesto nám už zostal len <span class="math inline">\(1\)</span> objekt. Dokopy je teda možností <span class="math inline">\(n \cdot (n-1) \cdot \ \dots \ \cdot 1 = n!.\)</span></div></li>
+ Na prvé miesto môžeme dať <span class="math inline">\(n\)</span> rôznych objektov, na druhé miesto už len <span class="math inline">\(n-1\)</span> rôznych objektov (lebo sme si už jeden objekt minule) a tak ďalej a na posledné miesto nám už zostal len <span class="math inline">\(1\)</span> objekt. Dokopy je teda možností <span class="math inline">\(n \cdot (n-1) \cdot \ \dots \ \cdot 1 = n!.\)</span></div></li>
 <li><div class="line-block">Koľkými možnými spôsobmi môžeme usporiadať <span class="math inline">\(k\)</span> rôznych objektov z množiny <span class="math inline">\(\{a_1, a_2, a_3, \dots a_n\}\)</span> do radu <em>keď záleží</em> na poradí?<br />
- Na prvé miesto môžeme dať <span class="math inline">\(n\)</span> rôznych objektov, na druhé miesto už len <span class="math inline">\(n-1\)</span> rôznych objektov (lebo sme si už jeden objekt minule) at ďalej a na <span class="math inline">\(k\)</span>-te miesto nám už zostalo len <span class="math inline">\(n-k+1\)</span> rôznych objektov. Dokopy je teda možností <span class="math inline">\(n \cdot (n-1) \cdot \ \dots \ \cdot (n-k+1) = \frac{n!}{(n-k)!}.\)</span></div></li>
+ Na prvé miesto môžeme dať <span class="math inline">\(n\)</span> rôznych objektov, na druhé miesto už len <span class="math inline">\(n-1\)</span> rôznych objektov (lebo sme si už jeden objekt minule) a tak ďalej a na <span class="math inline">\(k\)</span>-te miesto nám už zostalo len <span class="math inline">\(n-k+1\)</span> rôznych objektov. Dokopy je teda možností <span class="math inline">\(n \cdot (n-1) \cdot \ \dots \ \cdot (n-k+1) = \frac{n!}{(n-k)!}.\)</span></div></li>
 <li><div class="line-block">Koľkými možnými spôsobmi môžeme vybrať <span class="math inline">\(k\)</span> rôznych objektov z množiny <span class="math inline">\(\{a_1, a_2, a_3, \dots a_n\}\)</span> <em>keď nezáleží</em> na poradí?<br />
  Ak by bolo záležalo na poradí, bolo by ich <span class="math inline">\(\frac{n!}{(n-k)!}\)</span>. Tu sme len použili predošlú úvahu. Ale v našom prípade nezáleží na poradí. A preto sú tam niektoré výbery viackrát. Konkrétne: rôznych usporiadaní <span class="math inline">\(k\)</span> objektov je <span class="math inline">\(k!\)</span>, teda toľkokrát ich je tam viacej. Odpoveď na našu otázku je preto <span class="math inline">\(\frac{\frac{n!}{(n-k)!}}{k!} = \frac{n!}{(n-k)!k!} = {{n}\choose{k}}.\)</span> Zaujimavým dôsledkom je</div></li>
 </ul>
@@ -365,6 +368,7 @@ Takže stačí nám ak budeme vedieť efektívne počítať počet možností. P
 <li><p>Koľkými spôsobmi (čo sa týka len samotného počtu kariet) je možné rozdať 54 hracích kariet 5 hráčom?</p></li>
 </ul>
 </div>
+<p>V rôznych učebniciach pravdepodobnosti sa môžete stretnúť s tým, že rôzne typy prípadov sú systematizované. Hovorí sa o permutáciách, kombináciách (s opakovaním alebo bez opakovanie), variáciách a podobne. Môj názor je, že s využívaním tohoto názvoslovia je spojené riziko, že študenti prestanú rozmýšľať a budú sa len snažiť kategorizovať daný príklad do schémy v ktorej už potom mechanicky poznajú vzťah/vzorec, ktorý treba použiť. Názor na to, ako aj spôsob implementácie pri praktickej výučbe nechám na Vašom posúdení.</p>
 </div>
 <div id="zhrnutie-1" class="section level2 hasAnchor" number="2.5">
 <h2><span class="header-section-number">2.5</span> Zhrnutie<a href="set.html#zhrnutie-1" class="anchor-section" aria-label="Anchor link to header"></a></h2>
@@ -606,9 +610,15 @@ P\left(\cup_{i=1}^n A_i\right) &amp;=&amp; \sum_{i=1}^n P(A_i) - \sum_{i&lt;j} P
 </div>
 <div class="footnotes">
 <hr />
-<ol start="2">
-<li id="fn2"><p>V matematike je dobrým zvykom pracovať s objektami o ktorých existencii niet pochýb.<a href="set.html#fnref2" class="footnote-back">↩︎</a></p></li>
-<li id="fn3"><p>Najmä pri komplikovanejších prípadoch toto nie je vždy priamočiare. Pre potreby nášho kurzu to však bude postačujúce. Ak napríklad budeme uvažovať o pravdepodobnostnom priestore, ktorý zodpovedá tomu, že rovnomerne náhodne vyberieme nejaké číslo z intervalu <span class="math inline">\([0,1],\)</span> <em>nebudeme môcť uvažovať</em> <span class="math inline">\(\mathcal{F} = 2^{[0,1]}.\)</span> Takáto voľba <span class="math inline">\(\mathcal{F}\)</span> by spôsobila, že nemôže existovať žiadna funkcia <span class="math inline">\(P\)</span>, ktorá by spĺňala všetky 3 vlastnosti funkcie pravdepodobnosti a zároveň by každému intervalu priradila jeho dĺžku, akoby sme intuitívne očakávali. Konštrukcia vhodnej <span class="math inline">\(\mathcal{F}\)</span> je v tomto prípade veľmi prácna (8 krokový dôkaz) a výsledný pravdepodobnostný priestor sa nazýva <em>Lebesgueova miera</em> na <span class="math inline">\([0,1]\)</span>.<a href="set.html#fnref3" class="footnote-back">↩︎</a></p></li>
+<ol start="1">
+<li id="fn1"><p>Z formálneho hľadiska <span class="math inline">\(\mathcal{F}\)</span> musí byť <span class="math inline">\(\sigma-\)</span>algebra podmnožín <span class="math inline">\(\Omega\)</span>. To znamená, že priraďovanie pravdepodobnosti musí byť vnútorne konzistentné. Technicky musia byť splnené tieto tri podmienky:
+(1) Ak <span class="math inline">\(A \in \mathcal{F}\)</span>, teda ak viem priradiť udalosti <span class="math inline">\(A\)</span> nejakú pravdepodobnosť, tak budem musieť vedieť priradiť pravdepodobosť aj udalosti <span class="math inline">\(A^C,\)</span> teda, že <span class="math inline">\(A\)</span> <em>nenastala</em>.
+(2) Ak <span class="math inline">\(A_1,A_2, A_3, \dots \in \mathcal{F}\)</span>, potom aj <span class="math inline">\(\cup_{i=1}^{\infty} A_i \in \mathcal{F}\)</span>. Vysvetlíme si to na príklade dvoch množín: ak <span class="math inline">\(A,B \in \mathcal{F}\)</span>, potom aj <span class="math inline">\(A \cup B \in \mathcal{F}\)</span>, teda ak viem priradiť pravdepodobnosť udalostiam <span class="math inline">\(A\)</span> a <span class="math inline">\(B\)</span>, potom musím vedieť priradiť pravdepodobnosť aj udalosti <span class="math inline">\(A \cup B\)</span>, teda že nastala udalosť <span class="math inline">\(A\)</span> <em>alebo</em> udalosť <span class="math inline">\(B\)</span>.
+(3) <span class="math inline">\(\Omega \in \mathcal{F},\)</span> teda viem priradiť pravdepodobnosť udalosti, že <em>niečo</em> nastalo.
+V rámci tohoto kurzu sa nebudeme podrobne venovať <span class="math inline">\(\mathcal{F}\)</span>. Budeme predpokladať, že ide o korektnú <span class="math inline">\(\sigma-\)</span>algebru. Do väčsích podrobností sa zahĺbite v rámci kurzov <em>Teória miery a integrálu</em> a <em>Teória pravdepodobnosti</em>.<a href="set.html#fnref1" class="footnote-back">↩︎</a></p></li>
+<li id="fn2"><p>Každý jeden krát sa nájde mnoho ľudí, ktorí nesprávne označujú, že pravdepodobnosť je funkcia z <span class="math inline">\(\Omega\)</span> do <span class="math inline">\([0,1]\)</span>. Nie. Nie je. Je to funkcia <span class="math inline">\(\mathcal{F} \rightarrow [0,1].\)</span><a href="set.html#fnref2" class="footnote-back">↩︎</a></p></li>
+<li id="fn3"><p>V matematike je dobrým zvykom pracovať s objektami o ktorých existencii niet pochýb.<a href="set.html#fnref3" class="footnote-back">↩︎</a></p></li>
+<li id="fn4"><p>Najmä pri komplikovanejších prípadoch toto nie je vždy priamočiare. Pre potreby nášho kurzu to však bude postačujúce. Ak napríklad budeme uvažovať o pravdepodobnostnom priestore, ktorý zodpovedá tomu, že rovnomerne náhodne vyberieme nejaké číslo z intervalu <span class="math inline">\([0,1],\)</span> <em>nebudeme môcť uvažovať</em> <span class="math inline">\(\mathcal{F} = 2^{[0,1]}.\)</span> Takáto voľba <span class="math inline">\(\mathcal{F}\)</span> by spôsobila, že nemôže existovať žiadna funkcia <span class="math inline">\(P\)</span>, ktorá by spĺňala všetky 3 vlastnosti funkcie pravdepodobnosti a zároveň by každému intervalu priradila jeho dĺžku, akoby sme intuitívne očakávali. Konštrukcia vhodnej <span class="math inline">\(\mathcal{F}\)</span> je v tomto prípade veľmi prácna (8 krokový dôkaz) a výsledný pravdepodobnostný priestor sa nazýva <em>Lebesgueova miera</em> na <span class="math inline">\([0,1]\)</span>.<a href="set.html#fnref4" class="footnote-back">↩︎</a></p></li>
 </ol>
 </div>
             </section>
