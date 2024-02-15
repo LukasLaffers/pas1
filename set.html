@@ -23,7 +23,7 @@
 <meta name="author" content="Lukáš Lafférs" />
 
 
-<meta name="date" content="2024-02-14" />
+<meta name="date" content="2024-02-15" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -92,6 +92,7 @@
 <li class="chapter" data-level="2.4" data-path="set.html"><a href="set.html#kombinatorika"><i class="fa fa-check"></i><b>2.4</b> Kombinatorika</a></li>
 <li class="chapter" data-level="2.5" data-path="set.html"><a href="set.html#zhrnutie-1"><i class="fa fa-check"></i><b>2.5</b> Zhrnutie</a></li>
 <li class="chapter" data-level="2.6" data-path="set.html"><a href="set.html#cvičenia-1"><i class="fa fa-check"></i><b>2.6</b> Cvičenia</a></li>
+<li class="chapter" data-level="2.7" data-path="set.html"><a href="set.html#domáca-úloha-1"><i class="fa fa-check"></i><b>2.7</b> Domáca úloha 1</a></li>
 </ul></li>
 <li class="chapter" data-level="3" data-path="cond.html"><a href="cond.html"><i class="fa fa-check"></i><b>3</b> Podmienená pravdepodobnosť</a>
 <ul>
@@ -641,23 +642,46 @@ P\left(\cup_{i=1}^n A_i\right) &amp;=&amp; \sum_{i=1}^n P(A_i) - \sum_{i&lt;j} P
 <!-- Použítím vlastností funkcie pravdepodobnosti formálne (nakresliť Vennov diagram nestačí) ukážte, že platí -->
 <!-- $$P(A\cup B)= P(A) + P(B)- P(A \cap B).$$ -->
 <!-- ::: -->
-<!-- ::: {.exercise name="DÚ 1.1"} -->
-<!-- Označme -->
-<!-- $A=\{(x,y) \in \mathbb{R}^2: x^2 + y^2 \leq 4, x > 1\}$ a $B=\{(x,y) \in \mathbb{R}^2: |x| + |y| < 1\}.$ -->
-<!-- Zobrazte množinu $A \cap B^C.$ -->
-<!-- ::: -->
+</div>
+<div id="domáca-úloha-1" class="section level2 hasAnchor" number="2.7">
+<h2><span class="header-section-number">2.7</span> Domáca úloha 1<a href="set.html#domáca-úloha-1" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Prosím poslať mailom do 21.2.2024 19:59. Výnimky len vo vážnych prípadoch a len ak sú komunikované dopredu.</p>
+<p>Pracovať môžete v tímoch veľkosti najviac 2. To znamená jednočlenné alebo dvojčlenné tímy. Diskusie sú vítané ale každý tím odovzdáva svoju vlastnú prácu. Zo skúseností vieme, že výsledky priebežných domácich úloh sú veľmi silným prediktorom koncosemestrálneho hodnotenia.</p>
+<div class="exercise">
+<p><span id="exr:unlabeled-div-29" class="exercise"><strong>Cvičenie 2.25  (DÚ 1.1) </strong></span>Označme
+<span class="math inline">\(A=\{(x,y) \in \mathbb{R}^2: x^2 + y^2 \leq 3, x &gt; 1\}\)</span> a <span class="math inline">\(B=\{(x,y) \in \mathbb{R}^2: |x| + |y| &lt; 1\}.\)</span>
+Zobrazte množiny <span class="math inline">\(A \cap B^C\)</span> a <span class="math inline">\(A \cup B^C.\)</span></p>
+</div>
 <!-- ::: {.exercise name="DÚ 1.2"} -->
 <!-- Uvažujme nasledovnú situáciu: trikrát hodíme férovou mincou. -->
 <!-- (a) Zostrojte pravdepodobnostný priestor, ktorý zodpovedá tejto situácii. Podrobne popíšte jeho elementy. -->
 <!-- (b) Aká je pravdepodobnosť, že padne hlava aspoň 2 krát? -->
 <!-- ::: -->
-<!-- ::: {.exercise name="DÚ 1.3"} -->
-<!-- Použítím vlastností funkcie pravdepodobnosti formálne (nakresliť Vennov diagram nestačí) ukážte, že platí -->
-<!-- $$P(A\cap B^C)= P(A) - P(A \cap B).$$ -->
-<!-- ::: -->
-<!-- ::: {.exercise name="DÚ 1.4"} -->
-<!-- Test pozostáva z 20 otázok, každá má možnosti (a), (b), (c) a práve jedna odpoveď je správna. Aká je pravdepodobnosť, že študent, ktorý sa nič neučil zodpovie aspoň 2 otázky správne? -->
-<!-- ::: -->
+<div class="exercise">
+<p><span id="exr:unlabeled-div-30" class="exercise"><strong>Cvičenie 2.26  (DÚ 1.2) </strong></span>Použítím vlastností funkcie pravdepodobnosti formálne (nakresliť Vennov diagram nestačí) ukážte, že platí
+<span class="math display">\[P(A\cap B^C)= P(A) - P(A \cap B).\]</span>
+Buďte precízny.</p>
+</div>
+<div class="exercise">
+<p><span id="exr:unlabeled-div-31" class="exercise"><strong>Cvičenie 2.27  (DÚ 1.3) </strong></span>Test pozostáva z 10 otázok, každá má možnosti (a), (b), (c), (d), (e) a práve jedna odpoveď je správna. Aká je pravdepodobnosť, že študent, ktorý sa nič neučil zodpovie aspoň 3 otázky správne?</p>
+</div>
+<div class="exercise">
+<p><span id="exr:unlabeled-div-32" class="exercise"><strong>Cvičenie 2.28  (DÚ 1.4) </strong></span>Máme 5 rovnakých nepriehľadných obálok s darčekom. V jednej je poukaz do kníhkupectva, v druhej sú listky do divadla, v tretej sú letenky, vo štvrtej sú nálepky a v piatej sú vstupenky do múzea vo Svätom Antone. Náhodne si vyberieme 3 obálky.</p>
+<ol style="list-style-type: lower-alpha">
+<li>Zostrojte pravdepodobnostný priestor, ktorý zodpovedá tejto situácii. Podrobne popíšte jeho elementy.</li>
+<li>Aká je pravdepodobnosť, že nepôjdeme do múzea vo Svätom Antone?</li>
+<li>Aká je pravdepodobnosť, že pôjdeme do kníhkupectva ale nedostaneme nálepky?</li>
+</ol>
+</div>
+<div class="exercise">
+<p><span id="exr:unlabeled-div-33" class="exercise"><strong>Cvičenie 2.29  (DÚ 1.5) </strong></span>Na plese bolo fantasticky. Tombola je každoročným highlightom tohoto tradičného podujatia a tento rok sa predalo 722 lístkov, bolo udelených 38 cien. Simona si kúpila 40 lístkov, Lukáš si kúpil 20 lístkov.
+(Lístky stáli 50 centov ale to nie je dôležité.)</p>
+<ol style="list-style-type: lower-alpha">
+<li>Aká je pravepodobnosť, že Simona vyhrá 6 cien?</li>
+<li>Aká je pravepodobnosť, že Lukáš nevyhrá žiadnu cenu?</li>
+<li>*Aká je pravdepodobnosť, že Simona vyhrá 6 cien a súčasne Lukáš nevyhrá žiadnu cenu?</li>
+</ol>
+</div>
 <!-- ::: {.exercise name="DÚ 1.5"} -->
 <!-- Máme 3 bežcov v tíme A a 3 bežcov v tíme B. Všetci sa zúčastnia preteku a výkonnosť všetkých je rovnaká. Aká je pravdodobnosť, že všetci z tímu A budú rýchlejší ako všetci z tímu B a zároveň Jozef Kopelka z tímu A bude druhý? -->
 <!-- ::: -->
@@ -674,7 +698,7 @@ P\left(\cup_{i=1}^n A_i\right) &amp;=&amp; \sum_{i=1}^n P(A_i) - \sum_{i&lt;j} P
 (1) Ak <span class="math inline">\(A \in \mathcal{F}\)</span>, teda ak viem priradiť udalosti <span class="math inline">\(A\)</span> nejakú pravdepodobnosť, tak budem musieť vedieť priradiť pravdepodobosť aj udalosti <span class="math inline">\(A^C,\)</span> teda, že <span class="math inline">\(A\)</span> <em>nenastala</em>.
 (2) Ak <span class="math inline">\(A_1,A_2, A_3, \dots \in \mathcal{F}\)</span>, potom aj <span class="math inline">\(\cup_{i=1}^{\infty} A_i \in \mathcal{F}\)</span>. Vysvetlíme si to na príklade dvoch množín: ak <span class="math inline">\(A,B \in \mathcal{F}\)</span>, potom aj <span class="math inline">\(A \cup B \in \mathcal{F}\)</span>, teda ak viem priradiť pravdepodobnosť udalostiam <span class="math inline">\(A\)</span> a <span class="math inline">\(B\)</span>, potom musím vedieť priradiť pravdepodobnosť aj udalosti <span class="math inline">\(A \cup B\)</span>, teda že nastala udalosť <span class="math inline">\(A\)</span> <em>alebo</em> udalosť <span class="math inline">\(B\)</span>.
 (3) <span class="math inline">\(\Omega \in \mathcal{F},\)</span> teda viem priradiť pravdepodobnosť udalosti, že <em>niečo</em> nastalo.
-V rámci tohoto kurzu sa nebudeme podrobne venovať <span class="math inline">\(\mathcal{F}\)</span>. Budeme predpokladať, že ide o korektnú <span class="math inline">\(\sigma-\)</span>algebru. Do väčsích podrobností sa zahĺbite v rámci kurzov <em>Teória miery a integrálu</em> a <em>Teória pravdepodobnosti</em>.<a href="set.html#fnref1" class="footnote-back">↩︎</a></p></li>
+V rámci tohoto kurzu sa nebudeme podrobne venovať <span class="math inline">\(\mathcal{F}\)</span>. Budeme predpokladať, že ide o korektnú <span class="math inline">\(\sigma-\)</span>algebru. Do väčších podrobností sa zahĺbite v rámci kurzov <em>Teória miery a integrálu</em> a <em>Teória pravdepodobnosti</em>.<a href="set.html#fnref1" class="footnote-back">↩︎</a></p></li>
 <li id="fn2"><p>Každý jeden krát sa nájde mnoho ľudí, ktorí nesprávne označujú, že pravdepodobnosť je funkcia z <span class="math inline">\(\Omega\)</span> do <span class="math inline">\([0,1]\)</span>. Nie. Nie je. Je to funkcia <span class="math inline">\(\mathcal{F} \rightarrow [0,1].\)</span><a href="set.html#fnref2" class="footnote-back">↩︎</a></p></li>
 <li id="fn3"><p>V matematike je dobrým zvykom pracovať s objektami o ktorých existencii niet pochýb.<a href="set.html#fnref3" class="footnote-back">↩︎</a></p></li>
 <li id="fn4"><p>Najmä pri komplikovanejších prípadoch toto nie je vždy priamočiare. Pre potreby nášho kurzu to však bude postačujúce. Ak napríklad budeme uvažovať o pravdepodobnostnom priestore, ktorý zodpovedá tomu, že rovnomerne náhodne vyberieme nejaké číslo z intervalu <span class="math inline">\([0,1],\)</span> <em>nebudeme môcť uvažovať</em> <span class="math inline">\(\mathcal{F} = 2^{[0,1]}.\)</span> Takáto voľba <span class="math inline">\(\mathcal{F}\)</span> by spôsobila, že nemôže existovať žiadna funkcia <span class="math inline">\(P\)</span>, ktorá by spĺňala všetky 3 vlastnosti funkcie pravdepodobnosti a zároveň by každému intervalu priradila jeho dĺžku, akoby sme intuitívne očakávali. Konštrukcia vhodnej <span class="math inline">\(\mathcal{F}\)</span> je v tomto prípade veľmi prácna (8 krokový dôkaz) a pravdepodobnosť zadefinovaná na takomto pravdepodobnostnom priestore sa nazýva <em>Lebesgueova miera</em> na <span class="math inline">\([0,1]\)</span>.<a href="set.html#fnref4" class="footnote-back">↩︎</a></p></li>

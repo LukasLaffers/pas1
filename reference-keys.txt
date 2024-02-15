@@ -316,3 +316,4 @@ fig:np-1
 fig:dnp-fid
 fig:dnp-str
 fig:dnp-hypg
+domáca-úloha-1
