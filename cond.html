@@ -6,7 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>3 Podmienená pravdepodobnosť | Pravdepodobnosť a štatistika 1</title>
   <meta name="description" content="Toto sú poznámky pre študentov a študentky matematiky Fakulty Prírodných Vied Univerzity Mateja Bela v Banskej Bystrici." />
-  <meta name="generator" content="bookdown 0.37 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.35 and GitBook 2.6.7" />
 
   <meta property="og:title" content="3 Podmienená pravdepodobnosť | Pravdepodobnosť a štatistika 1" />
   <meta property="og:type" content="book" />
@@ -23,7 +23,7 @@
 <meta name="author" content="Lukáš Lafférs" />
 
 
-<meta name="date" content="2024-02-04" />
+<meta name="date" content="2024-02-23" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -92,6 +92,7 @@
 <li class="chapter" data-level="2.4" data-path="set.html"><a href="set.html#kombinatorika"><i class="fa fa-check"></i><b>2.4</b> Kombinatorika</a></li>
 <li class="chapter" data-level="2.5" data-path="set.html"><a href="set.html#zhrnutie-1"><i class="fa fa-check"></i><b>2.5</b> Zhrnutie</a></li>
 <li class="chapter" data-level="2.6" data-path="set.html"><a href="set.html#cvičenia-1"><i class="fa fa-check"></i><b>2.6</b> Cvičenia</a></li>
+<li class="chapter" data-level="" data-path="set.html"><a href="set.html#domáca-úloha-1"><i class="fa fa-check"></i>Domáca úloha 1</a></li>
 </ul></li>
 <li class="chapter" data-level="3" data-path="cond.html"><a href="cond.html"><i class="fa fa-check"></i><b>3</b> Podmienená pravdepodobnosť</a>
 <ul>
@@ -101,6 +102,7 @@
 <li class="chapter" data-level="3.4" data-path="cond.html"><a href="cond.html#condprob"><i class="fa fa-check"></i><b>3.4</b> Podmienená pravdepodobnosť je tiež pravdepodobnosť</a></li>
 <li class="chapter" data-level="3.5" data-path="cond.html"><a href="cond.html#zhrnutie-2"><i class="fa fa-check"></i><b>3.5</b> Zhrnutie</a></li>
 <li class="chapter" data-level="3.6" data-path="cond.html"><a href="cond.html#cvičenia-2"><i class="fa fa-check"></i><b>3.6</b> Cvičenia</a></li>
+<li class="chapter" data-level="" data-path="cond.html"><a href="cond.html#domáca-úloha-2"><i class="fa fa-check"></i>Domáca úloha 2</a></li>
 </ul></li>
 <li class="chapter" data-level="4" data-path="np.html"><a href="np.html"><i class="fa fa-check"></i><b>4</b> Náhodná premenná</a>
 <ul>
@@ -249,22 +251,22 @@ Obrázok 3.3: Ilustrácia rozkladu množiny.
 <div class="example">
 <p><span id="exm:unlabeled-div-3" class="example"><strong>Príklad 3.3  </strong></span>Aby sme boli na tepe dňa, pozrime sa na príklad prudko aktuálny (začiatkom 2022). Uvažujme skríningové testovanie na nejakú chorobu a použime nasledovné značenie:</p>
 <ul>
-<li><span class="math inline">\(P\)</span> - nech označuje pozitívny test,</li>
-<li><span class="math inline">\(N\)</span> - nech označuje negatívny test,</li>
+<li><span class="math inline">\(\oplus\)</span> - nech označuje pozitívny test,</li>
+<li><span class="math inline">\(\circleddash\)</span> - nech označuje negatívny test,</li>
 <li><span class="math inline">\(Z\)</span> - nech označuje, že človek je zdravý,</li>
 <li><span class="math inline">\(CH\)</span> - nech označuje, že človek je chorý.</li>
 </ul>
-<p>Na základe skúmania odpadových vôd vieme, že prítomnosť choroby v populácii je <span class="math inline">\(1\%,\)</span> teda <span class="math inline">\(P(CH) = 0.01 = 1- P(Z).\)</span> Majme test o ktorom vieme, že pre chorého človeka dá pozitívny výsledok v 90% prípadov, tomuto sa hovorí <em>senzitivita testu</em>, matematicky to zapíšeme ako <span class="math inline">\(P(P|CH)=0.9\)</span>. Tento test dá naviac správny negatívny výsledok v prípade zdravého človeka v 99% prípadov (<em>špecificita testu</em>), takže <span class="math inline">\(P(N|Z)=0.99 = 1-P(P|Z)\)</span>. Teraz praktický príklad: náhodne vybraného človeka budeme testovať, test vyjde pozitívny. Aká je pravdepodobnosť, že tento človek je skutočne pozitívny? Ešte predtým, než sa pozrieme nižšie, predstavme si túto situáciu a tipnime si výsledok.</p>
+<p>Na základe skúmania odpadových vôd vieme, že prítomnosť choroby v populácii je <span class="math inline">\(1\%,\)</span> teda <span class="math inline">\(P(CH) = 0.01 = 1- P(Z).\)</span> Majme test o ktorom vieme, že pre chorého človeka dá pozitívny výsledok v 90% prípadov, tomuto sa hovorí <em>senzitivita testu</em>, matematicky to zapíšeme ako <span class="math inline">\(P(\oplus|CH)=0.9\)</span>. Tento test dá naviac správny negatívny výsledok v prípade zdravého človeka v 99% prípadov (<em>špecificita testu</em>), takže <span class="math inline">\(P(\circleddash|Z)=0.99 = 1-P(\oplus|Z)\)</span>. Teraz praktický príklad: náhodne vybraného človeka budeme testovať, test vyjde pozitívny. Aká je pravdepodobnosť, že tento človek je skutočne pozitívny? Ešte predtým, než sa pozrieme nižšie, predstavme si túto situáciu a tipnime si výsledok.</p>
 <p>Pozrime sa na to bližšie:</p>
 <p><span class="math display">\[\begin{eqnarray*}
-P(CH|P) &amp;=&amp; \frac{P(CH \cap P)}{P(P)} = \frac{P(P|CH)P(CH)}{ P(P|CH)P(CH) + P(P|Z)P(Z)}\\
+P(CH|\oplus) &amp;=&amp; \frac{P(CH \cap \oplus)}{P(\oplus)} = \frac{P(\oplus|CH)P(CH)}{ P(\oplus|CH)P(CH) + P(\oplus|Z)P(Z)}\\
         &amp;=&amp; \frac{0.9 \cdot 0.01}{0.9 \cdot 0.01 + 0.01 \cdot 0.99} = 0.476.
 \end{eqnarray*}\]</span></p>
 <p>Teda je približne 48%. Menej než polovica. Toto je výrazne menej ako väčšina ľudí čaká (tip: vyskúšajte to aj na lekárov).
 Tuto je nesmierne dôležité zdôrazniť, že išlo o <em>skríningové</em> testovanie.<a href="#fn4" class="footnote-ref" id="fnref4"><sup>4</sup></a></p>
 <p>Ak by sme napríklad testovali len ľudí s príznakmi, už by neplatilo, že <span class="math inline">\(P(CH)=0.01\)</span>, ale bolo by to výrazne viacej. Ľudia s príznakmi totiž nie sú rovnakí ako tí náhodne vybraní z populácie.<a href="#fn5" class="footnote-ref" id="fnref5"><sup>5</sup></a></p>
-<p>Vráťme sa naspäť k tomu, prečo je tých 48% tak prekvapivo veľa. Je to člen <span class="math inline">\(P(P|Z)P(Z)\)</span> v menovateli v zlomku na výpočet <span class="math inline">\(P(CH|P).\)</span>
-Síce je pravdepodobnosť <span class="math inline">\(P(P|Z)\)</span>, teda falošnej pozitivity, veľmi malá, ale zdravej populácie je veľká väčšina <span class="math inline">\(P(Z)=0.99.\)</span></p>
+<p>Vráťme sa naspäť k tomu, prečo je tých 48% tak prekvapivo veľa. Je to člen <span class="math inline">\(P(\oplus|Z)P(Z)\)</span> v menovateli v zlomku na výpočet <span class="math inline">\(P(CH|\oplus).\)</span>
+Síce je pravdepodobnosť <span class="math inline">\(P(\oplus|Z)\)</span>, teda falošnej pozitivity, veľmi malá, ale zdravej populácie je veľká väčšina <span class="math inline">\(P(Z)=0.99.\)</span></p>
 </div>
 <div class="figure" style="text-align: center"><span style="display:block;" id="fig:cond-bayes"></span>
 <img src="fig_bayes_test1a.png" alt="Ilustrácia Bayesovej vety na príklade s testovaním." width="80%" />
@@ -398,14 +400,67 @@ Poľahky môžeme overiť tri vlastnosti, ktoré musí spĺňať každá pravdep
 Predpokladajme, že každý jeden človek má pravdepodobnosť práve <span class="math inline">\(\frac{1}{365},\)</span> že sa narodí v nejaký konkrétny deň, ignorujúc prestupné roky.</p>
 </div>
 <div class="exercise">
-<p><span id="exr:unlabeled-div-21" class="exercise"><strong>Cvičenie 3.16  (*Monty Hall Problem) </strong></span>Kedysi išla v televízii nasledovná súťaž o auto. Boli troje dverí, A, B, C. Za dvoma z týchto troch dverí bola koza, za jednými dverami bolo auto. Súťažiaci si vybral jednu z týchto dvoch dverí. Moderátor potom otvoril jedny z tých dvoch dverí, ktoré si súťažiaci nevybral a za nimi bola vždy koza. Zostali tak už iba dvoje dverí. Súťažiaci si v druhom kole mohol vybrať z dvoch možností: (1) zostane na svojom pôvodnom tipe, (2) zmení svoje rozhodnutie na tie druhé dvere, ktoré ešte ostali neotvorené.</p>
+<p><span id="exr:unlabeled-div-21" class="exercise"><strong>Cvičenie 3.16  (Monty Hall Problem) </strong></span>Kedysi išla v televízii nasledovná súťaž o auto. Boli troje dverí, A, B, C. Za dvoma z týchto troch dverí bola koza, za jednými dverami bolo auto. Súťažiaci si vybral jednu z týchto dvoch dverí. Moderátor potom otvoril jedny z tých dvoch dverí, ktoré si súťažiaci nevybral a za nimi bola vždy koza. Zostali tak už iba dvoje dverí. Súťažiaci si v druhom kole mohol vybrať z dvoch možností: (1) zostane na svojom pôvodnom tipe, (2) zmení svoje rozhodnutie na tie druhé dvere, ktoré ešte ostali neotvorené.</p>
 <p>Ktorá z možností (1) alebo (2) je lepšia? Alebo sú rovnocenné?</p>
+<p>(Zaujímavosťou je, že v <a href="https://psycnet.apa.org/doi/10.1037/a0017703">tejto štúdii</a> výskumníci ukazujú, že holuby rozumejú Monty Hall problému lepšie ako ľudia…)</p>
 </div>
 <div class="exercise">
-<p><span id="exr:unlabeled-div-22" class="exercise"><strong>Cvičenie 3.17  (**Mená detí) </strong></span>V rodine sú dve deti. Vieme, že jedno z nich je dievča. Aká je pravdepodobnosť, že obe sú dievčatá?</p>
+<p><span id="exr:unlabeled-div-22" class="exercise"><strong>Cvičenie 3.17  (*Mená detí) </strong></span>V rodine sú dve deti. Vieme, že jedno z nich je dievča. Aká je pravdepodobnosť, že obe sú dievčatá?</p>
 <p>V rodine sú dve deti. Jedno dieťa sa volá Gertrúda. Aká je pravdepodobnosť, že obe sú dievčatá?</p>
 </div>
-<!-- ## Domáca úloha 3 {-} -->
+</div>
+<div id="domáca-úloha-2" class="section level2 unnumbered hasAnchor">
+<h2>Domáca úloha 2<a href="cond.html#domáca-úloha-2" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Prosím odovzdať do 28.2.2024 19:59 cez formulár (tento Vám príde emailom). Výnimky len vo vážnych prípadoch a len ak sú komunikované dopredu.</p>
+<p>V riešeniach používajte prosím plnovýznamové vety a nahrávajte riešenia v jednom <code>pdf</code> súbore nazvanom podľa Vašich priezvísk v tvare <code>DU2_priezvisko1_priezvisko2.pdf</code> (napríklad <code>DU2_Kovacova_Zelinka.pdf</code>).</p>
+<div class="exercise">
+<p><span id="exr:unlabeled-div-23" class="exercise"><strong>Cvičenie 3.18  (DÚ 2.1) </strong></span>Pravdepodobnosť, že prší, je 30%.
+Pravdepodobnosť, že nestihneme ranné cvičenia, je 10%.
+Pravdepodobnosť, že nestihneme ranné cvičenia, ak prší, je 30%.
+Aká je pravdepodobnosť, že prší ak meškáme na ranné cvičenia?</p>
+</div>
+<div class="exercise">
+<p><span id="exr:unlabeled-div-24" class="exercise"><strong>Cvičenie 3.19  (DÚ 2.2) </strong></span>Hodíme dvakrát férovou kockou, jedna je červená a druhá modrá. Nech teraz</p>
+<ul>
+<li><span class="math inline">\(A\)</span> označuje udalosť, že na oboch kockách padne také isté číslo,</li>
+<li><span class="math inline">\(B\)</span> označuje udalosť, že súčet na oboch kockách je 12,</li>
+<li><span class="math inline">\(C\)</span> označuje udalosť, že na červenej kocke padne číslo 4,</li>
+<li><span class="math inline">\(D\)</span> označuje udalosť, že na modrej kocke padne číslo 4.</li>
+</ul>
+<p>Odpovedzte na nasledujúce otázky:</p>
+<ul>
+<li>Sú <span class="math inline">\(A\)</span> a <span class="math inline">\(B\)</span> nezávislé?</li>
+<li>Sú <span class="math inline">\(A\)</span> a <span class="math inline">\(C\)</span> nezávislé?</li>
+<li>Sú <span class="math inline">\(A\)</span> a <span class="math inline">\(D\)</span> nezávislé?</li>
+<li>Sú <span class="math inline">\(C\)</span> a <span class="math inline">\(D\)</span> nezávislé?</li>
+<li>Je súbor udalostí <span class="math inline">\(A,C\)</span> a <span class="math inline">\(D\)</span> nezávislý?</li>
+</ul>
+</div>
+<div class="exercise">
+<p><span id="exr:unlabeled-div-25" class="exercise"><strong>Cvičenie 3.20  (DÚ 2.3) </strong></span>Nech <span class="math inline">\(A\)</span> a <span class="math inline">\(B\)</span> sú udalosti s kladnou pravdepodobnosťou. Ukážte, že platí
+<span class="math inline">\(P(A|B) &gt; P(A)\)</span> práve vtedy a len vtedy, keď platí <span class="math inline">\(P(B|A) &gt; P(B).\)</span></p>
+</div>
+<div class="exercise">
+<p><span id="exr:unlabeled-div-26" class="exercise"><strong>Cvičenie 3.21  (DÚ 2.4) </strong></span>Uvažuje test na špecifický typ chrípky, ktorého senzitivita je 93% aj špecificita je 95%. Skutočná prevalencia tejto chrípky v populácii nech je 0.0002.</p>
+<ul>
+<li>Aká je pravdepodobosť, že náhodne vybraný človek má tento typ chrípky, ak má pozitívny test?</li>
+<li>Ako by sa musela zvýšiť špecificita tohoto testu na to, aby táto pravdepodobnosť bola väčšia ako 80% ?</li>
+<li>Aká je pravdepodobosť, že náhodne vybraný človek nemá tento typ chrípky, ak má negatívny test?</li>
+</ul>
+<p>(Nenechávajte výsledok v tvare zlomku ale dosaďte a vypočítajte tie pravdepodobnosti.)</p>
+</div>
+<div class="exercise">
+<p><span id="exr:unlabeled-div-27" class="exercise"><strong>Cvičenie 3.22  (DÚ 2.5) </strong></span>Nájdite taký príklad pravdepodobnostného priestoru a udalostí <span class="math inline">\(A_1, A_2, A_3\)</span>, kde súčasne platí</p>
+<ul>
+<li><span class="math inline">\(A_1\)</span> a <span class="math inline">\(A_2\)</span> sú nezávislé,</li>
+<li><span class="math inline">\(A_2\)</span> a <span class="math inline">\(A_3\)</span> sú nezávislé,</li>
+<li><span class="math inline">\(A_1\)</span> a <span class="math inline">\(A_3\)</span> sú nezávislé,</li>
+<li><span class="math inline">\(A_1, A_2, A_3\)</span> nie sú nezávislé (t.j. nie je pravda, že súbor udalostí <span class="math inline">\(A_1, A_2, A_3\)</span> je nezávislý).</li>
+</ul>
+</div>
+<div class="exercise">
+<p><span id="exr:unlabeled-div-28" class="exercise"><strong>Cvičenie 3.23  (DÚ 2.6 (Bonus)) </strong></span>Navrhnite stratégiu, ktorou budete vyhrávať v Monty Hall súťaži s pravdepodobnosťou <span class="math inline">\(\frac{\pi}{6}\)</span>.</p>
+</div>
 <!-- ::: {.exercise name="DÚ 3.1"} -->
 <!-- Aká je hodnota $P(A|B)$, ak vieme, že $A \subset B$ a $P(B) >0$? -->
 <!-- ::: -->
@@ -473,8 +528,8 @@ Predpokladajme, že každý jeden človek má pravdepodobnosť práve <span clas
 <li id="fn2"><p>Update 18.2.2022: Bronz nie je až taký márny.<a href="cond.html#fnref2" class="footnote-back">↩︎</a></p></li>
 <li id="fn3"><p>Akonáhle máme udalosti poriadne označené, polovicu riešenia máme za sebou. Tento prechod od písaného textu do matematického zápisu je kľúčový ale našťastie sa dá do veľkej miery natrénovať.<a href="cond.html#fnref3" class="footnote-back">↩︎</a></p></li>
 <li id="fn4"><p>Tieto čísla sú veľmi blízke tým zo skríningového testovania na školách na COVID19 v ČR v januári 2022.<a href="cond.html#fnref4" class="footnote-back">↩︎</a></p></li>
-<li id="fn5"><p>Skríningové testovanie sa odporúča aj pri niektorých typoch rakoviny, kde je skoré zachytenie dôležité pre dobrú prognózu. Vždy však treba brať do úvahy náklady spojené s množstvom falošne pozitívnych prípadov alebo s množstvom prípadov, kde pacient podstúpil náročnú liečbu napriek tomu, že by sa rakovina nemusela počas celého života pretaviť do problémov.<a href="cond.html#fnref5" class="footnote-back">↩︎</a></p></li>
-<li id="fn6"><p>Tento pravdepodobnostný priestor sa nazýva <em>Lebesgueova miera</em> na <span class="math inline">\([0,1]\)</span> a v tomto prípade platí <span class="math inline">\(\mathcal{F} \neq 2^{\Omega}.\)</span><a href="cond.html#fnref6" class="footnote-back">↩︎</a></p></li>
+<li id="fn5"><p>Skríningové testovanie sa odporúča aj pri niektorých typoch rakoviny, kde je skoré zachytenie dôležité pre dobrú prognózu. Vždy však treba brať do úvahy náklady spojené s množstvom falošne pozitívnych prípadov alebo s množstvom prípadov, kde pacient podstúpil náročnú liečbu napriek tomu, že by sa rakovina nemusela počas celého života pretaviť do problémov (keď človek umrie na inú diagnózu).<a href="cond.html#fnref5" class="footnote-back">↩︎</a></p></li>
+<li id="fn6"><p>Pravdepodobnosť na takomto pravdepodobnostnom priestore sa nazýva <em>Lebesgueova miera</em> na <span class="math inline">\([0,1]\)</span> a v tomto prípade platí <span class="math inline">\(\mathcal{F} \neq 2^{\Omega}\)</span> a <span class="math inline">\(\mathcal{F}\)</span> je množina Lebesgueovsky merateľných množín. Do väčších podrobností sa zahĺbite v rámci kurzov <em>Teória miery a integrálu</em> a <em>Teória pravdepodobnosti</em>.<a href="cond.html#fnref6" class="footnote-back">↩︎</a></p></li>
 <li id="fn7"><p>Neskôr sa tiež dozvieme, že množina podmnožín <span class="math inline">\(\Omega\)</span>, teda <span class="math inline">\(\mathcal{F},\)</span> môže byť pri podmieňovaní vo všeobecnosti menšia ako celá množina všetkých podmnožín <span class="math inline">\(2^{\Omega}.\)</span><a href="cond.html#fnref7" class="footnote-back">↩︎</a></p></li>
 </ol>
 </div>
