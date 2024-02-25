@@ -6,7 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>4 Náhodná premenná | Pravdepodobnosť a štatistika 1</title>
   <meta name="description" content="Toto sú poznámky pre študentov a študentky matematiky Fakulty Prírodných Vied Univerzity Mateja Bela v Banskej Bystrici." />
-  <meta name="generator" content="bookdown 0.35 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.37 and GitBook 2.6.7" />
 
   <meta property="og:title" content="4 Náhodná premenná | Pravdepodobnosť a štatistika 1" />
   <meta property="og:type" content="book" />
@@ -23,7 +23,7 @@
 <meta name="author" content="Lukáš Lafférs" />
 
 
-<meta name="date" content="2024-02-23" />
+<meta name="date" content="2024-02-25" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -276,17 +276,68 @@ Pripomeňme, že napríklad <span class="math inline">\(P(X \in [a,b))\)</span> 
 <p><span id="exm:unlabeled-div-2" class="example"><strong>Príklad 4.5  </strong></span>Hádžeme dvoma férovými kockami a máme náhodnu premennú súčet dvoch kociek <span class="math inline">\(X\)</span> ako v príklade <a href="np.html#exm:dvekocky">4.3</a>.</p>
 </div>
 <p><img src="PaS1bookdown_files/figure-html/np-4-1.png" width="672" /></p>
+<div class="example">
+<p><span id="exm:unlabeled-div-3" class="example"><strong>Príklad 4.6  </strong></span>Predpokladajme, že náhodná premenná <span class="math inline">\(X\)</span> reprezentuje IQ v populácii, jej kumulatívna distribučná funkcia môže vyzerať napríklad takto:</p>
+</div>
+<p><img src="PaS1bookdown_files/figure-html/np-5-1.png" width="672" /></p>
 <!-- main = "Kumulatívna distribučná funkcia: hod dvomi kockou" :) :) -->
+<div class="example">
+<p><span id="exm:unlabeled-div-4" class="example"><strong>Príklad 4.7  </strong></span>Hádžeme sedemnástimi férovými kockami a máme náhodnú premennú súčet sedemnástich kociek <span class="math inline">\(X\)</span> ako v príklade <a href="np.html#exm:dvekocky">4.3</a>, kde boli len dve.</p>
+</div>
+<p><img src="PaS1bookdown_files/figure-html/np-6-1.png" width="672" /></p>
+<!-- main = "Kumulatívna distribučná funkcia: hod dvomi kockou" :) :) -->
+<div class="example">
+<p><span id="exm:unlabeled-div-5" class="example"><strong>Príklad 4.8  </strong></span>Vyška mužov (modrou) a žien (červenou), v populácii kde je 60% žien. Celková kumulatívna distribučná funkcia pre mužov a ženy spolu je čiernou.</p>
+</div>
+<p><img src="PaS1bookdown_files/figure-html/np-7-1.png" width="672" /></p>
+<div class="example">
+<p><span id="exm:unlabeled-div-6" class="example"><strong>Príklad 4.9  </strong></span>Uvažujme výšky z predchádzajúceho príkladu. Majte nasledovnú súťaž. Človek hodí mincou: ak padne hlava (<span class="math inline">\(M=1\)</span>), tak vyhrá cenu vo výške (v eurách) svojej výšky v cm <span class="math inline">\(H\)</span>. Ak padne znak (<span class="math inline">\(M=0\)</span>), tak nevyhrá nič.
+Výhra je teda <span class="math inline">\(V = H \cdot M\)</span>.</p>
+</div>
+<p><img src="PaS1bookdown_files/figure-html/np-8-1.png" width="672" /></p>
 </div>
 <div id="zhrnutie-3" class="section level2 hasAnchor" number="4.3">
 <h2><span class="header-section-number">4.3</span> Zhrnutie<a href="np.html#zhrnutie-3" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p><strong>Náhodná premenná</strong> je nástroj, ktorý nám umožnuje dostať abstraktný pravdepodobnostný priestor na reálnu os a počítať s ňou. Jedným zo spôsobov ako ju úplne popísať je náhodnosť, ktorú reprezentuje <strong>kumulatívna distribučná funkcia</strong>.</p>
+<p><strong>Náhodná premenná</strong> je nástroj, ktorý nám umožnuje dostať abstraktný pravdepodobnostný priestor na reálnu os a počítať s náhodnosťou. Jedným zo spôsobov ako ju úplne popísať je <strong>kumulatívna distribučná funkcia</strong>.</p>
 <!-- MP: ju - je ??? -->
 </div>
 <div id="cvičenia-3" class="section level2 hasAnchor" number="4.4">
 <h2><span class="header-section-number">4.4</span> Cvičenia<a href="np.html#cvičenia-3" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <div class="exercise">
-<p><span id="exr:unlabeled-div-3" class="exercise"><strong>Cvičenie 4.1  </strong></span>Uvažujme hádzanie jednou kockou. Nech <span class="math inline">\(\Omega=\{ 1,2,3,4,5,6\}\)</span> a nech <span class="math inline">\(\mathcal{F} =\{\Omega, \emptyset, \{1\},\{2,3,4,5,6\} \}.\)</span>
+<p><span id="exr:unlabeled-div-7" class="exercise"><strong>Cvičenie 4.1  </strong></span>Podrobne vysvetlite, čo je chybné na nasledovných označeniach/tvrdeniach:</p>
+<ul>
+<li><span class="math inline">\(F_X(0.5)=1.3\)</span>,</li>
+<li><span class="math inline">\(F_X(0.5)=-\pi/3\)</span>,</li>
+<li><span class="math inline">\(F_X(8)=\infty\)</span>,</li>
+<li><span class="math inline">\(F_X(8)\cdot F_Y(2) = 16\)</span>,</li>
+<li><span class="math inline">\(\lim_{x \rightarrow 2} F_X(x) = \infty\)</span>,</li>
+<li><span class="math inline">\(F_Z(\{Z \in (-\infty,3] \}) = 0.5\)</span>,</li>
+<li><span class="math inline">\(F_Y(A) = P(\{Y \in A\})\)</span>,</li>
+<li><span class="math inline">\(\Omega = 5\)</span>,</li>
+<li><span class="math inline">\(\mathcal{F} = 2^\Omega = 32\)</span>.</li>
+</ul>
+</div>
+<div class="exercise">
+<p><span id="exr:unlabeled-div-8" class="exercise"><strong>Cvičenie 4.2  </strong></span>Majme náhodnú premennú <span class="math inline">\(M\)</span>, ktorá nadobúda hodnoty <span class="math inline">\(0, 1, 2, 3, \dots\)</span> s pravdepodobnosťami <span class="math inline">\(P(M=m) = \frac{1}{2^m}.\)</span></p>
+<ul>
+<li>Nájdite kumulatívnu distribučnú funkciu <span class="math inline">\(M\)</span>,</li>
+<li>Vypočítajte <span class="math inline">\(P(3 &lt; X \leq 7),\)</span></li>
+<li>Vypočítajte <span class="math inline">\(P(X &gt; 3).\)</span></li>
+</ul>
+</div>
+<div class="exercise">
+<p><span id="exr:unlabeled-div-9" class="exercise"><strong>Cvičenie 4.3  </strong></span>Overte, či nasledujúce funkcie môžu byť kumulatívnou distribučnou funkciou.</p>
+<ul>
+<li><span class="math inline">\(F(x) = \begin{cases}  1-4^{-x} &amp; \text{if } x \geq 0, \\  0 &amp; \text{if } x &lt; 0,  \end{cases}\)</span></li>
+<li><span class="math inline">\(F(x) = \begin{cases} 0&amp;\text{for $x&lt;a$},\\ \frac{x-a}{b-a}&amp;\text{for $x\in[a,b)$},\\ 1&amp;\text{for $x\ge b$},\\ \end{cases}\)</span></li>
+<li><span class="math inline">\(F(x) = \frac{e^x}{1+e^x},\)</span></li>
+<li><span class="math inline">\(F(k) = \sum_{i=1}^k \frac{1}{2^k},\)</span></li>
+<li><span class="math inline">\(F(k) = \sum_{i=1}^k \exp\left({ \frac{(-1)^{k+1}}{k}}\right),\)</span></li>
+<li><span class="math inline">\(F(k) = \frac{3}{\pi}\sum_{i=1}^k { \frac{1}{k^2}}.\)</span></li>
+</ul>
+</div>
+<div class="exercise">
+<p><span id="exr:unlabeled-div-10" class="exercise"><strong>Cvičenie 4.4  </strong></span>Uvažujme hádzanie jednou kockou. Nech <span class="math inline">\(\Omega=\{ 1,2,3,4,5,6\}\)</span> a nech <span class="math inline">\(\mathcal{F} =\{\Omega, \emptyset, \{1\},\{2,3,4,5,6\} \}.\)</span>
 Zostrojte dve funkcie <span class="math inline">\(X_1: \Omega \rightarrow \mathbb{R}\)</span> a <span class="math inline">\(X_2: \Omega \rightarrow \mathbb{R}\)</span> také, že</p>
 <ul>
 <li><span class="math inline">\(X_1\)</span> je náhodná premenná,</li>
@@ -294,10 +345,18 @@ Zostrojte dve funkcie <span class="math inline">\(X_1: \Omega \rightarrow \mathb
 </ul>
 </div>
 <div class="exercise">
-<p><span id="exr:unlabeled-div-4" class="exercise"><strong>Cvičenie 4.2  </strong></span>Na Univerzite je 60% žien a 40% mužov. Náhodne vybratý študent/ka odpovedá na dotazník. Dotazník pre mužov má 20 otázok, dotazník pre ženy má 25 otázok. Nech <span class="math inline">\(X\)</span> označuje počet opýtaných otázok. Určite <span class="math inline">\(P(X\leq x)\)</span> pre všetky <span class="math inline">\(x \in \mathbb{R}.\)</span></p>
+<p><span id="exr:unlabeled-div-11" class="exercise"><strong>Cvičenie 4.5  </strong></span>Uvažujme náhodnú premennú <span class="math inline">\(Y\)</span> ktorá nadobúda hodnoty <span class="math inline">\(0, 1, 2, 3\)</span> s pravdepodobnosťami <span class="math inline">\(0.5, 0.25, 0.125, 0.125\)</span>. Zobrazte jej kumulatívnu distribučnú funkciu.</p>
 </div>
 <div class="exercise">
-<p><span id="exr:unlabeled-div-5" class="exercise"><strong>Cvičenie 4.3  </strong></span>Nech <span class="math inline">\(X\)</span> je číslo, ktoré padne na vrchu férovej kocky. Nech <span class="math inline">\(Y=X^3+1\)</span> a <span class="math inline">\(Z=\sqrt{X}.\)</span>
+<p><span id="exr:unlabeled-div-12" class="exercise"><strong>Cvičenie 4.6  </strong></span>Načrtnite dve rôzne kumulatívne distribučné funkcie <span class="math inline">\(F_X, F_Y\)</span> (pre náhodné premenné <span class="math inline">\(X\)</span> a <span class="math inline">\(Y\)</span>) pre ktoré platí <span class="math inline">\(F_X(120) = F_Y(120) = 0.5\)</span>, <span class="math inline">\(F_X(140) &gt; F_Y(140)\)</span> a <span class="math inline">\(F_X(90) &lt; F_Y(90).\)</span></p>
+<p>Načrtnite, ako by vyzerala kumulatívna distribučná <span class="math inline">\(S = ZX + (1-Z)Y\)</span>, kde náhodná premenná <span class="math inline">\(S\)</span> má nasledovnú kumulatívnu distribučnú funkciu:</p>
+</div>
+<p><img src="PaS1bookdown_files/figure-html/np-9-1.png" width="672" /></p>
+<div class="exercise">
+<p><span id="exr:unlabeled-div-13" class="exercise"><strong>Cvičenie 4.7  </strong></span>Na Univerzite je 60% žien a 40% mužov. Náhodne vybratý študent/ka odpovedá na dotazník. Dotazník pre mužov má 20 otázok, dotazník pre ženy má 25 otázok. Nech <span class="math inline">\(X\)</span> označuje počet opýtaných otázok pre náhodne zvoleného človeka. Určite <span class="math inline">\(P(X\leq x)\)</span> pre všetky <span class="math inline">\(x \in \mathbb{R}.\)</span></p>
+</div>
+<div class="exercise">
+<p><span id="exr:unlabeled-div-14" class="exercise"><strong>Cvičenie 4.8  </strong></span>Nech <span class="math inline">\(X\)</span> je číslo, ktoré padne na vrchu férovej kocky. Nech <span class="math inline">\(Y=X^3+1\)</span> a <span class="math inline">\(Z=\sqrt{X}.\)</span>
 Určite</p>
 <ul>
 <li><span class="math inline">\(P(Y=y)\)</span> pre všetky reálne čísla <span class="math inline">\(y \in \mathbb{R}\)</span>,</li>
