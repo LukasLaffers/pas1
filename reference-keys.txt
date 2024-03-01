@@ -317,3 +317,5 @@ fig:dnp-fid
 fig:dnp-str
 fig:dnp-hypg
 domáca-úloha-1
+exm:iq
+exm:velakociek
