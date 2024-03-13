@@ -23,7 +23,7 @@
 <meta name="author" content="Lukáš Lafférs" />
 
 
-<meta name="date" content="2024-02-04" />
+<meta name="date" content="2024-03-13" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -92,6 +92,7 @@
 <li class="chapter" data-level="2.4" data-path="set.html"><a href="set.html#kombinatorika"><i class="fa fa-check"></i><b>2.4</b> Kombinatorika</a></li>
 <li class="chapter" data-level="2.5" data-path="set.html"><a href="set.html#zhrnutie-1"><i class="fa fa-check"></i><b>2.5</b> Zhrnutie</a></li>
 <li class="chapter" data-level="2.6" data-path="set.html"><a href="set.html#cvičenia-1"><i class="fa fa-check"></i><b>2.6</b> Cvičenia</a></li>
+<li class="chapter" data-level="" data-path="set.html"><a href="set.html#domáca-úloha-1"><i class="fa fa-check"></i>Domáca úloha 1</a></li>
 </ul></li>
 <li class="chapter" data-level="3" data-path="cond.html"><a href="cond.html"><i class="fa fa-check"></i><b>3</b> Podmienená pravdepodobnosť</a>
 <ul>
@@ -101,6 +102,7 @@
 <li class="chapter" data-level="3.4" data-path="cond.html"><a href="cond.html#condprob"><i class="fa fa-check"></i><b>3.4</b> Podmienená pravdepodobnosť je tiež pravdepodobnosť</a></li>
 <li class="chapter" data-level="3.5" data-path="cond.html"><a href="cond.html#zhrnutie-2"><i class="fa fa-check"></i><b>3.5</b> Zhrnutie</a></li>
 <li class="chapter" data-level="3.6" data-path="cond.html"><a href="cond.html#cvičenia-2"><i class="fa fa-check"></i><b>3.6</b> Cvičenia</a></li>
+<li class="chapter" data-level="" data-path="cond.html"><a href="cond.html#domáca-úloha-2"><i class="fa fa-check"></i>Domáca úloha 2</a></li>
 </ul></li>
 <li class="chapter" data-level="4" data-path="np.html"><a href="np.html"><i class="fa fa-check"></i><b>4</b> Náhodná premenná</a>
 <ul>
@@ -108,6 +110,7 @@
 <li class="chapter" data-level="4.2" data-path="np.html"><a href="np.html#kumulatívna-distribučná-funkcia"><i class="fa fa-check"></i><b>4.2</b> Kumulatívna distribučná funkcia</a></li>
 <li class="chapter" data-level="4.3" data-path="np.html"><a href="np.html#zhrnutie-3"><i class="fa fa-check"></i><b>4.3</b> Zhrnutie</a></li>
 <li class="chapter" data-level="4.4" data-path="np.html"><a href="np.html#cvičenia-3"><i class="fa fa-check"></i><b>4.4</b> Cvičenia</a></li>
+<li class="chapter" data-level="" data-path="np.html"><a href="np.html#domáca-úloha-3"><i class="fa fa-check"></i>Domáca úloha 3</a></li>
 </ul></li>
 <li class="chapter" data-level="5" data-path="dnp.html"><a href="dnp.html"><i class="fa fa-check"></i><b>5</b> Diskrétna náhodná premenná</a>
 <ul>
@@ -692,6 +695,66 @@ p_X(k)=
 </div>
 <div class="exercise">
 <p><span id="exr:unlabeled-div-39" class="exercise"><strong>Cvičenie 5.28  </strong></span>Odvoďte varianciu pre náhodnú premennú <span class="math inline">\(X \sim \text{Bin}(n,p).\)</span></p>
+</div>
+<div class="exercise">
+<p><span id="exr:unlabeled-div-40" class="exercise"><strong>Cvičenie 5.29  </strong></span></p>
+<ol style="list-style-type: upper-alpha">
+<li><p>Doplňte veľkosť chýbajúcej hodnoty <span class="math inline">\(p_X(5).\)</span></p></li>
+<li><p>Doplňte veľkosť chýbajúcej hodnoty <span class="math inline">\(p_X(5)\)</span> a <span class="math inline">\(p_X(6)\)</span> tak, aby <span class="math inline">\(E[X]=3.6.\)</span>
+<!-- (1*0.1+2*0.2+3*0.3+4*0.1 +5*0+6*0.3) --></p></li>
+<li><p>Doplňte veľkosť chýbajúcej hodnoty <span class="math inline">\(p_X(4), p_X(5)\)</span> a <span class="math inline">\(p_X(6)\)</span> tak, aby <span class="math inline">\(E[X]=3.2\)</span> a <span class="math inline">\(Var[X]=1.56.\)</span>
+<!-- (1*0.1+2*0.2+3*0.3+4*0.2 +5*0.2+6*0) -->
+<!-- (1^2*0.1+2^2*0.2+3^2*0.3+4^2*0.2 +5^2*0.2+6^2*0) -(1*0.1+2*0.2+3*0.3+4*0.2 +5*0.2+6*0)^2 --></p></li>
+</ol>
+<p><img src="PaS1bookdown_files/figure-html/dnp-cv2-1.png" width="672" /></p>
+</div>
+<div class="exercise">
+<p><span id="exr:unlabeled-div-41" class="exercise"><strong>Cvičenie 5.30  </strong></span>Máme náhodnú premennú, ktorej realizácie sú 7,8,8,9,8,7,8,8,7,6,7,8,8,8,7,6,7,6,7,7,8,9,8,7,9,6,9,9,6,6,9,…</p>
+<p>Čo by ste povedali, aká je približne stredná hodnota?</p>
+<ul>
+<li>6</li>
+<li>6.5</li>
+<li>7</li>
+<li>7.5</li>
+<li>8</li>
+<li>8.5</li>
+<li>9</li>
+</ul>
+<p>Čo by ste povedali, aká je približne variancia tejto náhodnej premennej?</p>
+<ul>
+<li>-1</li>
+<li>0</li>
+<li>1</li>
+<li>4</li>
+<li>8</li>
+<li>16</li>
+</ul>
+</div>
+<div class="exercise">
+<p><span id="exr:unlabeled-div-42" class="exercise"><strong>Cvičenie 5.31  </strong></span>Doplňte</p>
+<p><img src="PaS1bookdown_files/figure-html/dnp-cv5-1.png" width="672" /></p>
+</div>
+<div class="exercise">
+<p><span id="exr:unlabeled-div-43" class="exercise"><strong>Cvičenie 5.32  </strong></span>Prepojte</p>
+<ol style="list-style-type: upper-alpha">
+<li><p>Rovnomerné rozdelenie.</p></li>
+<li><p>Bernoulliho rozdelenie.</p></li>
+<li><p>Binomické rozdelenie.</p></li>
+<li><p>Poissonovo rozdelenie.</p></li>
+<li><p>Geometrické rozdelenie.</p></li>
+<li><p>Hypergeometrické rozdelenie.</p></li>
+<li><p>Negatívne binomické rozdelenie.</p></li>
+</ol>
+<p>s nasledujúcimi situáciami/úlohami</p>
+<ol style="list-style-type: decimal">
+<li><p>Počet správne uhádnutých odpovedí na externej maturitnej skúške.</p></li>
+<li><p>Šanca, že zo siedmych gumených medvedíkov, ktoré si vybereme z balíčka je práve 5 červenej farby. V balíčku je 80 macíkov (rodinné balenie) a z nich 33 je červených.</p></li>
+<li><p>Šanca, že sa nám podarí urobiť skúšku bez učenia, keď máme právo na dva opravné termíny.</p></li>
+<li><p>Počet rastlinných druhov na náhodne vybranom kúsku pôdy.</p></li>
+<li><p>Šanca, že náhodne vybraná fixka je modrá.</p></li>
+<li><p>Výhra v stávkovej spoločnosti, kde kurz implikuje pravdepodobnosť výhry 36%.</p></li>
+<li><p>Rok, kedy konečne prvýkrát stihnem urobiť daňové priznanie bez odkladu.</p></li>
+</ol>
 </div>
 <!-- ## Domáca úloha 5 {-} -->
 <!-- Ešte k časti 4 -->
