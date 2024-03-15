@@ -6,7 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>5 Diskrétna náhodná premenná | Pravdepodobnosť a štatistika 1</title>
   <meta name="description" content="Toto sú poznámky pre študentov a študentky matematiky Fakulty Prírodných Vied Univerzity Mateja Bela v Banskej Bystrici." />
-  <meta name="generator" content="bookdown 0.37 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.35 and GitBook 2.6.7" />
 
   <meta property="og:title" content="5 Diskrétna náhodná premenná | Pravdepodobnosť a štatistika 1" />
   <meta property="og:type" content="book" />
@@ -23,7 +23,7 @@
 <meta name="author" content="Lukáš Lafférs" />
 
 
-<meta name="date" content="2024-03-13" />
+<meta name="date" content="2024-03-15" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -129,6 +129,7 @@
 <li class="chapter" data-level="5.9" data-path="dnp.html"><a href="dnp.html#negatívne-binomické-rozdelenie"><i class="fa fa-check"></i><b>5.9</b> Negatívne binomické rozdelenie</a></li>
 <li class="chapter" data-level="5.10" data-path="dnp.html"><a href="dnp.html#zhrnutie-4"><i class="fa fa-check"></i><b>5.10</b> Zhrnutie</a></li>
 <li class="chapter" data-level="5.11" data-path="dnp.html"><a href="dnp.html#cvičenia-4"><i class="fa fa-check"></i><b>5.11</b> Cvičenia</a></li>
+<li class="chapter" data-level="" data-path="dnp.html"><a href="dnp.html#domáca-úloha-4"><i class="fa fa-check"></i>Domáca úloha 4</a></li>
 </ul></li>
 <li class="chapter" data-level="6" data-path="snp.html"><a href="snp.html"><i class="fa fa-check"></i><b>6</b> Spojitá náhodná premenná</a>
 <ul>
@@ -700,9 +701,9 @@ p_X(k)=
 <p><span id="exr:unlabeled-div-40" class="exercise"><strong>Cvičenie 5.29  </strong></span></p>
 <ol style="list-style-type: upper-alpha">
 <li><p>Doplňte veľkosť chýbajúcej hodnoty <span class="math inline">\(p_X(5).\)</span></p></li>
-<li><p>Doplňte veľkosť chýbajúcej hodnoty <span class="math inline">\(p_X(5)\)</span> a <span class="math inline">\(p_X(6)\)</span> tak, aby <span class="math inline">\(E[X]=3.6.\)</span>
+<li><p>Doplňte veľkosť chýbajúcej hodnoty <span class="math inline">\(p_X(5)\)</span> a <span class="math inline">\(p_X(6)\)</span> tak, aby <span class="math inline">\(\text{E}[X]=3.6.\)</span>
 <!-- (1*0.1+2*0.2+3*0.3+4*0.1 +5*0+6*0.3) --></p></li>
-<li><p>Doplňte veľkosť chýbajúcej hodnoty <span class="math inline">\(p_X(4), p_X(5)\)</span> a <span class="math inline">\(p_X(6)\)</span> tak, aby <span class="math inline">\(E[X]=3.2\)</span> a <span class="math inline">\(Var[X]=1.56.\)</span>
+<li><p>Doplňte veľkosť chýbajúcej hodnoty <span class="math inline">\(p_X(4), p_X(5)\)</span> a <span class="math inline">\(p_X(6)\)</span> tak, aby <span class="math inline">\(\text{E}[X]=3.2\)</span> a <span class="math inline">\(\text{Var}[X]=1.56.\)</span>
 <!-- (1*0.1+2*0.2+3*0.3+4*0.2 +5*0.2+6*0) -->
 <!-- (1^2*0.1+2^2*0.2+3^2*0.3+4^2*0.2 +5^2*0.2+6^2*0) -(1*0.1+2*0.2+3*0.3+4*0.2 +5*0.2+6*0)^2 --></p></li>
 </ol>
@@ -755,6 +756,89 @@ p_X(k)=
 <li><p>Výhra v stávkovej spoločnosti, kde kurz implikuje pravdepodobnosť výhry 36%.</p></li>
 <li><p>Rok, kedy konečne prvýkrát stihnem urobiť daňové priznanie bez odkladu.</p></li>
 </ol>
+</div>
+</div>
+<div id="domáca-úloha-4" class="section level2 unnumbered hasAnchor">
+<h2>Domáca úloha 4<a href="dnp.html#domáca-úloha-4" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Prosím odovzdať do 20.3.2024 19:59 cez formulár (tento Vám príde emailom). Výnimky len vo vážnych prípadoch a len ak sú komunikované dopredu.</p>
+<p>V riešeniach používajte prosím plnovýznamové vety a nahrávajte riešenia v jednom <code>pdf</code> súbore nazvanom podľa Vašich priezvísk v tvare <code>DU4_priezvisko1_priezvisko2.pdf</code> (napríklad <code>DU4_Kovacova_Zelinka.pdf</code>).</p>
+<div class="exercise">
+<p><span id="exr:unlabeled-div-44" class="exercise"><strong>Cvičenie 5.33  (DÚ 4.1 Pravdepodobnostné funkcie áno/nie) </strong></span>Určte, ktoré z nasledovných funkcií môžu byť pravdepodobnostnou funkciou (a teda vie reprezentovať pravdepodobnostné správanie náhodnej premennej). Podrobne odôvodnite.</p>
+<ol style="list-style-type: lower-alpha">
+<li><p><span class="math display">\[f_1(k)=
+\begin{cases}
+\frac{4-k}{15}, &amp; \text{ak}\ k \in \{1,2,\cdots,5 \}, \\
+0, &amp; \text{inak.}
+\end{cases}\]</span></p></li>
+<li><p><span class="math display">\[f_2(k)=
+\begin{cases}
+\frac{k}{15}, &amp; \text{ak}\ k \in \{1,2,\cdots,5 \}, \\
+0, &amp; \text{inak.}
+\end{cases}\]</span></p></li>
+<li><p><span class="math display">\[f_3(k)=
+\begin{cases}
+2^{-(k-1)}, &amp; \text{pre}\ k = 0,1,2,\cdots,  \\
+0, &amp; \text{inak.}
+\end{cases}\]</span></p></li>
+<li><p><span class="math display">\[f_4(k)=
+\begin{cases}
+2^{-(k+1)}, &amp; \text{pre}\ k = 0,1,2,\cdots,  \\
+0, &amp; \text{inak.}
+\end{cases}\]</span></p></li>
+<li><p><span class="math display">\[f_5(k)=
+\begin{cases}
+\frac{1}{2} + 2^{-k}, &amp; \text{pre}\ k = 2,3,\cdots,  \\
+0, &amp; \text{inak.}
+\end{cases}\]</span></p></li>
+</ol>
+</div>
+<div class="exercise">
+<p><span id="exr:unlabeled-div-45" class="exercise"><strong>Cvičenie 5.34  (DÚ 4.2 Dosadzovanie) </strong></span></p>
+<ol style="list-style-type: lower-alpha">
+<li><p>Majme náhodnú premennú <span class="math inline">\(X\)</span>, ktorá je rozdelená binomicky s parametrami <span class="math inline">\(n=10\)</span> a <span class="math inline">\(p=0.3\)</span>. Vypočítajte <span class="math inline">\(P(X &gt; 3), \text{E}[X]\)</span> a <span class="math inline">\(\text{Var}[X]\)</span>.</p></li>
+<li><p>Majme náhodnú premennú <span class="math inline">\(X\)</span>, ktorá je rozdelená Poissonovsky s parametrom <span class="math inline">\(\lambda = 0.2\)</span>. Vypočítajte <span class="math inline">\(P(X \leq 2), \text{E}[X]\)</span> a <span class="math inline">\(\text{Var}[X]\)</span></p></li>
+<li><p>Majme náhodnú premennú <span class="math inline">\(X\)</span>, ktorá je rozdelená Geometricky s parametrom <span class="math inline">\(p = 0.2\)</span>. Vypočítajte <span class="math inline">\(P(X &gt; 2), \text{E}[X]\)</span> a <span class="math inline">\(\text{Var}[X].\)</span></p></li>
+<li><p>Majme náhodnú premennú <span class="math inline">\(X\)</span>, ktorá je rozdelená Rovnomerne na množine <span class="math inline">\(\{2,3,4,5,6,7\}\)</span>. Vypočítajte <span class="math inline">\(P(X &gt; 4), \text{E}[X]\)</span> <span class="math inline">\(\text{Var}[X].\)</span></p></li>
+<li><p>Majme náhodnú premennú <span class="math inline">\(X\)</span>, ktorá je rozdelená Negatívne binomicky s parametrami <span class="math inline">\(r=4, p = 0.32\)</span>. Vypočítajte <span class="math inline">\(P(X \leq 3), \text{E}[X]\)</span> a <span class="math inline">\(\text{Var}[X].\)</span></p></li>
+</ol>
+</div>
+<div class="exercise">
+<p><span id="exr:unlabeled-div-46" class="exercise"><strong>Cvičenie 5.35  (DÚ 4.3 Hviezdičky) </strong></span>Majme produkt, ktorého spokojnosť môžu ohodnotiť zákazníci tým, že tento produkt môžu odporúčať alebo neodporúčať. Produkt u ktorého je odporúčanie vyššie alebo rovné ako 90% z celkového počtu hodnotení získa päť hviezdičiek. Nech je skutočná spokojnosť ľudí s produktom 82%.</p>
+<ol style="list-style-type: lower-alpha">
+<li>Aká je pravdepodobnosť, že produkt, ktorý ohodnotí 10 zákazníkov bude mať 5 hviezdičiek?</li>
+<li>Aká je pravdepodobnosť, že produkt, ktorý ohodnotí 30 zákazníkov bude mať 5 hviezdičiek?</li>
+<li>Aká je pravdepodobnosť, že produkt, ktorý ohodnotí 150 zákazníkov bude mať 5 hviezdičiek?</li>
+<li>Aký najmenší počet zákazníkov môže produkt ohodnotiť tak, aby šanca, že produkt dosiahne 5 hviezdičiek bola menšia ako 5%?</li>
+</ol>
+<p>Tieto výsledky vysvetlite.</p>
+</div>
+<div class="exercise">
+<p><span id="exr:unlabeled-div-47" class="exercise"><strong>Cvičenie 5.36  (DÚ 4.4 Krížovka) </strong></span>Doplňte</p>
+<ol style="list-style-type: lower-alpha">
+<li><span class="math inline">\(X \sim \text{Bern}(p) \implies X \sim \text{Bin}(1, \ \ \ )\)</span></li>
+<li>Ak <span class="math inline">\(X \sim \text{Bin}(100,0.4)\)</span>, potom <span class="math inline">\(P( 25 &lt; X \leq 29) = F(a) - F(b),\)</span> kde <span class="math inline">\(a = \ \ \ \)</span> a <span class="math inline">\(b = \ \ \ \ .\)</span> Platí, že <span class="math inline">\(P( 25 &lt; X \leq 29) = p_X(\ \ \ ) + p_X(\ \ \ ) + p_X(\ \ \ ) + p_X(\ \ \ ).\)</span></li>
+<li>Ak <span class="math inline">\(\text{E}[X] = 3\)</span> a <span class="math inline">\(\text{E}[2X+4Y] = 14\)</span> potom <span class="math inline">\(\text{E}[Y] = \ \ \ \ .\)</span></li>
+<li>Ak <span class="math inline">\(\text{E}[X] = 3\)</span> a <span class="math inline">\(\text{sd}[X] = 4\)</span> potom <span class="math inline">\(\text{E}[X^2] = \ \ \ \ .\)</span></li>
+</ol>
+</div>
+<div class="exercise">
+<p><span id="exr:unlabeled-div-48" class="exercise"><strong>Cvičenie 5.37  (DÚ 4.5 Go sports) </strong></span>Ste cyklista a pravdepodobnosť, že vyhráte cyklistický závod, je 0.1 (nezávisle od okolností).</p>
+<ol style="list-style-type: lower-alpha">
+<li><p>Koĺkokrát v priemere musíte súťažiť, kým prvýkrát vyhráte?</p></li>
+<li><p>Koĺkokrát v priemere musíte súťažiť, kým vyhráte 5 krát?</p></li>
+<li><p>V sezóne súťažite 26 krát (5 krát jarné klasiky, 21 etáp Tour de France). Na zisk Prestížneho ocenenia potrebujete v rámci sezóny aspoň 5 víťazstiev. Aká ja pravdepodobnosť, že sa Vám to tento rok podarí?</p></li>
+<li><p>Koľkokrát môžete očakávať zisk Prestížneho ocenenia za svoju 10-ročnú kariéru? (Aká je stredná hodnota počtu získaných ocenení?)</p></li>
+<li><p>Aká je variancia tohoto počtu získaných Prestížnych ocenení za celú 10-ročnú kariéru?</p></li>
+</ol>
+</div>
+<div class="exercise">
+<p><span id="exr:unlabeled-div-49" class="exercise"><strong>Cvičenie 5.38  (DÚ 4.6 BONUS (nepovinná úloha)) </strong></span>Nájdite pravdepodobnostné rozdelenie pre náhodnú premennú <span class="math inline">\(Z\)</span> s <span class="math inline">\(\mathcal{S}_Z = \{1,2,3,4,5\}\)</span>. <span class="math inline">\(Z\)</span> má nasledujúce vlasnosti:</p>
+<ul>
+<li><span class="math inline">\(p_Z(5) = p_Z(4),\)</span></li>
+<li><span class="math inline">\(p_Z(4) \geq p_Z(2),\)</span></li>
+<li><span class="math inline">\(p_Z(2) \geq p_Z(1).\)</span></li>
+</ul>
+<p>Akú najväčšiu <span class="math inline">\(\text{Var}[Z]\)</span> môže mať?</p>
 </div>
 <!-- ## Domáca úloha 5 {-} -->
 <!-- Ešte k časti 4 -->
