@@ -319,3 +319,4 @@ fig:dnp-hypg
 domáca-úloha-1
 exm:iq
 exm:velakociek
+fig:zajo
