@@ -6,7 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>7 Súvis medzi náhodnými premennými | Pravdepodobnosť a štatistika 1</title>
   <meta name="description" content="Toto sú poznámky pre študentov a študentky matematiky Fakulty Prírodných Vied Univerzity Mateja Bela v Banskej Bystrici." />
-  <meta name="generator" content="bookdown 0.37 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.35 and GitBook 2.6.7" />
 
   <meta property="og:title" content="7 Súvis medzi náhodnými premennými | Pravdepodobnosť a štatistika 1" />
   <meta property="og:type" content="book" />
@@ -150,6 +150,7 @@
 <li class="chapter" data-level="7.1" data-path="cov.html"><a href="cov.html#nezávislé-náhodné-premenné"><i class="fa fa-check"></i><b>7.1</b> Nezávislé náhodné premenné</a></li>
 <li class="chapter" data-level="7.2" data-path="cov.html"><a href="cov.html#miera-závislosti"><i class="fa fa-check"></i><b>7.2</b> Miera závislosti</a></li>
 <li class="chapter" data-level="7.3" data-path="cov.html"><a href="cov.html#cvičenia-6"><i class="fa fa-check"></i><b>7.3</b> Cvičenia</a></li>
+<li class="chapter" data-level="" data-path="cov.html"><a href="cov.html#domáca-úloha-6"><i class="fa fa-check"></i>Domáca úloha 6</a></li>
 </ul></li>
 <li class="chapter" data-level="8" data-path="zvc.html"><a href="zvc.html"><i class="fa fa-check"></i><b>8</b> Zákon veľkých čísel</a>
 <ul>
@@ -493,82 +494,216 @@ p_W(w)= P(W=w) =
 \end{equation*}\]</span></p>
 <p>Nech naviac <span class="math inline">\(X\)</span> a <span class="math inline">\(W\)</span> sú nezávislé náhodné premenné. Zadefinujme <span class="math inline">\(Y = X W.\)</span> Ukážte, že <span class="math inline">\(\text{Cov}[X,Y]=0\)</span> a že <span class="math inline">\(X\)</span> a <span class="math inline">\(Y\)</span> nie sú nezávislé.</p>
 </div>
-<!-- ## Domáca úloha 9 {-} -->
-<!-- Odovzdať do 15.4.2023 do 23:59. -->
-<!-- ::: {.exercise name="DÚ 9.1"} -->
-<!-- Nech $X$ je počet obedov objednaných na stôl počas obeda. Nech $Y$ je počet nápojov objednaných na ten istý stôl počas obeda. -->
-<!-- Nech  $p_{XY}$ je vyjadrená nasledovnou tabuľkou. -->
-<!-- ```{r,echo=FALSE} -->
-<!-- library(kableExtra) -->
-<!-- df <- data.frame(" " = c("X=0","X=1","X=2", "X=3", "X=4"), -->
-<!--                  "0" = c("0","0.05","0.01","0", "0"), -->
-<!--                  "1" = c("0.01","0.05","0.05","0","0"), -->
-<!--                  "2" = c("0.05","0.05","0.3","0.01","0"), -->
-<!--                  "3" = c("0","0","0.01","0.1","0.01"), -->
-<!--                  "2" = c("0","0","0","0","0.3")) -->
-<!-- colnames(df) <- as.character(c(" ","Y=0","Y=1","Y=2","Y=3", "Y=4")) -->
-<!-- kbl(df, booktabs = T) %>% -->
-<!--   kable_classic() %>% -->
-<!--   add_header_above(c("Pravdedpodobnostná funkcia" = 6)) -->
-<!-- ``` -->
-<!-- Vypočítajte -->
-<!-- (a) pravdepodobnosť, že na stôl sú objednané viac ako 2 obedy -->
-<!-- (b) pravdepodobnosť, že na stôl sú objednané viac ako 2 obedy a viac ako 2 nápoje -->
-<!-- (c) pravdepodobnosť, že na stôl je objednaných viac nápojov ako obedov -->
-<!-- (d) priemerný počet objednaných obedov -->
-<!-- (e) priemerný počet objednaných nápojov -->
-<!-- (f) koreláciu medzi počtom obedov a počtom nápojov objednaných na stôl -->
-<!-- ::: -->
-<!-- ::: {.exercise name="DÚ 9.2"} -->
-<!-- Majme náhodné premenné $X,Y$ s nasledovnou združenou pravdepodobnostnou funkciou -->
-<!-- \begin{equation*} -->
-<!-- p_{XY}(x,y)= -->
-<!-- \begin{cases} -->
-<!-- c|x+y|, & \text{ak}\ x \in \{-2,0,2 \},\\ -->
-<!-- &  \ y \in \{-2,0,1 \},\\ -->
-<!-- 0, & \text{inak}. -->
-<!-- \end{cases} -->
-<!-- \end{equation*} -->
-<!-- Vypočítajte -->
-<!-- (a) hodnotu konštanty $c,$ -->
-<!-- (b) $P(X = 2),$ -->
-<!-- (c) $P(X = 2Y),$ -->
-<!-- (d) $P(Y < 1)$ -->
-<!-- (e) $\text{E}[X],\text{E}[Y]$ -->
-<!-- (f) $\text{Cov}[X,Y], \text{Corr}[X,Y].$ -->
-<!-- ::: -->
-<!-- ::: {.exercise name="DÚ 9.3"} -->
-<!-- Majme náhodné premenné $X,Y$ s nasledovnou združenou funkciou hustoty. -->
-<!-- \begin{equation*} -->
-<!-- f_{XY}(x,y) = -->
-<!-- \begin{cases} -->
-<!-- 2xy+\frac{1}{2}, & \text{ak}\ 0 \leq x \leq 1, \ 0 \leq y \leq 1,\\ -->
-<!-- 0, & \text{inak}, -->
-<!-- \end{cases} -->
-<!-- \end{equation*} -->
-<!-- Vypočítajte -->
-<!-- (a) hustotu náhodnej premennej $X$, -->
-<!-- (b) $\text{E}[X],$ -->
-<!-- (c) $\text{Var}[X],$ -->
-<!-- (d) $\text{Cov}[X, Y],$ -->
-<!-- (e) $\text{Corr}[X, Y],$ -->
-<!-- (f) $P(X+Y \leq 1).$ -->
-<!-- ::: -->
-<!-- ::: {.exercise name="DÚ 9.4"} -->
-<!-- Majme náhodné premenné $X,Y$ s nasledovnou združenou funkciou hustoty. -->
-<!-- \begin{equation*} -->
-<!-- f_{XY}(x,y) = -->
-<!-- \begin{cases} -->
-<!-- cx^2 y, & \text{ak}\ x^2 \leq y \leq 1 \\ -->
-<!-- 0, & \text{inak}, -->
-<!-- \end{cases} -->
-<!-- \end{equation*} -->
-<!-- Vypočítajte -->
-<!-- (a) hodnotu konštanty $c,$ -->
-<!-- (b) $P(X \geq Y).$ -->
-<!-- (c) Určte hustotu náhodnej premennej $X$. -->
-<!-- (d) Určte hustotu náhodnej premennej $Y$. -->
-<!-- ::: -->
+</div>
+<div id="domáca-úloha-6" class="section level2 unnumbered hasAnchor">
+<h2>Domáca úloha 6<a href="cov.html#domáca-úloha-6" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Odovzdať do 17.4.2023 do 19:59.</p>
+<div class="exercise">
+<p><span id="exr:unlabeled-div-10" class="exercise"><strong>Cvičenie 7.6  (DÚ 6.1) </strong></span></p>
+Nech <span class="math inline">\(X\)</span> je počet obedov objednaných na stôl počas obeda. Nech <span class="math inline">\(Y\)</span> je počet nápojov objednaných na ten istý stôl počas obeda.
+Nech <span class="math inline">\(p_{XY}\)</span> je vyjadrená nasledovnou tabuľkou.
+<table class=" lightable-classic" style="font-family: &quot;Arial Narrow&quot;, &quot;Source Sans Pro&quot;, sans-serif; margin-left: auto; margin-right: auto;">
+<thead>
+<tr>
+<th style="padding-bottom:0; padding-left:3px;padding-right:3px;text-align: center; " colspan="6">
+<div style="border-bottom: 1px solid #111111; margin-bottom: -1px; ">
+Pravdedpodobnostná funkcia
+</div>
+</th>
+</tr>
+<tr>
+<th style="text-align:left;">
+</th>
+<th style="text-align:left;">
+Y=0
+</th>
+<th style="text-align:left;">
+Y=1
+</th>
+<th style="text-align:left;">
+Y=2
+</th>
+<th style="text-align:left;">
+Y=3
+</th>
+<th style="text-align:left;">
+Y=4
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left;">
+X=0
+</td>
+<td style="text-align:left;">
+0
+</td>
+<td style="text-align:left;">
+0.01
+</td>
+<td style="text-align:left;">
+0.05
+</td>
+<td style="text-align:left;">
+0
+</td>
+<td style="text-align:left;">
+0
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+X=1
+</td>
+<td style="text-align:left;">
+0.05
+</td>
+<td style="text-align:left;">
+0.05
+</td>
+<td style="text-align:left;">
+0.05
+</td>
+<td style="text-align:left;">
+0
+</td>
+<td style="text-align:left;">
+0
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+X=2
+</td>
+<td style="text-align:left;">
+0.01
+</td>
+<td style="text-align:left;">
+0.05
+</td>
+<td style="text-align:left;">
+0.3
+</td>
+<td style="text-align:left;">
+0.01
+</td>
+<td style="text-align:left;">
+0
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+X=3
+</td>
+<td style="text-align:left;">
+0
+</td>
+<td style="text-align:left;">
+0
+</td>
+<td style="text-align:left;">
+0.01
+</td>
+<td style="text-align:left;">
+0.1
+</td>
+<td style="text-align:left;">
+0
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+X=4
+</td>
+<td style="text-align:left;">
+0
+</td>
+<td style="text-align:left;">
+0
+</td>
+<td style="text-align:left;">
+0
+</td>
+<td style="text-align:left;">
+0.01
+</td>
+<td style="text-align:left;">
+0.3
+</td>
+</tr>
+</tbody>
+</table>
+<p>Vypočítajte</p>
+<ol style="list-style-type: lower-alpha">
+<li>pravdepodobnosť, že na stôl sú objednané viac ako 2 obedy</li>
+<li>pravdepodobnosť, že na stôl sú objednané viac ako 2 obedy a viac ako 2 nápoje</li>
+<li>pravdepodobnosť, že na stôl je objednaných viac nápojov ako obedov</li>
+<li>priemerný počet objednaných obedov</li>
+<li>priemerný počet objednaných nápojov</li>
+<li>koreláciu medzi počtom obedov a počtom nápojov objednaných na stôl</li>
+</ol>
+</div>
+<div class="exercise">
+<p><span id="exr:unlabeled-div-11" class="exercise"><strong>Cvičenie 7.7  (DÚ 6.2) </strong></span>Majme náhodné premenné <span class="math inline">\(X,Y\)</span> s nasledovnou združenou pravdepodobnostnou funkciou</p>
+<p><span class="math display">\[\begin{equation*}
+p_{XY}(x,y)=
+\begin{cases}
+c|x+y|, &amp; \text{ak}\ x \in \{-1,0,1 \},\\
+&amp;  \ y \in \{-2,0,2 \},\\
+0, &amp; \text{inak}.
+\end{cases}
+\end{equation*}\]</span></p>
+<p>Vypočítajte</p>
+<ol style="list-style-type: lower-alpha">
+<li>hodnotu konštanty <span class="math inline">\(c,\)</span></li>
+<li><span class="math inline">\(P(X = 1),\)</span></li>
+<li><span class="math inline">\(P(Y = 2X),\)</span></li>
+<li><span class="math inline">\(P(Y &lt; 1)\)</span></li>
+<li><span class="math inline">\(\text{E}[X],\text{E}[Y]\)</span></li>
+<li><span class="math inline">\(\text{Cov}[X,Y], \text{Corr}[X,Y].\)</span></li>
+</ol>
+</div>
+<div class="exercise">
+<p><span id="exr:unlabeled-div-12" class="exercise"><strong>Cvičenie 7.8  (DÚ 6.3) </strong></span>Majme náhodné premenné <span class="math inline">\(X,Y\)</span> s nasledovnou združenou funkciou hustoty.</p>
+<p><span class="math display">\[\begin{equation*}
+f_{XY}(x,y) =
+\begin{cases}
+xy+\frac{1}{2}, &amp; \text{ak}\ 0 \leq x \leq 2, \ 0 \leq y \leq 2,\\
+0, &amp; \text{inak},
+\end{cases}
+\end{equation*}\]</span></p>
+<p>Vypočítajte</p>
+<ol style="list-style-type: lower-alpha">
+<li>hustotu náhodnej premennej <span class="math inline">\(X\)</span>,</li>
+<li><span class="math inline">\(\text{E}[X],\)</span></li>
+<li><span class="math inline">\(\text{Var}[X],\)</span></li>
+<li><span class="math inline">\(\text{Cov}[X, Y],\)</span></li>
+<li><span class="math inline">\(\text{Corr}[X, Y],\)</span></li>
+<li><span class="math inline">\(P(X+Y \leq 1).\)</span></li>
+</ol>
+</div>
+<div class="exercise">
+<p><span id="exr:unlabeled-div-13" class="exercise"><strong>Cvičenie 7.9  (DÚ 6.4) </strong></span>Majme náhodné premenné <span class="math inline">\(X,Y\)</span> s nasledovnou združenou funkciou hustoty.</p>
+<p><span class="math display">\[\begin{equation*}
+f_{XY}(x,y) =
+\begin{cases}
+c x y, &amp; \text{ak}\ x^2 \leq y \leq 1 \  \text{a} \ x \geq 0 \\
+0, &amp; \text{inak},
+\end{cases}
+\end{equation*}\]</span></p>
+<p>Vypočítajte</p>
+<ol style="list-style-type: lower-alpha">
+<li>hodnotu konštanty <span class="math inline">\(c,\)</span></li>
+<li><span class="math inline">\(P(X \geq Y).\)</span></li>
+<li>Určite hustotu náhodnej premennej <span class="math inline">\(X\)</span>.</li>
+<li>Určite hustotu náhodnej premennej <span class="math inline">\(Y\)</span>.</li>
+</ol>
+</div>
+<div class="exercise">
+<p><span id="exr:unlabeled-div-14" class="exercise"><strong>Cvičenie 7.10  (DÚ 6.5) </strong></span>Dokážte, že pre náhodné premenné <span class="math inline">\(X,Y,Z\)</span> a <span class="math inline">\(a,b \in \mathbb{R}\)</span> platí</p>
+<p><span class="math display">\[\text{Cov}[aX+bY,Z] = a\text{Cov}[X,Z] + b\text{Cov}[Y,Z].\]</span></p>
+</div>
 <!-- ::: {.exercise name="DÚ 9.4 (nepovinná a nehodnotená)"} -->
 <!-- Vyfarbite nasledujúci obrázok veľkonočnými farbami. -->
 <!-- ```{r, fig.cap='Zdroj: vectorstock.com/1816075.', out.width='60%', fig.asp=.75, fig.align='center', echo=FALSE} -->
