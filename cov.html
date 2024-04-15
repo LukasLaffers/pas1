@@ -23,7 +23,7 @@
 <meta name="author" content="Lukáš Lafférs" />
 
 
-<meta name="date" content="2024-04-11" />
+<meta name="date" content="2024-04-15" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -226,12 +226,15 @@ Tu je vizualizovaná <span class="math inline">\(p_{XY}\)</span> a <span class="
 <div id="nezávislé-náhodné-premenné" class="section level2 hasAnchor" number="7.1">
 <h2><span class="header-section-number">7.1</span> Nezávislé náhodné premenné<a href="cov.html#nezávislé-náhodné-premenné" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>Hovoríme, že dve náhodné premenné <span class="math inline">\(X\)</span> a <span class="math inline">\(Y\)</span> sú nezávislé ak</p>
-<p><span class="math display">\[\forall x \in \mathcal{S}_X, y \in \mathcal{S}_Y:  p_{XY}(x,y) = p_{X}(x) p_Y(y),\]</span>
+<p><span class="math display">\[\forall x \in \mathcal{S}_X, y \in \mathcal{S}_Y:  p_{XY}(x,y) = p_{X}(x) \cdot p_Y(y),\]</span>
 ak sú diskrétne rozdelené a</p>
-<p><span class="math display">\[\forall x \in \mathbb{R}, y \in \mathbb{R}:  f_{XY}(x,y) = f_{X}(x) f_Y(y),\]</span>
+<p><span class="math display">\[\forall x \in \mathbb{R}, y \in \mathbb{R}:  f_{XY}(x,y) = f_{X}(x) \cdot f_Y(y),\]</span>
 ak sú spojite rozdelené. Informácia o pravdepodobnostných správaniach <span class="math inline">\(X\)</span> a <span class="math inline">\(Y\)</span> je preto dostatočná na to, aby sme vedeli, ako sa budú správať spolu.</p>
 <p>Alternatívna definícia nezávislosti je</p>
-<p><span class="math display">\[\forall B_1, B_2 \subseteq R: P(X \in B_1, Y \in B_2) = P(X \in B_1) P(Y \in B_2).\]</span><a href="#fn1" class="footnote-ref" id="fnref1"><sup>1</sup></a></p>
+<p><span class="math display">\[\forall B_1, B_2 \subseteq \mathbb{R}: P(X \in B_1, Y \in B_2) = P(X \in B_1) \cdot P(Y \in B_2).\]</span><a href="#fn1" class="footnote-ref" id="fnref1"><sup>1</sup></a></p>
+<p>alebo, taktiež ekvivalentne</p>
+<p><span class="math display">\[\forall s,t \in \mathbb{R}: F_{XY}(s,t) = F_{X}(s) \cdot F_{Y}(t).\]</span>
+Poľahky si všimneme, že voľbou <span class="math inline">\(B_1 = (-\infty,s]\)</span> a <span class="math inline">\(B_2 = (-\infty,t]\)</span> dostávame vzťah s predošlou definíciou.</p>
 <p>Pre nezávislé náhodné premenné platí, že ak <span class="math inline">\(X\)</span> a <span class="math inline">\(Y\)</span> sú nezávislé potom sú aj <span class="math inline">\(h_1(X)\)</span> a <span class="math inline">\(h_2(Y)\)</span> sú nezávislé náhodné premenné, kde <span class="math inline">\(h_1\)</span> a <span class="math inline">\(h_2\)</span> sú nejaké transformácie.<a href="#fn2" class="footnote-ref" id="fnref2"><sup>2</sup></a> Napríklad, <span class="math inline">\(X^2\)</span> a <span class="math inline">\(Y\)</span>, kde <span class="math inline">\(h_1(x)=x^2\)</span> a <span class="math inline">\(h_2(y)=y\)</span>.</p>
 <div class="example">
 <p><span id="exm:unlabeled-div-1" class="example"><strong>Príklad 7.1  </strong></span>Majme nasledovnú združenú hustotu pravdepodobnosti pre náhodný vektor <span class="math inline">\((X,Y).\)</span></p>
