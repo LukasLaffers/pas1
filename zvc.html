@@ -264,7 +264,7 @@ kde nerovnosť vyplýva z Markovovej nerovnosti.</p>
 <div id="slabý-zákon-veľkých-čísel" class="section level2 hasAnchor" number="8.4">
 <h2><span class="header-section-number">8.4</span> Slabý Zákon Veľkých čísel<a href="zvc.html#slabý-zákon-veľkých-čísel" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>Pripomeňme, že pre nezávislé náhodné premenné <span class="math inline">\(X,Y\)</span> platí <span class="math inline">\(\text{Var}[X+Y] = \text{Var}[X] + \text{Var}[Y].\)</span></p>
-<p>Pre <span class="math inline">\(n\)</span> nezávislých náhodných premenných <span class="math inline">\(X_1,...,X_n\)</span> analogicky platí <span class="math inline">\(\text{Var}[X_1+...+X_n] = \text{Var}[X] +...+ \text{Var}[X_n].\)</span></p>
+<p>Pre <span class="math inline">\(n\)</span> nezávislých náhodných premenných <span class="math inline">\(X_1,...,X_n\)</span> analogicky platí <span class="math inline">\(\text{Var}[X_1+...+X_n] = \text{Var}[X_1] +...+ \text{Var}[X_n].\)</span></p>
 <p> </p>
 <p>Pripomeňme tiež, že <span class="math inline">\(\text{Var}[aX+b] = a^2\text{Var}[X].\)</span><a href="#fn3" class="footnote-ref" id="fnref3"><sup>3</sup></a>
 Ide o použitie tohoto výsledku, ak <span class="math inline">\(Y\)</span> je konštantná 1 a teda <span class="math inline">\(\text{Var}(Y)=0\)</span> a <span class="math inline">\(\text{Cov}(X,Y)=0\)</span>.
@@ -293,10 +293,12 @@ Potom platí
 <p><span id="unlabeled-div-7" class="proof"><em>Dôkaz</em>. </span>Nakoľko <span class="math inline">\(X_1,X_2,X_3,\cdots\)</span> sú nezávislé platí
 <span class="math display">\[\text{Var}\left[\sum_{i=1}^{n}X_i\right] = \sum_{i=1}^{n}\text{Var}[X_i] = n\sigma^2,\]</span>
 preto
-<span class="math display">\[\text{Var}\left[\sum_{i=1}^{n}X_i/n\right] = \frac{1}{n^2}\text{Var}\left[\sum_{i=1}^{n}X_i\right] = \frac{n\sigma^2}{n^2} = \frac{\sigma^2}{n}.\]</span></p>
+<span class="math display">\[\text{Var}\left[\bar X_n \right]  = \text{Var}\left[\sum_{i=1}^{n}X_i/n\right] = \frac{1}{n^2}\text{Var}\left[\sum_{i=1}^{n}X_i\right] = \frac{n\sigma^2}{n^2} = \frac{\sigma^2}{n}.\]</span></p>
+<p>Naviac
+<span class="math display">\[\text{E}\left[\bar X_n\right] = \text{E}\left[\sum_{i=1}^{n}X_i/n\right] = \sum_{i=1}^{n}\text{E}[X_i]/n = \frac{n\mu}{n} = \mu.\]</span></p>
 <p>Použitím Čebyševovej nerovnosti dostávame</p>
 <p><span class="math display">\[ P(|\bar X_n-\mu|\geq \epsilon ) \leq \frac{\sigma^2}{\epsilon^2n},\]</span>
-a preto <span class="math inline">\(\lim_{n \rightarrow \infty }P(|\bar X_n-\mu|\geq \epsilon ) = 0\)</span>, teda <span class="math inline">\(\lim_{n \rightarrow \infty }P(|\bar X_n-\mu| &lt; \epsilon ) = 1,\)</span> čo sme chceli ukázať.</p>
+a preto <span class="math inline">\(\lim_{n \rightarrow \infty }P(|\bar X_n-\mu|\geq \epsilon ) = 0\)</span>, teda <span class="math inline">\(\lim_{n \rightarrow \infty }P(|\bar X_n-\mu| &lt; \epsilon ) = 1,\)</span> pre akékoľvek <span class="math inline">\(\epsilon &gt; 0,\)</span> čo sme chceli ukázať.</p>
 </div>
 <p>Tu je ilustrácia kde sa aritmetický priemer pre výrazne iné typy náhodných premenných blíži ku svojej skutočnej hodnote.
 <img src="PaS1bookdown_files/figure-html/zvc-1-1.png" width="672" /><img src="PaS1bookdown_files/figure-html/zvc-1-2.png" width="672" /><img src="PaS1bookdown_files/figure-html/zvc-1-3.png" width="672" /><img src="PaS1bookdown_files/figure-html/zvc-1-4.png" width="672" />
