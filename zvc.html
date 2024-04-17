@@ -6,7 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>8 Zákon veľkých čísel | Pravdepodobnosť a štatistika 1</title>
   <meta name="description" content="Toto sú poznámky pre študentov a študentky matematiky Fakulty Prírodných Vied Univerzity Mateja Bela v Banskej Bystrici." />
-  <meta name="generator" content="bookdown 0.35 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.37 and GitBook 2.6.7" />
 
   <meta property="og:title" content="8 Zákon veľkých čísel | Pravdepodobnosť a štatistika 1" />
   <meta property="og:type" content="book" />
@@ -23,7 +23,7 @@
 <meta name="author" content="Lukáš Lafférs" />
 
 
-<meta name="date" content="2024-04-15" />
+<meta name="date" content="2024-04-17" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -369,6 +369,27 @@ Porovnajte s predošlým výsledkom.</p>
 <div class="exercise">
 <p><span id="exr:unlabeled-div-17" class="exercise"><strong>Cvičenie 8.8  </strong></span>Majme postupnosť <span class="math inline">\(X_1, X_2,\dots\)</span> náhodných premenných, pre ktoré platí <span class="math inline">\(P(X_n = n^2) = 1/n\)</span> a <span class="math inline">\(P(X_n=0)=1-1/n.\)</span> Ukážte, že <span class="math inline">\(X_n \rightarrow_P 0\)</span> a zároveň <span class="math inline">\(\lim_{n \rightarrow \infty} \text{E}[X_n] = \infty.\)</span></p>
 </div>
+<div class="exercise">
+<p><span id="exr:unlabeled-div-18" class="exercise"><strong>Cvičenie 8.9  </strong></span>Férovou mincou hádžete nezávisle 100 krát. Odhadnite pravdepodobnosť pomocou Čebyševovej nerovnosti, že hlavou hodíte viac ako 30, ale menej ako 70 krát. Porovnajte so skutočnou pravdepodobnosťou.</p>
+</div>
+<div class="exercise">
+<p><span id="exr:unlabeled-div-19" class="exercise"><strong>Cvičenie 8.10  </strong></span>Zo sčítania obyvateľstva vieme, že v populácii máme <span class="math inline">\(18.4\%\)</span> vysokoškolsky vzdelaných ľudí. Náhodne vyberieme <span class="math inline">\(n\)</span> ľudí do prieskumu.</p>
+<ol style="list-style-type: lower-alpha">
+<li><p>Aká je pravdepodobnosť, že pomer vysokoškolsky vzdelaných ľudí v našej vzorke sa od reality bude líšiť o viac ako <span class="math inline">\(2\%\)</span>, ak vezmeme vzorku <span class="math inline">\(100\)</span>, resp. <span class="math inline">\(1000\)</span> ľudí?</p></li>
+<li><p>Koľkých ľudí sa musíme opýtať, ak chceme, aby sa s <span class="math inline">\(95\%\)</span>-tnou istotou pomer vysokoškolsky vzdelaných ľudí v prieskume líšil od reality najviac o <span class="math inline">\(2\%\)</span>, resp. <span class="math inline">\(5\%\)</span>?</p></li>
+</ol>
+</div>
+<div class="exercise">
+<p><span id="exr:unlabeled-div-20" class="exercise"><strong>Cvičenie 8.11  </strong></span>V tomto <a href="https://www.youtube.com/watch?v=rjYT3WUWq0s">fascinujúcom livestreame</a> sa hádzalo kockou 1024 krát (nemusíte ho pozerať úplne celý).</p>
+<p>Číslo 5 padlo len 157krát. Ak bola kocka férová aká je pravdepodobnosť, že by padlo 157 krát alebo menej? Na základe Čebyševovej nerovnosti zostavte hornú hranicu pre pravdepodobnosť udalosti, že by pomer padnutí čísla 5 bol ešte vzdialenejší od <span class="math inline">\(\frac{1}{6}\)</span> ako je <span class="math inline">\(\frac{157}{1024}\)</span>. Porovnajte túto hornú hranicu so skutočnou pravdepodobnosťou (uvažujte nezávislé hody a fixnú pravdepodobnosť <span class="math inline">\(\frac{1}{6}\)</span>).</p>
+</div>
+<div class="exercise">
+<p><span id="exr:unlabeled-div-21" class="exercise"><strong>Cvičenie 8.12  </strong></span>Odvoďte variant Markovovskej nerovnosti pre náhodnú premennú <span class="math inline">\(X\)</span> pre ktorú platí <span class="math inline">\(X &gt; a,\)</span> kde <span class="math inline">\(a&gt;0.\)</span> Ukážte, že táto nerovnosť je tesná.</p>
+</div>
+<div class="exercise">
+<p><span id="exr:unlabeled-div-22" class="exercise"><strong>Cvičenie 8.13  </strong></span>Ukážte, že platí</p>
+<p><span class="math display">\[P(|X-\text{E}[X]|\geq \epsilon) \leq \frac{1}{\epsilon}\text{E}[|X-\text{E}[X]|].\]</span></p>
+</div>
 <!-- ## Domáca úloha 10 {-} -->
 <!-- Odovzdať do 22.4.2023 do 23:59. -->
 <!-- ::: {.exercise name="DÚ 10.1"} -->
@@ -425,7 +446,7 @@ Porovnajte s predošlým výsledkom.</p>
 <ol start="1">
 <li id="fn1"><p>Ak táto existuje.<a href="zvc.html#fnref1" class="footnote-back">↩︎</a></p></li>
 <li id="fn2"><p>Tých idenfikátorov je naozaj veľa. Plný zápis je nasledovný:
-<span class="math display">\[\forall \epsilon &gt;0: \forall \epsilon_1 &gt;0: \exists n_0 \in \mathbb{N}: \forall n \geq n_0: |P \left( \{\omega \in \Omega: |X_n(\omega) - X(\omega)|&lt; \epsilon \} \right) - 0| \leq \epsilon_1.\]</span>
+<span class="math display">\[\forall \epsilon &gt;0: \forall \epsilon_1 &gt;0: \exists n_0 \in \mathbb{N}: \forall n \geq n_0: |P \left( \{\omega \in \Omega: |X_n(\omega) - X(\omega)|&lt; \epsilon \} \right) - 1| \leq \epsilon_1.\]</span>
 Všimnite si, že rola týchto dvoch malých <span class="math inline">\(\epsilon\)</span> a <span class="math inline">\(\epsilon_1\)</span> je rôzna. Kým <span class="math inline">\(\epsilon\)</span> kontroluje ako blízko je <span class="math inline">\(X_n\)</span> of <span class="math inline">\(X\)</span>, <span class="math inline">\(\epsilon_1\)</span> kontroluje ako blízko je hodnota <span class="math inline">\(P(|X_n - X| &lt; \epsilon)\)</span> od nuly.<a href="zvc.html#fnref2" class="footnote-back">↩︎</a></p></li>
 <li id="fn3"><p>Ak <span class="math inline">\(\text{Var}[X]&lt;\infty.\)</span><a href="zvc.html#fnref3" class="footnote-back">↩︎</a></p></li>
 <li id="fn4"><p>Čo je mimochodom dosť veľa.<a href="zvc.html#fnref4" class="footnote-back">↩︎</a></p></li>
