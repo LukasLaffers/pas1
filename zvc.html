@@ -23,7 +23,7 @@
 <meta name="author" content="Lukáš Lafférs" />
 
 
-<meta name="date" content="2024-05-03" />
+<meta name="date" content="2024-05-29" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -250,7 +250,7 @@ a preusporiadaním dostaneme želanú nerovnosť.</p>
 <p>Alternatívnou formuláciou, ak zvolíme <span class="math inline">\(k=\frac{c}{\sigma}\)</span> je</p>
 <p><span class="math display">\[P(|X-\mu|\geq c) \leq \frac{\sigma^2}{c^2}.\]</span></p>
 <div class="proof">
-<p><span id="unlabeled-div-5" class="proof"><em>Dôkaz</em>. </span>Označme <span class="math inline">\(Y = (X-\mu)^2,\)</span> ktorá je nezárorná náhodná premenná a zároveň platí <span class="math inline">\(\text{E}[Y] = \sigma^2.\)</span>
+<p><span id="unlabeled-div-5" class="proof"><em>Dôkaz</em>. </span>Označme <span class="math inline">\(Y = (X-\mu)^2,\)</span> ktorá je nezáporná náhodná premenná a zároveň platí <span class="math inline">\(\text{E}[Y] = \sigma^2.\)</span>
 Naviac platí
 <span class="math display">\[P(|X-\mu|\geq k \sigma) = P((X-\mu)^2\geq k^2 \sigma^2) \leq \frac{\sigma^2}{k^2 \sigma^2} = \frac{1}{k^2},\]</span>
 kde nerovnosť vyplýva z Markovovej nerovnosti.</p>
@@ -319,7 +319,7 @@ Ak však vyskúšame Cauchyho rozdelenie, ktoré nemá strednú hodnotu, dostane
 \end{equation*}\]</span>
 je identifikátorová funkcia udalosti <span class="math inline">\(A.\)</span></p>
 <p>Potom platí <span class="math inline">\(\text{E}[1_A] = 1\cdot P(A) + 0\cdot P(A^C) = P(A).\)</span></p>
-<p>Preto ak odsimulujeme na počítači 10000 simulácií a v nich <span class="math inline">\(A\)</span> nastala 13 krát, odhadujeme, že <span class="math inline">\(P(A)\)</span> je rovné <span class="math inline">\(0.0013.\)</span> Tento odhad sa bude blížiť ku skutočnej hodnote pre stále väčšie množstvo simulácií. Je to kvôli ZVČ, lebo <span class="math inline">\(\bar{X}_n = \frac{0+ 0+ 1+ \cdots + 0}{10000} = 0.0013,\)</span> kde <span class="math inline">\(X_i\)</span> majú rovnaké pravdepodobnostné rozdelenie ako <span class="math inline">\(1_A\)</span> a sú nezávislé.</p>
+<p>Preto ak odsimulujeme na počítači 10000 simulácií a v nich <span class="math inline">\(A\)</span> nastala 13 krát, odhadujeme, že <span class="math inline">\(P(A)\)</span> je rovné <span class="math inline">\(0.0013.\)</span> Tento odhad sa bude blížiť ku skutočnej hodnote pre stále väčšie množstvo simulácií. Je to kvôli ZVČ, lebo <span class="math inline">\(\bar{X}_n = \frac{0+ 0+ 1+ \cdots + 0}{10000} =  0.0013,\)</span> kde <span class="math inline">\(X_i\)</span> majú rovnaké pravdepodobnostné rozdelenie ako <span class="math inline">\(1_A\)</span> a sú nezávislé.</p>
 </div>
 <div class="example">
 <p><span id="exm:unlabeled-div-9" class="example"><strong>Príklad 8.3  </strong></span>Chceli by sme simulačne vypočítať číslo <span class="math inline">\(\pi.\)</span> Obsah štvrťkruhu so stredom v <span class="math inline">\([0,0]\)</span> s polomerom 1 vo štvorci <span class="math inline">\([0,1] \times [0,1]\)</span> je rovný <span class="math inline">\(\pi/4.\)</span>
