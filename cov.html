@@ -297,8 +297,8 @@ window.Quarto = {
 <p>alebo, taktiež ekvivalentne</p>
 <p><span class="math display">\[\forall s,t \in \mathbb{R}: F_{XY}(s,t) = F_{X}(s) \cdot F_{Y}(t).\]</span> Poľahky si všimneme, že voľbou <span class="math inline">\(B_1 = (-\infty,s]\)</span> a <span class="math inline">\(B_2 = (-\infty,t]\)</span> dostávame vzťah s predošlou definíciou.</p>
 <p>Pre nezávislé náhodné premenné platí, že ak <span class="math inline">\(X\)</span> a <span class="math inline">\(Y\)</span> sú nezávislé potom sú aj <span class="math inline">\(h_1(X)\)</span> a <span class="math inline">\(h_2(Y)\)</span> sú nezávislé náhodné premenné, kde <span class="math inline">\(h_1\)</span> a <span class="math inline">\(h_2\)</span> sú nejaké transformácie.<a href="#fn2" class="footnote-ref" id="fnref2" role="doc-noteref"><sup>2</sup></a> Napríklad, <span class="math inline">\(X^2\)</span> a <span class="math inline">\(Y\)</span>, kde <span class="math inline">\(h_1(x)=x^2\)</span> a <span class="math inline">\(h_2(y)=y\)</span>.</p>
-<div class="example">
-<p>Majme nasledovnú združenú hustotu pravdepodobnosti pre náhodný vektor <span class="math inline">\((X,Y).\)</span></p>
+<div id="exm-" class="Example theorem example">
+<p><span class="theorem-title"><strong>Example 7.1</strong></span> Majme nasledovnú združenú hustotu pravdepodobnosti pre náhodný vektor <span class="math inline">\((X,Y).\)</span></p>
 <span class="math display">\[\begin{equation*}
 f_{XY}(x,y)=
 \begin{cases}
@@ -347,8 +347,8 @@ f_{XY}(x,y)=
 </div>
 </div>
 <p>Korelácia je miera <em>lineárnej</em> závislosti. Z toho, že <span class="math inline">\(\text{Corr}[X,Y]=0\)</span>, <strong>nevyplýva</strong>, že <span class="math inline">\(X\)</span> a <span class="math inline">\(Y\)</span> sú nezávislé. A to jednoducho preto, že medzi nimi môže byť aj iná ako lineárna závislosť, ako demonštruje nasledovný príklad.</p>
-<div class="example">
-<p>Majme <span class="math inline">\(X \sim \text{Unif}[-1,1]\)</span> a <span class="math inline">\(Y = X^2.\)</span> Tomuto zodpovedajú nasledovné funkcie hustoty</p>
+<div id="exm-" class="Example theorem example">
+<p><span class="theorem-title"><strong>Example 7.2</strong></span> Majme <span class="math inline">\(X \sim \text{Unif}[-1,1]\)</span> a <span class="math inline">\(Y = X^2.\)</span> Tomuto zodpovedajú nasledovné funkcie hustoty</p>
 <span class="math display">\[\begin{equation*}
 f_X(x)=
 \begin{cases}
@@ -367,8 +367,8 @@ f_Y(y)=
 <p>Združená hustota <span class="math inline">\(f_{XY}\)</span> je <span class="math inline">\(0\)</span> všade tam, kde <span class="math inline">\(Y&gt;X\)</span>, ale <span class="math inline">\(f_X \times f_Y\)</span> tam nie je nutne <span class="math inline">\(0\)</span>, preto <span class="math inline">\(X\)</span> a <span class="math inline">\(Y\)</span> nie sú nezávislé. Zároveň však platí (ukážte prečo) <span class="math inline">\(\text{E}[X] = 0,\text{E}[Y] = \frac{1}{3}\)</span> a <span class="math inline">\(\text{Cov[X,Y]} = \text{E}[(X-\text{E}[X])(Y-\text{E}[Y])] = \text{E}\left[\left(X-0\right)\left(X^2-\frac{1}{3}\right)\right] = 0.\)</span></p>
 <p>Teda <span class="math inline">\(X\)</span> a <span class="math inline">\(Y\)</span> sú závislé (však <span class="math inline">\(Y\)</span> je priamo funkciou <span class="math inline">\(X\)</span>!), ale nekorelované (teda <em>lineárne</em> nezávislé).</p>
 </div>
-<div class="example">
-<p>Nech <span class="math inline">\(X \sim N(0,1)\)</span> a nech</p>
+<div id="exm-" class="Example theorem example">
+<p><span class="theorem-title"><strong>Example 7.3</strong></span> Nech <span class="math inline">\(X \sim N(0,1)\)</span> a nech</p>
 <span class="math display">\[\begin{equation*}
 Y=
 \begin{cases}
@@ -397,8 +397,8 @@ X, &amp; \text{ak}\ |X| \leq c, \\
 </div>
 <p>Korelácia hovorí o asociácii, ale pozor, nie o kauzalite. Skutočnosť, že hodnoty <span class="math inline">\(X\)</span> a <span class="math inline">\(Y\)</span> nejakým spôsobom nastávajú naraz neznamená, že <span class="math inline">\(X\)</span> spôsobuje <span class="math inline">\(Y\)</span> alebo naopak. Napríklad predaje zmrzliny (<span class="math inline">\(X\)</span>) sú korelované s napadnutiami žralakom (<span class="math inline">\(Y\)</span>). Neznamená to ale, že tieto premenné spolu kauzálne súvisia. Ľudia skrátka jedia zmrzlinu ako aj surfujú viacej vtedy, keď je teplo.</p>
 <p>Teraz nejaký príklad na počítanie:</p>
-<div class="example">
-<p>Majme <span class="math inline">\(X,Y\)</span> pre ktoré je <span class="math inline">\(p_{XY}\)</span> vyjadrená nasledovnou tabuľkou.</p>
+<div id="exm-" class="Example theorem example">
+<p><span class="theorem-title"><strong>Example 7.4</strong></span> Majme <span class="math inline">\(X,Y\)</span> pre ktoré je <span class="math inline">\(p_{XY}\)</span> vyjadrená nasledovnou tabuľkou.</p>
 <div class="cell">
 <div class="cell-output-display">
 <table class="lightable-classic caption-top table table-sm table-striped small" data-quarto-postprocess="true">

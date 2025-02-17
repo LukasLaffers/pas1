@@ -279,8 +279,8 @@ window.Quarto = {
 <li><span class="math inline">\(\sum_{x \in \mathcal{S}_X} p_X(x) = 1.\)</span></li>
 </ul>
 <p>Funkcia <span class="math inline">\(p_X(x)\)</span> tiež kvantifikuje “výšku schodu” v bodoch nespojitosti kumlatívnej distribučnej funkcie diskrétnej náhodnej premennej.</p>
-<div id="jednakocka3" class="example">
-<p>Hádžeme férovou kockou. Označme <span class="math inline">\(\Omega = \{1,2,3,4,5,6\},\)</span> kde napr. <span class="math inline">\(4\)</span> značí, že na kocke padlo číslo <span class="math inline">\(4\)</span>. Nech <span class="math inline">\(\mathcal{F} = 2^{\Omega}\)</span> a nech <span class="math inline">\(P(A) = \frac{|A|}{6}.\)</span> Označme písmenom <span class="math inline">\(X\)</span> náhodnú premennú, ktorá bude označovať číslo, ktoré padne na kocke. Náhodná premenná <span class="math inline">\(X\)</span> priradí každému elementu <span class="math inline">\(k \in \Omega\)</span> reálne číslo nasledovne: <span class="math inline">\(X(k) = k.\)</span></p>
+<div id="exm-" class="Example theorem example">
+<p><span class="theorem-title"><strong>Example 5.1</strong></span> Hádžeme férovou kockou. Označme <span class="math inline">\(\Omega = \{1,2,3,4,5,6\},\)</span> kde napr. <span class="math inline">\(4\)</span> značí, že na kocke padlo číslo <span class="math inline">\(4\)</span>. Nech <span class="math inline">\(\mathcal{F} = 2^{\Omega}\)</span> a nech <span class="math inline">\(P(A) = \frac{|A|}{6}.\)</span> Označme písmenom <span class="math inline">\(X\)</span> náhodnú premennú, ktorá bude označovať číslo, ktoré padne na kocke. Náhodná premenná <span class="math inline">\(X\)</span> priradí každému elementu <span class="math inline">\(k \in \Omega\)</span> reálne číslo nasledovne: <span class="math inline">\(X(k) = k.\)</span></p>
 </div>
 <div class="cell">
 <div class="cell-output-display">
@@ -291,8 +291,8 @@ window.Quarto = {
 </div>
 </div>
 </div>
-<div id="dvekocky2" class="example">
-<p>Hádžeme dvoma férovými kockami. Označme <span class="math inline">\(\Omega = \{(1,1),(1,2),(1,3),(1,4),(1,5),(1,6),(2,1),(2,2),(2,3),\cdots, (6,5),(6,6)\},\)</span> kde napr. <span class="math inline">\((3,2)\)</span> značí, že na prvej kocke padlo číslo <span class="math inline">\(3\)</span> a na druhej kocke padlo číslo <span class="math inline">\(2\)</span>. Nech <span class="math inline">\(\mathcal{F} = 2^{\Omega}\)</span> a nech <span class="math inline">\(P(A) = \frac{|A|}{36}.\)</span> Označme písmenom <span class="math inline">\(X\)</span> náhodnú premennú, ktorá bude označovať súčet dvoch čísiel, ktoré padnú na kockách. Náhodná premenná <span class="math inline">\(X\)</span> priradí každému elementu <span class="math inline">\((k_1,k_2)\)</span> z <span class="math inline">\(\Omega\)</span> reálne číslo nasledovne: <span class="math inline">\(X((k_1,k_2)) = k_1 + k_2.\)</span></p>
+<div id="exm-" class="Example theorem example">
+<p><span class="theorem-title"><strong>Example 5.2</strong></span> Hádžeme dvoma férovými kockami. Označme <span class="math inline">\(\Omega = \{(1,1),(1,2),(1,3),(1,4),(1,5),(1,6),(2,1),(2,2),(2,3),\cdots, (6,5),(6,6)\},\)</span> kde napr. <span class="math inline">\((3,2)\)</span> značí, že na prvej kocke padlo číslo <span class="math inline">\(3\)</span> a na druhej kocke padlo číslo <span class="math inline">\(2\)</span>. Nech <span class="math inline">\(\mathcal{F} = 2^{\Omega}\)</span> a nech <span class="math inline">\(P(A) = \frac{|A|}{36}.\)</span> Označme písmenom <span class="math inline">\(X\)</span> náhodnú premennú, ktorá bude označovať súčet dvoch čísiel, ktoré padnú na kockách. Náhodná premenná <span class="math inline">\(X\)</span> priradí každému elementu <span class="math inline">\((k_1,k_2)\)</span> z <span class="math inline">\(\Omega\)</span> reálne číslo nasledovne: <span class="math inline">\(X((k_1,k_2)) = k_1 + k_2.\)</span></p>
 </div>
 <div class="cell">
 <div class="cell-output-display">
@@ -313,12 +313,12 @@ window.Quarto = {
 <p><span class="math display">\[\text{E}[X] = \sum_{x \in \mathcal{S}_X} x \cdot p_X(x),\]</span> pokiaľ platí <span class="math inline">\(\sum_{x \in \mathcal{S}_X} |x| \cdot p_X(x) &lt; \infty.\)</span><a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a></p>
 <p>Ak pretransformujeme náhodnú premennú <span class="math inline">\(Y = f(X),\)</span> kde <span class="math inline">\(f: \mathbb{R} \rightarrow \mathbb{R},\)</span> tak jej stredná hodnota je</p>
 <p><span class="math display">\[\text{E}[Y] = E\left[ f(X) \right] = \sum_{x \in \mathcal{S}_X} f(x) \cdot p_X(x).\]</span></p>
-<div class="example">
-<p>Hádžeme férovou kockou. Nech <span class="math inline">\(X\)</span> označuje číslo, ktoré padlo na kocke.</p>
+<div id="exm-" class="Example theorem example">
+<p><span class="theorem-title"><strong>Example 5.3</strong></span> Hádžeme férovou kockou. Nech <span class="math inline">\(X\)</span> označuje číslo, ktoré padlo na kocke.</p>
 <p><span class="math display">\[\text{E}[X] = \sum_{x \in \mathcal{S}_X} x \cdot p_X(x) = \sum_{x \in \{1,2,3,4,5,6\}} x \cdot p_X(x)= \sum_{x =1}^{6}x \cdot \frac{1}{6} = 3.5. \]</span></p>
 </div>
-<div class="example">
-<p>Hádžeme dvomi férovými kockami. Nech <span class="math inline">\(X\)</span> označuje súčet čísel na dvoch kockách.</p>
+<div id="exm-" class="Example theorem example">
+<p><span class="theorem-title"><strong>Example 5.4</strong></span> Hádžeme dvomi férovými kockami. Nech <span class="math inline">\(X\)</span> označuje súčet čísel na dvoch kockách.</p>
 <span class="math display">\[\begin{eqnarray*}
 \text{E}[X] &amp;=&amp; \sum_{x \in \mathcal{S}_X} x \cdot p_X(x) = \sum_{x \in \{2,3,\cdots,12\}} x \cdot p_X(x)\\
      &amp;=&amp; 2 \cdot \frac{1}{36} + 3 \cdot \frac{2}{36}+ 4 \cdot \frac{3}{36}+ 5 \cdot \frac{4}{36}+ 6 \cdot \frac{5}{36}+ 7 \cdot \frac{6}{36}\\
@@ -326,8 +326,8 @@ window.Quarto = {
 \end{eqnarray*}\]</span>
 </div>
 <p>Stredná hodnota charakterizuje náhodnú premennú jedným číslom. Je to vážený priemer, kde hodnoty sú váhované prislúchajúcimi pravdepodobnosťami. Fyzikálnou interpretáciou je <em>ťažisko</em>.</p>
-<div class="example">
-<p>Hádžeme neférovou mincou. <span class="math inline">\(\Omega = \{H,Z\}, \mathcal{F} = 2^{\Omega}\)</span> a <span class="math inline">\(P(\{H\}) = 0.8 = 1-P(\{Z\}).\)</span> Nech <span class="math inline">\(X(H) = 1\)</span> a <span class="math inline">\(X(Z) = 0.\)</span></p>
+<div id="exm-" class="Example theorem example">
+<p><span class="theorem-title"><strong>Example 5.5</strong></span> Hádžeme neférovou mincou. <span class="math inline">\(\Omega = \{H,Z\}, \mathcal{F} = 2^{\Omega}\)</span> a <span class="math inline">\(P(\{H\}) = 0.8 = 1-P(\{Z\}).\)</span> Nech <span class="math inline">\(X(H) = 1\)</span> a <span class="math inline">\(X(Z) = 0.\)</span></p>
 <p><span class="math display">\[\text{E}[X] = 1 \cdot 0.8 + 0 \cdot 0.2 = 0.8.\]</span></p>
 </div>
 <div class="cell" data-layout-align="center">
@@ -379,8 +379,8 @@ E[Z] &amp;=&amp; \sum_{z \in \mathcal{S}_Z} z \cdot p_Z(z) = \sum_{x \in \mathca
 <p><strong>Smerodajná odchýlka</strong> náhodnej premennej je odmocnina z jej variancie</p>
 <p><span class="math display">\[\text{sd}[X] = \sqrt{\text{Var}[X]}.\]</span></p>
 <p>Kým interpretácia strednej hodnoty bola, že ide o ťažisko, pri variancii alebo smerodajnej odchýlke je to o čosi zložitejšie.</p>
-<div class="example">
-<p>Variancia a smerodajná odchýlka výsledku hodu neférovej mince.</p>
+<div id="exm-" class="Example theorem example">
+<p><span class="theorem-title"><strong>Example 5.6</strong></span> Variancia a smerodajná odchýlka výsledku hodu neférovej mince.</p>
 <span class="math display">\[\begin{eqnarray*}
 \text{E}[X] &amp;=&amp; 0 \cdot 0.2 + 1 \cdot 0.8 = 0.8,\\
 E[X^2] &amp;=&amp; 0^2 \cdot 0.2 + 1^2 \cdot 0.8 = 0.8,\\
@@ -388,8 +388,8 @@ E[X^2] &amp;=&amp; 0^2 \cdot 0.2 + 1^2 \cdot 0.8 = 0.8,\\
 \text{sd}[X] &amp;=&amp; \sqrt{\text{Var}[X]} = \sqrt{0.16} = 0.4.
 \end{eqnarray*}\]</span>
 </div>
-<div class="example">
-<p>Uvažujme náhodnú premennú <span class="math inline">\(Y\)</span> o ktorej vieme, že</p>
+<div id="exm-" class="Example theorem example">
+<p><span class="theorem-title"><strong>Example 5.7</strong></span> Uvažujme náhodnú premennú <span class="math inline">\(Y\)</span> o ktorej vieme, že</p>
 <span class="math display">\[\begin{eqnarray*}
 p_Y(1) &amp;=&amp; 0.3,\\
 p_Y(2) &amp;=&amp; 0.5,\\
@@ -478,8 +478,8 @@ p_X(k)= P(X=k)=
      &amp;=&amp; np, \\
 \text{Var}[X] &amp;=&amp; \cdots = np(1-p).
 \end{eqnarray*}\]</span></p>
-<div class="example">
-<p>Majme náhodnú premennú <span class="math inline">\(X\)</span>, ktorá je rozdelená binomicky s parametrami <span class="math inline">\(n=5\)</span> a <span class="math inline">\(p=0.5\)</span>. Vypočítajte <span class="math inline">\(P(X &lt; 2).\)</span></p>
+<div id="exm-" class="Example theorem example">
+<p><span class="theorem-title"><strong>Example 5.8</strong></span> Majme náhodnú premennú <span class="math inline">\(X\)</span>, ktorá je rozdelená binomicky s parametrami <span class="math inline">\(n=5\)</span> a <span class="math inline">\(p=0.5\)</span>. Vypočítajte <span class="math inline">\(P(X &lt; 2).\)</span></p>
 <p><span class="math display">\[P(X&lt;2) = P(X=0) + P(X=1) = {5 \choose 0} 0.5^0 0.5^{5} + {5 \choose 1} 0.5^1 0.5^{4} = 0.03125 + 0.15625 = 18.75\%\]</span></p>
 </div>
 <p>Aké situácie sú typicky modelované binomickými rozdelením? Musíme mať</p>
@@ -530,8 +530,8 @@ p_X(k)= P(X=k)=
 &amp;=&amp; \lambda e^{-\lambda} e^{\lambda} = \lambda,\\
 \text{Var}[X] &amp;=&amp; \cdots = \lambda.
 \end{eqnarray*}\]</span></p>
-<div class="example">
-<p>Majme náhodnú premennú <span class="math inline">\(X\)</span>, ktorá je rozdelená Poissonovsky s parametrom <span class="math inline">\(\lambda = 4\)</span>. Vypočítajte <span class="math inline">\(P(X = 1).\)</span></p>
+<div id="exm-" class="Example theorem example">
+<p><span class="theorem-title"><strong>Example 5.9</strong></span> Majme náhodnú premennú <span class="math inline">\(X\)</span>, ktorá je rozdelená Poissonovsky s parametrom <span class="math inline">\(\lambda = 4\)</span>. Vypočítajte <span class="math inline">\(P(X = 1).\)</span></p>
 <p><span class="math display">\[P(X=1) = \frac{4^1 e^{-4}}{1!} \approx  7.326\%.\]</span></p>
 </div>
 <p>Na to aby bola nejaká situácia, kde počítame koľko udalostí nastalo, dobre modelovaná Poissonovým rozdelením, musia platiť tieto skutočnosti:</p>
@@ -595,12 +595,12 @@ p_X(k)=
 \end{cases}
 \end{equation*}\]</span>
 <p>V tomto prípade používame nasledovné značenie <span class="math inline">\(X \sim \text{Geom}(p).\)</span></p>
-<div class="example">
-<p>Majme náhodnú premennú <span class="math inline">\(X\)</span>, ktorá je rozdelená geometricky s parametrom <span class="math inline">\(p = 0.1\)</span>. Vypočítajte <span class="math inline">\(P(X = 10).\)</span> (Teda, že “úspech” nastane v 11. pokuse)</p>
+<div id="exm-" class="Example theorem example">
+<p><span class="theorem-title"><strong>Example 5.10</strong></span> Majme náhodnú premennú <span class="math inline">\(X\)</span>, ktorá je rozdelená geometricky s parametrom <span class="math inline">\(p = 0.1\)</span>. Vypočítajte <span class="math inline">\(P(X = 10).\)</span> (Teda, že “úspech” nastane v 11. pokuse)</p>
 <p><span class="math display">\[P(X=10) = (1-p)^{10}p = 0.9^10 0.1 \approx  3.48\%.\]</span></p>
 </div>
-<div class="example">
-<p>Majme náhodnú premennú <span class="math inline">\(X\)</span>, ktorá je rozdelená geometricky s parametrom <span class="math inline">\(p=0.3\)</span>. Vypočítajte <span class="math inline">\(P(X &lt; 4).\)</span></p>
+<div id="exm-" class="Example theorem example">
+<p><span class="theorem-title"><strong>Example 5.11</strong></span> Majme náhodnú premennú <span class="math inline">\(X\)</span>, ktorá je rozdelená geometricky s parametrom <span class="math inline">\(p=0.3\)</span>. Vypočítajte <span class="math inline">\(P(X &lt; 4).\)</span></p>
 <span class="math display">\[\begin{eqnarray*}
 P(X &lt; 4) &amp;=&amp; P(X=0) + P(X=1) + P(X=2) + P(X=3)\\
      &amp;=&amp; 0.7^0 0.3 + 0.7^1 0.3 + 0.7^2 0.3 +0.7^3 0.3\\
@@ -677,8 +677,8 @@ p_X(k)=
 </div>
 </div>
 <p>Dôvodenie pre tvar <span class="math inline">\(p_X(k)\)</span> je nasledovné. Existuje práve <span class="math inline">\({N \choose n}\)</span> rôznych spôsobov ako vybrať hrsť veľkosti <span class="math inline">\(n\)</span> z celkovej množiny <span class="math inline">\(N\)</span> guličiek, takže to je celkový počet hrstí. Koľko je “úspešných” hrstí? No existuje <span class="math inline">\({K \choose k}\)</span> možností ako vybrať červené guličky a zároveň (preto je to súčin) <span class="math inline">\({N-K \choose n-k}\)</span> možností ako vybrať modré guličky.</p>
-<div class="example">
-<p>Majme náhodnú premennú <span class="math inline">\(X\)</span>, ktorá je rozdelená hypergeometricky s parametrami <span class="math inline">\(N=30, K=8, n = 5\)</span>. Vypočítajte <span class="math inline">\(P(X = 3).\)</span></p>
+<div id="exm-" class="Example theorem example">
+<p><span class="theorem-title"><strong>Example 5.12</strong></span> Majme náhodnú premennú <span class="math inline">\(X\)</span>, ktorá je rozdelená hypergeometricky s parametrami <span class="math inline">\(N=30, K=8, n = 5\)</span>. Vypočítajte <span class="math inline">\(P(X = 3).\)</span></p>
 <span class="math display">\[\begin{eqnarray*}
 P(X = 3) &amp;=&amp; \frac{{K \choose k} {N-K \choose n-k}}{{N \choose n}}\\
      &amp;=&amp; \frac{{8 \choose 3} {22 \choose 2}}{{30 \choose 5}} \approx 9.08\%.
@@ -727,8 +727,8 @@ p_X(k)=
 \text{Var}[X] &amp;=&amp; \cdots = \frac{(1-p)r}{p^2}.
 \end{eqnarray*}\]</span>
 <p>Takáto náhodná premenná popisuje počet neúspechov, kým nenastane <span class="math inline">\(r\)</span>-tý úspech.</p>
-<div class="example">
-<p>Majme náhodnú premennú <span class="math inline">\(X\)</span>, ktorá je rozdelená negatívne binomicky s parametrami <span class="math inline">\(r=4\)</span> a <span class="math inline">\(p=0.6\)</span>. Vypočítajte <span class="math inline">\(P(X = 3).\)</span> (Toto zodpovedá 3 neúspechom, kým nenastanú 4 úspechy, takže 4. úspech nastane pri 7. pokuse.)</p>
+<div id="exm-" class="Example theorem example">
+<p><span class="theorem-title"><strong>Example 5.13</strong></span> Majme náhodnú premennú <span class="math inline">\(X\)</span>, ktorá je rozdelená negatívne binomicky s parametrami <span class="math inline">\(r=4\)</span> a <span class="math inline">\(p=0.6\)</span>. Vypočítajte <span class="math inline">\(P(X = 3).\)</span> (Toto zodpovedá 3 neúspechom, kým nenastanú 4 úspechy, takže 4. úspech nastane pri 7. pokuse.)</p>
 <span class="math display">\[\begin{eqnarray*}
 P(X = 3) &amp;=&amp; {k + r - 1 \choose r-1} (1-p)^k p^r\\
      &amp;=&amp; {3 + 4 - 1 \choose 4-1} (1-0.6)^3 0.6^4 \approx 16.59\%.

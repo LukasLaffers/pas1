@@ -313,8 +313,8 @@ window.Quarto = {
 </div>
 </div>
 </div>
-<div class="example">
-<p>Majme náhodnú premennú <span class="math inline">\(X\)</span>, ktorá má nasledovnú funkciu hustoty: <span class="math inline">\(f_X(x) = \frac{1}{2}e^{-x/2}\)</span> pre <span class="math inline">\(x &gt; 0\)</span>, inak <span class="math inline">\(f_X(x)=0\)</span>. Vypočítajte <span class="math inline">\(P(1 \leq X \leq 2).\)</span></p>
+<div id="exm-" class="Example theorem example">
+<p><span class="theorem-title"><strong>Example 6.1</strong></span> Majme náhodnú premennú <span class="math inline">\(X\)</span>, ktorá má nasledovnú funkciu hustoty: <span class="math inline">\(f_X(x) = \frac{1}{2}e^{-x/2}\)</span> pre <span class="math inline">\(x &gt; 0\)</span>, inak <span class="math inline">\(f_X(x)=0\)</span>. Vypočítajte <span class="math inline">\(P(1 \leq X \leq 2).\)</span></p>
 <span class="math display">\[\begin{eqnarray*}
 P(1 \leq X \leq 2) &amp;=&amp; \int_{1}^{2} f_X(x)dx = \int_{1}^{2} \frac{1}{2}e^{-x/2} dx \\
 &amp;=&amp; [-e^{-x/2}]_{1}^{2} = [-e^{-2/2}] - [-e^{-1/2}]\\
@@ -331,8 +331,8 @@ P(1 \leq X \leq 2) &amp;=&amp; \int_{1}^{2} f_X(x)dx = \int_{1}^{2} \frac{1}{2}e
 </div>
 </div>
 </div>
-<div class="example">
-<p>Uvažujme náhodnú premennú <span class="math inline">\(X\)</span>, ktorá modeluje IQ náhodne vybraného človeka z danej populácie. Táto náhodná premenná má nasledovnú funkciu hustoty <span class="math inline">\(f_X(x) = \frac{1}{15\sqrt{2 \pi}} e^{-\frac{1}{2}\frac{(x-100)^2}{15^2}}\)</span>. Vypočítajte pravdepodobnosť, že náhodne vybraný človek z tejto populácie bude mať IQ väčšie ako 130.</p>
+<div id="exm-" class="Example theorem example">
+<p><span class="theorem-title"><strong>Example 6.2</strong></span> Uvažujme náhodnú premennú <span class="math inline">\(X\)</span>, ktorá modeluje IQ náhodne vybraného človeka z danej populácie. Táto náhodná premenná má nasledovnú funkciu hustoty <span class="math inline">\(f_X(x) = \frac{1}{15\sqrt{2 \pi}} e^{-\frac{1}{2}\frac{(x-100)^2}{15^2}}\)</span>. Vypočítajte pravdepodobnosť, že náhodne vybraný človek z tejto populácie bude mať IQ väčšie ako 130.</p>
 <span class="math display">\[\begin{eqnarray*}
 P(X &gt; 130) &amp;=&amp; 1-P(X \leq 130) =  1 - \int_{-\infty}^{130} f_X(x)dx =  1 - \int_{-\infty}^{130} \frac{1}{15\sqrt{2 \pi}} e^{-\frac{1}{2}\frac{(x-100)^2}{15^2}} dx \\
 &amp;=&amp; \cdots \approx  1 -  0.9772 = 2.28\%.
@@ -372,8 +372,8 @@ P(X &gt; 130) &amp;=&amp; 1-P(X \leq 130) =  1 - \int_{-\infty}^{130} f_X(x)dx =
 <li>substitúcia</li>
 </ul>
 <p>Iné techniky, ako napríklad využitie trigonimetrických identít alebo rozklad na čiastočné zlomky, sa pre naše potreby budú využívať len zriedka, až vôbec.</p>
-<div class="example">
-<p>Majme náhodnú premennú <span class="math inline">\(X\)</span>, ktorá má nasledovnú funkciu hustoty <span class="math inline">\(f_X(x) = \frac{1}{2}e^{-x/2}\)</span> pre <span class="math inline">\(x &gt; 0\)</span> inak <span class="math inline">\(f_X(x)=0\)</span>. Vypočítajte <span class="math inline">\(\text{E}[X].\)</span></p>
+<div id="exm-" class="Example theorem example">
+<p><span class="theorem-title"><strong>Example 6.3</strong></span> Majme náhodnú premennú <span class="math inline">\(X\)</span>, ktorá má nasledovnú funkciu hustoty <span class="math inline">\(f_X(x) = \frac{1}{2}e^{-x/2}\)</span> pre <span class="math inline">\(x &gt; 0\)</span> inak <span class="math inline">\(f_X(x)=0\)</span>. Vypočítajte <span class="math inline">\(\text{E}[X].\)</span></p>
 <span class="math display">\[\begin{eqnarray*}
 \text{E}[X] &amp;=&amp;\int_{-\infty}^{\infty} x f_X(x) dx = \int_{0}^{\infty} x \frac{1}{2}e^{-x/2} dx \\
 &amp;=&amp; \left[x . \left(-e^{-\frac{x}{2}} \right)\right]^{\infty}_0  - \int_{0}^{\infty} 1 . \left(-e^{-\frac{x}{2}} \right) dx\\
@@ -393,8 +393,8 @@ P(X &gt; 130) &amp;=&amp; 1-P(X \leq 130) =  1 - \int_{-\infty}^{130} f_X(x)dx =
 <p><span class="math display">\[\text{E}[g(X)] = \int_{-\infty}^{\infty} g(x) f_X(x) dx.\]</span> Poznamenajme, že aj pre spojitú náhodnú premennú platí <span class="math inline">\(\text{E}[aX + bY] = a\text{E}[X]+ b\text{E}[Y],\)</span> teda stredná hodnota je lineárny operátor.</p>
 <p><strong>Variancia hodnota spojite rozdelenej náhodnej premennej</strong> je</p>
 <p><span class="math display">\[\text{Var}[X] = \text{E}[(X-\text{E}[X])^2] = \int_{-\infty}^{\infty} (x - \text{E}(X))^2 f_X(x) dx,\]</span> ak <span class="math inline">\(\int_{-\infty}^{\infty} |x^2| f_X(x) dx &lt; \infty.\)</span> Aj pre spojite rozdelenú náhodnú premennú platí <span class="math inline">\(\text{Var}[X] = \text{E}[X^2] - (\text{E}[X])^2.\)</span></p>
-<div class="example">
-<p>Majme náhodnú premennú <span class="math inline">\(X\)</span>, ktorá má nasledovnú funkciu hustoty <span class="math inline">\(f_X(x) = \frac{1}{2}e^{-x/2}\)</span> pre <span class="math inline">\(x &gt; 0\)</span>, inak <span class="math inline">\(f_X(x)=0\)</span>. Vypočítajte <span class="math inline">\(\text{Var}[X].\)</span></p>
+<div id="exm-" class="Example theorem example">
+<p><span class="theorem-title"><strong>Example 6.4</strong></span> Majme náhodnú premennú <span class="math inline">\(X\)</span>, ktorá má nasledovnú funkciu hustoty <span class="math inline">\(f_X(x) = \frac{1}{2}e^{-x/2}\)</span> pre <span class="math inline">\(x &gt; 0\)</span>, inak <span class="math inline">\(f_X(x)=0\)</span>. Vypočítajte <span class="math inline">\(\text{Var}[X].\)</span></p>
 <span class="math display">\[\begin{eqnarray*}
 \text{E}[X] &amp;=&amp; \dots [\text{ukázali sme vyššie}] \dots = 2 \\
 \text{E}[X^2] &amp;=&amp; \dots [\text{dva krát per partes}] \dots = 8 \\
@@ -412,8 +412,8 @@ P(X &gt; 130) &amp;=&amp; 1-P(X \leq 130) =  1 - \int_{-\infty}^{130} f_X(x)dx =
 </div>
 </div>
 </div>
-<div class="example">
-<p>Majme náhodnú premennú <span class="math inline">\(X\)</span>, ktorá má nasledovnú funkciu hustoty <span class="math inline">\(f_X(x) = \frac{1}{2}e^{-x/2}\)</span> pre <span class="math inline">\(x &gt; 0\)</span>, inak <span class="math inline">\(f_X(x)=0\)</span>. Vypočítajte jej medián.</p>
+<div id="exm-" class="Example theorem example">
+<p><span class="theorem-title"><strong>Example 6.5</strong></span> Majme náhodnú premennú <span class="math inline">\(X\)</span>, ktorá má nasledovnú funkciu hustoty <span class="math inline">\(f_X(x) = \frac{1}{2}e^{-x/2}\)</span> pre <span class="math inline">\(x &gt; 0\)</span>, inak <span class="math inline">\(f_X(x)=0\)</span>. Vypočítajte jej medián.</p>
 <p>Vieme, že kumulatívna distribučná funkcia vyzerá nasledovne <span class="math display">\[\begin{equation*}
 F_X(t)=
 \begin{cases}

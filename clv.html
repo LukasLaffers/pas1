@@ -303,8 +303,8 @@ P(X \leq x-\epsilon) &amp;\leq&amp;   P(X_n \leq x) + P(|X_n - X|&gt;\epsilon).
 </div>
 </div>
 <p>Toto má dôležité praktické dôsledky. My vôbec nemusíme vedieť, aké má nejaká náhodná pravdepodobnostné rozdelenie. Ale vieme, že priemer nezávislých náhodných premenných sa už bude správať systematicky(!). Toto je veľmi všeobecný výsledok. Na tomto poznatku je založených mnoho štatistických testov.</p>
-<div class="example">
-<p>Hádžeme férovou kockou 900 krát. Ideme aproximovať pravdepodobnosť, že uvidíme viacej ako 495 hláv. Každý hod mincou <span class="math inline">\(X_i \sim \text{Bern}(0.5)\)</span> a <span class="math inline">\(\text{E}[X_i] = 0.5, \text{Var}[X_i] = 0.25.\)</span></p>
+<div id="exm-" class="Example theorem example">
+<p><span class="theorem-title"><strong>Example 9.1</strong></span> Hádžeme férovou kockou 900 krát. Ideme aproximovať pravdepodobnosť, že uvidíme viacej ako 495 hláv. Každý hod mincou <span class="math inline">\(X_i \sim \text{Bern}(0.5)\)</span> a <span class="math inline">\(\text{E}[X_i] = 0.5, \text{Var}[X_i] = 0.25.\)</span></p>
 <p>Preto</p>
 <span class="math display">\[\begin{eqnarray*}
 P\left(\sum_{i=1}^{900} X_i &gt; 495\right)&amp;=&amp; P\left(\frac{\sum_{i=1}^{900} X_i}{900} &gt; \frac{495}{900}\right) \\
@@ -317,8 +317,8 @@ P\left(\sum_{i=1}^{900} X_i &gt; 495\right)&amp;=&amp; P\left(\frac{\sum_{i=1}^{
 \end{eqnarray*}\]</span>
 <p>Princíp výpočtu takýchto aproximácií je vždy rovnaký. Začneme s tým, čo chceme vypočítať a ekvivalentnými úpravami to prevedieme na formuláciu CLV.</p>
 </div>
-<div class="example">
-<p>Majme nezávislé <span class="math inline">\(X_1, X_2, \cdots X_{12}\)</span> kde <span class="math inline">\(X_i \sim \text{Unif}[0,1].\)</span> Pomocou CLV aproximujte <span class="math inline">\(P(|\bar{X}_n - 0.5| \leq 0.1).\)</span> <span class="math display">\[\begin{eqnarray*}
+<div id="exm-" class="Example theorem example">
+<p><span class="theorem-title"><strong>Example 9.2</strong></span> Majme nezávislé <span class="math inline">\(X_1, X_2, \cdots X_{12}\)</span> kde <span class="math inline">\(X_i \sim \text{Unif}[0,1].\)</span> Pomocou CLV aproximujte <span class="math inline">\(P(|\bar{X}_n - 0.5| \leq 0.1).\)</span> <span class="math display">\[\begin{eqnarray*}
 P(|\bar{X}_n - 0.5| \leq 0.1) &amp;=&amp; P(\sqrt{12}(\bar{X}_n - 0.5)| \leq \sqrt{12}\cdot 0.1)\\
 &amp;=&amp; P\left(\left|\sqrt{12}\frac{\bar{X}_n - 0.5}{\sqrt{\frac{1}{12}}}\right| \leq \sqrt{12}\frac{0.1}{\sqrt{\frac{1}{12}}}\right)\\
 &amp;=&amp; P\left(\left|\sqrt{12}\frac{\bar{X}_n - 0.5}{\sqrt{\frac{1}{12}}}\right| \leq 1.2\right)\\

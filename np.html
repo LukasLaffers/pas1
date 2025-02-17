@@ -266,8 +266,8 @@ window.Quarto = {
 </div>
 </div>
 </div>
-<div id="jednakocka" class="example">
-<p>Hádžeme férovou kockou. Označme <span class="math inline">\(\Omega = \{1,2,3,4,5,6\},\)</span> kde napr. <span class="math inline">\(4\)</span> značí, že na kocke padlo číslo <span class="math inline">\(4\)</span>. Nech <span class="math inline">\(\mathcal{F} = 2^{\Omega}\)</span> a nech <span class="math inline">\(P(A) = \frac{|A|}{6}.\)</span> Označme písmenom <span class="math inline">\(X\)</span> náhodnú premennú, ktorá bude označovať číslo, ktoré padne na kocke. Náhodná premenná <span class="math inline">\(X\)</span> priradí každému elementu <span class="math inline">\(k\)</span> z <span class="math inline">\(\Omega\)</span> reálne číslo nasledovne: <span class="math inline">\(X(k) = k.\)</span> Množina <span class="math inline">\(\{X \leq x\} = \{\omega \in \Omega: X(\omega) \leq x\}\)</span> musí byť v <span class="math inline">\(\mathcal{F}\)</span> pre všetky <span class="math inline">\(x \in \mathbb{R}.\)</span> Napríklad</p>
+<div id="exm-" class="Example theorem example">
+<p><span class="theorem-title"><strong>Example 4.1</strong></span> Hádžeme férovou kockou. Označme <span class="math inline">\(\Omega = \{1,2,3,4,5,6\},\)</span> kde napr. <span class="math inline">\(4\)</span> značí, že na kocke padlo číslo <span class="math inline">\(4\)</span>. Nech <span class="math inline">\(\mathcal{F} = 2^{\Omega}\)</span> a nech <span class="math inline">\(P(A) = \frac{|A|}{6}.\)</span> Označme písmenom <span class="math inline">\(X\)</span> náhodnú premennú, ktorá bude označovať číslo, ktoré padne na kocke. Náhodná premenná <span class="math inline">\(X\)</span> priradí každému elementu <span class="math inline">\(k\)</span> z <span class="math inline">\(\Omega\)</span> reálne číslo nasledovne: <span class="math inline">\(X(k) = k.\)</span> Množina <span class="math inline">\(\{X \leq x\} = \{\omega \in \Omega: X(\omega) \leq x\}\)</span> musí byť v <span class="math inline">\(\mathcal{F}\)</span> pre všetky <span class="math inline">\(x \in \mathbb{R}.\)</span> Napríklad</p>
 <ul>
 <li><span class="math inline">\(\{X \leq -2\} = \emptyset \in \mathcal{F},\)</span></li>
 <li><span class="math inline">\(\{X \leq 0.5\} = \emptyset \in \mathcal{F},\)</span></li>
@@ -276,8 +276,8 @@ window.Quarto = {
 </ul>
 <p>Množina <span class="math inline">\(2^{\Omega}\)</span> je preto dostatočne “bohatá” na to, aby na nej bola táto funkcia <span class="math inline">\(X\)</span> náhodnou premennou.</p>
 </div>
-<div id="jednakocka2" class="example">
-<p>Znovu hádžeme férovou kockou. Označme <span class="math inline">\(\Omega = \{1,2,3,4,5,6\},\)</span> kde napr. <span class="math inline">\(4\)</span> značí, že na kocke padlo číslo <span class="math inline">\(4\)</span>. Nech množina udalostí <span class="math inline">\(\mathcal{F^*} = \left\{\emptyset, \Omega, \{1,3,5 \}, \{2,4,6 \} \right\}\)</span> je tentokrát “chudobnejšia” a nech <span class="math inline">\(P(A) = \frac{|A|}{6}.\)</span> Označme písmenom <span class="math inline">\(Y\)</span> funkciu, ktorej hodnota bude 1, ak bude číslo párne a 0 ak bude nepárne.</p>
+<div id="exm-" class="Example theorem example">
+<p><span class="theorem-title"><strong>Example 4.2</strong></span> Znovu hádžeme férovou kockou. Označme <span class="math inline">\(\Omega = \{1,2,3,4,5,6\},\)</span> kde napr. <span class="math inline">\(4\)</span> značí, že na kocke padlo číslo <span class="math inline">\(4\)</span>. Nech množina udalostí <span class="math inline">\(\mathcal{F^*} = \left\{\emptyset, \Omega, \{1,3,5 \}, \{2,4,6 \} \right\}\)</span> je tentokrát “chudobnejšia” a nech <span class="math inline">\(P(A) = \frac{|A|}{6}.\)</span> Označme písmenom <span class="math inline">\(Y\)</span> funkciu, ktorej hodnota bude 1, ak bude číslo párne a 0 ak bude nepárne.</p>
 <!-- MP: tu nema byt Y v dalsom riadku?? -->
 <p>Množina <span class="math inline">\(\{Y \leq y\} = \{\omega \in \Omega: Y(\omega) \leq y\}\)</span> musí byť v <span class="math inline">\(\mathcal{F}^*\)</span> pre všetky <span class="math inline">\(y \in \mathbb{R}.\)</span> Napríklad</p>
 <ul>
@@ -290,8 +290,8 @@ window.Quarto = {
 <p>Nie je. Množina <span class="math inline">\(\{X \leq 2.3\} = \{1,2\} \notin \mathcal{F^*}\)</span> a preto nespĺňa definíciu náhodnej premennej. V definícii sme zvolili <span class="math inline">\(x=2.3.\)</span></p>
 <p>Poučenie: kým množina udalostí <span class="math inline">\(\mathcal{F}\)</span> bola dosť veľká, pri <span class="math inline">\(\mathcal{F^*}\)</span> už nevieme priraďovať pravdepodobnosti hocijakým otázkam. Napriklad na to, aby sme vedeli priradiť pravdepodobnosť udalosti “Padne na kocke číslo menšie ako 2.3?” potrebujem, aby množina <span class="math inline">\(\{1,2\}\)</span> bola tiež udalosťou. Ale to pri <span class="math inline">\(\mathcal{F^*}\)</span> nie je. Množina udalostí <span class="math inline">\(\mathcal{F^*}\)</span> totiž vie jedine rozlišovať, či pádne párne <span class="math inline">\(\{2,4,6\} \in \mathcal{F^*}\)</span> alebo nepárne číslo <span class="math inline">\(\{1,3,5 \} \in \mathcal{F^*}\)</span>. Náhodnej premennej <span class="math inline">\(Y\)</span> to ale nevadí, lebo ona “zlepí” hodnoty <span class="math inline">\(1\)</span>, <span class="math inline">\(3\)</span> aj <span class="math inline">\(5\)</span> do hodnoty <span class="math inline">\(0\)</span>, lebo všetky tieto hodnoty sú pre ňu rovnako nepárne. <!-- MP: do hodnoty 0 nezlepi len 1, 3, 5?? --></p>
 </div>
-<div id="dvekocky" class="example">
-<p>Hádžeme dvoma férovými kockami. Označme <span class="math inline">\(\Omega = \{(1,1),(1,2),(1,3),(1,4),(1,5),(1,6),(2,1),(2,2),(2,3),\cdots, (6,5),(6,6)\},\)</span> kde napr. <span class="math inline">\((3,2)\)</span> značí, že na prvej kocke padlo číslo <span class="math inline">\(3\)</span> a na druhej kocke padlo číslo <span class="math inline">\(2\)</span>. Nech <span class="math inline">\(\mathcal{F} = 2^{\Omega}\)</span> a nech <span class="math inline">\(P(A) = \frac{|A|}{36}.\)</span> Označme písmenom <span class="math inline">\(X\)</span> náhodnú premennú, ktorá bude označovať súčet dvoch čísiel, ktoré padnú na kockách. Náhodná premenná <span class="math inline">\(X\)</span> priradí každému elementu <span class="math inline">\((k_1,k_2)\)</span> z <span class="math inline">\(\Omega\)</span> reálne číslo nasledovne: <span class="math inline">\(X((k_1,k_2)) = k_1 + k_2.\)</span></p>
+<div id="exm-" class="Example theorem example">
+<p><span class="theorem-title"><strong>Example 4.3</strong></span> Hádžeme dvoma férovými kockami. Označme <span class="math inline">\(\Omega = \{(1,1),(1,2),(1,3),(1,4),(1,5),(1,6),(2,1),(2,2),(2,3),\cdots, (6,5),(6,6)\},\)</span> kde napr. <span class="math inline">\((3,2)\)</span> značí, že na prvej kocke padlo číslo <span class="math inline">\(3\)</span> a na druhej kocke padlo číslo <span class="math inline">\(2\)</span>. Nech <span class="math inline">\(\mathcal{F} = 2^{\Omega}\)</span> a nech <span class="math inline">\(P(A) = \frac{|A|}{36}.\)</span> Označme písmenom <span class="math inline">\(X\)</span> náhodnú premennú, ktorá bude označovať súčet dvoch čísiel, ktoré padnú na kockách. Náhodná premenná <span class="math inline">\(X\)</span> priradí každému elementu <span class="math inline">\((k_1,k_2)\)</span> z <span class="math inline">\(\Omega\)</span> reálne číslo nasledovne: <span class="math inline">\(X((k_1,k_2)) = k_1 + k_2.\)</span></p>
 </div>
 </section>
 <section id="kumulatívna-distribučná-funkcia" class="level2" data-number="4.2">
@@ -316,8 +316,8 @@ window.Quarto = {
 </ul>
 <p>Tieto vlastnosti nám ukazujú, že pomocou kumulatívnej distribučnej funkcie vieme vyjadriť pravdepodobnosť toho, že náhodná premenná nabobudne hodnotu v akomkoľvek intervale. Pripomeňme, že napríklad <span class="math inline">\(P(X \in [a,b))\)</span> je len skrátený zápis pre pravdepodobnosť nasledovnej množiny <span class="math inline">\(P\left(\{\omega \in \Omega: a \leq X(\omega) &lt; b \} \right).\)</span></p>
 <p>Kumulatívna distribučná funkcia poskytuje kompletnú informáciu o pravdepodobnostnom správaní náhodnej premenej. Inými slovami, úplne popisuje typ náhodnosti.</p>
-<div class="example">
-<p>Hádžeme férovou kockou a máme náhodnu premennú číslo, ktoré padlo na kocke <span class="math inline">\(X\)</span> a identifikátorovú premennú <span class="math inline">\(Y\)</span> čí padlo párne číslo ako v príkladoch @ref(exm:jednakocka) a @ref(exm:jednakocka2).</p>
+<div id="exm-" class="Example theorem example">
+<p><span class="theorem-title"><strong>Example 4.4</strong></span> Hádžeme férovou kockou a máme náhodnu premennú číslo, ktoré padlo na kocke <span class="math inline">\(X\)</span> a identifikátorovú premennú <span class="math inline">\(Y\)</span> čí padlo párne číslo ako v príkladoch @ref(exm:jednakocka) a @ref(exm:jednakocka2).</p>
 </div>
 <div class="cell">
 <div class="cell-output-display">
@@ -337,8 +337,8 @@ window.Quarto = {
 </div>
 </div>
 </div>
-<div class="example">
-<p>Hádžeme dvoma férovými kockami a máme náhodnu premennú súčet dvoch kociek <span class="math inline">\(X\)</span> ako v príklade @ref(exm:dvekocky).</p>
+<div id="exm-" class="Example theorem example">
+<p><span class="theorem-title"><strong>Example 4.5</strong></span> Hádžeme dvoma férovými kockami a máme náhodnu premennú súčet dvoch kociek <span class="math inline">\(X\)</span> ako v príklade @ref(exm:dvekocky).</p>
 </div>
 <div class="cell">
 <div class="cell-output-display">
@@ -349,8 +349,8 @@ window.Quarto = {
 </div>
 </div>
 </div>
-<div id="iq" class="example">
-<p>Predpokladajme, že náhodná premenná <span class="math inline">\(X\)</span> reprezentuje IQ v populácii, jej kumulatívna distribučná funkcia môže vyzerať napríklad takto:</p>
+<div id="exm-" class="Example theorem example">
+<p><span class="theorem-title"><strong>Example 4.6</strong></span> Predpokladajme, že náhodná premenná <span class="math inline">\(X\)</span> reprezentuje IQ v populácii, jej kumulatívna distribučná funkcia môže vyzerať napríklad takto:</p>
 </div>
 <div class="cell">
 <div class="cell-output-display">
@@ -362,8 +362,8 @@ window.Quarto = {
 </div>
 </div>
 <!-- main = "Kumulatívna distribučná funkcia: hod dvomi kockou" :) :) -->
-<div id="velakociek" class="example">
-<p>Hádžeme sedemnástimi férovými kockami a máme náhodnú premennú súčet sedemnástich kociek <span class="math inline">\(X\)</span> ako v príklade @ref(exm:dvekocky), kde boli len dve.</p>
+<div id="exm-" class="Example theorem example">
+<p><span class="theorem-title"><strong>Example 4.7</strong></span> Hádžeme sedemnástimi férovými kockami a máme náhodnú premennú súčet sedemnástich kociek <span class="math inline">\(X\)</span> ako v príklade @ref(exm:dvekocky), kde boli len dve.</p>
 </div>
 <div class="cell">
 <div class="cell-output-display">
@@ -375,8 +375,8 @@ window.Quarto = {
 </div>
 </div>
 <!-- main = "Kumulatívna distribučná funkcia: hod dvomi kockou" :) :) -->
-<div class="example">
-<p>Vyška mužov (modrou) a žien (červenou), v populácii kde je 60% žien. Celková kumulatívna distribučná funkcia pre mužov a ženy spolu je čiernou.</p>
+<div id="exm-" class="Example theorem example">
+<p><span class="theorem-title"><strong>Example 4.8</strong></span> Vyška mužov (modrou) a žien (červenou), v populácii kde je 60% žien. Celková kumulatívna distribučná funkcia pre mužov a ženy spolu je čiernou.</p>
 </div>
 <div class="cell">
 <div class="cell-output-display">
@@ -387,8 +387,8 @@ window.Quarto = {
 </div>
 </div>
 </div>
-<div class="example">
-<p>Uvažujme výšky z predchádzajúceho príkladu. Majte nasledovnú súťaž. Človek hodí mincou: ak padne hlava (<span class="math inline">\(M=1\)</span>), tak vyhrá cenu vo výške (v eurách) svojej výšky v cm <span class="math inline">\(H\)</span>. Ak padne znak (<span class="math inline">\(M=0\)</span>), tak nevyhrá nič. Výhra je teda <span class="math inline">\(V = H \cdot M\)</span>.</p>
+<div id="exm-" class="Example theorem example">
+<p><span class="theorem-title"><strong>Example 4.9</strong></span> Uvažujme výšky z predchádzajúceho príkladu. Majte nasledovnú súťaž. Človek hodí mincou: ak padne hlava (<span class="math inline">\(M=1\)</span>), tak vyhrá cenu vo výške (v eurách) svojej výšky v cm <span class="math inline">\(H\)</span>. Ak padne znak (<span class="math inline">\(M=0\)</span>), tak nevyhrá nič. Výhra je teda <span class="math inline">\(V = H \cdot M\)</span>.</p>
 </div>
 <div class="cell">
 <div class="cell-output-display">
