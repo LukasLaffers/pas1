@@ -1,0 +1,1588 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.6.40">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>5&nbsp; Diskrétna náhodná premenná – Pravdepodobnosť a štatistika 1</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+</style>
+
+
+<script src="site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="site_libs/quarto-nav/headroom.min.js"></script>
+<script src="site_libs/clipboard/clipboard.min.js"></script>
+<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="site_libs/quarto-search/fuse.min.js"></script>
+<script src="site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="./">
+<link href="./snp.html" rel="next">
+<link href="./np.html" rel="prev">
+<script src="site_libs/quarto-html/quarto.js"></script>
+<script src="site_libs/quarto-html/popper.min.js"></script>
+<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="site_libs/quarto-html/anchor.min.js"></script>
+<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-549806ee2085284f45b00abea8c6df48.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="site_libs/bootstrap/bootstrap-626149efe8f5d16e1d391ba177679bf0.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "sidebar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "start",
+  "type": "textbox",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN") {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
+
+</head>
+
+<body class="nav-sidebar floating">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+  <nav class="quarto-secondary-nav">
+    <div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
+      </button>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./dnp.html"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Diskrétna náhodná premenná</span></a></li></ol></nav>
+        <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        </a>
+      <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
+        <i class="bi bi-search"></i>
+      </button>
+    </div>
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
+    <div class="pt-lg-2 mt-2 text-left sidebar-header">
+    <div class="sidebar-title mb-0 py-0">
+      <a href="./">Pravdepodobnosť a štatistika 1</a> 
+    </div>
+      </div>
+        <div class="mt-2 flex-shrink-0 align-items-center">
+        <div class="sidebar-search">
+        <div id="quarto-search" class="" title="Search"></div>
+        </div>
+        </div>
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">O tomto kurze</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./intro.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Interpretácia pravdepodobnosti</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./set.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Pravdepodobnosť</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./cond.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Podmienená pravdepodobnosť</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./np.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Náhodná premenná</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./dnp.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Diskrétna náhodná premenná</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./snp.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Spojitá náhodná premenná</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./cov.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Súvis medzi náhodnými premennými</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./zvc.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Zákon veľkých čísel</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./clv.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Centrálna limitná veta</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./opa.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Opakovanie</span></span></a>
+  </div>
+</li>
+    </ul>
+    </div>
+</nav>
+<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Table of contents</h2>
+   
+  <ul>
+  <li><a href="#pravdepodobnostná-funkcia-diskrétnej-náhodnej-premennej" id="toc-pravdepodobnostná-funkcia-diskrétnej-náhodnej-premennej" class="nav-link active" data-scroll-target="#pravdepodobnostná-funkcia-diskrétnej-náhodnej-premennej"><span class="header-section-number">5.1</span> Pravdepodobnostná funkcia diskrétnej náhodnej premennej</a></li>
+  <li><a href="#charakteristiky-diskrétnych-náhodných-premenných" id="toc-charakteristiky-diskrétnych-náhodných-premenných" class="nav-link" data-scroll-target="#charakteristiky-diskrétnych-náhodných-premenných"><span class="header-section-number">5.2</span> Charakteristiky diskrétnych náhodných premenných</a>
+  <ul class="collapse">
+  <li><a href="#stredná-hodnota" id="toc-stredná-hodnota" class="nav-link" data-scroll-target="#stredná-hodnota"><span class="header-section-number">5.2.1</span> Stredná hodnota</a></li>
+  <li><a href="#variancia-rozptyl" id="toc-variancia-rozptyl" class="nav-link" data-scroll-target="#variancia-rozptyl"><span class="header-section-number">5.2.2</span> Variancia (rozptyl)</a></li>
+  </ul></li>
+  <li><a href="#rovnomerné-rozdelenie" id="toc-rovnomerné-rozdelenie" class="nav-link" data-scroll-target="#rovnomerné-rozdelenie"><span class="header-section-number">5.3</span> Rovnomerné rozdelenie</a></li>
+  <li><a href="#bernoulliho-rozdelenie" id="toc-bernoulliho-rozdelenie" class="nav-link" data-scroll-target="#bernoulliho-rozdelenie"><span class="header-section-number">5.4</span> Bernoulliho rozdelenie</a></li>
+  <li><a href="#binomické-rozdelenie" id="toc-binomické-rozdelenie" class="nav-link" data-scroll-target="#binomické-rozdelenie"><span class="header-section-number">5.5</span> Binomické rozdelenie</a></li>
+  <li><a href="#poissonovo-rozdelenie" id="toc-poissonovo-rozdelenie" class="nav-link" data-scroll-target="#poissonovo-rozdelenie"><span class="header-section-number">5.6</span> Poissonovo rozdelenie</a></li>
+  <li><a href="#geometrické-rozdelenie" id="toc-geometrické-rozdelenie" class="nav-link" data-scroll-target="#geometrické-rozdelenie"><span class="header-section-number">5.7</span> Geometrické rozdelenie</a></li>
+  <li><a href="#hypergeometrické-rozdelenie" id="toc-hypergeometrické-rozdelenie" class="nav-link" data-scroll-target="#hypergeometrické-rozdelenie"><span class="header-section-number">5.8</span> Hypergeometrické rozdelenie</a></li>
+  <li><a href="#negatívne-binomické-rozdelenie" id="toc-negatívne-binomické-rozdelenie" class="nav-link" data-scroll-target="#negatívne-binomické-rozdelenie"><span class="header-section-number">5.9</span> Negatívne binomické rozdelenie</a></li>
+  <li><a href="#zhrnutie" id="toc-zhrnutie" class="nav-link" data-scroll-target="#zhrnutie"><span class="header-section-number">5.10</span> Zhrnutie</a></li>
+  <li><a href="#cvičenia" id="toc-cvičenia" class="nav-link" data-scroll-target="#cvičenia"><span class="header-section-number">5.11</span> Cvičenia</a></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title"><span id="dnp" class="quarto-section-identifier"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Diskrétna náhodná premenná</span></span></h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<p>Zatiaľ sme si hovorili, že čo je to náhodná premenná. Je to spôsob ako usporiadať/očíslovať náhodnosť tak, aby sa nám s ňou potom vhodne pracovalo. Existujú rôzne druhy/skupiny náhodných premenných:</p>
+<ul>
+<li>diskrétne náhodné premenné,</li>
+<li>spojité náhodné premenné,</li>
+<li>zmiešané náhodné premenné.</li>
+</ul>
+<p>Toto rozdelenie je na základe toho, aké hodnoty môžu tieto náhodné premenné nadobúdať. Delenie dáva zmysel aj preto, že s týmito skupinami náhodných premenných sa pracuje o dosť inak. Prvým dvom skupinám sa budeme venovať osobitne. V rámci tejto kapitoly budeme skúmať <em>diskrétne náhodné premenné</em> s nasledovnými pravdepodobnostnými rozdeleniami:</p>
+<ul>
+<li>rovnomerné rozdelenie,</li>
+<li>Bernoulliho rozdelenie,</li>
+<li>binomické rozdelenie,</li>
+<li>Poissonovo rozdelenie,</li>
+<li>geometrické rozdelenie,</li>
+<li>hypergeometrické rozdelenie,</li>
+<li>negatívne binomické rozdelenie.</li>
+</ul>
+<p>Budú to také náhodné premenné, ktorých obor hodnôt je konečná alebo nanajvýš spočitateľná mnoźina. Každé takéto rozdelenie je vhodné na modelovanie akýchsi špecifických situácií.</p>
+<section id="pravdepodobnostná-funkcia-diskrétnej-náhodnej-premennej" class="level2" data-number="5.1">
+<h2 data-number="5.1" class="anchored" data-anchor-id="pravdepodobnostná-funkcia-diskrétnej-náhodnej-premennej"><span class="header-section-number">5.1</span> Pravdepodobnostná funkcia diskrétnej náhodnej premennej</h2>
+<p>Vieme, že kumulatívna distribučná funkcia <em>plne</em> charakterizuje pravdepodobnostné správanie náhodnej premennej. Je to funkcia a vieme ju zobraziť. V prípade diskrétnej náhodnej premennej však vieme popísať pravdepodobnostné správanie náhodnej premennej aj alternatívne. Jednoducho tak, že vyčíslime pravdepodobnosti <span class="math inline">\(P(X=x)\)</span> pre všetky možné <span class="math inline">\(x \in \mathcal{S}_X,\)</span> kde <span class="math inline">\(\mathcal{S}_X = \{X(\omega): \omega \in \Omega\}.\)</span> Množina <span class="math inline">\(\mathcal{S}_X\)</span> je teda obor hodnôt funkcie <span class="math inline">\(X,\)</span> zahŕňa všetky možné hodnoty, aké môže funkcia <span class="math inline">\(X\)</span> nadobúdať. Pre diskrétnu náhodnú premennú je <span class="math inline">\(\mathcal{S}_X\)</span> konečná alebo nanajvýš spočitateľná množina.</p>
+<p>Funkciu <span class="math inline">\(p_X: \mathcal{S}_X \rightarrow [0,1]\)</span> definovanú nasledovne</p>
+<p><span class="math display">\[p_X(x) = P(X=x)\]</span> nazývame <strong>pravdepodobnostná funkcia diskrétnej náhodnej premennej</strong> <span class="math inline">\(X\)</span>.</p>
+<p>Platí</p>
+<ul>
+<li><span class="math inline">\(0 \leq p_X(x) \leq 1,\)</span></li>
+<li><span class="math inline">\(\sum_{x \in \mathcal{S}_X} p_X(x) = 1.\)</span></li>
+</ul>
+<p>Funkcia <span class="math inline">\(p_X(x)\)</span> tiež kvantifikuje “výšku schodu” v bodoch nespojitosti kumlatívnej distribučnej funkcie diskrétnej náhodnej premennej.</p>
+<div id="jednakocka3" class="example">
+<p>Hádžeme férovou kockou. Označme <span class="math inline">\(\Omega = \{1,2,3,4,5,6\},\)</span> kde napr. <span class="math inline">\(4\)</span> značí, že na kocke padlo číslo <span class="math inline">\(4\)</span>. Nech <span class="math inline">\(\mathcal{F} = 2^{\Omega}\)</span> a nech <span class="math inline">\(P(A) = \frac{|A|}{6}.\)</span> Označme písmenom <span class="math inline">\(X\)</span> náhodnú premennú, ktorá bude označovať číslo, ktoré padne na kocke. Náhodná premenná <span class="math inline">\(X\)</span> priradí každému elementu <span class="math inline">\(k \in \Omega\)</span> reálne číslo nasledovne: <span class="math inline">\(X(k) = k.\)</span></p>
+</div>
+<div class="cell">
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="dnp_files/figure-html/dnp-1-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+<div id="dvekocky2" class="example">
+<p>Hádžeme dvoma férovými kockami. Označme <span class="math inline">\(\Omega = \{(1,1),(1,2),(1,3),(1,4),(1,5),(1,6),(2,1),(2,2),(2,3),\cdots, (6,5),(6,6)\},\)</span> kde napr. <span class="math inline">\((3,2)\)</span> značí, že na prvej kocke padlo číslo <span class="math inline">\(3\)</span> a na druhej kocke padlo číslo <span class="math inline">\(2\)</span>. Nech <span class="math inline">\(\mathcal{F} = 2^{\Omega}\)</span> a nech <span class="math inline">\(P(A) = \frac{|A|}{36}.\)</span> Označme písmenom <span class="math inline">\(X\)</span> náhodnú premennú, ktorá bude označovať súčet dvoch čísiel, ktoré padnú na kockách. Náhodná premenná <span class="math inline">\(X\)</span> priradí každému elementu <span class="math inline">\((k_1,k_2)\)</span> z <span class="math inline">\(\Omega\)</span> reálne číslo nasledovne: <span class="math inline">\(X((k_1,k_2)) = k_1 + k_2.\)</span></p>
+</div>
+<div class="cell">
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="dnp_files/figure-html/dnp-2-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+</section>
+<section id="charakteristiky-diskrétnych-náhodných-premenných" class="level2" data-number="5.2">
+<h2 data-number="5.2" class="anchored" data-anchor-id="charakteristiky-diskrétnych-náhodných-premenných"><span class="header-section-number">5.2</span> Charakteristiky diskrétnych náhodných premenných</h2>
+<p>Niekedy je užitočné reprezentovať nejaký aspekt tohoto správania jedným číslom. Okolo akej hodnoty je toto rozdelenie centrované (stredná hodnota) a ako veľmi je koncentrované/roztýlené (variancia/rozptyl).</p>
+<section id="stredná-hodnota" class="level3" data-number="5.2.1">
+<h3 data-number="5.2.1" class="anchored" data-anchor-id="stredná-hodnota"><span class="header-section-number">5.2.1</span> Stredná hodnota</h3>
+<p><strong>Stredná hodnota</strong> diskrétnej náhodnej premennej je zadefinovaná ako</p>
+<p><span class="math display">\[\text{E}[X] = \sum_{x \in \mathcal{S}_X} x \cdot p_X(x),\]</span> pokiaľ platí <span class="math inline">\(\sum_{x \in \mathcal{S}_X} |x| \cdot p_X(x) &lt; \infty.\)</span><a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a></p>
+<p>Ak pretransformujeme náhodnú premennú <span class="math inline">\(Y = f(X),\)</span> kde <span class="math inline">\(f: \mathbb{R} \rightarrow \mathbb{R},\)</span> tak jej stredná hodnota je</p>
+<p><span class="math display">\[\text{E}[Y] = E\left[ f(X) \right] = \sum_{x \in \mathcal{S}_X} f(x) \cdot p_X(x).\]</span></p>
+<div class="example">
+<p>Hádžeme férovou kockou. Nech <span class="math inline">\(X\)</span> označuje číslo, ktoré padlo na kocke.</p>
+<p><span class="math display">\[\text{E}[X] = \sum_{x \in \mathcal{S}_X} x \cdot p_X(x) = \sum_{x \in \{1,2,3,4,5,6\}} x \cdot p_X(x)= \sum_{x =1}^{6}x \cdot \frac{1}{6} = 3.5. \]</span></p>
+</div>
+<div class="example">
+<p>Hádžeme dvomi férovými kockami. Nech <span class="math inline">\(X\)</span> označuje súčet čísel na dvoch kockách.</p>
+<span class="math display">\[\begin{eqnarray*}
+\text{E}[X] &amp;=&amp; \sum_{x \in \mathcal{S}_X} x \cdot p_X(x) = \sum_{x \in \{2,3,\cdots,12\}} x \cdot p_X(x)\\
+     &amp;=&amp; 2 \cdot \frac{1}{36} + 3 \cdot \frac{2}{36}+ 4 \cdot \frac{3}{36}+ 5 \cdot \frac{4}{36}+ 6 \cdot \frac{5}{36}+ 7 \cdot \frac{6}{36}\\
+     &amp;&amp; + 8 \cdot \frac{5}{36}+ 9 \cdot \frac{4}{36}+ 10 \cdot \frac{3}{36}+ 11 \cdot \frac{2}{36}+ 12 \cdot \frac{1}{36} = 7.
+\end{eqnarray*}\]</span>
+</div>
+<p>Stredná hodnota charakterizuje náhodnú premennú jedným číslom. Je to vážený priemer, kde hodnoty sú váhované prislúchajúcimi pravdepodobnosťami. Fyzikálnou interpretáciou je <em>ťažisko</em>.</p>
+<div class="example">
+<p>Hádžeme neférovou mincou. <span class="math inline">\(\Omega = \{H,Z\}, \mathcal{F} = 2^{\Omega}\)</span> a <span class="math inline">\(P(\{H\}) = 0.8 = 1-P(\{Z\}).\)</span> Nech <span class="math inline">\(X(H) = 1\)</span> a <span class="math inline">\(X(Z) = 0.\)</span></p>
+<p><span class="math display">\[\text{E}[X] = 1 \cdot 0.8 + 0 \cdot 0.2 = 0.8.\]</span></p>
+</div>
+<div class="cell" data-layout-align="center">
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="fig_expcoin.png" class="img-fluid figure-img" style="width:80.0%"></p>
+<figcaption>Ilustrácia strednej hodnoty pre neférovú mincu. Stredná hodnota je číslo, kde treba podložiť hojdačku tak, aby bola v rovnováhe.</figcaption>
+</figure>
+</div>
+</div>
+</div>
+<p>Pre strednú hodnotu platí, že je <em>lineárna</em>. Uvažujme dve náhodné premenné <span class="math inline">\(X\)</span> a <span class="math inline">\(Y\)</span> a tretiu náhodnú premennú <span class="math inline">\(Z\)</span>, pre ktorú platí <span class="math inline">\(Z = aX +bY.\)</span> Náhodná premenná <span class="math inline">\(Z\)</span> nadobúda hodnoty v <span class="math inline">\(\mathcal{S}_Z = \{ax+by: x \in \mathcal{S}_X, y \in \mathcal{S}_Y \}.\)</span></p>
+<span class="math display">\[\begin{eqnarray*}
+E[Z] &amp;=&amp; \sum_{z \in \mathcal{S}_Z} z \cdot p_Z(z) = \sum_{x \in \mathcal{S}_X,y \in \mathcal{S}_Y} (ax+by) \cdot P(aX=ax \cap bY = by)\\
+&amp;=&amp; \sum_{x \in \mathcal{S}_X,y \in \mathcal{S}_Y} ax \cdot P(X=x \cap Y = y) + \sum_{x \in \mathcal{S}_X,y \in \mathcal{S}_Y}by \cdot P(X=x \cap Y = y)\\
+&amp;=&amp; \sum_{x \in \mathcal{S}_X} ax \cdot P(X=x) + \sum_{y \in \mathcal{S}_Y} by \cdot P(Y=y) \\
+&amp;=&amp; a\sum_{x \in \mathcal{S}_X} x \cdot p_X(x) + b\sum_{y \in \mathcal{S}_Y} y \cdot p_Y(y) \\
+&amp;=&amp; a E(X) + b E(Y).
+\end{eqnarray*}\]</span>
+<p>Využili sme, že platí <span class="math display">\[\sum_{x \in \mathcal{S}_X,y \in \mathcal{S}_Y} P(X=x \cap Y = y) = \sum_{x \in \mathcal{S}_X}  P(X=x) = \sum_{y \in \mathcal{S}_Y} P(Y=y),\]</span> lebo množiny <span class="math inline">\(\{X=x\}\)</span> pre <span class="math inline">\(x \in \mathcal{S}_X\)</span> a <span class="math inline">\(\{Y=y\}\)</span> pre <span class="math inline">\(y \in \mathcal{S}_Y\)</span> tvoria rozklad množiny <span class="math inline">\(\Omega.\)</span></p>
+<p><span class="math display">\[\Omega = \cup_{x \in \mathcal{S}_X} \{X=x \} = \cup_{y \in \mathcal{S}_Y} \{Y=y \}.\]</span> Pripomeňme, že <span class="math inline">\(\{X=x \}\)</span> je len skrátený zápis pre množinu <span class="math inline">\(\{\omega \in \Omega: X(\omega) = x \}.\)</span></p>
+<p>Z tohoto priamo vyplýva aj</p>
+<p><span class="math display">\[E[aX+b] = a\text{E}[X]+b,\]</span></p>
+<p>nakoľko môžeme uvažovať náhodnú premennú <span class="math inline">\(Y=1\)</span> ako konštantnú jednotku.</p>
+<div class="cell" data-layout-align="center">
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="fig_expbin.png" class="img-fluid figure-img" style="width:80.0%"></p>
+<figcaption>Ilustrácia strednej hodnoty pre počet úspechov z celkového počtu 10 nezávislých pokusov, kde každý úspech má pravdepodobnosť 0.3.</figcaption>
+</figure>
+</div>
+</div>
+</div>
+</section>
+<section id="variancia-rozptyl" class="level3" data-number="5.2.2">
+<h3 data-number="5.2.2" class="anchored" data-anchor-id="variancia-rozptyl"><span class="header-section-number">5.2.2</span> Variancia (rozptyl)</h3>
+<p><strong>Variancia</strong> diskrétnej náhodnej premennej je zadefinovaná ako</p>
+<p><span class="math display">\[\text{Var}[X] = E\left[(X-\text{E}[X])^2\right].\]</span> Takže variancia nie je nič iné ako stredná hodnota kvadratických odchýlok od strednej hodnoty, teda <span class="math inline">\(\text{E}[Y]\)</span>, kde <span class="math inline">\(Y = (X-\text{E}[X])^2\)</span>.</p>
+<p>Z definície variancie máme priamo:</p>
+<p><span class="math display">\[\text{Var}[X] =  \sum_{x \in \mathcal{S}_X} (x - \text{E}[X])^2 \cdot p_X(x).\]</span> Naviac platí</p>
+<span class="math display">\[\begin{eqnarray*}
+\text{Var}[X] &amp;=&amp; E\left[ X^2-2X\cdot \text{E}[X]+(\text{E}[X])^2 \right] \\
+&amp;=&amp; E[X^2] - 2 \text{E}[X] \cdot \text{E}[X] + \left(\text{E}[X]\right)^2  \\
+&amp;=&amp; E[X^2] - \left(\text{E}[X]\right)^2,
+\end{eqnarray*}\]</span>
+<p>kde sme využili linearitu strednej hodnoty náhodnej premennej.</p>
+<p><strong>Smerodajná odchýlka</strong> náhodnej premennej je odmocnina z jej variancie</p>
+<p><span class="math display">\[\text{sd}[X] = \sqrt{\text{Var}[X]}.\]</span></p>
+<p>Kým interpretácia strednej hodnoty bola, že ide o ťažisko, pri variancii alebo smerodajnej odchýlke je to o čosi zložitejšie.</p>
+<div class="example">
+<p>Variancia a smerodajná odchýlka výsledku hodu neférovej mince.</p>
+<span class="math display">\[\begin{eqnarray*}
+\text{E}[X] &amp;=&amp; 0 \cdot 0.2 + 1 \cdot 0.8 = 0.8,\\
+E[X^2] &amp;=&amp; 0^2 \cdot 0.2 + 1^2 \cdot 0.8 = 0.8,\\
+\text{Var}[X] &amp;=&amp; E[X^2] - (\text{E}[X])^2 = 0.8 - 0.8^2 = 0.16, \\
+\text{sd}[X] &amp;=&amp; \sqrt{\text{Var}[X]} = \sqrt{0.16} = 0.4.
+\end{eqnarray*}\]</span>
+</div>
+<div class="example">
+<p>Uvažujme náhodnú premennú <span class="math inline">\(Y\)</span> o ktorej vieme, že</p>
+<span class="math display">\[\begin{eqnarray*}
+p_Y(1) &amp;=&amp; 0.3,\\
+p_Y(2) &amp;=&amp; 0.5,\\
+p_Y(3) &amp;=&amp; 0.2.\\
+\end{eqnarray*}\]</span>
+<p>Potom platí <span class="math display">\[\begin{eqnarray*}
+\text{E}[Y] &amp;=&amp; 1 \cdot 0.3 + 2 \cdot 0.5 + 3 \cdot 0.2 = 1.9,\\
+E[Y^2] &amp;=&amp; 1^2 \cdot 0.3 + 2^2 \cdot 0.5 + 3^2 \cdot 0.2 = 4.1,\\
+\text{Var}[Y] &amp;=&amp; E[Y^2] - (\text{E}[Y])^2 = 4.1 - 3.61 = 0.49.
+\end{eqnarray*}\]</span></p>
+<p>môžeme skontrolovať, že vskutku platí <span class="math display">\[\begin{eqnarray*}
+\text{Var}[Y] &amp;=&amp; E[(Y-\text{E}[Y])^2]\\
+&amp;=&amp; (1-1.9)^2 \cdot 0.3 + (2-1.9)^2 \cdot 0.5 + (3-1.9)^2 \cdot 0.2\\
+&amp;=&amp; 0.243  + 0.005 + 0.242\\
+&amp;=&amp; 0.49.
+\end{eqnarray*}\]</span></p>
+<p>Smerodajná odchýlka je preto <span class="math inline">\(\text{sd}[Y] = \sqrt{\text{Var}[Y]} = 0.7.\)</span></p>
+<p>Na tomto príklade si možno všimnúť aj to, že na jeho výpočet nepotrebujeme priamo pracovať s pravdepodobnostným priestorom.</p>
+</div>
+</section>
+</section>
+<section id="rovnomerné-rozdelenie" class="level2" data-number="5.3">
+<h2 data-number="5.3" class="anchored" data-anchor-id="rovnomerné-rozdelenie"><span class="header-section-number">5.3</span> Rovnomerné rozdelenie</h2>
+<p>Hovoríme, že diskrétna náhodná premenná <span class="math inline">\(X\)</span> má <strong>rovnomerné rozdelenie</strong> na hodnotách <span class="math inline">\(1,2,3,\cdots,m\)</span> ak platí<a href="#fn2" class="footnote-ref" id="fnref2" role="doc-noteref"><sup>2</sup></a></p>
+<span class="math display">\[\begin{equation*}
+p_X(k)=
+\begin{cases}
+\frac{1}{m}, &amp; \text{ak}\ k \in \{1,2,\cdots,m \} \\
+0, &amp; \text{inak}
+\end{cases}
+\end{equation*}\]</span>
+<p>Takúto náhodnú premennú označujeme ako <span class="math inline">\(X \sim \text{Unif}(\{1,2,\cdots,m\}),\)</span></p>
+<p>Toto rozdelenie modeluje situácie, keď sú výsledky experimentu prislúchajúce <span class="math inline">\(X=1, X=2\)</span> alebo <span class="math inline">\(X=k\)</span> rovnako pravdepodobné. Inými slovami, keď veci nastávajú “náhodne” - v zmysle nesystematicky. Argument symetrie je niekedy použitý, a ak nie je povedané inak, tak použitím slova “náhodne” sa potichu predpokladá, že udalosti sú rovnako pravdepodobné.</p>
+<p>Pre <span class="math inline">\(X\)</span> s rovnomerným rozdelením musíme mať množinu <span class="math inline">\(\mathcal{S}_X\)</span> konečnú, nakoľko potrebujeme aby platilo <span class="math inline">\(\sum_{x \in \mathcal{S}_X}p_X(x)\)</span>.</p>
+<p>Príkladov na toto rozdelenie sme videli už viacero: hod férovou kockou alebo hod férovou mincou.</p>
+<p>Stredná hodnota a variancia pre takúto náhodnú premennú sú <span class="math display">\[\begin{eqnarray*}
+\text{E}[X] &amp;=&amp; \sum_{k=1}^{m}k\frac{1}{m}=\frac{1}{m} \frac{m(m+1)}{2} = \frac{m+1}{2},\\
+\text{Var}[X] &amp;=&amp; \cdots  =\frac{m^2 - 1}{12}.
+\end{eqnarray*}\]</span></p>
+</section>
+<section id="bernoulliho-rozdelenie" class="level2" data-number="5.4">
+<h2 data-number="5.4" class="anchored" data-anchor-id="bernoulliho-rozdelenie"><span class="header-section-number">5.4</span> Bernoulliho rozdelenie</h2>
+<p>Hovoríme, že diskrétna náhodná premenná <span class="math inline">\(X\)</span> má <strong>Bernoulliho rozdelenie</strong> s parametrom <span class="math inline">\(p\)</span> ak platí</p>
+<span class="math display">\[\begin{equation*}
+p_X(k)=
+\begin{cases}
+p, &amp; \text{ak}\ k=1, \\
+(1-p), &amp; \text{ak}\ k=0, \\
+0, &amp; \text{inak.}
+\end{cases}
+\end{equation*}\]</span>
+<p>To, že náhodná premenná má takéto rozdelenie označujeme <span class="math inline">\(X \sim Bern(p).\)</span></p>
+<p>Stredná hodnota a variancia pre takúto náhodnú premennú sú</p>
+<span class="math display">\[\begin{eqnarray*}
+\text{E}[X] &amp;=&amp; p\cdot 1 + (1-p) \cdot 0 = p,\\
+\text{Var}[X] &amp;=&amp; p(1-p).
+\end{eqnarray*}\]</span>
+<p>Bernoulliho rozdelenie modeluje výsledok hodu (potenciálne) neférovej mince. Ale nielen mince, čohokoľvek, čoho pravdepodobnosť je nejaké fixné číslo.</p>
+<div class="cell">
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="dnp_files/figure-html/dnp-ber-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+</section>
+<section id="binomické-rozdelenie" class="level2" data-number="5.5">
+<h2 data-number="5.5" class="anchored" data-anchor-id="binomické-rozdelenie"><span class="header-section-number">5.5</span> Binomické rozdelenie</h2>
+<p>Hovoríme, že diskrétna náhodná premenná <span class="math inline">\(X\)</span> má <strong>binomické rozdelenie</strong> s parametrami <span class="math inline">\(n\)</span> a <span class="math inline">\(p\)</span> ak platí</p>
+<span class="math display">\[\begin{equation*}
+p_X(k)= P(X=k)=
+\begin{cases}
+{n \choose k} p^k (1-p)^{n-k}, &amp; \text{ak}\ k \in \{0,1,2,\cdots,n \} \\
+0, &amp; \text{inak.}
+\end{cases}
+\end{equation*}\]</span>
+<p>Budeme to označovať <span class="math inline">\(X \sim \text{Bin}(n,p).\)</span></p>
+<p>Stredná hodnota a variancia pre takúto náhodnú premennú sú <span class="math display">\[\begin{eqnarray*}
+\text{E}[X] &amp;=&amp; \sum_{k=0}^{n}k{n \choose k} p^k (1-p)^{n-k}\\
+     &amp;=&amp; \sum_{k=1}^{n}k{n \choose k} p^k (1-p)^{n-k}\\
+     &amp;=&amp; \sum_{k=1}^{n}n{n-1 \choose k-1} p^k (1-p)^{n-k}\\
+     &amp;=&amp; np \sum_{k=1}^{n}{n-1 \choose k-1} p^{k-1} (1-p)^{(n-1)-(k-1)}\\
+     &amp;=&amp; np \sum_{j=0}^{m}{m \choose j} p^{j} (1-p)^{m-j}\\
+     &amp;=&amp; np, \\
+\text{Var}[X] &amp;=&amp; \cdots = np(1-p).
+\end{eqnarray*}\]</span></p>
+<div class="example">
+<p>Majme náhodnú premennú <span class="math inline">\(X\)</span>, ktorá je rozdelená binomicky s parametrami <span class="math inline">\(n=5\)</span> a <span class="math inline">\(p=0.5\)</span>. Vypočítajte <span class="math inline">\(P(X &lt; 2).\)</span></p>
+<p><span class="math display">\[P(X&lt;2) = P(X=0) + P(X=1) = {5 \choose 0} 0.5^0 0.5^{5} + {5 \choose 1} 0.5^1 0.5^{4} = 0.03125 + 0.15625 = 18.75\%\]</span></p>
+</div>
+<p>Aké situácie sú typicky modelované binomickými rozdelením? Musíme mať</p>
+<ul>
+<li>istý <em>fixný</em> počet pokusov</li>
+<li>ktoré majú rovnaký pravdepodobnosť “uspechu” alebo “neúspechu”,</li>
+<li>ktoré sú nezávislé.</li>
+</ul>
+<p>Je dôležité poznamenať, že ide o <em>zjednodušenie</em>, ktorého ambíciou je byť užitočné ale nie byť pravdou. Skoro žiadne pravdepodobnosti v reálnom svete nebudú úplne presne rovnaké a udalosti úplne nezávislé. Binomické rozdelenie je užitočná zjednodušenina, ktorá nám pomáha kvantifikovať náhodnosť spojenú s takýmito experimentami v myšlienkovom experimente, kde tieto predpoklady sú splnené presne.</p>
+<p>Tu je nejaká skupina situácií, ktoré sú môžu modelované binomickým rozdelením:</p>
+<ul>
+<li>Aká je rozdelenie počtu pokazených súčiastok z celkového počtu 50 kusov? Chybovosť je rovnaká pre všetky súčiastky a tie sa navzájom neovplyvňujú.</li>
+<li>Aká je rozdelenie počtu chorých ľudí zo vzorky 100 ľudí? Pravdepodobnosť ochorenie je pre každého rovnaká a ľudia navzájom neinteragujú.</li>
+<li>Aká je rozdelenie počtu hláv z celkového počtu 10 nezávislých hodov mincou? Minca je stále tá istá.</li>
+<li>Aké je rozdelenie počtu uhádnutých otázok na teste? Pravdepodobnosť uhádnutia každej otázky je rovnaká.</li>
+<li>Aká je rozdelenie počtu vyliečených pacientov zo vzorky veľkosti 33? Pravdepodobnosť vyliečenia je rovnaká a nezávislá od vyliečenia iných pacientov.</li>
+<li>Aké je rozdelenie počtu voličov pre konkrétneho/nu kandidáta/tku v danom volebnom okrsku? Vzorka voličov je homogénna.</li>
+<li>Aké je rozdelenie počtu žien medzi 30 náhodne vybranými učiteľmi/kami na strednej škole?</li>
+<li>V danej vekovej skupine má 10% pacientov nežiadúce účinky po podaní liečby. Aké je rozdelenie počtu hlásení pri vzorke 80 pacientov?</li>
+<li>Aké je rozdelenie počtu SPAMových emailov z celkového počtu 100 emailov? Každý email počas dňa má rovnakú pravdepodobnosť, že bude SPAMom.</li>
+<li>Aké je rozdelenie počtu vrátených kusov tovaru z celkového počtu 234 kusov pre internetový obchod ak je odpozorované, že zákazníci vracajú tovar s pravdepodobnosťou 3%. Uvažujeme, že pravdepodobnosť vrátenia nesúvisí s tým o aký tovar sa jedná a vrátenie jedného kusu tovaru neovplyvní vrátenie iného.</li>
+</ul>
+<div class="cell">
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="dnp_files/figure-html/dnp-bin-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+</section>
+<section id="poissonovo-rozdelenie" class="level2" data-number="5.6">
+<h2 data-number="5.6" class="anchored" data-anchor-id="poissonovo-rozdelenie"><span class="header-section-number">5.6</span> Poissonovo rozdelenie</h2>
+<p>Hovoríme, že diskrétna náhodná premenná <span class="math inline">\(X\)</span> má <strong>Poissonovo rozdelenie</strong> s parametrom <span class="math inline">\(\lambda\)</span> ak platí</p>
+<span class="math display">\[\begin{equation*}
+p_X(k)= P(X=k)=
+\begin{cases}
+\frac{\lambda^k e^{-\lambda}}{k!}, &amp; \text{ak}\ k \in \{0,1,2,\cdots \} \\
+0, &amp; \text{inak.}
+\end{cases}
+\end{equation*}\]</span>
+<p>Zapisujeme to ako <span class="math inline">\(X \sim Pois(\lambda).\)</span></p>
+<p>Stredná hodnota pre Poissoovsky rozdelenú náhodnú premennú je <span class="math display">\[\begin{eqnarray*}
+\text{E}[X] &amp;=&amp;  \sum_{k=0}^{\infty}k \frac{\lambda^k e^{-\lambda}}{k!}\\
+&amp;=&amp; \lambda e^{-\lambda} \sum_{k=1}^{\infty} \frac{\lambda^{k-1} }{(k-1)!}\\
+&amp;=&amp; \lambda e^{-\lambda} \sum_{j=0}^{\infty} \frac{\lambda^{j} }{j!}\\
+&amp;=&amp; \lambda e^{-\lambda} e^{\lambda} = \lambda,\\
+\text{Var}[X] &amp;=&amp; \cdots = \lambda.
+\end{eqnarray*}\]</span></p>
+<div class="example">
+<p>Majme náhodnú premennú <span class="math inline">\(X\)</span>, ktorá je rozdelená Poissonovsky s parametrom <span class="math inline">\(\lambda = 4\)</span>. Vypočítajte <span class="math inline">\(P(X = 1).\)</span></p>
+<p><span class="math display">\[P(X=1) = \frac{4^1 e^{-4}}{1!} \approx  7.326\%.\]</span></p>
+</div>
+<p>Na to aby bola nejaká situácia, kde počítame koľko udalostí nastalo, dobre modelovaná Poissonovým rozdelením, musia platiť tieto skutočnosti:</p>
+<ul>
+<li>Hovoríme o počte nejakých udalostí, vecí v danom čase, priestore, ploche.</li>
+<li>Skutočnosť, že nastane jedna udalosť neovplyvní nastatie tej ďalšej.</li>
+<li>Udalosti nastávajú s rovnakou frekvenciou.</li>
+<li>Dve udalosti nemôžu nastať v ten istý čas, tom istom mieste, ploche.<a href="#fn3" class="footnote-ref" id="fnref3" role="doc-noteref"><sup>3</sup></a></li>
+</ul>
+<div class="cell">
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="dnp_files/figure-html/dnp-pois-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>Nasledovné situácie môžu byť modelované Poissonovým rozdelením:</p>
+<ul>
+<li>Počet dopravných nehôd.</li>
+<li>Počet vzácnych druhov rakoviny.</li>
+<li>Počet návštevníkov obchodu.</li>
+<li>Počet zemetrasení.</li>
+<li>Počet rastlinných druhov na nejakom úseku zeme.</li>
+<li>Počet vyžiarených častíc z rádioaktívneho zdroja.</li>
+<li>Počet zranení spôsobených kopnutím koňa počas roka.</li>
+<li>Počet narodených detí v daný deň.</li>
+<li>Počet medveďov, ktoré stretneme v daný rok.</li>
+</ul>
+<p>Nasledujúci obrázok porovnáva Poissonovsky rozdelené náhodné premenné pre rôzne parametre.</p>
+<div class="cell">
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="dnp_files/figure-html/dnp-pois2-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>Poissonovské rozdelenie <span class="math inline">\(Pois(\lambda)\)</span> veľmi dobre aproximuje binomické <span class="math inline">\(\text{Bin}(n,p)\)</span> kde priemerná hodnota <span class="math inline">\(\lambda = np\)</span> a <span class="math inline">\(n \rightarrow \infty\)</span> a súčasne <span class="math inline">\(p \rightarrow 0.\)</span> Nasledujúci obrázok porovnáva rozdelenia <span class="math inline">\(\text{Bin}(1000,0.003)\)</span> a <span class="math inline">\(Pois(3).\)</span> Sú na nerozoznanie.</p>
+<div class="cell">
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="dnp_files/figure-html/dnp-comp-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>Toto nám zároveň aj pomáha odpovedať na otázku, kedy je Poissonovské rozdelenie adekvátne. Napríklad vtedy, keď je binomický model adekvátny ale počet pokusov je veľký a pravdepodobnosť malá. Aká je pravdepodobnosť, že najbližsiu sekundu príde niekto na môj webovský server? Malá (<span class="math inline">\(p\)</span> je malé číslo). Ale na druhej strane tých sekúnd je veľa (<span class="math inline">\(n\)</span> je veľké čislo).<a href="#fn4" class="footnote-ref" id="fnref4" role="doc-noteref"><sup>4</sup></a></p>
+</section>
+<section id="geometrické-rozdelenie" class="level2" data-number="5.7">
+<h2 data-number="5.7" class="anchored" data-anchor-id="geometrické-rozdelenie"><span class="header-section-number">5.7</span> Geometrické rozdelenie</h2>
+<p>Hovoríme, že diskrétna náhodná premenná <span class="math inline">\(X\)</span> má <strong>geometrické rozdelenie</strong> s parametrom <span class="math inline">\(p\)</span> ak platí</p>
+<span class="math display">\[\begin{equation*}
+p_X(k)=
+\begin{cases}
+(1-p)^k p, &amp; \text{ak}\ k \in \{0,1,2,\cdots \} \\
+0, &amp; \text{inak.}
+\end{cases}
+\end{equation*}\]</span>
+<p>V tomto prípade používame nasledovné značenie <span class="math inline">\(X \sim \text{Geom}(p).\)</span></p>
+<div class="example">
+<p>Majme náhodnú premennú <span class="math inline">\(X\)</span>, ktorá je rozdelená geometricky s parametrom <span class="math inline">\(p = 0.1\)</span>. Vypočítajte <span class="math inline">\(P(X = 10).\)</span> (Teda, že “úspech” nastane v 11. pokuse)</p>
+<p><span class="math display">\[P(X=10) = (1-p)^{10}p = 0.9^10 0.1 \approx  3.48\%.\]</span></p>
+</div>
+<div class="example">
+<p>Majme náhodnú premennú <span class="math inline">\(X\)</span>, ktorá je rozdelená geometricky s parametrom <span class="math inline">\(p=0.3\)</span>. Vypočítajte <span class="math inline">\(P(X &lt; 4).\)</span></p>
+<span class="math display">\[\begin{eqnarray*}
+P(X &lt; 4) &amp;=&amp; P(X=0) + P(X=1) + P(X=2) + P(X=3)\\
+     &amp;=&amp; 0.7^0 0.3 + 0.7^1 0.3 + 0.7^2 0.3 +0.7^3 0.3\\
+     &amp;=&amp; 0.3 + 0.21 + 0.147 + 0.1029 \approx 75.99\%.
+\end{eqnarray*}\]</span>
+</div>
+<p>Geometrické rozdelenie je vhodné na modelovanie situácií, kedy čakáme na prvý úspech, ktorý prichádza v každom kroku s pravdepodobnosťou <span class="math inline">\(p\)</span>. Náhodná premenná hovorí o počte neúspechov, kým nenastane prvý úspech.</p>
+<p>Stredná hodnota a variancia pre geometricky rozdelenú náhodnú premennú s parametrom <span class="math inline">\(p\)</span> sú <span class="math display">\[\begin{eqnarray*}
+\text{E}[X] &amp;=&amp; \sum_{k=0}^{\infty} k (1-p)^k p\\
+&amp;=&amp; p \sum_{k=0}^{\infty} k (1-p)^k\\
+&amp;=&amp; \frac{1-p}{p},\\
+\text{Var}[X] &amp;=&amp; \cdots = \frac{1-p}{p^2}.
+\end{eqnarray*}\]</span></p>
+<p>Čo musí byť splnené aby počet neúspechov, kým nastane prvý úspech bol adekvátne popísaný geometrickým rozdelením?</p>
+<ul>
+<li>jednotlivé pokusy musia byť nezávislé,</li>
+<li>jednotlivé pokusy musia mať rovnakú a fixnú pravdepodobnosť úspechu.</li>
+</ul>
+<div class="cell">
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="dnp_files/figure-html/dnp-geom-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>Nasledovné situácie môžu byť modelované (ich adekvátnosť záleží od konkrétneho príkladu) geometrickým rozdelením:</p>
+<ul>
+<li>Počet ľudí, ktorých sa musím opýtať otázku, kým nenarazím na niekoho, kto bude vedieť odpovedať.</li>
+<li>Počet striel na bránu kým nepadne gól.</li>
+<li>Počet zákazníkov, kým nepríde nejaký, ktorý sa bude sťažovať.</li>
+<li>Počet vyrobených súčiastok, kým nenastane chyba.</li>
+<li>Počet opravených testov, kým niektorý študent dostane A.</li>
+<li>Počet rizikových startupov do ktorých treba investovať, kým nejaký z nich bude úspešný.</li>
+<li>Počet talentov, ktoré musí hľadač talentov vyskúšať, kým nenájde superhviezdu.</li>
+</ul>
+<p>Tento obrázok porovnáva geometricky rozdelené náhodné premenné pre rôzne parametre.</p>
+<div class="cell">
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="dnp_files/figure-html/dnp-geom2-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+</section>
+<section id="hypergeometrické-rozdelenie" class="level2" data-number="5.8">
+<h2 data-number="5.8" class="anchored" data-anchor-id="hypergeometrické-rozdelenie"><span class="header-section-number">5.8</span> Hypergeometrické rozdelenie</h2>
+<p>Hovoríme, že diskrétna náhodná premenná <span class="math inline">\(X\)</span> má <strong>hypergeometrické rozdelenie</strong> s parametrami <span class="math inline">\(N,K\)</span> a <span class="math inline">\(n\)</span> ak platí</p>
+<span class="math display">\[\begin{equation*}
+p_X(k)=
+\begin{cases}
+\frac{{K \choose k} {N-K \choose n-k}}{{N \choose n}}, &amp; \text{ak}\ k \in \left\{\max\{0,n+K-N\},\cdots,\min\{n,K\} \right\} \\
+0, &amp; \text{inak.}
+\end{cases}
+\end{equation*}\]</span>
+<p>Označovať ju budeme ako <span class="math inline">\(X \sim \text{HyperGeom}(N,K,n)\)</span></p>
+<p>Stredná hodnota pre hypergeometricky rozdelenú náhodnú premennú (dôvodenie vynechávame) je</p>
+<span class="math display">\[\begin{eqnarray*}
+\text{E}[X] &amp;=&amp; \sum_{k = \max\{0,n+K-N\}}^{\min\{n,K\}} k \frac{{K \choose k} {N-K \choose n-k}}{{N \choose n}} = \cdots = n \frac{K}{N}.\\
+\text{Var}[X] &amp;=&amp;  \cdots = n \frac{K}{N}\frac{N-K}{N} \frac{N-n}{N-1}.
+\end{eqnarray*}\]</span>
+<p>Vo veľkom vreci máme <span class="math inline">\(N\)</span> guľôčok, z toho <span class="math inline">\(K\)</span> červených. Načrieme rukou a vyberieme hrsť o veľkosti <span class="math inline">\(n\)</span> guličiek. Aká je šanca, že spomedzi týchto <span class="math inline">\(n\)</span> guličiek je práve <span class="math inline">\(k\)</span> červených?</p>
+<div class="cell" data-layout-align="center">
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="fig_hypergeom.png" class="img-fluid figure-img" style="width:80.0%"></p>
+<figcaption>Ilustrácia hypergeometrickej distribúcie.</figcaption>
+</figure>
+</div>
+</div>
+</div>
+<p>Dôvodenie pre tvar <span class="math inline">\(p_X(k)\)</span> je nasledovné. Existuje práve <span class="math inline">\({N \choose n}\)</span> rôznych spôsobov ako vybrať hrsť veľkosti <span class="math inline">\(n\)</span> z celkovej množiny <span class="math inline">\(N\)</span> guličiek, takže to je celkový počet hrstí. Koľko je “úspešných” hrstí? No existuje <span class="math inline">\({K \choose k}\)</span> možností ako vybrať červené guličky a zároveň (preto je to súčin) <span class="math inline">\({N-K \choose n-k}\)</span> možností ako vybrať modré guličky.</p>
+<div class="example">
+<p>Majme náhodnú premennú <span class="math inline">\(X\)</span>, ktorá je rozdelená hypergeometricky s parametrami <span class="math inline">\(N=30, K=8, n = 5\)</span>. Vypočítajte <span class="math inline">\(P(X = 3).\)</span></p>
+<span class="math display">\[\begin{eqnarray*}
+P(X = 3) &amp;=&amp; \frac{{K \choose k} {N-K \choose n-k}}{{N \choose n}}\\
+     &amp;=&amp; \frac{{8 \choose 3} {22 \choose 2}}{{30 \choose 5}} \approx 9.08\%.
+\end{eqnarray*}\]</span>
+</div>
+<div class="cell">
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="dnp_files/figure-html/dnp-hypg2-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>Hypergeometrické rozdelenie môže vhodne modelovať napríklad nasledovné situácie:</p>
+<ul>
+<li>Koľko je žien medzi náhodne vybranými 10 ľudmi ako je v danom okrsku 100 mužov a 200 žien?</li>
+<li>Vieme, že medzi 200 súčiastkami je 10 chybných. Koľko chybných bude z náhodnej vybranej vzorky 20 súčiastok?</li>
+<li>Z 25 uchádzačov (10 so skúsenosťami, 15 bez skúseností) o prácu vyberú 4. Aká je šanca, že medzi náhodne vybranými 4 kandidátmi budú práve dvaja so skúsenosťami?</li>
+</ul>
+<p>Nižšie sú pravdepodobnostné funkcie pre rôzne hodnoty <span class="math inline">\(N\)</span>.</p>
+<div class="cell">
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="dnp_files/figure-html/dnp-hypg3-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+</section>
+<section id="negatívne-binomické-rozdelenie" class="level2" data-number="5.9">
+<h2 data-number="5.9" class="anchored" data-anchor-id="negatívne-binomické-rozdelenie"><span class="header-section-number">5.9</span> Negatívne binomické rozdelenie</h2>
+<p>Hovoríme, že diskrétna náhodná premenná <span class="math inline">\(X\)</span> má <strong>negatívne binomické rozdelenie</strong> s parametrami <span class="math inline">\(r\)</span> a <span class="math inline">\(p\)</span> ak platí</p>
+<span class="math display">\[\begin{equation*}
+p_X(k)=
+\begin{cases}
+{k + r - 1 \choose r-1} (1-p)^k p^r, &amp; \text{ak}\ k \in \left\{0,1,2,3,\cdots \right\} \\
+0, &amp; \text{inak.}
+\end{cases}
+\end{equation*}\]</span>
+<p>Označovať ju budeme ako <span class="math inline">\(X \sim \text{NegBin}(r,p)\)</span></p>
+<p>Stredná hodnota a variancia pre negatívne binomicky rozdelenú náhodnú premennú (dôvodenie vynechávame) sú</p>
+<span class="math display">\[\begin{eqnarray*}
+\text{E}[X] &amp;=&amp; \sum_{k = 0}^{\infty} k{k + r - 1 \choose r-1} (1-p)^k p^r = \cdots = \frac{(1-p)r}{p},\\
+\text{Var}[X] &amp;=&amp; \cdots = \frac{(1-p)r}{p^2}.
+\end{eqnarray*}\]</span>
+<p>Takáto náhodná premenná popisuje počet neúspechov, kým nenastane <span class="math inline">\(r\)</span>-tý úspech.</p>
+<div class="example">
+<p>Majme náhodnú premennú <span class="math inline">\(X\)</span>, ktorá je rozdelená negatívne binomicky s parametrami <span class="math inline">\(r=4\)</span> a <span class="math inline">\(p=0.6\)</span>. Vypočítajte <span class="math inline">\(P(X = 3).\)</span> (Toto zodpovedá 3 neúspechom, kým nenastanú 4 úspechy, takže 4. úspech nastane pri 7. pokuse.)</p>
+<span class="math display">\[\begin{eqnarray*}
+P(X = 3) &amp;=&amp; {k + r - 1 \choose r-1} (1-p)^k p^r\\
+     &amp;=&amp; {3 + 4 - 1 \choose 4-1} (1-0.6)^3 0.6^4 \approx 16.59\%.
+\end{eqnarray*}\]</span>
+</div>
+<div class="cell">
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="dnp_files/figure-html/dnp-negbi-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>Tieto situácie môžu byť popísané negatívne binomickým rozdelením:</p>
+<ul>
+<li>Stroj zvládne 10 zlyhaní. Ako dlho bude bežať ak je pravdepodobnosť zlyhania na jednu časovú jednotku <span class="math inline">\(p\)</span>?</li>
+<li>Ropná spoločnosť má prostriedky na 5 výskumných vrtov. Úspešnosť každého vrtu je <span class="math inline">\(15\%\)</span>. Aká je šanca, že prvýkrát narazí na ropu pri štvrtom vrte?</li>
+</ul>
+<p>Nižšie sú pravdepodobnostné funkcie pre rôzne parametre <span class="math inline">\(p\)</span>:</p>
+<div class="cell">
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="dnp_files/figure-html/dnp-negbi2-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+</section>
+<section id="zhrnutie" class="level2" data-number="5.10">
+<h2 data-number="5.10" class="anchored" data-anchor-id="zhrnutie"><span class="header-section-number">5.10</span> Zhrnutie</h2>
+<p>Existujú rôzne diskrétne náhodné premenné. Niektoré skupiny náhodých premenných sú natoľko zaujímavé, že majú aj svoje špeciálne mená.</p>
+</section>
+<section id="cvičenia" class="level2" data-number="5.11">
+<h2 data-number="5.11" class="anchored" data-anchor-id="cvičenia"><span class="header-section-number">5.11</span> Cvičenia</h2>
+<div id="exr-" class="Exercise theorem exercise">
+<p><span class="theorem-title"><strong>Exercise 5.1</strong></span> Ukážte, že nemôže existovať taká konštanta <span class="math inline">\(c \in \mathbb{R},\)</span> že by nasledovná funkcia popisovala pravdepodobnostnú funkciu náhodnej premennej <span class="math inline">\(X\)</span>: <span class="math display">\[\begin{equation*}
+p_X(k)=
+\begin{cases}
+\frac{c}{k}, &amp; \text{ak}\ k \in \{1,2,\cdots \} \\
+0, &amp; \text{inak.}
+\end{cases}
+\end{equation*}\]</span></p>
+</div>
+<div id="exr-" class="Exercise theorem exercise">
+<p><span class="theorem-title"><strong>Exercise 5.2</strong></span> Vypočítajte varianciu diskrétnej rovnomerne rozdelenej náhodnej premennej.</p>
+</div>
+<div id="exr-" class="Exercise theorem exercise">
+<p><span class="theorem-title"><strong>Exercise 5.3</strong></span> Majme náhodnú premennú <span class="math inline">\(X\)</span>, ktorá je rozdelená binomicky s parametrami <span class="math inline">\(n=10\)</span> a <span class="math inline">\(p=0.25\)</span>. Vypočítajte <span class="math inline">\(P(X &lt; 4).\)</span></p>
+</div>
+<div id="exr-" class="Exercise theorem exercise">
+<p><span class="theorem-title"><strong>Exercise 5.4</strong></span> Majme náhodnú premennú <span class="math inline">\(X\)</span>, ktorá je rozdelená binomicky s parametrami <span class="math inline">\(n=8\)</span> a <span class="math inline">\(p=0.8\)</span>. Vypočítajte <span class="math inline">\(P(X &gt; 6).\)</span></p>
+</div>
+<div id="exr-" class="Exercise theorem exercise">
+<p><span class="theorem-title"><strong>Exercise 5.5</strong></span> Raketový modul má 6 tesnení. Každé z nich môže zlyhať s pravdepodobnosťou <span class="math inline">\(0.01\)</span>. Aká je pravdepodobnosť, že zlyhá nie viacej ako jedno tesnenie ?</p>
+</div>
+<div id="exr-" class="Exercise theorem exercise">
+<p><span class="theorem-title"><strong>Exercise 5.6</strong></span> Na prejdenie desaťotázkového testu s možnosťami A, B, C, D, kde práve jedna odpoveď je správna, treba správne odpovedať na aspoň 5 otázok. Aká je šanca, že to študent zvládne bez učenia?</p>
+</div>
+<div id="exr-" class="Exercise theorem exercise">
+<p><span class="theorem-title"><strong>Exercise 5.7</strong></span> Na prejdenie desaťotázkového testu s možnosťami A, B, C, D, kde práve jedna odpoveď je správna, treba správne odpovedať na aspoň 5 otázok. Na prvých 5 otázok vie študent odpovedať správne s pravdepodobnosťou 80%, druhých päť sa týka látky, ktorú nikdy nevidel. Aká je šanca, že tento študent zvládne tento test?</p>
+</div>
+<div id="exr-" class="Exercise theorem exercise">
+<p><span class="theorem-title"><strong>Exercise 5.8</strong></span> Majme náhodnú premennú <span class="math inline">\(X\)</span>, ktorá je rozdelená Poissonovsky s parametrom <span class="math inline">\(\lambda = 8\)</span>. Vypočítajte <span class="math inline">\(P(X = 2).\)</span></p>
+</div>
+<div id="exr-" class="Exercise theorem exercise">
+<p><span class="theorem-title"><strong>Exercise 5.9</strong></span> Počet rastlinných druhov na exotickom ostrove je modelovaný <span class="math inline">\(Pois(10)\)</span> na každých <span class="math inline">\(1m^2\)</span>. Aká je pravdepodobnosť, že na náhodne zvolenom metri štvorcovom nájdeme viacej ako 12 ale menej ako 15 rôznych rastlinných druhov?</p>
+</div>
+<div id="exr-" class="Exercise theorem exercise">
+<p><span class="theorem-title"><strong>Exercise 5.10</strong></span> Majme náhodnú premennú <span class="math inline">\(X\)</span>, ktorá je rozdelená geometricky s parametrom <span class="math inline">\(p=0.8\)</span>. Vypočítajte <span class="math inline">\(P(X \geq 5).\)</span></p>
+</div>
+<div id="exr-" class="Exercise theorem exercise">
+<p><span class="theorem-title"><strong>Exercise 5.11</strong></span> Majme náhodnú premennú <span class="math inline">\(X\)</span>, ktorá je rozdelená geometricky s parametrom <span class="math inline">\(p=0.2\)</span>. Vypočítajte <span class="math inline">\(P(X &lt;3).\)</span></p>
+</div>
+<div id="exr-" class="Exercise theorem exercise">
+<p><span class="theorem-title"><strong>Exercise 5.12</strong></span> Majme náhodnú premennú <span class="math inline">\(X\)</span>, ktorá je rozdelená hypergeometricky s parametrami <span class="math inline">\(N=10, K=6,n=5\)</span>. Vypočítajte <span class="math inline">\(P(X = 3).\)</span></p>
+</div>
+<div id="exr-" class="Exercise theorem exercise">
+<p><span class="theorem-title"><strong>Exercise 5.13</strong></span> Majme náhodnú premennú <span class="math inline">\(X\)</span>, ktorá je rozdelená hypergeometricky s parametrami <span class="math inline">\(N=12, K=5,n=5\)</span>. Vypočítajte <span class="math inline">\(P(X = 3).\)</span></p>
+</div>
+<div class="exercise" name="*">
+<p>Zdôvodnite, prečo sa <span class="math inline">\(\text{Bin}(n,p)\)</span> rozdelená náhodná premenná správa podobne ako <span class="math inline">\(Pois(\lambda),\)</span> pre <span class="math inline">\(n \rightarrow \infty\)</span> a <span class="math inline">\(p \rightarrow 0\)</span> a súčasne <span class="math inline">\(\lambda = np.\)</span></p>
+</div>
+<div id="exr-" class="Exercise theorem exercise">
+<p><span class="theorem-title"><strong>Exercise 5.14</strong></span> Ak je šanca katastrofy každých sto rokov rovná <span class="math inline">\(1/6\)</span>, aká je pravdepodobnosť, že nejaká katastrofa nastane počas nasledujúcich 500 rokov?</p>
+</div>
+<div id="exr-" class="Exercise theorem exercise">
+<p><span class="theorem-title"><strong>Exercise 5.15</strong></span> Vypočítajte hodnotu</p>
+<p><span class="math display">\[\sum_{j=2}^{n} j(j-1) {n \choose j} p^j (1-p)^{n-j}.\]</span></p>
+</div>
+<div id="exr-" class="Exercise theorem exercise">
+<p><span class="theorem-title"><strong>Exercise 5.16</strong></span> Aké je pravdepodobnostné rozdelenie počtu uhádnutých otázok na ABCD teste z celkového počtu 10 otázok, ak vieme, že z prvých dvoch otázok otázok bola správne zodpovedaná práve jedna otázka?</p>
+</div>
+<div id="exr-" class="Exercise theorem exercise">
+<p><span class="theorem-title"><strong>Exercise 5.17</strong></span> V klinickom skúšaní máme dve skupiny po 10 pacientov. V prvej skupine je pravdepodobnosť úspešnosti liečby <span class="math inline">\(0.5\)</span>, v druhej skupine je to <span class="math inline">\(0.7\)</span>. Uvažujme, že výsledky všetkých pacientov sú od seba nezávislé. Aká je pravdepodobnosť, že v prvej skupine bude aspoň toľko úspešne vyliečených ako a v druhej skupine?</p>
+</div>
+<div id="exr-" class="Exercise theorem exercise">
+<p><span class="theorem-title"><strong>Exercise 5.18</strong></span> Presné testy sú drahé. Uvažujme nasledujúcu situáciu. Máme 1000 ľudí, ktorých potrebujeme otestovať. Pravdepodobnosť pozititívneho testu nech je 0.01. Namiesto toho, aby sme otestovali každého človeka osobitne. Tak spojíme odberové vzorky do 10 skupín po 100. Ak bude v nejakej skupine detekovaná pozitivita, tak pretestujeme všetkých 100 ľudí v tejto skupine.</p>
+<ul>
+<li>Koľko testov v priemere urobíme?</li>
+<li>Aká je pravdepodobnosť, že týmto spôsobom urobíme viacej testov ako 1000?</li>
+</ul>
+</div>
+<div id="exr-" class="Exercise theorem exercise">
+<p><span class="theorem-title"><strong>Exercise 5.19</strong></span> Nech je pravdepodobnosť narodenia trojičiek <span class="math inline">\(1/10000\)</span>. Aká je pravdepodobnosť, že z 8000 pôrodov sa narodia trojičky práve jedenkrát?</p>
+</div>
+<div id="exr-" class="Exercise theorem exercise">
+<p><span class="theorem-title"><strong>Exercise 5.20</strong></span> Letecká prepravná spoločnosť predáva 200 lístkov napriek tomu, že v lietadle je len 198 miest nakoľko v priemere <span class="math inline">\(3\%\)</span> ľudí neprídu. Toto je bežnou praxou a nazýva sa to <em>overbooking</em>. Aká je pravdepodobnosť, že si všetci pasažieri budú mať kde v lietadle sadnúť?</p>
+</div>
+<div id="exr-" class="Exercise theorem exercise">
+<p><span class="theorem-title"><strong>Exercise 5.21</strong></span> Nech je v populácii 0.1% ľudí farboslepých. Aká je šanca, že v náhodnej vzorke 800 ľudí nebude viacej ako jeden človek farboslepý?</p>
+</div>
+<div id="exr-" class="Exercise theorem exercise">
+<p><span class="theorem-title"><strong>Exercise 5.22</strong></span> V balíku je 37 gumených žížal. Z nich 13 sú kyslé gumené žížaly a 24 sú nekyslé gumené žížaly. Aká je šanca, že náhodne vybratá hrsť veľkosti 8 žížal bude mať práve 3 kyslé gumené žížaly.</p>
+</div>
+<div id="exr-" class="Exercise theorem exercise">
+<p><span class="theorem-title"><strong>Exercise 5.23</strong></span> Uvažujme boxera, ktorý potrebuje 4 víťazné údery na to, aby knockoutoval súpera. Sám však znesie úderov 6, siedmy už nie. Je o čosi lepší ako jeho súper a šanca, že daná výmena skončí v jeho prospech je <span class="math inline">\(0.53\)</span>. Aká je šanca, že zápas skončí v jeho prospech?</p>
+</div>
+<div id="exr-" class="Exercise theorem exercise">
+<p><span class="theorem-title"><strong>Exercise 5.24</strong></span> Chyba pri každom produkčnom cykle stroja je <span class="math inline">\(0.015\)</span>, denne zvládne stroj 8 cyklov. Stroj sa po 3 chybách zasekne a treba ho servisovať. Aká je šanca, že stroj bude fungovať bez zastavenia celé dva pracovné týždne?</p>
+</div>
+<div id="exr-" class="Exercise theorem exercise">
+<p><span class="theorem-title"><strong>Exercise 5.25</strong></span> Výskumníčka musí získať 20 dotazníkových odpovedí. Každý človek odpovie na žiadosť odoslať dotazník s pravdepodobnosťou <span class="math inline">\(40\%\)</span>. Aká je pravdepodobnosť, že musí výskumníčka osloviť viacej ako 50 ľudí?</p>
+</div>
+<div id="exr-" class="Exercise theorem exercise">
+<p><span class="theorem-title"><strong>Exercise 5.26</strong></span> Ukážte, že limita pravdepodobnostnej funkcie hypergeometricky rozdelenej náhodnej premennej sa blíži k pravdepodobnostnej funkcii binomicky rozdelenej náhodnej premennej pre <span class="math inline">\(M/N \rightarrow p.\)</span></p>
+</div>
+<div id="exr-" class="Exercise theorem exercise">
+<p><span class="theorem-title"><strong>Exercise 5.27</strong></span> Odvoďte varianciu pre náhodnú premennú <span class="math inline">\(X \sim \text{Bin}(n,p).\)</span></p>
+</div>
+<div id="exr-" class="Exercise theorem exercise">
+<p><span class="theorem-title"><strong>Exercise 5.28</strong></span> &nbsp;</p>
+<ol type="A">
+<li><p>Doplňte veľkosť chýbajúcej hodnoty <span class="math inline">\(p_X(5).\)</span></p></li>
+<li><p>Doplňte veľkosť chýbajúcej hodnoty <span class="math inline">\(p_X(5)\)</span> a <span class="math inline">\(p_X(6)\)</span> tak, aby <span class="math inline">\(\text{E}[X]=3.6.\)</span> <!-- (1*0.1+2*0.2+3*0.3+4*0.1 +5*0+6*0.3) --></p></li>
+<li><p>Doplňte veľkosť chýbajúcej hodnoty <span class="math inline">\(p_X(4), p_X(5)\)</span> a <span class="math inline">\(p_X(6)\)</span> tak, aby <span class="math inline">\(\text{E}[X]=3.2\)</span> a <span class="math inline">\(\text{Var}[X]=1.56.\)</span> <!-- (1*0.1+2*0.2+3*0.3+4*0.2 +5*0.2+6*0) --> <!-- (1^2*0.1+2^2*0.2+3^2*0.3+4^2*0.2 +5^2*0.2+6^2*0) -(1*0.1+2*0.2+3*0.3+4*0.2 +5*0.2+6*0)^2 --></p></li>
+</ol>
+<div class="cell">
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="dnp_files/figure-html/dnp-cv2-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+</div>
+<div id="exr-" class="Exercise theorem exercise">
+<p><span class="theorem-title"><strong>Exercise 5.29</strong></span> Máme náhodnú premennú, ktorej realizácie sú 7,8,8,9,8,7,8,8,7,6,7,8,8,8,7,6,7,6,7,7,8,9,8,7,9,6,9,9,6,6,9,…</p>
+<p>Čo by ste povedali, aká je približne stredná hodnota?</p>
+<ul>
+<li>6</li>
+<li>6.5</li>
+<li>7</li>
+<li>7.5</li>
+<li>8</li>
+<li>8.5</li>
+<li>9</li>
+</ul>
+<p>Čo by ste povedali, aká je približne variancia tejto náhodnej premennej?</p>
+<ul>
+<li>-1</li>
+<li>0</li>
+<li>1</li>
+<li>4</li>
+<li>8</li>
+<li>16</li>
+</ul>
+</div>
+<div id="exr-" class="Exercise theorem exercise">
+<p><span class="theorem-title"><strong>Exercise 5.30</strong></span> Doplňte</p>
+<div class="cell">
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="dnp_files/figure-html/dnp-cv5-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+</div>
+<div id="exr-" class="Exercise theorem exercise">
+<p><span class="theorem-title"><strong>Exercise 5.31</strong></span> Prepojte</p>
+<ol type="A">
+<li><p>Rovnomerné rozdelenie.</p></li>
+<li><p>Bernoulliho rozdelenie.</p></li>
+<li><p>Binomické rozdelenie.</p></li>
+<li><p>Poissonovo rozdelenie.</p></li>
+<li><p>Geometrické rozdelenie.</p></li>
+<li><p>Hypergeometrické rozdelenie.</p></li>
+<li><p>Negatívne binomické rozdelenie.</p></li>
+</ol>
+<p>s nasledujúcimi situáciami/úlohami</p>
+<ol type="1">
+<li><p>Počet správne uhádnutých odpovedí na externej maturitnej skúške.</p></li>
+<li><p>Šanca, že zo siedmych gumených medvedíkov, ktoré si vybereme z balíčka je práve 5 červenej farby. V balíčku je 80 macíkov (rodinné balenie) a z nich 33 je červených.</p></li>
+<li><p>Šanca, že sa nám podarí urobiť skúšku bez učenia, keď máme právo na dva opravné termíny.</p></li>
+<li><p>Počet rastlinných druhov na náhodne vybranom kúsku pôdy.</p></li>
+<li><p>Šanca, že náhodne vybraná fixka je modrá.</p></li>
+<li><p>Výhra v stávkovej spoločnosti, kde kurz implikuje pravdepodobnosť výhry 36%.</p></li>
+<li><p>Rok, kedy konečne prvýkrát stihnem urobiť daňové priznanie bez odkladu.</p></li>
+</ol>
+</div>
+<!-- ## Domáca úloha 4 {-} -->
+<!-- Prosím odovzdať do 20.3.2024 19:59 cez formulár (tento Vám príde emailom). Výnimky len vo vážnych prípadoch a len ak sú komunikované dopredu. -->
+<!-- V riešeniach používajte prosím plnovýznamové vety a nahrávajte riešenia v jednom `pdf` súbore nazvanom podľa Vašich priezvísk v tvare `DU4_priezvisko1_priezvisko2.pdf` (napríklad `DU4_Kovacova_Zelinka.pdf`). -->
+<!-- ::: {.exercise name="DÚ 4.1 Pravdepodobnostné funkcie áno/nie"} -->
+<!-- Určte, ktoré z nasledovných funkcií môžu byť pravdepodobnostnou funkciou (a teda vie reprezentovať pravdepodobnostné správanie náhodnej premennej). Podrobne odôvodnite. -->
+<!-- (a) $$f_1(k)= -->
+<!-- \begin{cases} -->
+<!-- \frac{4-k}{15}, & \text{ak}\ k \in \{1,2,\cdots,5 \}, \\ -->
+<!-- 0, & \text{inak.} -->
+<!-- \end{cases}$$ -->
+<!-- (b) $$f_2(k)= -->
+<!-- \begin{cases} -->
+<!-- \frac{k}{15}, & \text{ak}\ k \in \{1,2,\cdots,5 \}, \\ -->
+<!-- 0, & \text{inak.} -->
+<!-- \end{cases}$$ -->
+<!-- (c) $$f_3(k)= -->
+<!-- \begin{cases} -->
+<!-- 2^{-(k-1)}, & \text{pre}\ k = 0,1,2,\cdots,  \\ -->
+<!-- 0, & \text{inak.} -->
+<!-- \end{cases}$$ -->
+<!-- (d) $$f_4(k)= -->
+<!-- \begin{cases} -->
+<!-- 2^{-(k+1)}, & \text{pre}\ k = 0,1,2,\cdots,  \\ -->
+<!-- 0, & \text{inak.} -->
+<!-- \end{cases}$$ -->
+<!-- (e) $$f_5(k)= -->
+<!-- \begin{cases} -->
+<!-- \frac{1}{2} + 2^{-k}, & \text{pre}\ k = 2,3,\cdots,  \\ -->
+<!-- 0, & \text{inak.} -->
+<!-- \end{cases}$$ -->
+<!-- ::: -->
+<!-- ::: {.exercise name="DÚ 4.2 Dosadzovanie"} -->
+<!-- (a) Majme náhodnú premennú $X$, ktorá je rozdelená binomicky s parametrami $n=10$ a $p=0.3$. Vypočítajte $P(X > 3), \text{E}[X]$ a $\text{Var}[X]$. -->
+<!-- (b) Majme náhodnú premennú $X$, ktorá je rozdelená Poissonovsky s parametrom $\lambda = 0.2$. Vypočítajte $P(X \leq 2), \text{E}[X]$ a $\text{Var}[X]$ -->
+<!-- (c) Majme náhodnú premennú $X$, ktorá je rozdelená Geometricky s parametrom $p = 0.2$. Vypočítajte $P(X > 2), \text{E}[X]$ a $\text{Var}[X].$ -->
+<!-- (d) Majme náhodnú premennú $X$, ktorá je rozdelená Rovnomerne na množine  $\{2,3,4,5,6,7\}$. Vypočítajte $P(X > 4), \text{E}[X]$  $\text{Var}[X].$ -->
+<!-- (e) Majme náhodnú premennú $X$, ktorá je rozdelená Negatívne binomicky s parametrami $r=4, p = 0.32$. Vypočítajte $P(X \leq 3), \text{E}[X]$ a $\text{Var}[X].$ -->
+<!-- ::: -->
+<!-- ::: {.exercise name="DÚ 4.3 Hviezdičky"} -->
+<!-- Majme produkt, ktorého spokojnosť môžu ohodnotiť zákazníci tým, že tento produkt môžu odporúčať alebo neodporúčať. Produkt u ktorého je odporúčanie vyššie alebo rovné ako 90\% z celkového počtu hodnotení získa päť hviezdičiek. Nech je skutočná spokojnosť ľudí s produktom 82\%. -->
+<!-- (a) Aká je pravdepodobnosť, že produkt, ktorý ohodnotí 10 zákazníkov bude mať 5 hviezdičiek? -->
+<!-- (b) Aká je pravdepodobnosť, že produkt, ktorý ohodnotí 30 zákazníkov bude mať 5 hviezdičiek? -->
+<!-- (c) Aká je pravdepodobnosť, že produkt, ktorý ohodnotí 150 zákazníkov bude mať 5 hviezdičiek? -->
+<!-- (d) Aký najmenší počet zákazníkov môže produkt ohodnotiť tak, aby šanca, že produkt dosiahne 5 hviezdičiek bola menšia ako 5\%? -->
+<!-- Tieto výsledky vysvetlite. -->
+<!-- ::: -->
+<!-- ::: {.exercise name="DÚ 4.4 Krížovka"} -->
+<!-- Doplňte -->
+<!-- (a) $X \sim \text{Bern}(p) \implies X \sim \text{Bin}(1, \ \ \ )$ -->
+<!-- (b) Ak $X \sim \text{Bin}(100,0.4)$, potom $P( 25 < X \leq 29) = F(a) - F(b),$ kde $a = \ \ \ $ a $b = \ \ \ \ .$ Platí, že $P( 25 < X \leq 29) = p_X(\ \ \ ) + p_X(\ \ \ ) + p_X(\ \ \ ) + p_X(\ \ \ ).$ -->
+<!-- (c) Ak $\text{E}[X] = 3$ a $\text{E}[2X+4Y] = 14$ potom $\text{E}[Y] = \ \ \ \ .$ -->
+<!-- (d) Ak $\text{E}[X] = 3$ a $\text{sd}[X] = 4$ potom $\text{E}[X^2] = \ \ \ \ .$ -->
+<!-- ::: -->
+<!-- ::: {.exercise name="DÚ 4.5 Go sports"} -->
+<!-- Ste cyklista a pravdepodobnosť, že vyhráte cyklistický závod, je 0.1 (nezávisle od okolností). -->
+<!-- (a) Koĺkokrát v priemere musíte súťažiť, kým prvýkrát vyhráte? -->
+<!-- (b) Koĺkokrát v priemere musíte súťažiť, kým vyhráte 5 krát? -->
+<!-- (c) V sezóne súťažite 26 krát (5 krát jarné klasiky, 21 etáp Tour de France). Na zisk Prestížneho ocenenia potrebujete v rámci sezóny aspoň 5 víťazstiev. Aká ja pravdepodobnosť, že sa Vám to tento rok podarí? -->
+<!-- (d) Koľkokrát môžete očakávať zisk Prestížneho ocenenia za svoju 10-ročnú kariéru? (Aká je stredná hodnota počtu získaných ocenení?) -->
+<!-- (e) Aká je variancia tohoto počtu získaných Prestížnych ocenení za celú 10-ročnú kariéru? -->
+<!-- ::: -->
+<!-- ::: {.exercise name="DÚ 4.6 BONUS (nepovinná úloha)"} -->
+<!-- Nájdite pravdepodobnostné rozdelenie pre náhodnú premennú $Z$ s $\mathcal{S}_Z = \{1,2,3,4,5\}$. $Z$ má nasledujúce vlasnosti: -->
+<!-- * $p_Z(5) = p_Z(4),$ -->
+<!-- * $p_Z(4) \geq p_Z(2),$  -->
+<!-- * $p_Z(2) \geq p_Z(1).$  -->
+<!-- Akú najväčšiu $\text{Var}[Z]$ môže mať? -->
+<!-- ::: -->
+<!-- ## Domáca úloha 5 {-} -->
+<!-- Ešte k časti 4 -->
+<!-- ::: {.exercise name="DÚ 5.1 - 3 kocky"} -->
+<!-- Nakreslite kumulatívnu distribučnú funkciu pre náhodnú premennú súčet výsledkov troma nezávislými kockami. -->
+<!-- ::: -->
+<!-- ::: {.exercise name="DÚ 5.2 -  žetóny"} -->
+<!-- Majme vrece v ktorom je 5 žetónov označených od 0 po 4. Vyberieme prvý žetón a číslo na ňom je $X_1.$ Tento žetón vrátime do vreca vyberieme druhý žetón a číslo na ňom nech je $X_2.$ Vypočítajte $P(Z=z)$ pre všetky reálne čísla $z$ ak $Z= X_1 + 3X_2.$ Nakreslite kumulatívnu distribučnú funkciu pre premenné $X_1$, $X_2$ a $Z$. -->
+<!-- ::: -->
+<!-- Už k časti 5 -->
+<!-- ::: {.exercise name="DÚ 5.3 Binom"} -->
+<!-- Majme náhodnú premennú $X$, ktorá je rozdelená binomicky s parametrami $n=10$ a $p=0.25$. Vypočítajte $P(X > 4)$ a $\text{E}[X].$ -->
+<!-- ::: -->
+<!-- ::: {.exercise name="DÚ 5.4 Pois"} -->
+<!-- Majme náhodnú premennú $X$, ktorá je rozdelená Poissonovsky s parametrom $\lambda = 0.1$. Vypočítajte $P(X \leq 2)$ a $\text{E}[X].$ -->
+<!-- ::: -->
+<!-- ::: {.exercise name="DÚ 5.5 Pravdepodobnostné funkcie"}  -->
+<!-- Určte, ktoré z nasledovných funkcií môžu byť pravdepodobnostnou funkciou (a teda vie reprezentovať pravdepodobnostné správanie náhodnej premennej). Podrobne odôvodnite. -->
+<!-- (a) $$f_1(k)= -->
+<!-- \begin{cases} -->
+<!-- \frac{4-k}{15}, & \text{ak}\ k \in \{1,2,\cdots,5 \}, \\ -->
+<!-- 0, & \text{inak.} -->
+<!-- \end{cases}$$ -->
+<!-- (b) $$f_2(k)= -->
+<!-- \begin{cases} -->
+<!-- \frac{k}{15}, & \text{ak}\ k \in \{1,2,\cdots,5 \}, \\ -->
+<!-- 0, & \text{inak.} -->
+<!-- \end{cases}$$ -->
+<!-- (c) $$f_3(k)= -->
+<!-- \begin{cases} -->
+<!-- 2^{-(k-1)}, & \text{pre}\ k = 0,1,2,\cdots,  \\ -->
+<!-- 0, & \text{inak.} -->
+<!-- \end{cases}$$ -->
+<!-- (d) $$f_4(k)= -->
+<!-- \begin{cases} -->
+<!-- 2^{-(k+1)}, & \text{pre}\ k = 0,1,2,\cdots,  \\ -->
+<!-- 0, & \text{inak.} -->
+<!-- \end{cases}$$ -->
+<!-- ::: -->
+<!-- ## Domáca úloha 6 {-} -->
+<!-- Aktualizované 13.3.2022 po cvičeniach. -->
+<!-- ::: {.exercise name="DÚ 6.1 Počet nehôd"} -->
+<!-- Počet nehôd na kruháči pri Lidli v pondelok sa dá modelovať Poissonovým rozdelením so strednou hodnotou 2.2. Aká je pravdepodobnosť, že najbližší pondelok tam budú aspoň 4 nehody? -->
+<!-- Aký je priemerný počet nehôd na kruháči v pondelok? -->
+<!-- ::: -->
+<!-- ::: {.exercise name="DÚ 6.2 Hladní kamaráti"} -->
+<!-- Za každé tankovanie náhodne dostanete bagetu alebo kofolu ako darček. Na pumpe majú aktuálne 20 kofôl a 10 bagiet. Piati kamaráti idú natankovať a sú hladní. -->
+<!-- Aká je pravdepodobnosť, že dostanú aspoň 3 bagety?  -->
+<!-- ::: -->
+<!-- ::: {.exercise name="DÚ 6.3 Hokejový zápas"} -->
+<!-- Na hokeji je šanca na gól v každej minúte rovná $0.06$. Hrá sa na 3 tretiny po 20 minút. -->
+<!-- a) Na zápas meškáte 10 minút. Aká je pravdepodobnosť, že zmeškáte prvý gól? -->
+<!-- b) Aká je pravdepodobnosť, že prvý gól padne až v druhej tretine? -->
+<!-- c) Aká je pravdepodobnosť, že v priebehu zápasu padne menej ako 5 gólov? -->
+<!-- ::: -->
+<!-- ::: {.exercise name="DÚ 6.4 Búrka"} -->
+<!-- Pravdepodobnosť blesku v každej sekunde počas búrky je $0.003$. -->
+<!-- Búrka trvá 3 hodiny. -->
+<!-- a) Koľko bleskov priemerne počas búrky udrie? -->
+<!-- b) Aká je pravdepodobnosť, že počas búrky udrie viac ako 35, ale menej ako 40 bleskov? -->
+<!-- c) Aká je pravdepodobnosť, že prvý blesk udrie presne po 5 minútach od začiatku búrky? -->
+<!-- ::: -->
+<!-- ::: {.exercise name="DÚ 7.1 Písací stroj"} -->
+<!-- Na písacom stroji máte napísať 5 rovnakých listov. Každý list sa zmestí na stranu, má 1000 písmen a musí byť bezchybne napísaný. Ak sa pomýlite, tak okamžite začnete písať nový list a pokazený zahodíte. -->
+<!-- Každé písmeno napíšete správne nezávisle s pravdepodobnosťou 0.999. -->
+<!-- (a) Aká je pravdepodobnosť, že hneď prvý list napíšete bez chyby? -->
+<!-- (b) Aká je pravdepodobnosť, že potrebujete presne 20 papierov na napísanie 5 bezchybných listov? -->
+<!-- (c) Aká je pravdepodobnosť, že potrebujete aspoň 20 papierov na napísanie 5 bezchybných listov? -->
+<!-- (d) Koľko papierov v priemere miniete? -->
+<!-- ::: -->
+<!-- ::: {.exercise name="DÚ 7.2 Lyžovanie"} -->
+<!-- Ste lyžiar a pravdepodobnosť, že vyhráte zjazd, je 0.25 (nezávisle od okolností). -->
+<!-- (a) Koĺkokrát v priemere musíte súťažiť v zjazde, kým prvýkrát vyhráte? -->
+<!-- (b) Koĺkokrát v priemere musíte súťažiť v zjazde, kým vyhráte 10 krát? -->
+<!-- (c) V sezóne súťažite len 12 krát. Na špeciálny pohár cechu lyžiarov potrebujete vyhrať aspoň 10 krát za rok. Aká ja pravdepodobnosť, že tento rok získate pohár? -->
+<!-- (d) Koľkokrát môžete očakávať zisk špeciálneho poháru za svoju 20-ročnú kariéru?  -->
+<!-- ::: -->
+<!-- TOTO ZATIAN NIE -->
+<!-- ::: {.exercise name="DÚ 4.5 Test"} -->
+<!-- Majme test, ktorý má 10 rôznych otázok. O našom kamarátovi, ktorý sa vôbec neučil vieme, že tento test hádaním spravil tak, že nemal viacej ako 3 otázky správne. Neviete však, či mal ten test 3 možnosti (teda ABC) na každú otázku alebo 4 možnosti (teda ABCD). Čomu viacej veríte - variantu ABC alebo ABCD? Svoju odpoveď podrobne zdôvodnite. -->
+<!-- ::: -->
+<!-- ::: {.exercise name="DÚ 4.6 Zemetrasenie"} -->
+<!-- Vieme, že počet zemetrasení za rok je modelovaný Poissonovým rozdelením s neznámym parametrom $\lambda$. Vieme, že pravdepodobnosť toho, že nastane 5 zemetrasení je dvakrát taká veľká ako je pravdepodobnosť toho, že nastane 6 zemetrasení. Aká je pravdepodobnosť, že nenastane žiadne zemetrasenie? -->
+<!-- ::: -->
+<!-- ::: {.exercise name="DÚ 4.3 Hviezdičky"} -->
+<!-- Majme produkt, ktorého spokojnosť môžu ohodnotiť zákazníci tým, že tento produkt môžu odporúčať alebo neodporúčať. Produkt u ktorého je odporúčanie vyššie alebo rovné ako 90\% z celkového počtu hodnotení získa päť hviezdičiek. Nech je skutočná spokojnosť ľudí s produktom 85\%. -->
+<!-- * Aká je pravdepodobnosť, že produkt, ktorý ohodnotí 20 zákazníkov bude mať 5 hviezdičiek? -->
+<!-- * Aká je pravdepodobnosť, že produkt, ktorý ohodnotí 50 zákazníkov bude mať 5 hviezdičiek?mam -->
+<!-- * Aká je pravdepodobnosť, že produkt, ktorý ohodnotí 100 zákazníkov bude mať 5 hviezdičiek? -->
+<!-- * Aký najmenší počet zákazníkov môže produkt ohodnotiť tak, aby šanca, že produkt dosiahne 5 hviezdičiek bola menšia ako 5\%? -->
+<!-- Tieto výsledky vysvetlite. -->
+<!-- ::: -->
+<!-- ## Domáca úloha 5 {-} -->
+<!--  Hovoríme, že  náhodné premenné $X_1$ a $X_2$ sú __nezávislé__, ak platí $P(X_1 = k_1 \cap X_2 = k_2 ) = P(X_1 = k_1) P(X_2 = k_2 )$ pre všetky $k_1 \in \mathcal{S}_{X_1}$ a $k_1 \in \mathcal{S}_{X_2}$) -->
+<!-- ::: {.exercise name="DÚ 5.1"} -->
+<!-- Nech $X_1 \sim \text{Geom}(p)$ a $X_2 \sim \text{Geom}(p)$ a nech $X_1$ a $X_2$ sú nezávislé. Nech naviac $Y = X_1 + X_2.$ -->
+<!-- Ukážte, že $Y \sim \text{NegBinom}(2,p).$ Tento výsledok intuitívne zdôvodnite. -->
+<!-- :::  -->
+<!-- ::: {.exercise name="DÚ 5.2"} -->
+<!-- Nech $X_1 \sim \text{Bin}(n_1,p)$ a $X_2 \sim \text{Bin}(n_2,p)$ a nech $X_1$ a $X_2$ sú nezávislé. Nech naviac $Y = X_1 + X_2.$ -->
+<!-- Ukážte, že $Y \sim \text{Bin}(n_1 + n_2,p).$ Tento výsledok intuitívne zdôvodnite. -->
+<!-- :::  -->
+<!-- ::: {.exercise name="DÚ 5.3"} -->
+<!-- Vieme, že presné testy sú drahé. Teraz budeme testovať vo viacerých krokoch. Máme 1000 ľudí, ktorých potrebujeme otestovať. Pravdepodobnosť pozititívneho testu nech je 0.01. Namiesto toho, aby sme otestovali každého človeka osobitne, tak spojíme odberové vzorky do 5 skupín po 200. Ak bude v nejakej skupine detekovaná pozitivita, tak, rozdelíme túto skupinu na skupiny veľkosti 40. V tejto skupine znovu spojíme odberové vzorky do 5 skupín po 8. Ak bude v niektorej skupine detekovaná pozitivita, otestujeme všetkých 8 ľudí. Odpovedzte na nasledujúce otázky: -->
+<!-- * Koľko testov v priemere urobíme? -->
+<!-- * Aká je pravdepodobnosť, že týmto spôsobom urobíme viacej testov ako 1000? -->
+<!-- ::: -->
+<!-- ::: {.exercise name="DÚ 5.4"} -->
+<!-- V triede je 15 mužov a 16 žien.  -->
+<!-- * Aká je pravdepodobnosť, že v náhodne vybranej skupine 6 ľudí bude viacej žien ako mužov? -->
+<!-- * Pre akú veľkosť náhodne vybranej skupiny (toto bolo predtým 6) bude mať počet žien v tejto skupine najväčšiu varianciu? (Vzťah pre varianciu vhodnej pravdepodobnostnej distribúcie nemusíte odvádzať.) -->
+<!-- :::  -->
+<!-- ::: {.exercise name="DÚ 5.5"} -->
+<!-- Nech $X \sim \text{Bin}(n,p)$ a nech $Y = n - X.$ Aké má náhodná premenná rozdelenie? Svoju odpoveď podrobne zdôvodnite. -->
+<!-- :::  -->
+<!-- ::: {.exercise name="DÚ 5.6"} -->
+<!-- Za hodinu bankomat obslúži v priemere 4 ľudí. Aká je pravdepodobnosť, že bankomat obslúži viacej ako 8 ľudí. Podrobne zdôvodnite, aké podmienky musia byť splnené, aby pravdepodobnostné rozdelenie, ktoré používate, bolo adekvátnou aproximáciou reality. -->
+<!-- :::  -->
+<!-- ::: {.exercise name="DÚ 5.7"} -->
+<!-- Majme $X \sim \text{Bern}(p).$ Majme $Y = 1-X.$ Aké má $Y$ pravdepodobnostné rozdelenie? Sú dve náhodné premenné, ktoré majú rovnaké rozdelenie vždy rovnaké? -->
+<!-- :::  -->
+<!-- ::: {.exercise name="DÚ 5.8"} -->
+<!-- Doplňte -->
+<!-- * $X \sim \text{Bern}(p) \implies \text{Bin}(\ \ \ ,p)$ -->
+<!-- * Ak $X \sim \text{Bin}(100,0.4)$, potom $P( 37 < X \leq 40) = F(a) - F(b),$ kde $a = \ \ \ $ a $b = \ \ \ \ .$ Platí, že $P( 37 < X \leq 40) = p_X(\ \ \ ) + p_X(\ \ \ ) + p_X(\ \ \ ).$ -->
+<!-- * Ak $\text{E}[X] = 7$ a $\text{E}[3X+4Y] = 22$ potom $\text{E}[Y] = \ \ \ \ .$ -->
+<!-- * Ak $\text{E}[X] = 3$ a $\text{Var}[X] = 1$ potom $\text{E}[X^2] = \ \ \ \ .$ -->
+<!-- :::  -->
+<!-- ::: {.exercise name="DÚ 5.9"} -->
+<!-- Majme desaťotázkový test s možnosťami A, B, C, D, kde práve jedna odpoveď je správna. Na prvých 5 otázok vie študent odpovedať správne s pravdepodobnosťou 80%, druhých päť sa týka látky, ktorú nikdy nevidel. Aká je stredná hodnota počtu správnych odpovedí? Aká je pravdepodobnosť, že študent správne odpovie na 9 alebo viacej otázok? -->
+<!-- :::  -->
+<!-- ::: {.exercise name="DÚ 5.10"} -->
+<!-- Na konci hokejového tréningu streliť 10 gólov do prázdnej brány. Nepojdete skorej domov kým ich nestrelíte. Triafate sa s pravdepodobnosťou 95\%. Aká je pravdepodobnosť, že dokončíte tréning s párnym počtom pokusov? -->
+<!-- :::  -->
+<!-- ::: {.exercise name="DÚ 5.11"} -->
+<!-- Na firemnom večierku sú ľudia z 3 rôznych divízií firmy. Z prvej divízie je tam 12 ľuďí, z druhej 11 a z tretej 10. V tombole vyhrá 6 ľudí. Aká je šanca, že z každej divízie vyhrajú práve dvaja ľudia? -->
+<!-- :::  -->
+
+
+</section>
+<section id="footnotes" class="footnotes footnotes-end-of-document" role="doc-endnotes">
+<hr>
+<ol>
+<li id="fn1"><p>Túto podmienku potrebujeme na to, aby bola táto suma konvergentná. V prípade, že <span class="math inline">\(\mathcal{S}_X\)</span> je konečná množina je táto podmienka splnená vždy. Pri nekonečnej spočitaťelnej množine <span class="math inline">\(\mathcal{S}_X\)</span> však čiastočné súčty radu môžu divergovať.<a href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn2"><p>Všimnime si, že teraz budeme používať <span class="math inline">\(k\)</span> namiesto <span class="math inline">\(x\)</span>, teda <span class="math inline">\(p_X(k)\)</span> namiesto <span class="math inline">\(p_X(x)\)</span>. Zvykom je, že písmená ako <span class="math inline">\(k,l,m,n\)</span> sa používajú na označenie prirodzených čísel, zatiaľčo <span class="math inline">\(x,y,z\)</span> sú používané skôr na označenie reálnych čísel.<a href="#fnref2" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn3"><p>Náhodný proces, ktorý modeluje takéto udalosti sa nazýva <em>Poissonov proces</em> a je dôležitým matematickým nástrojom v poisťovníctve. Budeme sa o ňom dopodrobna učiť neskôr.<a href="#fnref3" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn4"><p>Binomické rozdelenie pri veľkom počte pokusov má aj tú nevýhodu, že sa ťažšie vyčísluje numericky. Pre <span class="math inline">\(X \sim \text{Bin}(1000,0.001)\)</span> vypočítať napríklad <span class="math inline">\(p_X(20)= {1000 \choose 20} 0.001^{20} 0.999^{980}\)</span> nie je jednoduché, lebo spolu násobíme obrovské aj maličké čísla.<a href="#fnref4" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+</ol>
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const isCodeAnnotation = (el) => {
+    for (const clz of el.classList) {
+      if (clz.startsWith('code-annotation-')) {                     
+        return true;
+      }
+    }
+    return false;
+  }
+  const onCopySuccess = function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  }
+  const getTextToCopy = function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+    text: getTextToCopy
+  });
+  clipboard.on('success', onCopySuccess);
+  if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+    const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+      text: getTextToCopy,
+      container: window.document.getElementById('quarto-embedded-source-code-modal')
+    });
+    clipboardModal.on('success', onCopySuccess);
+  }
+    var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+    var mailtoRegex = new RegExp(/^mailto:/);
+      var filterRegex = new RegExp('/' + window.location.host + '/');
+    var isInternal = (href) => {
+        return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+    }
+    // Inspect non-navigation links and adorn them if external
+ 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+    for (var i=0; i<links.length; i++) {
+      const link = links[i];
+      if (!isInternal(link.href)) {
+        // undo the damage that might have been done by quarto-nav.js in the case of
+        // links that we want to consider external
+        if (link.dataset.originalHref !== undefined) {
+          link.href = link.dataset.originalHref;
+        }
+      }
+    }
+  function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+    const config = {
+      allowHTML: true,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start',
+    };
+    if (contentFn) {
+      config.content = contentFn;
+    }
+    if (onTriggerFn) {
+      config.onTrigger = onTriggerFn;
+    }
+    if (onUntriggerFn) {
+      config.onUntrigger = onUntriggerFn;
+    }
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      if (note) {
+        return note.innerHTML;
+      } else {
+        return "";
+      }
+    });
+  }
+  const xrefs = window.document.querySelectorAll('a.quarto-xref');
+  const processXRef = (id, note) => {
+    // Strip column container classes
+    const stripColumnClz = (el) => {
+      el.classList.remove("page-full", "page-columns");
+      if (el.children) {
+        for (const child of el.children) {
+          stripColumnClz(child);
+        }
+      }
+    }
+    stripColumnClz(note)
+    if (id === null || id.startsWith('sec-')) {
+      // Special case sections, only their first couple elements
+      const container = document.createElement("div");
+      if (note.children && note.children.length > 2) {
+        container.appendChild(note.children[0].cloneNode(true));
+        for (let i = 1; i < note.children.length; i++) {
+          const child = note.children[i];
+          if (child.tagName === "P" && child.innerText === "") {
+            continue;
+          } else {
+            container.appendChild(child.cloneNode(true));
+            break;
+          }
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(container);
+        }
+        return container.innerHTML
+      } else {
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        return note.innerHTML;
+      }
+    } else {
+      // Remove any anchor links if they are present
+      const anchorLink = note.querySelector('a.anchorjs-link');
+      if (anchorLink) {
+        anchorLink.remove();
+      }
+      if (window.Quarto?.typesetMath) {
+        window.Quarto.typesetMath(note);
+      }
+      if (note.classList.contains("callout")) {
+        return note.outerHTML;
+      } else {
+        return note.innerHTML;
+      }
+    }
+  }
+  for (var i=0; i<xrefs.length; i++) {
+    const xref = xrefs[i];
+    tippyHover(xref, undefined, function(instance) {
+      instance.disable();
+      let url = xref.getAttribute('href');
+      let hash = undefined; 
+      if (url.startsWith('#')) {
+        hash = url;
+      } else {
+        try { hash = new URL(url).hash; } catch {}
+      }
+      if (hash) {
+        const id = hash.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note !== null) {
+          try {
+            const html = processXRef(id, note.cloneNode(true));
+            instance.setContent(html);
+          } finally {
+            instance.enable();
+            instance.show();
+          }
+        } else {
+          // See if we can fetch this
+          fetch(url.split('#')[0])
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.getElementById(id);
+            if (note !== null) {
+              const html = processXRef(id, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      } else {
+        // See if we can fetch a full url (with no hash to target)
+        // This is a special case and we should probably do some content thinning / targeting
+        fetch(url)
+        .then(res => res.text())
+        .then(html => {
+          const parser = new DOMParser();
+          const htmlDoc = parser.parseFromString(html, "text/html");
+          const note = htmlDoc.querySelector('main.content');
+          if (note !== null) {
+            // This should only happen for chapter cross references
+            // (since there is no id in the URL)
+            // remove the first header
+            if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+              note.children[0].remove();
+            }
+            const html = processXRef(null, note);
+            instance.setContent(html);
+          } 
+        }).finally(() => {
+          instance.enable();
+          instance.show();
+        });
+      }
+    }, function(instance) {
+    });
+  }
+      let selectedAnnoteEl;
+      const selectorForAnnotation = ( cell, annotation) => {
+        let cellAttr = 'data-code-cell="' + cell + '"';
+        let lineAttr = 'data-code-annotation="' +  annotation + '"';
+        const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+        return selector;
+      }
+      const selectCodeLines = (annoteEl) => {
+        const doc = window.document;
+        const targetCell = annoteEl.getAttribute("data-target-cell");
+        const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+        const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+        const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+        const lineIds = lines.map((line) => {
+          return targetCell + "-" + line;
+        })
+        let top = null;
+        let height = null;
+        let parent = null;
+        if (lineIds.length > 0) {
+            //compute the position of the single el (top and bottom and make a div)
+            const el = window.document.getElementById(lineIds[0]);
+            top = el.offsetTop;
+            height = el.offsetHeight;
+            parent = el.parentElement.parentElement;
+          if (lineIds.length > 1) {
+            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+            const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+            height = bottom - top;
+          }
+          if (top !== null && height !== null && parent !== null) {
+            // cook up a div (if necessary) and position it 
+            let div = window.document.getElementById("code-annotation-line-highlight");
+            if (div === null) {
+              div = window.document.createElement("div");
+              div.setAttribute("id", "code-annotation-line-highlight");
+              div.style.position = 'absolute';
+              parent.appendChild(div);
+            }
+            div.style.top = top - 2 + "px";
+            div.style.height = height + 4 + "px";
+            div.style.left = 0;
+            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+            if (gutterDiv === null) {
+              gutterDiv = window.document.createElement("div");
+              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+              gutterDiv.style.position = 'absolute';
+              const codeCell = window.document.getElementById(targetCell);
+              const gutter = codeCell.querySelector('.code-annotation-gutter');
+              gutter.appendChild(gutterDiv);
+            }
+            gutterDiv.style.top = top - 2 + "px";
+            gutterDiv.style.height = height + 4 + "px";
+          }
+          selectedAnnoteEl = annoteEl;
+        }
+      };
+      const unselectCodeLines = () => {
+        const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+        elementsIds.forEach((elId) => {
+          const div = window.document.getElementById(elId);
+          if (div) {
+            div.remove();
+          }
+        });
+        selectedAnnoteEl = undefined;
+      };
+        // Handle positioning of the toggle
+    window.addEventListener(
+      "resize",
+      throttle(() => {
+        elRect = undefined;
+        if (selectedAnnoteEl) {
+          selectCodeLines(selectedAnnoteEl);
+        }
+      }, 10)
+    );
+    function throttle(fn, ms) {
+    let throttle = false;
+    let timer;
+      return (...args) => {
+        if(!throttle) { // first call gets through
+            fn.apply(this, args);
+            throttle = true;
+        } else { // all the others get throttled
+            if(timer) clearTimeout(timer); // cancel #2
+            timer = setTimeout(() => {
+              fn.apply(this, args);
+              timer = throttle = false;
+            }, ms);
+        }
+      };
+    }
+      // Attach click handler to the DT
+      const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+      for (const annoteDlNode of annoteDls) {
+        annoteDlNode.addEventListener('click', (event) => {
+          const clickedEl = event.target;
+          if (clickedEl !== selectedAnnoteEl) {
+            unselectCodeLines();
+            const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+            if (activeEl) {
+              activeEl.classList.remove('code-annotation-active');
+            }
+            selectCodeLines(clickedEl);
+            clickedEl.classList.add('code-annotation-active');
+          } else {
+            // Unselect the line
+            unselectCodeLines();
+            clickedEl.classList.remove('code-annotation-active');
+          }
+        });
+      }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script>
+<nav class="page-navigation">
+  <div class="nav-page nav-page-previous">
+      <a href="./np.html" class="pagination-link" aria-label="Náhodná premenná">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Náhodná premenná</span></span>
+      </a>          
+  </div>
+  <div class="nav-page nav-page-next">
+      <a href="./snp.html" class="pagination-link" aria-label="Spojitá náhodná premenná">
+        <span class="nav-page-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Spojitá náhodná premenná</span></span> <i class="bi bi-arrow-right-short"></i>
+      </a>
+  </div>
+</nav>
+</div> <!-- /content -->
+
+
+
+
+</body></html>

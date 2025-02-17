@@ -1,0 +1,1167 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.6.40">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>2&nbsp; Pravdepodobnosť – Pravdepodobnosť a štatistika 1</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+</style>
+
+
+<script src="site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="site_libs/quarto-nav/headroom.min.js"></script>
+<script src="site_libs/clipboard/clipboard.min.js"></script>
+<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="site_libs/quarto-search/fuse.min.js"></script>
+<script src="site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="./">
+<link href="./cond.html" rel="next">
+<link href="./intro.html" rel="prev">
+<script src="site_libs/quarto-html/quarto.js"></script>
+<script src="site_libs/quarto-html/popper.min.js"></script>
+<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="site_libs/quarto-html/anchor.min.js"></script>
+<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-549806ee2085284f45b00abea8c6df48.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="site_libs/bootstrap/bootstrap-626149efe8f5d16e1d391ba177679bf0.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "sidebar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "start",
+  "type": "textbox",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN") {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
+
+</head>
+
+<body class="nav-sidebar floating">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+  <nav class="quarto-secondary-nav">
+    <div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
+      </button>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./set.html"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Pravdepodobnosť</span></a></li></ol></nav>
+        <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        </a>
+      <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
+        <i class="bi bi-search"></i>
+      </button>
+    </div>
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
+    <div class="pt-lg-2 mt-2 text-left sidebar-header">
+    <div class="sidebar-title mb-0 py-0">
+      <a href="./">Pravdepodobnosť a štatistika 1</a> 
+    </div>
+      </div>
+        <div class="mt-2 flex-shrink-0 align-items-center">
+        <div class="sidebar-search">
+        <div id="quarto-search" class="" title="Search"></div>
+        </div>
+        </div>
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">O tomto kurze</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./intro.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Interpretácia pravdepodobnosti</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./set.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Pravdepodobnosť</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./cond.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Podmienená pravdepodobnosť</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./np.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Náhodná premenná</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./dnp.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Diskrétna náhodná premenná</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./snp.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Spojitá náhodná premenná</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./cov.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Súvis medzi náhodnými premennými</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./zvc.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Zákon veľkých čísel</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./clv.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Centrálna limitná veta</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./opa.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Opakovanie</span></span></a>
+  </div>
+</li>
+    </ul>
+    </div>
+</nav>
+<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Table of contents</h2>
+   
+  <ul>
+  <li><a href="#množinové-značenie" id="toc-množinové-značenie" class="nav-link active" data-scroll-target="#množinové-značenie"><span class="header-section-number">2.1</span> Množinové značenie</a></li>
+  <li><a href="#pravdepodobnostný-priestor" id="toc-pravdepodobnostný-priestor" class="nav-link" data-scroll-target="#pravdepodobnostný-priestor"><span class="header-section-number">2.2</span> Pravdepodobnostný priestor</a></li>
+  <li><a href="#vlastnostipravdepodobnosti" id="toc-vlastnostipravdepodobnosti" class="nav-link" data-scroll-target="#vlastnostipravdepodobnosti"><span class="header-section-number">2.3</span> Vlastnosti pravdepodobnosti</a></li>
+  <li><a href="#kombinatorika" id="toc-kombinatorika" class="nav-link" data-scroll-target="#kombinatorika"><span class="header-section-number">2.4</span> Kombinatorika</a></li>
+  <li><a href="#zhrnutie" id="toc-zhrnutie" class="nav-link" data-scroll-target="#zhrnutie"><span class="header-section-number">2.5</span> Zhrnutie</a></li>
+  <li><a href="#cvičenia" id="toc-cvičenia" class="nav-link" data-scroll-target="#cvičenia"><span class="header-section-number">2.6</span> Cvičenia</a></li>
+  <li><a href="#ďalšie-cvičenia" id="toc-ďalšie-cvičenia" class="nav-link" data-scroll-target="#ďalšie-cvičenia"><span class="header-section-number">2.7</span> Ďalšie cvičenia</a></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title"><span id="set" class="quarto-section-identifier"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Pravdepodobnosť</span></span></h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<p>Na začiatku si potrebujeme zopakovať množinovú symboliku. Táto predstavuje absolútny základ, bez ktorého sa nedá zmysluplne pokračovať. Plynulosť v používaní matematických symbolov uľahčuje dôvodenie a argumentáciu. Zápis je potom kompaktný a univerzálny, nezávislý od nuáns špecifického jazyka.</p>
+<section id="množinové-značenie" class="level2" data-number="2.1">
+<h2 data-number="2.1" class="anchored" data-anchor-id="množinové-značenie"><span class="header-section-number">2.1</span> Množinové značenie</h2>
+<p><strong>Množinou</strong> budeme nazývať súhrn objektov/prvkov.</p>
+<p>Množina je <strong>konečná</strong>, ak má konečne veľa prvkov. Napríklad <span class="math inline">\(M = \{1,2,8\}\)</span> má tri prvky.</p>
+<p>Množina je <strong>spočitateľná</strong>, ak má nanajvýš spočitateľne veľa prvkov. Napríklad <span class="math inline">\(M_1 = \{1,22,-2\}\)</span> alebo <span class="math inline">\(M_2 = \{2,4,6,8,\dots\}.\)</span> Množina <span class="math inline">\(M\)</span> je teda spočitateľná, ak existuje nejaké injektívne zobrazenie z množiny <span class="math inline">\(M\)</span> do množiny prirodzených čísel <span class="math inline">\(\mathbb{N}\)</span>. Inými slovami, prvkov v množine <span class="math inline">\(M\)</span> nie je “príliš veľa”.</p>
+<p>Množina <span class="math inline">\(M_1\)</span> je <strong>podmnožinou</strong> <span class="math inline">\(M_2,\)</span> označujeme <span class="math inline">\(M_1 \subseteq M_2\)</span> ak platí, že každý element <span class="math inline">\(M_1\)</span> je zároveň aj elementom v <span class="math inline">\(M_2,\)</span> teda ak platí <span class="math inline">\(\forall m: m \in M_1 \implies m \in M_2.\)</span></p>
+<p>Množinu <span class="math inline">\(M\)</span>, ktorá nemá žiadne prvky nazývame <strong>prázdna</strong> a označujeme <span class="math inline">\(M = \emptyset.\)</span></p>
+<p><strong>Zjednotením</strong> dvoch množín <span class="math inline">\(M_1\)</span> a <span class="math inline">\(M_2\)</span> nazývame množinu, ktorej prvky sa nachádzajú buď v množine <span class="math inline">\(M_1\)</span> alebo v množine <span class="math inline">\(M_2.\)</span> Zjednotenie dvoch množín označujeme ako <span class="math inline">\(M_1 \cup M_2\)</span>.</p>
+<p><strong>Zjednotením</strong> viacerých (nanajvýš spočitateľne veľa) množín <span class="math inline">\(M_1, M_2, M_3,\dots\)</span> nazývame množinu, ktorej prvky sa nachádzajú aspoň v jednej z množín <span class="math inline">\(M_1, M_2, M_3, \dots\)</span>. Zjednotenie viacerých množín označujeme ako <span class="math inline">\(M_1 \cup M_2 \cup M_3 \cup \dots = \cup_{i=1}^{\infty} M_i\)</span> pre zjednotenie nekonečne veľa množín alebo ako <span class="math inline">\(M_1 \cup M_2 \cup M_3 \cup \dots \cup M_n = \cup_{i=1}^{n} M_i\)</span> pre zjednotenie konečného počtu množín.</p>
+<p><strong>Prienikom</strong> dvoch množín <span class="math inline">\(M_1\)</span> a <span class="math inline">\(M_2\)</span> nazývame množinu, ktorej prvky sa nachádzajú aj v <span class="math inline">\(M_1\)</span> aj v <span class="math inline">\(M_2.\)</span> Prienik dvoch množín označujeme ako <span class="math inline">\(M_1 \cap M_2\)</span>.</p>
+<p>Dve množiny <span class="math inline">\(M_1\)</span> a <span class="math inline">\(M_2\)</span> nazývame <strong>disjunktné</strong>, ak ich spoločný prienik je prázdna množina, teda <span class="math inline">\(M_1 \cap M_2 = \emptyset.\)</span></p>
+<p><strong>Prienikom</strong> viacerých (nanajvýš spočitateľne veľa) množín <span class="math inline">\(M_1, M_2, M_3,\dots\)</span> nazývame množinu, ktorej prvky sa nachádzajú v každej jednej z množín <span class="math inline">\(M_1, M_2, M_3, \dots\)</span>. Prienik viacerých množín označujeme ako <span class="math inline">\(M_1 \cap M_2 \cap M_3 \cap \dots = \cap_{i=1}^{\infty} M_i\)</span> alebo ako <span class="math inline">\(M_1 \cap M_2 \cap M_3 \cap \dots \cap M_n = \cap_{i=1}^{n} M_i\)</span> pre prienik konečného počtu množín.</p>
+<p>Mnohokrát dáva zmysel uvažovať o všetkých možných objektov/prvkov. <strong>Priestor</strong> označuje súhrn všetkých možných objektov. Častokrát ako notáciu používame veľké zakrútené písmená, napr. <span class="math inline">\(\mathcal{M}\)</span>. Napríklad ak hovoríme o tom, aké číslo padne na kocke, tak priestor je <span class="math inline">\(\{1,2,3,4,5,6\}.\)</span></p>
+<p>Nech <span class="math inline">\(\mathcal{M}\)</span> je priestor a nech <span class="math inline">\(M \subseteq \mathcal{M}.\)</span> Potom <strong>komplementom</strong> množiny <span class="math inline">\(M\)</span> (vzhľadom na priestor <span class="math inline">\(\mathcal{M}\)</span>), označovaným ako <span class="math inline">\(M^C\)</span>, nazývame množinu tých objektov z priestoru <span class="math inline">\(\mathcal{M}\)</span>, ktoré nie sú v <span class="math inline">\(M.\)</span></p>
+<p>Nejaké príklady:</p>
+<ul>
+<li>Pre každú množinu <span class="math inline">\(M\)</span> platí:
+<ul>
+<li><span class="math inline">\(M \cup M = M\)</span>,</li>
+<li><span class="math inline">\(M \cap M = M\)</span>,</li>
+<li><span class="math inline">\(M \cap \emptyset = \emptyset\)</span> a</li>
+<li><span class="math inline">\(M \cup \emptyset = M.\)</span></li>
+</ul></li>
+<li>Ak <span class="math inline">\(M_1 \subseteq M_2\)</span> potom
+<ul>
+<li><span class="math inline">\(M_1 \cup M_2 = M_2\)</span> a</li>
+<li><span class="math inline">\(M_1 \cap M_2 = M_1\)</span></li>
+</ul></li>
+<li>Ak <span class="math inline">\(M_i = \{x: 0 &lt; x &lt; \frac{1}{i} \}, \ k = 1,2,3,\dots\)</span> potom <span class="math inline">\(\cap_{i=1}^{\infty} M_i = \emptyset\)</span></li>
+<li>Ak <span class="math inline">\(M_i = \{x: \frac{1}{i+1} &lt; x \leq \frac{1}{i} \}, \ k = 1,2,3,\dots\)</span> potom <span class="math inline">\(\cup_{i=1}^{\infty} M_i = (0,1]\)</span></li>
+<li>Ak <span class="math inline">\(M_1 = \{(a,b), (a,a) \}\)</span> a <span class="math inline">\(M_2 = \{(a,b), (b,b) \}\)</span> potom
+<ul>
+<li><span class="math inline">\(M_1 \cap M_2 = \{ (a,b) \}\)</span> a</li>
+<li><span class="math inline">\(M_1 \cup M_2 = \{ (a,b), (a,a), (b,b) \}\)</span></li>
+</ul></li>
+<li>Nech <span class="math inline">\(x\)</span> je počet hláv pri 3 hodoch mincou. Potom priestor je množina <span class="math inline">\(\mathcal{M}=\{ 0,1,2,3\}.\)</span></li>
+<li><span class="math inline">\(\mathcal{M}^C = \emptyset.\)</span></li>
+<li>Nech <span class="math inline">\(M \subseteq \mathcal{M}.\)</span> Potom
+<ul>
+<li><span class="math inline">\(M \cup M^C = \mathcal{M}\)</span>,</li>
+<li><span class="math inline">\(M \cap M^C = \emptyset\)</span>,</li>
+<li><span class="math inline">\(M\cup\mathcal{M} = \mathcal{M}\)</span>,</li>
+<li><span class="math inline">\(M\cap\mathcal{M} = M\)</span>,<br>
+</li>
+<li><span class="math inline">\((M^C)^C = M\)</span>.</li>
+</ul></li>
+</ul>
+<p>Užitočným nástrojom sú <strong>DeMorganove zákony</strong>. (Ukážte ich formálne ako cvičenie, pomôžte si Vennovými diagramami.)</p>
+<ul>
+<li><span class="math inline">\((M_1 \cap M_2)^C = M_1^C \cup M_2^C\)</span></li>
+<li><span class="math inline">\((M_1 \cup M_2)^C = M_1^C \cap M_2^C\)</span></li>
+</ul>
+<p>Pre operácie prieniku <span class="math inline">\(\cap\)</span> a zjednotenia <span class="math inline">\(\cup\)</span> platia <strong>distributívne zákony</strong></p>
+<ul>
+<li><span class="math inline">\(M_1 \cap (M_2 \cup M_3) = (M_1 \cap M_2) \cup (M_1 \cap M_3)\)</span>,</li>
+<li><span class="math inline">\(M_1 \cup (M_2 \cap M_3) = (M_1 \cup M_2) \cap (M_1 \cup M_3)\)</span>.</li>
+</ul>
+</section>
+<section id="pravdepodobnostný-priestor" class="level2" data-number="2.2">
+<h2 data-number="2.2" class="anchored" data-anchor-id="pravdepodobnostný-priestor"><span class="header-section-number">2.2</span> Pravdepodobnostný priestor</h2>
+<p>Teraz zadefinujeme dôležitý pojem - pravdepodobnostný priestor.</p>
+<p>Uvažujme nasledovnú trojicu:</p>
+<p><span class="math display">\[(\Omega, \mathcal{F}, P)\]</span> s týmito vlastnosťami:</p>
+<ul>
+<li><span class="math inline">\(\Omega\)</span> je <strong>priestor</strong>, teda nejaká neprázdna množina. Bude to množina všetkých možných prípadov, ako môže dopadnúť experiment.</li>
+<li><span class="math inline">\(\mathcal{F}\)</span> je množina podmnožín <span class="math inline">\(\Omega\)</span>. Teda prvky nachádzajúce sa v <span class="math inline">\(\mathcal{F}\)</span> sú množiny. <span class="math inline">\(\mathcal{F}\)</span> bude označovať množinu <strong>udalostí</strong>. No a udalostiam budeme chciet priraďovať pravdepodobnosť. <a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a></li>
+</ul>
+<!-- -->
+<ul>
+<li><span class="math inline">\(P\)</span> je <strong>pravdepodobnostná funkcia</strong> alebo skrátene len <strong>pravdepodobnosť</strong>. Je to funkcia <span class="math inline">\(\mathcal{F} \rightarrow [0,1].\)</span> <a href="#fn2" class="footnote-ref" id="fnref2" role="doc-noteref"><sup>2</sup></a> Každej udalosti priradí číslo medzi 0 a 1. Funkcia <span class="math inline">\(P\)</span> musí spĺňať nasledovné vlastnosti:
+<ol type="1">
+<li><span class="math inline">\(P(A) \geq 0\)</span> pre všetky udalosti <span class="math inline">\(A.\)</span> Pravdepodobnosť je <em>nezáporná</em> funkcia.</li>
+<li><span class="math inline">\(P(\Omega) = 1.\)</span> Pravdepodobnosť je <em>zhora ohraničená funkcia číslom 1</em>.</li>
+<li><span class="math inline">\(P\left(\cup_{i=1}^{\infty} A_i\right) = \sum_{i=1}^{\infty} P(A_i)\)</span> pre akékoľvek disjunktné udalosti <span class="math inline">\(A_1, A_2, A_3,\dots\)</span> Tejto vlastnosti sa hovorí aj <em>spočitateľná aditivita</em>. V prípade dvoch udalostí <span class="math inline">\(A\)</span> a <span class="math inline">\(B\)</span> máme, že pravdepodobnosť, že nastane udalosť A alebo udalosť B, teda <span class="math inline">\(P(A \cup B)\)</span> je rovná súčtu pravdepodobností týchto udalostí, teda <span class="math inline">\(P(A) + P(B)\)</span>.</li>
+</ol></li>
+</ul>
+<p>Túto trojicu <span class="math inline">\((\Omega, \mathcal{F}, P)\)</span> nazývame <strong>pravdepodobnostný priestor</strong>.</p>
+<div class="example" name="Férová kocka">
+<p>Ako prvý príklad hádžme férovou kockou.</p>
+<ul>
+<li><span class="math inline">\(\Omega = \{1,2,3,4,5,6\}\)</span>,</li>
+<li><span class="math inline">\(\mathcal{F} = 2^{\Omega},\)</span> teda všetky možné podmnožiny <span class="math inline">\(\Omega\)</span>,</li>
+<li><span class="math inline">\(P(A) = \frac{|A|}{6},\)</span> kde <span class="math inline">\(|A|\)</span> označuje počet prvkov množiny <span class="math inline">\(A\)</span>.</li>
+</ul>
+<p>Teraz</p>
+<ul>
+<li>Aká je pravdepodobnosť, že padne šestka? <span class="math inline">\(P(\{6\}) = \frac{|\{6\}|}{6} = \frac{1}{6}\)</span></li>
+<li>Aká je pravdepodobnosť, že párne číslo? <span class="math inline">\(P(\{2,4,6\}) = \frac{|\{2,4,6\}|}{6} = \frac{3}{6} = \frac{1}{2}\)</span></li>
+</ul>
+</div>
+<div class="example" name="Neférová kocka">
+<p>Teraz poďme hádzať pre zmenu neférovou kockou.</p>
+<ul>
+<li><span class="math inline">\(\Omega = \{1,2,3,4,5,6\}\)</span>,</li>
+<li><span class="math inline">\(\mathcal{F} = 2^{\Omega},\)</span> teda všetky možné podmnožiny <span class="math inline">\(\Omega\)</span>,</li>
+<li><span class="math inline">\(P(\{1\})=P(\{2\})=P(\{3\})=P(\{4\})=P(\{5\})= \frac{1}{7},\)</span> a <span class="math inline">\(P(\{6\})=\frac{2}{7}\)</span>.</li>
+</ul>
+<p>Všimnime si, že teraz nám netreba zadefinovať pravdepodobnosť <span class="math inline">\(P\)</span> pre úplne všetky možné udalosti. Využítím vlastnosti funkcie <span class="math inline">\(P\)</span> vieme napríklad, že <span class="math inline">\(P(\{1,2\}) = P(\{1\} \cup \{2\}) = P(\{1\}) + P(\{2\}) = \frac{1}{7} + \frac{1}{7} = \frac{2}{7},\)</span> kvôli tomu, že udalosti <span class="math inline">\(\{1\}\)</span> a <span class="math inline">\(\{2\}\)</span> sú <em>disjunktné</em>. Preto sme nepotrebovali zadefinovať samotnú <span class="math inline">\(P(\{1,2\}).\)</span> Poľahky sme si ju dopočítali.</p>
+<p>Ďalej si môžeme všimnúť, že</p>
+<span class="math display">\[\begin{eqnarray*}
+P(\Omega) &amp;=&amp; P(\{1\} \cup \{2\} \cup \{3\} \cup \{4\} \cup \{5\} \cup \{6\}) \\
+          &amp;=&amp;  P(\{1\})+P(\{2\})+P(\{3\})+P(\{4\})+P(\{5\})+P(\{6\})
+\end{eqnarray*}\]</span>
+<p>Preto musí platiť, že <span class="math inline">\(P(\{1\})+P(\{2\})+P(\{3\})+P(\{4\})+P(\{5\})+P(\{6\})=1\)</span> inak by nebola splnená vlastnosť <span class="math inline">\(P(\Omega) = 1\)</span> a teda by funkcia <span class="math inline">\(P\)</span> nemohla byť pravdepodobnosťou.</p>
+<ul>
+<li>Aká je pravdepodobnosť, že padne šestka? <span class="math inline">\(P(\{6\}) = \frac{2}{7}\)</span></li>
+<li>Aká je pravdepodobnosť, že párne číslo? <span class="math inline">\(P(\{2,4,6\}) = P(\{2\})+P(\{4\})+P(\{6\}) = \frac{1}{7} + \frac{1}{7} + \frac{2}{7} = \frac{4}{7}\)</span></li>
+</ul>
+</div>
+<p>Odteraz aj potom neskôr, pri akejkoľvek otázke/úlohe/cvičení budeme potichu predpokladať, že pravdepodobnostný priestor v rámci ktorého sa dá odpovedať na danú otázku/úlohu/cvičenie <em>existuje</em>.<a href="#fn3" class="footnote-ref" id="fnref3" role="doc-noteref"><sup>3</sup></a> <a href="#fn4" class="footnote-ref" id="fnref4" role="doc-noteref"><sup>4</sup></a></p>
+</section>
+<section id="vlastnostipravdepodobnosti" class="level2" data-number="2.3">
+<h2 data-number="2.3" class="anchored" data-anchor-id="vlastnostipravdepodobnosti"><span class="header-section-number">2.3</span> Vlastnosti pravdepodobnosti</h2>
+<p>Dôkaz každého z týchto tvrdení skoro okamžite uvidíte, ak si nakreslíte Vennov diagram. Alebo keď si len nahlas prečítate, čo tieto tvrdenia hovoria:</p>
+<ul>
+<li>Pre každú udalosť <span class="math inline">\(A\)</span> platí
+<ul>
+<li><span class="math inline">\(P(A^C) = 1-P(A)\)</span> - Ak je pravdepodobnosť, že dostanem chorobu <span class="math inline">\(0.05\)</span>, potom je pravdepodobnosť, že nedostanem chorobu <span class="math inline">\(1-0.05 =0.95\)</span>.</li>
+<li><span class="math inline">\(0 \leq P(A) \leq 1\)</span> - Pravdepodobnosť nutne musí ležať medzi nula a jeden.</li>
+</ul></li>
+<li>Ak <span class="math inline">\(A \subseteq B\)</span> potom platí <span class="math inline">\(P(A) \leq P(B)\)</span> - Pravdepodobnosť je monotónna.</li>
+<li>Pre každé dve udalosti <span class="math inline">\(A\)</span> a <span class="math inline">\(B\)</span> platí
+<ul>
+<li><span class="math inline">\(P(A \cap B^C) = P(A) - P(A \cap B)\)</span> - Pravdepodobnosť, že nastane udalosť <span class="math inline">\(A\)</span> a súčasne nenastane udalosť <span class="math inline">\(B\)</span> je rovná pravdepodobnosti, že nastane <span class="math inline">\(A\)</span> zníženej o pravdepodobnosť toho, že nastanú naraz obe udalosti <span class="math inline">\(A\)</span> aj <span class="math inline">\(B\)</span>.</li>
+<li><span class="math inline">\(P(A \cup B) = P(A) + P(B) - P(A \cap B)\)</span> - Pravdepodobnosť, že nastane udalosť <span class="math inline">\(A\)</span> alebo udalosť <span class="math inline">\(B\)</span> je súčet týchto pravdepodobností znížený o ich pravdepodobnosť prieniku (lebo tento zarátame dva razy).</li>
+</ul></li>
+</ul>
+<p>Je dôležité vedieť tieto tvrdenia dokázať len z vlastností (1), (2), (3) pravdepodobnosti.</p>
+</section>
+<section id="kombinatorika" class="level2" data-number="2.4">
+<h2 data-number="2.4" class="anchored" data-anchor-id="kombinatorika"><span class="header-section-number">2.4</span> Kombinatorika</h2>
+<p>V mnohých stredoškolských príkladoch týkajúcich sa pravdepodobnosti sa spomínajú pojmy ako permutácie, kombinácie, s opakovaním/bez opakovania a podobne. Toto je častokrát zdrojom nepochopenia a chýb, lebo si študent/ka pre daný príklad <em>nejaký</em> z týchto pojmov vyberie a potom použije naučenú formulku. Nečudo, že mnohokrát nesprávne. Toto je nebezpečné, lebo si potom napríklad v praxi nebudú vedieť zrátať šancu, že budú mať čistú postupku alebo že si vytiahnu 3 modré guličky.</p>
+<p>Vo väčšine prípadov ide len o aplikáciu nasledujúceho vzťahu:</p>
+<p><span class="math display">\[P(A) = \frac{\text{počet úspešných pokusov (teda udalosť $A$ nastane)}}{\text{počet všetkých možných pokusov}}.\]</span> Takže stačí nám ak budeme vedieť efektívne počítať počet možností. Potom ich dáme do pomeru a máme pravdepodobnosť.</p>
+<p>Využívajú sa nasledovné zákonistosti:</p>
+<ul>
+<li><div class="line-block">Koľkými možnými spôsobmi môžeme usporiadať všetky objekty množiny <span class="math inline">\(\{a_1, a_2, a_3, \dots a_n\}\)</span> do postupnosti <em>keď záleží</em> na poradí?<br>
+&nbsp;Na prvé miesto môžeme dať <span class="math inline">\(n\)</span> rôznych objektov, na druhé miesto už len <span class="math inline">\(n-1\)</span> rôznych objektov (lebo sme si už jeden objekt minuli) a tak ďalej a na posledné miesto nám už zostal len <span class="math inline">\(1\)</span> objekt. Dokopy je teda možností <span class="math inline">\(n \cdot (n-1) \cdot \ \dots \ \cdot 1 = n!.\)</span></div></li>
+<li><div class="line-block">Koľkými možnými spôsobmi môžeme usporiadať <span class="math inline">\(k\)</span> rôznych objektov z množiny <span class="math inline">\(\{a_1, a_2, a_3, \dots a_n\}\)</span> do postupnosti <em>keď záleží</em> na poradí?<br>
+&nbsp;Na prvé miesto môžeme dať <span class="math inline">\(n\)</span> rôznych objektov, na druhé miesto už len <span class="math inline">\(n-1\)</span> rôznych objektov (lebo sme si už jeden objekt minule) a tak ďalej a na <span class="math inline">\(k\)</span>-te miesto nám už zostalo len <span class="math inline">\(n-k+1\)</span> rôznych objektov. Dokopy je teda možností <span class="math inline">\(n \cdot (n-1) \cdot \ \dots \ \cdot (n-k+1) = \frac{n!}{(n-k)!}.\)</span></div></li>
+<li><div class="line-block">Koľkými možnými spôsobmi môžeme vybrať <span class="math inline">\(k\)</span> rôznych objektov z množiny <span class="math inline">\(\{a_1, a_2, a_3, \dots a_n\}\)</span> <em>keď nezáleží</em> na poradí?<br>
+&nbsp;Ak by bolo záležalo na poradí, bolo by ich <span class="math inline">\(\frac{n!}{(n-k)!}\)</span>. Tu sme len použili predošlú úvahu. Ale v našom prípade nezáleží na poradí. A preto sú tam niektoré výbery viackrát. Konkrétne: rôznych usporiadaní <span class="math inline">\(k\)</span> objektov je <span class="math inline">\(k!\)</span>, teda toľkokrát ich je tam viacej. Odpoveď na našu otázku je preto <span class="math inline">\(\frac{\frac{n!}{(n-k)!}}{k!} = \frac{n!}{(n-k)!k!} = {{n}\choose{k}}.\)</span> Zaujimavým dôsledkom je</div></li>
+</ul>
+<p><span class="math display">\[(a+b)^n = (a+b)\cdot(a+b)\cdots(a+b) = \sum_{k=0}^{n} {{n}\choose{k}} a^k b^{n-k},\]</span></p>
+<p>nakoľko <span class="math inline">\({{n}\choose{k}}\)</span> je počet možností ako možno vybrať <span class="math inline">\(k\)</span> objektov z množiny <span class="math inline">\(n\)</span> objektov.</p>
+<p>Pri všetkých príkladoch typu karty/mince/kocky robíme, často implicitne, nejaké rozumné alebo polorozumné predpoklady. Keď napríklad povieme “hádžeme 3 krát kockou”, tak tým v skutočnosti myslíme “<em>nezávisle</em> hádžeme 3 krát <em>férovou</em> kockou”. Sada predpokladov, ktorá umožňuje prepísať danú úlohu do matematického jazyka a vypočítať je väčšinou zrejmá. V realite ale nikdy nehádžeme úplne nezávisle a žiadna kocka nie je úplne férová. Zjednodušenia pri kockách sú prirodzené a nekontroverzné. Pri reálnych príkladoch je však potreba explicitne vymenovať sadu predpokladov výrazne dôležitejšia. Matematický model, teda sada predpokladov, je totiž len teoreticky rámec úplne uzavretého systému, v ktorom sa veľmi dobre pracuje. Adekvátnosť modelu, teda to, ako dobre mapujú zjednodušenia realitu je aspekt, ktorý sa nedá charakterizovať matematickými prostriedkami.</p>
+<div class="example">
+<p>Raketoplán Challenger mal 2 raketové moduly, ktoré ho mali dostať na obežnú dráhu. Každý modul mal 3 gumové tesnenia, ktorých pravdepodobnosť zlyhania pri určitej teplote bola <span class="math inline">\(0.1\)</span>. Vypočítajte pravdepodobnosť úspešného letu.</p>
+<p>Asi by ste hneď vypočítali: <span class="math inline">\((1-0.1)^6 \approx 0.531.\)</span> Je toto správne riešenie?</p>
+<p>Samotné zadanie príkladu robí nejaké zjednodušenia, ktoré môžu byť neadekvátne.</p>
+<ul>
+<li>“Pravdepodobnosť zlyhania tesnenia je fixná, rovnakých 10% pre všetky tesnenia.” - tesnenie bližšie k palivovému agregátu môže byť náchylnejšie na zlyhanie.</li>
+</ul>
+<p>Zároveň na to, aby sme vypočítali tento príklad, musíme urobiť veľmi vážne zjednodušenia.</p>
+<ul>
+<li>“Úspešný let je vtedy ked nezlyhá žiadne tesnenie.” - Let však môže zlyhať kvôli mnohým iným dôvodom.</li>
+<li>“Zlyhania jednotlivých tesnení sú nezávislé.” - Možno zlyhanie jedného tesnenia ovplyvní zlyhanie iného. Napríklad ak sú blízko seba.</li>
+</ul>
+<p>To či sú alebo nie sú tieto predpoklady rozumné matematik sám nevie posúdiť, treba na to pohľad experta na raketové motory.</p>
+</div>
+<div class="example" name="Mnoho kombinátorických príkladov.">
+<ul>
+<li><p>Organizačný výbor plesu pozostával z 12 žiakov/čiek. Koľkými spôsobmi sa dá z nich vybrať moderátor, DJ, výzdobca a účtovník?</p></li>
+<li><p>Na plese pri stole s 10 stoličkami si štrngol pohárom jablčného muštu každý s každým. Koľko štrngov bolo počuť?</p></li>
+<li><p>Na tombole bolo predaných 350 lístkov. Kúpil som si 10, aká je pravdepodobnosť, že vyhrám aspoň jednu z 40 rôznych cien?</p></li>
+<li><p>Na šachovom turnaji s 12 účastníkmi hrá každý s každým 2 zápasy. Koľko zápasov sa odohrá?</p></li>
+<li><p>Hádžeme dvomi kockami - modrou a zelenou. Podrobne popíšte pravdepodobnostný priestor. Čo je väčšia šanca: že padne súčet 7 alebo že padne súčet jedno z čísel 2,3,11,12?</p></li>
+<li><p>Koľkými spôsobmi je možné hodiť troma kockami súčet 12?</p></li>
+<li><p>Aká je šanca, že pri dvoch nezávislých hodoch férovou mincou padne najprv hlava a potom znak?</p></li>
+<li><p>Dvanásť študentov/iek sa má rozdeliť na 4 skupiny po 3. Koľkými možnými spôsobmi to ide?</p></li>
+<li><p>Majme náhodne umiestnených 8 rôznych bodov v rovine. Koľko rôznych úsečiek (ktorých krajné body patria do množiny pôvodných 8 bodov) existuje, ktoré získame pospájaním týchto bodov? (Explicitne formulujte akékoľvek predpoklady navyše, ktoré robíte.)</p></li>
+<li><p>Koľko uhlopriečok má pravidelný 17 uholník?</p></li>
+<li><p>Koľko rôznych prirodzených čísel vieme reprezentovať práve piatimi ciframi?</p></li>
+<li><p>Majme vo vrecúšku písmenká <span class="math inline">\(\{A,H,P,P,Y\}\)</span>. Aká je pravdepodobnosť, že si ich vytiahnem v poradí HAPPY?</p></li>
+<li><p>Majme vo vrecúšku písmenká <span class="math inline">\(\{C,C,E,S,S,S,U\}\)</span>. Aká je pravdepodobnosť, že si ich vytiahnem v poradí SUCCESS?</p></li>
+<li><p>Organizačný výbor plesu pozostával z 12 žiakov/čiek. Koľkými spôsobmi sa dá z nich vybrať 2 moderátori, DJ, 3 výzdobcovia a účtovník?</p></li>
+<li><p>V obchode majú 3 druhy cukríkov: modré, zelené a bez cukru. Máme finančné prostriedky na nákup 6 cukríkov. Koľko možností máme, ak minieme všetky peniaze?</p></li>
+<li><p>Koľko riešení má <span class="math inline">\(a+b+c = 100,\)</span> kde <span class="math inline">\(a,b,c\)</span> sú prirodzené čísla?</p></li>
+<li><p>Koľkými spôsobmi (čo sa týka len samotného počtu kariet) je možné rozdať 54 hracích kariet 5 hráčom?</p></li>
+<li><p>Aká je šanca, že z perfektne zamiešaného balíčka kariet vyberieme práve 2 esá?</p></li>
+</ul>
+</div>
+<p>V rôznych učebniciach pravdepodobnosti sa môžete stretnúť s tým, že rôzne typy prípadov sú systematizované. Hovorí sa o permutáciách, kombináciách (s opakovaním alebo bez opakovanie), variáciách a podobne. Môj názor je, že s využívaním tohoto názvoslovia je spojené riziko, že študenti prestanú rozmýšľať a budú sa len snažiť kategorizovať daný príklad do schémy v ktorej už potom mechanicky poznajú vzťah/vzorec, ktorý treba použiť. Názor na to, ako aj spôsob implementácie pri praktickej výučbe nechám na Vašom posúdení.</p>
+<p>Zopár (možno užitočných) poznámok:</p>
+<ul>
+<li><p>Ak neviete pohnúť s riešením, skúste začať mechanicky vypisovať to ako môže dopadnúť experiment.</p></li>
+<li><p>Pravdepodobnosti sčítavame len vtedy keď počítame pravdepodobnosť, že nastane jedna alebo druhá udalosť, ktoré sú vzájomne sa vylučujúce (mutually exclusive), teda keď nemôžu nastať naraz. Vo všetkých ostatných prípadoch sa pri sčitavaní pravdepodobností dopustíme chyby, že zarátame tú istú možnosť viacejkrát. (napr. Aká je šanca, že padne na kocke číslo 1 alebo číslo 2 ?) Toto je len aplikácia spočitateľnej aditivity pravdepodobnosti, teda vlastnosti (3).</p></li>
+<li><p>Pravdepodobnosti násobíme vtedy, keď ide o nezávislé udalosti. Teda keď jedna udalosť nijakovsky neovplyvní nastatie inej. Viď ďalšia kapitola. (napr. Aká je pravdepodobnosť, že pri prvom hode padne 6ka a pri druhom (nezávislom) hode padne 6ka?)</p></li>
+<li><p>Náhodné násobenie a sčítavanie pravdepodobností vedia k správnemu výsledku len s malou pravdepodobnosťou (áno, toto je vtip). Tipovaním sa ďaleko nedostaneme.</p></li>
+<li><p>Niekedy je ľahšie počítanie pravdepodobnosti, že udalosť nenastane, ako že nastane. Vtedy použijeme <span class="math inline">\(P(A) = 1 - P(A^C).\)</span></p></li>
+<li><p>Vennove diagramy sú užitočné. Pri počítaní pravdepodobnosti pre viac ako dve udalosti veľmi.</p></li>
+</ul>
+</section>
+<section id="zhrnutie" class="level2" data-number="2.5">
+<h2 data-number="2.5" class="anchored" data-anchor-id="zhrnutie"><span class="header-section-number">2.5</span> Zhrnutie</h2>
+<p>Základným objektom s ktorým budeme pracovať je <strong>pravdepodobnostný priestor</strong>. Je to trojica: <span class="math inline">\(\Omega\)</span> hovorí ako môže dopadnúť experiment, <span class="math inline">\(\mathcal{F}\)</span> je množina všetkých podmnožín, ktorým priraďujeme pravdepodobnosť a <span class="math inline">\(P\)</span> je samotná pravdepodobnostná funkcia, ktorá musí byť spočitateľne aditívna. Keď máme konkrétny príklad, je dobré si uvedomiť, čo vlastne príslušný pravdepodobnostný priestor je. Vnesie to do nášho rozmýšlania poriadok. Toto je dôležité, aby sme vedeli správne zrátať počet “úspešných” a počet “všetkých” spôsobov ako môže dopadnúť experiment a tým pádom aj pravdepodobnosť. Rovnaký problém môže byť uchopený cez rôznu formuláciu pravdepodobnostného priestoru.</p>
+</section>
+<section id="cvičenia" class="level2" data-number="2.6">
+<h2 data-number="2.6" class="anchored" data-anchor-id="cvičenia"><span class="header-section-number">2.6</span> Cvičenia</h2>
+<div id="exr-" class="Exercise theorem exercise">
+<p><span class="theorem-title"><strong>Exercise 2.1</strong></span> Aký je rozdiel medzi <span class="math inline">\(\{a,b\}\)</span> a <span class="math inline">\((a,b)\)</span>?</p>
+</div>
+<div id="exr-" class="Exercise theorem exercise">
+<p><span class="theorem-title"><strong>Exercise 2.2</strong></span> Aký je rozdiel medzi <span class="math inline">\(A \in \mathcal{M}\)</span> a <span class="math inline">\(A \subseteq \mathcal{M}\)</span>?</p>
+</div>
+<div id="exr-" class="Exercise theorem exercise">
+<p><span class="theorem-title"><strong>Exercise 2.3</strong></span> Nájdite komplement množiny <span class="math inline">\(M\)</span> vzhľadom na priestor <span class="math inline">\(\mathcal{M}.\)</span></p>
+<ol type="a">
+<li><p><span class="math inline">\(M = \{1,2,3,4\}\)</span> a <span class="math inline">\(\mathcal{M} = \{1,2,3,4,5,6\}\)</span></p></li>
+<li><p><span class="math inline">\(M = \{(x,y): x^2 + y^2 &lt; 2 \}\)</span> a <span class="math inline">\(\mathcal{M} = \{(x,y): x^2 + y^2 \leq 4\}\)</span></p></li>
+<li><p><span class="math inline">\(M = \{x: 0 &lt; x &lt; 1\}\)</span> a <span class="math inline">\(\mathcal{M} = [0,1]\)</span></p></li>
+</ol>
+</div>
+<div id="exr-" class="Exercise theorem exercise">
+<p><span class="theorem-title"><strong>Exercise 2.4</strong></span> Uvažujme dve udalosti <span class="math inline">\(A\)</span> a <span class="math inline">\(B\)</span>, také, že <span class="math inline">\(P(A) = 0.3\)</span> a <span class="math inline">\(P(B) = 0.6.\)</span></p>
+<p>Vypočítajte <span class="math inline">\(P(A^C\cap B)\)</span> ak viete, že platí jedna z nasledovných podmienok:</p>
+<ol type="a">
+<li><p>Udalosti <span class="math inline">\(A\)</span> a <span class="math inline">\(B\)</span> sú disjunktné;</p></li>
+<li><p><span class="math inline">\(A\)</span> je podmnožinou <span class="math inline">\(B\)</span>;</p></li>
+<li><p>pravdepodobnosť toho, že naraz nastanú udalosti <span class="math inline">\(A\)</span> aj <span class="math inline">\(B\)</span> je <span class="math inline">\(0.1\)</span>.</p></li>
+</ol>
+</div>
+<div id="exr-" class="Exercise theorem exercise">
+<p><span class="theorem-title"><strong>Exercise 2.5</strong></span> Počítač bol naprogramovaný na to aby vypočítal rôzne pravdepodobnosti. Pripojte k týmto numerickým odpovediam správny slovný opis (môže byť viacero správnych)</p>
+<p>Výstup z programu:</p>
+<ol type="a">
+<li><p>-50%</p></li>
+<li><p>0%</p></li>
+<li><p>10%</p></li>
+<li><p>50%</p></li>
+<li><p>90%</p></li>
+<li><p>100%</p></li>
+<li><p>200%</p></li>
+</ol>
+<p>Slovný popis:</p>
+<ol type="i">
+<li><p>Rovnaká šanca, že to nastane ako, že to nenastane.</p></li>
+<li><p>Je veľmi pravdepodobné, že to nastane ale nie isté.</p></li>
+<li><p>Toto nenastane.</p></li>
+<li><p>Toto môže nastať ale šanca je malá.</p></li>
+<li><p>Toto určite nastane.</p></li>
+<li><p>V mojom programe je nejaká chyba.</p></li>
+</ol>
+</div>
+<div id="exr-" class="Exercise theorem exercise">
+<p><span class="theorem-title"><strong>Exercise 2.6</strong></span> V triede je 60% žien a 40% mužov. Vieme, že v tejto triede 70% ľudí študuje matematiku.</p>
+<p>Percento žien študujúcich matematiku môže byť najmenej ______% a najviac ______%.</p>
+</div>
+<div id="exr-" class="Exercise theorem exercise">
+<p><span class="theorem-title"><strong>Exercise 2.7</strong></span> Hádžeme 6 krát mincou. Tu sú dve možné situácie (H - hlava, Z - znak):</p>
+<ol type="i">
+<li><p>H Z Z H Z H</p></li>
+<li><p>H H H H H H</p></li>
+</ol>
+<p>Ktoré z týchto tvrdení je správne? Vysvetlite.</p>
+<ol type="a">
+<li><p>Udalosť (i) je pravdepodobnejšia.</p></li>
+<li><p>Udalosť (ii) je pravdepodobnejšia.</p></li>
+<li><p>Udalosti (i) a (ii) sú rovnako pravdepodobné.</p></li>
+</ol>
+</div>
+<div id="exr-" class="Exercise theorem exercise">
+<p><span class="theorem-title"><strong>Exercise 2.8</strong></span> Nech je silne zamorenom prostredí pravdepodobnosť bakteriálnej infekcie <span class="math inline">\(0.4\)</span> a pravdepodobnosť nákazy spôsobej vírusom nech je <span class="math inline">\(0.8\)</span>. Aká je najväčšia a najmenšia pravdepodobnosť, že človek sa nakazí aj baktériou aj vírusom?</p>
+</div>
+<div id="exr-" class="Exercise theorem exercise">
+<p><span class="theorem-title"><strong>Exercise 2.9</strong></span> Hodíme kocku 6 krát. Balíček kariet perfektne zamiešame.</p>
+<ol type="a">
+<li>Šanca, že na prvom hode padne 6ka alebo na poslednom hode padne 6ka je ______.</li>
+<li>Šanca, že na prvom hode padne 6ka a na poslednom hode padne 6ka je ______.</li>
+<li>Šanca, že na vrchu balíčka je červené eso alebo na spodu balíčka je červené eso je ______.</li>
+<li>Šanca, že na vrchu balíčka je červené eso a na spodu balíčka je červené eso je ______.</li>
+</ol>
+</div>
+<div id="exr-" class="Exercise theorem exercise">
+<p><span class="theorem-title"><strong>Exercise 2.10</strong></span> Uvažujme nasledovnú situáciu: jedenkrát hodíme férovou mincou a nezávisle od toho jedenkrát hodíme férovou kockou.</p>
+<ol type="a">
+<li>Zostrojte pravdepodobnostný priestor, ktorý zodpovedá tejto situácii.</li>
+<li>Aká je pravdepodobnosť, že padne hlava a zároveň nepárne číslo?</li>
+</ol>
+</div>
+<div id="exr-" class="Exercise theorem exercise">
+<p><span class="theorem-title"><strong>Exercise 2.11</strong></span> Uvažujme nasledovnú situáciu: trikrát za sebou hodíme férovou kockou. Jednotlivé hody sú nezávislé.</p>
+<ol type="a">
+<li>Zostrojte pravdepodobnostný priestor, ktorý zodpovedá tejto situácii.</li>
+<li>Aká je pravdepodobnosť, že padne súčet väčší ako 5?</li>
+</ol>
+</div>
+<!-- toto pridala Mirka -->
+<div id="exr-" class="Exercise theorem exercise">
+<p><span class="theorem-title"><strong>Exercise 2.12</strong></span> Máme 20 kariet. Desať z nich je modrých, očíslovaných od 1 po 10, desať z nich je červených a očíslovaných od 1 po 10. Náhodne si jednu vyberieme. Vezmime si nasledovné udalosti:</p>
+<ul>
+<li>A - vyberieme si kartu s párnym číslom.</li>
+<li>B - vyberieme si modrú kartu.</li>
+<li>C - vyberieme si kartu s číslom menším ako 5.</li>
+</ul>
+<p>Zostrojte pravdepodobnostný priestor zodpovedajúci tejto situácii a opíšte nasledovné udalosti:</p>
+<ol type="a">
+<li><span class="math inline">\(A \cap B \cap C\)</span></li>
+<li><span class="math inline">\(B \cap C^C\)</span></li>
+<li><span class="math inline">\(A \cup B \cup C\)</span></li>
+<li><span class="math inline">\(A \cap (B \cup C)\)</span></li>
+<li><span class="math inline">\(A^C \cap B^C \cap C^C\)</span></li>
+</ol>
+</div>
+<!-- toto pridala Mirka -->
+<div id="exr-" class="Exercise theorem exercise">
+<p><span class="theorem-title"><strong>Exercise 2.13</strong></span> Hodíme 3 férové kocky. Vezmime si nasledovné udalosti:</p>
+<ul>
+<li>A - na prvej kocke hodíme párne číslo.</li>
+<li>B - na druhej kocke hodíme párne číslo.</li>
+<li>C - na tretej kocke hodíme párne číslo.</li>
+</ul>
+<p>Pomocou týchto udalostí vyjadrite:</p>
+<ol type="a">
+<li>Udalosť, že na všetkých troch kockách je párne číslo.</li>
+<li>Udalosť, že na žiadnej kocke “je” párne číslo.</li>
+<li>Udalosť, že aspoň na jednej kocke je nepárne číslo.</li>
+<li>Udalosť, že najviac na dvoch kockách je nepárne číslo.</li>
+</ol>
+</div>
+<div id="exr-" class="Exercise theorem exercise">
+<p><span class="theorem-title"><strong>Exercise 2.14</strong></span> Náhodne vyberieme tri rôzne prirodzené čísla z množiny <span class="math inline">\(\{1,2,3,\cdots,20 \}.\)</span></p>
+<ol type="a">
+<li>Aká je pravdepodobnosť, že ich súčet bude párne číslo?</li>
+<li>Aká je pravdepodobnosť, že ich súčin bude párne číslo?</li>
+</ol>
+</div>
+<div id="exr-" class="Exercise theorem exercise">
+<p><span class="theorem-title"><strong>Exercise 2.15</strong></span> Vo vreci je 50 súčiastok, z nich dve sú chybné. Náhodne načrieme rukou vyberieme 5 z nich.</p>
+<ol type="a">
+<li>Aká je pravdepodobnosť, že aspoň jedna z nich bude chybná?</li>
+<li>Koľko súčiastok musíme vybrať aby šanca, že nájdeme aspoň jednu chybnú súčiastku bola väčšia ako 50% ?</li>
+</ol>
+<div class="cell" data-layout-align="center">
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="fig_ruka.png" class="img-fluid figure-img" style="width:40.0%"></p>
+<figcaption>Ilustrácia načierania rukou do vreca s 50 súčiastkami.</figcaption>
+</figure>
+</div>
+</div>
+</div>
+</div>
+<div id="exr-" class="Exercise theorem exercise">
+<p><span class="theorem-title"><strong>Exercise 2.16</strong></span> Ukážte, že zo <em>spočitateľnej aditivity</em> (vlastnosť (3) pravdepodobnosti) vyplýva <em>konečná aditivita</em>, teda, že platí <span class="math inline">\(P\left(\cup_{i=1}^n A_i\right) = \sum_{i=1}^{n} P(A_i)\)</span> pre akékoľvek disjunktné udalosti <span class="math inline">\(A_1, A_2, A_3,\dots,A_n\)</span></p>
+</div>
+<div id="exr-" class="Exercise theorem exercise">
+<p><span class="theorem-title"><strong>Exercise 2.17</strong></span> Formálne ukážte vlastnosti pravdepodobnosti z časti @ref(vlastnostipravdepodobnosti).</p>
+</div>
+<div id="exr-" class="Exercise theorem exercise">
+<p><span class="theorem-title"><strong>Exercise 2.18</strong></span> Ukážte, že pre hocijaké dve udalosti <span class="math inline">\(A\)</span> a <span class="math inline">\(B\)</span> je pravdepodobnosť, že nastane práve jedna z udalostí <span class="math inline">\(A\)</span> a <span class="math inline">\(B\)</span> je daná nasledovným výrazom <span class="math display">\[P(A) + P(B) - 2P(A \cap B).\]</span></p>
+</div>
+<div id="exr-" class="Exercise theorem exercise">
+<p><span class="theorem-title"><strong>Exercise 2.19</strong></span> Nech je <span class="math inline">\(A_1, A_2, \dots\)</span> akákoľvek postupnosť udalostí a nech <span class="math inline">\(B_1, B_2, \dots\)</span> je postupnosť definovaná nasledovne: <span class="math inline">\(B_1 = A_1\)</span>, <span class="math inline">\(B_2 = A_1^C \cap A_2\)</span>, <span class="math inline">\(B_3 = A_1^C \cap A_2^C \cap A_3\)</span>, <span class="math inline">\(B_4 = A_1^C \cap A_2^C \cap A_3^C \cap A_4\)</span> a tak ďalej. Ukážte, že pre všetky <span class="math inline">\(n=1,2,3,\dots\)</span> platí <span class="math display">\[P\left( \cup_{i=1}^{n} A_i \right) = \sum_{i=1}^{n} P(B_i).\]</span></p>
+</div>
+<div id="exr-" class="Exercise theorem exercise">
+<p><span class="theorem-title"><strong>Exercise 2.20</strong></span> Nech <span class="math inline">\(A\)</span>, <span class="math inline">\(B\)</span> a <span class="math inline">\(D\)</span> sú nejaké udalosti, také, že <span class="math inline">\(P(A \cup B \cup D ) = 0.3.\)</span> Aká je hodnota <span class="math inline">\(P(A^C \cap B^C \cap D^C)\)</span>?</p>
+</div>
+<div class="exercise" name="Bonferroniho nerovnosť">
+<p>Ukážte, že pre udalosti <span class="math inline">\(A_1, A_2, \dots, A_n\)</span> platí <span class="math display">\[P\left( \cup_{i=1}^{n} A_i \right) \leq \sum_{i=1}^{n} P(A_i)\]</span> a <span class="math display">\[P\left( \cap_{i=1}^{n} A_i \right) \geq 1 - \sum_{i=1}^{n} P(A_i^C).\]</span></p>
+</div>
+<div id="exr-" class="Exercise theorem exercise">
+<p><span class="theorem-title"><strong>Exercise 2.21</strong></span> Nech <span class="math inline">\(A\)</span>, <span class="math inline">\(B\)</span> a <span class="math inline">\(C\)</span> sú nejaké udalosti. Použitím Vennoveho diagramu ukážte, že</p>
+<span class="math display">\[\begin{eqnarray*}
+P(A \cup B \cup C) &amp;=&amp; P(A) + P(B) + P(C) \\
+&amp;&amp; - P(A \cap B) - P(B \cap C) - P(A \cap C) \\
+&amp;&amp; + P(A \cap B \cap C).
+\end{eqnarray*}\]</span>
+</div>
+<div id="exr-" class="Exercise theorem exercise">
+<p><span class="theorem-title"><strong>Exercise 2.22</strong></span> Majme vrecúško s farebnymi guličkami. Konkrétne sa v ňom nachádza <span class="math inline">\(č\)</span> červených guličiek, <span class="math inline">\(b\)</span> bielych guličiek a <span class="math inline">\(m\)</span> modrých guličiek. Postupne vyberáme po jednej guličke z vrecúška tak, že ich nedávame naspäť. Aká je pravdepodobnosť, že vytiahneme všetky červené guličky ešte predtým, než vytiahneme nejakú bielu?</p>
+</div>
+<div class="exercise" name="*Princíp zapojenia a vypojenia">
+<p>Nech <span class="math inline">\(A_1, A_2,\dots,A_n\)</span> sú nejaké udalosti. Ukážte, že platí <span class="math display">\[\begin{eqnarray*}
+P\left(\cup_{i=1}^n A_i\right) &amp;=&amp; \sum_{i=1}^n P(A_i) - \sum_{i&lt;j} P(A_i\cap A_j)  \\
+&amp;&amp; + \sum_{i&lt;j&lt;k} P(A_i\cap A_j \cap A_k) - \sum_{i&lt;j&lt;k&lt;l} P(A_i\cap A_j \cup A_k \cap A_l)+ \dots\\
+&amp;&amp; + (-1)^{n+1}P(A_1 \cap A_2 \cap A_3 \cap \dots \cap A_n).
+\end{eqnarray*}\]</span></p>
+</div>
+<p>&nbsp; &nbsp; &nbsp; &nbsp;</p>
+</section>
+<section id="ďalšie-cvičenia" class="level2" data-number="2.7">
+<h2 data-number="2.7" class="anchored" data-anchor-id="ďalšie-cvičenia"><span class="header-section-number">2.7</span> Ďalšie cvičenia</h2>
+<p>Nasledujúce príklady boli v minulých rokoch súčasťou povinných a hodnotených domácich úloh. Domáce úlohy sú však tento rok nepovinné. Tieto však budú stále užitočné pre porozumenie učiva a pomôžu Vám nakalibrovať sa, aká úroveň porozumenia sa od Vás približne očakáva.</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp;</p>
+<div id="exr-" class="Exercise theorem exercise">
+<p><span class="theorem-title"><strong>Exercise 2.23</strong></span> Označme</p>
+<p><span class="math inline">\(A=\{x \in \mathbb{R}: 2 \leq x \leq 5\}\)</span>, <span class="math inline">\(B=\{x \in \mathbb{R}: 4 &lt; x \leq 10\}\)</span> a <span class="math inline">\(C=\{x \in \mathbb{R}: x \leq 0 \}\)</span>.</p>
+<p>vyjdarite:</p>
+<ol type="a">
+<li><span class="math inline">\(A^C\)</span></li>
+<li><span class="math inline">\(A \cup B\)</span></li>
+<li><span class="math inline">\(B \cap C^C\)</span></li>
+<li><span class="math inline">\(A^C \cap B^C \cap C^C\)</span></li>
+<li><span class="math inline">\((A \cup B) \cap C\)</span></li>
+</ol>
+</div>
+<div id="exr-" class="Exercise theorem exercise">
+<p><span class="theorem-title"><strong>Exercise 2.24</strong></span> Máme študentov prvého, druhého a tretieho ročníka matematiky. Nech udalosť <span class="math inline">\(A\)</span> znamená, že študent je z prvého ročníka, udalosť <span class="math inline">\(B\)</span>, že študent je z druhého ročníka a udalosť <span class="math inline">\(C\)</span>, že študent je z tretieho ročníka. Určte význam nasledovných udalostí:</p>
+<ol type="a">
+<li><span class="math inline">\(A \cup B\)</span></li>
+<li><span class="math inline">\((A \cup C)^C\)</span></li>
+<li><span class="math inline">\(A \cap C\)</span></li>
+<li><span class="math inline">\((A \cap B)\cup C\)</span></li>
+<li><span class="math inline">\(A \cup B \cup C\)</span></li>
+</ol>
+</div>
+<div id="exr-" class="Exercise theorem exercise">
+<p><span class="theorem-title"><strong>Exercise 2.25</strong></span> Máme 4 rovnaké nepriehľadné obálky s darčekom. V jednej poukaz do kníhkupectva, v druhej sú listky do divadla, v tretej sú letenky a vo štvrtej sú nálepky. Náhodne si môžeme vybrať 2 obálky.</p>
+<ol type="a">
+<li>Zostrojte pravdepodobnostný priestor, ktorý zodpovedá tejto situácii. Podrobne popíšte jeho elementy.</li>
+<li>Aká je pravdepodobnosť, že nebudeme letieť lietadlom?</li>
+</ol>
+</div>
+<div id="exr-" class="Exercise theorem exercise">
+<p><span class="theorem-title"><strong>Exercise 2.26</strong></span> Gymnázium vyberá študentov z tretieho ročníka do žiackej rady. Študentov v 3.A je 25, študentov v 3.B je 28 a študentov v 3.C je 20. Z každej triedy vyberú jedného študenta. Koľko rôznych zložení študentskej rady existuje?</p>
+</div>
+<div id="exr-" class="Exercise theorem exercise">
+<p><span class="theorem-title"><strong>Exercise 2.27</strong></span> 30 študentov z triedy náhodne rozdelíme do dvoch projektov. 10 študentov vyberieme do projektu A a 20 študentov vyberieme do projektu B. Aká je pravdepodobnosť, že kamaráti Pankrác a Servác budú spolu v tom istom projekte?</p>
+</div>
+<div id="exr-" class="Exercise theorem exercise">
+<p><span class="theorem-title"><strong>Exercise 2.28</strong></span> V dvoch nádobách sú guličky, ktoré sa od seba líšia len farbou. V prvej nádobe je 5 bielych, 11 modrých a 8 zelených guličiek. V druhej nádobe je 10 bielych, 8 modrých a 6 zelených guličiek. Z nádob sa náhodne ťahá po jednej guličke. Aká je pravdepodobnosť toho, že obe guličky sú rovnakej farby?</p>
+</div>
+<div id="exr-" class="Exercise theorem exercise">
+<p><span class="theorem-title"><strong>Exercise 2.29</strong></span> Medzi 100 výrobkami v sérii sa nachádza 5 nepodarkov. Náhodne sa vyberie polovica výrobkov a preskúša sa. Určte pravdepodobnosť, že výrobky zo série budú prijaté, ak podmienky pre prijatie série dovoľujú nanajvýš jeden nepodarok z 50 výrobkov.</p>
+</div>
+<div id="exr-" class="Exercise theorem exercise">
+<p><span class="theorem-title"><strong>Exercise 2.30</strong></span> Na katedre máme 50 študentov. Na predmet Matematická analýza (A) chodí 30 študentov, na Pravdepodobnosť a štatistiku (P) chodí 20 študentov a na Rovnice a nerovnice (R) chodí 15 študentov. Na A aj P chodí 10 študentov, na A aj R chodí 5 študentov a na P aj R chodí 10 študentov. Na všetky 3 predmety chodia 2 študenti.</p>
+<ol type="a">
+<li>Koľko percent študentov katedry chodí aspoň na jeden z uvedených predmetov?</li>
+<li>Koľko percent študentov katedry chodí presne na jeden z uvedených predmetov? (HINT: pomôžte si obrázkom)</li>
+</ol>
+</div>
+<div id="exr-" class="Exercise theorem exercise">
+<p><span class="theorem-title"><strong>Exercise 2.31</strong></span> Použitím vlastností funkcie pravdepodobnosti formálne ukážte (Vennov diagram nestačí), že platí <span class="math display">\[P(A\cup B)= P(A) + P(B)- P(A \cap B).\]</span></p>
+</div>
+<div id="exr-" class="Exercise theorem exercise">
+<p><span class="theorem-title"><strong>Exercise 2.32</strong></span> Označme <span class="math inline">\(A=\{(x,y) \in \mathbb{R}^2: x^2 + y^2 \leq 3, x &gt; 1\}\)</span> a <span class="math inline">\(B=\{(x,y) \in \mathbb{R}^2: |x| + |y| &lt; 1\}.\)</span> Zobrazte množiny <span class="math inline">\(A \cap B^C\)</span> a <span class="math inline">\(A \cup B^C.\)</span></p>
+</div>
+<div id="exr-" class="Exercise theorem exercise">
+<p><span class="theorem-title"><strong>Exercise 2.33</strong></span> Uvažujme nasledovnú situáciu: trikrát hodíme férovou mincou.</p>
+<ol type="a">
+<li>Zostrojte pravdepodobnostný priestor, ktorý zodpovedá tejto situácii. Podrobne popíšte jeho elementy.</li>
+<li>Aká je pravdepodobnosť, že padne hlava aspoň 2 krát?</li>
+</ol>
+</div>
+<div id="exr-" class="Exercise theorem exercise">
+<p><span class="theorem-title"><strong>Exercise 2.34</strong></span> Test pozostáva z 10 otázok, každá má možnosti (a), (b), (c), (d), (e) a práve jedna odpoveď je správna. Aká je pravdepodobnosť, že študent, ktorý sa nič neučil zodpovie aspoň 3 otázky správne?</p>
+</div>
+<div id="exr-" class="Exercise theorem exercise">
+<p><span class="theorem-title"><strong>Exercise 2.35</strong></span> Máme 5 rovnakých nepriehľadných obálok s darčekom. V jednej je poukaz do kníhkupectva, v druhej sú listky do divadla, v tretej sú letenky, vo štvrtej sú nálepky a v piatej sú vstupenky do múzea vo Svätom Antone. Náhodne si vyberieme 3 obálky.</p>
+<ol type="a">
+<li>Zostrojte pravdepodobnostný priestor, ktorý zodpovedá tejto situácii. Podrobne popíšte jeho elementy.</li>
+<li>Aká je pravdepodobnosť, že nepôjdeme do múzea vo Svätom Antone?</li>
+<li>Aká je pravdepodobnosť, že pôjdeme do kníhkupectva ale nedostaneme nálepky?</li>
+</ol>
+</div>
+<div id="exr-" class="Exercise theorem exercise">
+<p><span class="theorem-title"><strong>Exercise 2.36</strong></span> Na plese bolo fantasticky. Tombola je každoročným highlightom tohoto tradičného podujatia a tento rok sa predalo 722 lístkov, bolo udelených 38 cien. Simona si kúpila 40 lístkov, Lukáš si kúpil 20 lístkov. (Lístky stáli 50 centov ale to nie je dôležité.)</p>
+<ol type="a">
+<li>Aká je pravepodobnosť, že Simona vyhrá 6 cien?</li>
+<li>Aká je pravepodobnosť, že Lukáš nevyhrá žiadnu cenu?</li>
+<li>*Aká je pravdepodobnosť, že Simona vyhrá 6 cien a súčasne Lukáš nevyhrá žiadnu cenu?</li>
+</ol>
+</div>
+<div id="exr-" class="Exercise theorem exercise">
+<p><span class="theorem-title"><strong>Exercise 2.37</strong></span> Máme 3 bežcov v tíme A a 3 bežcov v tíme B. Všetci sa zúčastnia preteku a výkonnosť všetkých je rovnaká. Aká je pravdodobnosť, že všetci z tímu A budú rýchlejší ako všetci z tímu B a zároveň Jozef Kopelka z tímu A bude druhý?</p>
+</div>
+<div id="exr-" class="Exercise theorem exercise">
+<p><span class="theorem-title"><strong>Exercise 2.38</strong></span> Balíček 52 kariet je náhodne rozdelený medzi 4 hráčov a každý dostane 13 kariet. Aká je pravdepodobnosť, že všetky 4 esá skončia u (nejakého) jedného hráča?</p>
+</div>
+
+
+</section>
+<section id="footnotes" class="footnotes footnotes-end-of-document" role="doc-endnotes">
+<hr>
+<ol>
+<li id="fn1"><p>Z formálneho hľadiska <span class="math inline">\(\mathcal{F}\)</span> musí byť <span class="math inline">\(\sigma-\)</span>algebra podmnožín <span class="math inline">\(\Omega\)</span>. To znamená, že priraďovanie pravdepodobnosti musí byť vnútorne konzistentné. Technicky musia byť splnené tieto tri podmienky: (1) Ak <span class="math inline">\(A \in \mathcal{F}\)</span>, teda ak viem priradiť udalosti <span class="math inline">\(A\)</span> nejakú pravdepodobnosť, tak budem musieť vedieť priradiť pravdepodobosť aj udalosti <span class="math inline">\(A^C,\)</span> teda, že <span class="math inline">\(A\)</span> <em>nenastala</em>. (2) Ak <span class="math inline">\(A_1,A_2, A_3, \dots \in \mathcal{F}\)</span>, potom aj <span class="math inline">\(\cup_{i=1}^{\infty} A_i \in \mathcal{F}\)</span>. Vysvetlíme si to na príklade dvoch množín: ak <span class="math inline">\(A,B \in \mathcal{F}\)</span>, potom aj <span class="math inline">\(A \cup B \in \mathcal{F}\)</span>, teda ak viem priradiť pravdepodobnosť udalostiam <span class="math inline">\(A\)</span> a <span class="math inline">\(B\)</span>, potom musím vedieť priradiť pravdepodobnosť aj udalosti <span class="math inline">\(A \cup B\)</span>, teda že nastala udalosť <span class="math inline">\(A\)</span> <em>alebo</em> udalosť <span class="math inline">\(B\)</span>. (3) <span class="math inline">\(\Omega \in \mathcal{F},\)</span> teda viem priradiť pravdepodobnosť udalosti, že <em>niečo</em> nastalo. V rámci tohoto kurzu sa nebudeme podrobne venovať <span class="math inline">\(\mathcal{F}\)</span>. Budeme predpokladať, že ide o korektnú <span class="math inline">\(\sigma-\)</span>algebru. Do väčších podrobností sa zahĺbite v rámci kurzov <em>Teória miery a integrálu</em> a <em>Teória pravdepodobnosti</em>.<a href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn2"><p>Každý jeden krát sa nájde mnoho ľudí, ktorí nesprávne označujú, že pravdepodobnosť je funkcia z <span class="math inline">\(\Omega\)</span> do <span class="math inline">\([0,1]\)</span>. Nie. Nie je. Je to funkcia <span class="math inline">\(\mathcal{F} \rightarrow [0,1].\)</span><a href="#fnref2" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn3"><p>V matematike je dobrým zvykom pracovať s objektami o ktorých existencii niet pochýb.<a href="#fnref3" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn4"><p>Najmä pri komplikovanejších prípadoch toto nie je vždy priamočiare. Pre potreby nášho kurzu to však bude postačujúce. Ak napríklad budeme uvažovať o pravdepodobnostnom priestore, ktorý zodpovedá tomu, že rovnomerne náhodne vyberieme nejaké číslo z intervalu <span class="math inline">\([0,1],\)</span> <em>nebudeme môcť uvažovať</em> <span class="math inline">\(\mathcal{F} = 2^{[0,1]}.\)</span> Takáto voľba <span class="math inline">\(\mathcal{F}\)</span> by spôsobila, že nemôže existovať žiadna funkcia <span class="math inline">\(P\)</span>, ktorá by spĺňala všetky 3 vlastnosti funkcie pravdepodobnosti a zároveň by každému intervalu priradila jeho dĺžku, akoby sme intuitívne očakávali. Konštrukcia vhodnej <span class="math inline">\(\mathcal{F}\)</span> je v tomto prípade veľmi prácna (8 krokový dôkaz) a pravdepodobnosť zadefinovaná na takomto pravdepodobnostnom priestore sa nazýva <em>Lebesgueova miera</em> na <span class="math inline">\([0,1]\)</span>.<a href="#fnref4" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+</ol>
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const isCodeAnnotation = (el) => {
+    for (const clz of el.classList) {
+      if (clz.startsWith('code-annotation-')) {                     
+        return true;
+      }
+    }
+    return false;
+  }
+  const onCopySuccess = function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  }
+  const getTextToCopy = function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+    text: getTextToCopy
+  });
+  clipboard.on('success', onCopySuccess);
+  if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+    const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+      text: getTextToCopy,
+      container: window.document.getElementById('quarto-embedded-source-code-modal')
+    });
+    clipboardModal.on('success', onCopySuccess);
+  }
+    var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+    var mailtoRegex = new RegExp(/^mailto:/);
+      var filterRegex = new RegExp('/' + window.location.host + '/');
+    var isInternal = (href) => {
+        return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+    }
+    // Inspect non-navigation links and adorn them if external
+ 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+    for (var i=0; i<links.length; i++) {
+      const link = links[i];
+      if (!isInternal(link.href)) {
+        // undo the damage that might have been done by quarto-nav.js in the case of
+        // links that we want to consider external
+        if (link.dataset.originalHref !== undefined) {
+          link.href = link.dataset.originalHref;
+        }
+      }
+    }
+  function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+    const config = {
+      allowHTML: true,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start',
+    };
+    if (contentFn) {
+      config.content = contentFn;
+    }
+    if (onTriggerFn) {
+      config.onTrigger = onTriggerFn;
+    }
+    if (onUntriggerFn) {
+      config.onUntrigger = onUntriggerFn;
+    }
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      if (note) {
+        return note.innerHTML;
+      } else {
+        return "";
+      }
+    });
+  }
+  const xrefs = window.document.querySelectorAll('a.quarto-xref');
+  const processXRef = (id, note) => {
+    // Strip column container classes
+    const stripColumnClz = (el) => {
+      el.classList.remove("page-full", "page-columns");
+      if (el.children) {
+        for (const child of el.children) {
+          stripColumnClz(child);
+        }
+      }
+    }
+    stripColumnClz(note)
+    if (id === null || id.startsWith('sec-')) {
+      // Special case sections, only their first couple elements
+      const container = document.createElement("div");
+      if (note.children && note.children.length > 2) {
+        container.appendChild(note.children[0].cloneNode(true));
+        for (let i = 1; i < note.children.length; i++) {
+          const child = note.children[i];
+          if (child.tagName === "P" && child.innerText === "") {
+            continue;
+          } else {
+            container.appendChild(child.cloneNode(true));
+            break;
+          }
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(container);
+        }
+        return container.innerHTML
+      } else {
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        return note.innerHTML;
+      }
+    } else {
+      // Remove any anchor links if they are present
+      const anchorLink = note.querySelector('a.anchorjs-link');
+      if (anchorLink) {
+        anchorLink.remove();
+      }
+      if (window.Quarto?.typesetMath) {
+        window.Quarto.typesetMath(note);
+      }
+      if (note.classList.contains("callout")) {
+        return note.outerHTML;
+      } else {
+        return note.innerHTML;
+      }
+    }
+  }
+  for (var i=0; i<xrefs.length; i++) {
+    const xref = xrefs[i];
+    tippyHover(xref, undefined, function(instance) {
+      instance.disable();
+      let url = xref.getAttribute('href');
+      let hash = undefined; 
+      if (url.startsWith('#')) {
+        hash = url;
+      } else {
+        try { hash = new URL(url).hash; } catch {}
+      }
+      if (hash) {
+        const id = hash.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note !== null) {
+          try {
+            const html = processXRef(id, note.cloneNode(true));
+            instance.setContent(html);
+          } finally {
+            instance.enable();
+            instance.show();
+          }
+        } else {
+          // See if we can fetch this
+          fetch(url.split('#')[0])
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.getElementById(id);
+            if (note !== null) {
+              const html = processXRef(id, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      } else {
+        // See if we can fetch a full url (with no hash to target)
+        // This is a special case and we should probably do some content thinning / targeting
+        fetch(url)
+        .then(res => res.text())
+        .then(html => {
+          const parser = new DOMParser();
+          const htmlDoc = parser.parseFromString(html, "text/html");
+          const note = htmlDoc.querySelector('main.content');
+          if (note !== null) {
+            // This should only happen for chapter cross references
+            // (since there is no id in the URL)
+            // remove the first header
+            if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+              note.children[0].remove();
+            }
+            const html = processXRef(null, note);
+            instance.setContent(html);
+          } 
+        }).finally(() => {
+          instance.enable();
+          instance.show();
+        });
+      }
+    }, function(instance) {
+    });
+  }
+      let selectedAnnoteEl;
+      const selectorForAnnotation = ( cell, annotation) => {
+        let cellAttr = 'data-code-cell="' + cell + '"';
+        let lineAttr = 'data-code-annotation="' +  annotation + '"';
+        const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+        return selector;
+      }
+      const selectCodeLines = (annoteEl) => {
+        const doc = window.document;
+        const targetCell = annoteEl.getAttribute("data-target-cell");
+        const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+        const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+        const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+        const lineIds = lines.map((line) => {
+          return targetCell + "-" + line;
+        })
+        let top = null;
+        let height = null;
+        let parent = null;
+        if (lineIds.length > 0) {
+            //compute the position of the single el (top and bottom and make a div)
+            const el = window.document.getElementById(lineIds[0]);
+            top = el.offsetTop;
+            height = el.offsetHeight;
+            parent = el.parentElement.parentElement;
+          if (lineIds.length > 1) {
+            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+            const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+            height = bottom - top;
+          }
+          if (top !== null && height !== null && parent !== null) {
+            // cook up a div (if necessary) and position it 
+            let div = window.document.getElementById("code-annotation-line-highlight");
+            if (div === null) {
+              div = window.document.createElement("div");
+              div.setAttribute("id", "code-annotation-line-highlight");
+              div.style.position = 'absolute';
+              parent.appendChild(div);
+            }
+            div.style.top = top - 2 + "px";
+            div.style.height = height + 4 + "px";
+            div.style.left = 0;
+            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+            if (gutterDiv === null) {
+              gutterDiv = window.document.createElement("div");
+              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+              gutterDiv.style.position = 'absolute';
+              const codeCell = window.document.getElementById(targetCell);
+              const gutter = codeCell.querySelector('.code-annotation-gutter');
+              gutter.appendChild(gutterDiv);
+            }
+            gutterDiv.style.top = top - 2 + "px";
+            gutterDiv.style.height = height + 4 + "px";
+          }
+          selectedAnnoteEl = annoteEl;
+        }
+      };
+      const unselectCodeLines = () => {
+        const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+        elementsIds.forEach((elId) => {
+          const div = window.document.getElementById(elId);
+          if (div) {
+            div.remove();
+          }
+        });
+        selectedAnnoteEl = undefined;
+      };
+        // Handle positioning of the toggle
+    window.addEventListener(
+      "resize",
+      throttle(() => {
+        elRect = undefined;
+        if (selectedAnnoteEl) {
+          selectCodeLines(selectedAnnoteEl);
+        }
+      }, 10)
+    );
+    function throttle(fn, ms) {
+    let throttle = false;
+    let timer;
+      return (...args) => {
+        if(!throttle) { // first call gets through
+            fn.apply(this, args);
+            throttle = true;
+        } else { // all the others get throttled
+            if(timer) clearTimeout(timer); // cancel #2
+            timer = setTimeout(() => {
+              fn.apply(this, args);
+              timer = throttle = false;
+            }, ms);
+        }
+      };
+    }
+      // Attach click handler to the DT
+      const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+      for (const annoteDlNode of annoteDls) {
+        annoteDlNode.addEventListener('click', (event) => {
+          const clickedEl = event.target;
+          if (clickedEl !== selectedAnnoteEl) {
+            unselectCodeLines();
+            const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+            if (activeEl) {
+              activeEl.classList.remove('code-annotation-active');
+            }
+            selectCodeLines(clickedEl);
+            clickedEl.classList.add('code-annotation-active');
+          } else {
+            // Unselect the line
+            unselectCodeLines();
+            clickedEl.classList.remove('code-annotation-active');
+          }
+        });
+      }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script>
+<nav class="page-navigation">
+  <div class="nav-page nav-page-previous">
+      <a href="./intro.html" class="pagination-link" aria-label="Interpretácia pravdepodobnosti">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Interpretácia pravdepodobnosti</span></span>
+      </a>          
+  </div>
+  <div class="nav-page nav-page-next">
+      <a href="./cond.html" class="pagination-link" aria-label="Podmienená pravdepodobnosť">
+        <span class="nav-page-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Podmienená pravdepodobnosť</span></span> <i class="bi bi-arrow-right-short"></i>
+      </a>
+  </div>
+</nav>
+</div> <!-- /content -->
+
+
+
+
+</body></html>

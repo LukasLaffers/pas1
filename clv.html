@@ -1,0 +1,890 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.6.40">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>9&nbsp; Centrálna limitná veta – Pravdepodobnosť a štatistika 1</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+</style>
+
+
+<script src="site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="site_libs/quarto-nav/headroom.min.js"></script>
+<script src="site_libs/clipboard/clipboard.min.js"></script>
+<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="site_libs/quarto-search/fuse.min.js"></script>
+<script src="site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="./">
+<link href="./opa.html" rel="next">
+<link href="./zvc.html" rel="prev">
+<script src="site_libs/quarto-html/quarto.js"></script>
+<script src="site_libs/quarto-html/popper.min.js"></script>
+<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="site_libs/quarto-html/anchor.min.js"></script>
+<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-549806ee2085284f45b00abea8c6df48.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="site_libs/bootstrap/bootstrap-626149efe8f5d16e1d391ba177679bf0.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "sidebar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "start",
+  "type": "textbox",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN") {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
+
+</head>
+
+<body class="nav-sidebar floating">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+  <nav class="quarto-secondary-nav">
+    <div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
+      </button>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./clv.html"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Centrálna limitná veta</span></a></li></ol></nav>
+        <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        </a>
+      <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
+        <i class="bi bi-search"></i>
+      </button>
+    </div>
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
+    <div class="pt-lg-2 mt-2 text-left sidebar-header">
+    <div class="sidebar-title mb-0 py-0">
+      <a href="./">Pravdepodobnosť a štatistika 1</a> 
+    </div>
+      </div>
+        <div class="mt-2 flex-shrink-0 align-items-center">
+        <div class="sidebar-search">
+        <div id="quarto-search" class="" title="Search"></div>
+        </div>
+        </div>
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">O tomto kurze</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./intro.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Interpretácia pravdepodobnosti</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./set.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Pravdepodobnosť</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./cond.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Podmienená pravdepodobnosť</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./np.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Náhodná premenná</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./dnp.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Diskrétna náhodná premenná</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./snp.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Spojitá náhodná premenná</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./cov.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Súvis medzi náhodnými premennými</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./zvc.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Zákon veľkých čísel</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./clv.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Centrálna limitná veta</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./opa.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Opakovanie</span></span></a>
+  </div>
+</li>
+    </ul>
+    </div>
+</nav>
+<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Table of contents</h2>
+   
+  <ul>
+  <li><a href="#konvergencia-podľa-distribúcie" id="toc-konvergencia-podľa-distribúcie" class="nav-link active" data-scroll-target="#konvergencia-podľa-distribúcie"><span class="header-section-number">9.1</span> Konvergencia podľa distribúcie</a></li>
+  <li><a href="#centrálna-limitná-veta" id="toc-centrálna-limitná-veta" class="nav-link" data-scroll-target="#centrálna-limitná-veta"><span class="header-section-number">9.2</span> Centrálna limitná veta</a></li>
+  <li><a href="#cvičenia" id="toc-cvičenia" class="nav-link" data-scroll-target="#cvičenia"><span class="header-section-number">9.3</span> Cvičenia</a></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title"><span id="clv" class="quarto-section-identifier"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Centrálna limitná veta</span></span></h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<p>Normálne rozdelenie hrá prekvapivo dôležitú úlohu v teórii pravdepodobnosti a v štatistike. Ukazuje sa, že aritmetický priemer z nezávislých, ale rovnako rozdelených náhodných premenných, pokiaľ je počítaný z dostatočne veľkého množstva premenných, sa správa ako normálne rozdelená náhodná premenná.</p>
+<section id="konvergencia-podľa-distribúcie" class="level2" data-number="9.1">
+<h2 data-number="9.1" class="anchored" data-anchor-id="konvergencia-podľa-distribúcie"><span class="header-section-number">9.1</span> Konvergencia podľa distribúcie</h2>
+<p>V minulej kapitole sme si predstavili jeden zo spôsobov, ako sa môže postupnosť náhodných premenných blížiť k nejakej náhodnej premennej, konkrétne konvergenciu podľa pravdepodobnosti. Existuje aj iný spôsob. Niekedy chceme uvažovať situáciu, že pravdepodobnostné správnanie prvkov postupnosti náhodných premenných sa stále viacej a viacej podobá na pravdepodobnostné správanie akejsi limitnej náhodnej premennej.</p>
+<p>Hovoríme, že postupnosť náhodných premenných <span class="math inline">\(\{X_i\}_{i=1}^{\infty}\)</span> <strong>konverguje podľa distribúcie</strong> k náhodnej premennej <span class="math inline">\(X\)</span>, ak platí pre všetky body <span class="math inline">\(x\)</span> spojitosti funkcie <span class="math inline">\(F_X\)</span>:</p>
+<p><span class="math display">\[\lim_{n \rightarrow \infty}F_{X_n}(x) = F_X(x),\]</span> Označujeme <span class="math inline">\(X_n \rightarrow_D X.\)</span></p>
+<div class="theorem">
+<p>Platí <span class="math display">\[X_n \rightarrow_P X \implies X_n \rightarrow_D X.\]</span></p>
+</div>
+<div class="proof">
+<p><span class="proof-title"><em>Proof</em>. </span>Nakoľko platí <span class="math inline">\(\{ X_n \leq x\} \subset \{ X \leq x + \epsilon\} \cup \{|X-X_n| &gt; \epsilon\}\)</span> (lebo ak platí <span class="math inline">\(X_n \leq x\)</span> a <span class="math inline">\(X &gt; x + \epsilon\)</span>, potom nutne aj <span class="math inline">\(|X-X_n| &gt; \epsilon\)</span>), dostávame: <span class="math display">\[\begin{eqnarray*}
+P(X_n \leq x) &amp;\leq&amp;  P(X \leq x + \epsilon) + P(|X_n - X|&gt;\epsilon).
+\end{eqnarray*}\]</span> Podobnou úvahou dostaneme</p>
+<span class="math display">\[\begin{eqnarray*}
+P(X \leq x-\epsilon) &amp;\leq&amp;   P(X_n \leq x) + P(|X_n - X|&gt;\epsilon).
+\end{eqnarray*}\]</span>
+<p>Preto platí</p>
+<p><span class="math display">\[P(X \leq x-\epsilon) - P(|X_n - X|&gt;\epsilon) \leq P(X_n \leq x) \leq   P(X \leq x + \epsilon) + P(|X_n - X|&gt;\epsilon).\]</span></p>
+<p>Ak aplikujeme operátor limity na tieto nerovnosti, spolu s využitím definície konvergencie podľa pravdepodobnosti dostávame</p>
+<p><span class="math display">\[F_{X}(x-\epsilon) \leq \lim_{n \rightarrow \infty}P(X_n \leq x) \leq   F_{X}(x+\epsilon),\]</span> a tieto nerovnosti platia pre akékoľvek <span class="math inline">\(\epsilon.\)</span></p>
+<p>V bode spojitosti <span class="math inline">\(F_X\)</span> platí <span class="math inline">\(\lim_{\epsilon \rightarrow 0}F_{X}(x-\epsilon) = \lim_{\epsilon \rightarrow 0}F_{X}(x+\epsilon) = F_X(x),\)</span> a preto <span class="math inline">\(\lim_{n \rightarrow \infty}P(X_n \leq x) = F_X(x)\)</span>, čo sme chceli ukázať.</p>
+</div>
+</section>
+<section id="centrálna-limitná-veta" class="level2" data-number="9.2">
+<h2 data-number="9.2" class="anchored" data-anchor-id="centrálna-limitná-veta"><span class="header-section-number">9.2</span> Centrálna limitná veta</h2>
+<div class="theorem">
+<p>Majme postupnosť nezávislých a rovnako rozdelených náhodných premenných <span class="math inline">\(X_1, X_2, X_3, \dots\)</span> s konečnou strednou hodnotou <span class="math inline">\(\mu\)</span> a konečnou varianciou <span class="math inline">\(\sigma^2.\)</span> Potom platí</p>
+<p><span class="math display">\[\sqrt{n}\frac{\bar{X}_n - \mu}{\sigma} \rightarrow_D Z,\]</span></p>
+<p>kde <span class="math inline">\(Z \sim \text{N}(0,1).\)</span></p>
+</div>
+<p>Alternatívnym zápisom je, že ak označíme <span class="math inline">\(Y_n = \sqrt{n}\frac{\bar{X}_n - \mu}{\sigma},\)</span> potom</p>
+<p><span class="math display">\[\forall x \in \mathbb{R}: \lim_{n \rightarrow \infty}F_{Y_n}(x) = \Phi(x).\]</span></p>
+<p>Dôkaz je nad rámec tohoto kurzu, a preto ho vynechávame.</p>
+<p>Tu je ilustrácie pre rovnomerné rozdelenie. Ide o obrázky odhadov funkcie hustoty. Napriek veľkému množstvu simulácií nie sú úplne hladké, viacej o takýchto odhadoch hustôt sa naučíme na druhom kurze regresie.</p>
+<div class="cell">
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="clv_files/figure-html/clv-1-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>Tu pre exponenciálne rozdelenie:</p>
+<div class="cell">
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="clv_files/figure-html/clv-2-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>A tu pre binomické rozdelenie:</p>
+<div class="cell">
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="clv_files/figure-html/clv-3-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>Toto má dôležité praktické dôsledky. My vôbec nemusíme vedieť, aké má nejaká náhodná pravdepodobnostné rozdelenie. Ale vieme, že priemer nezávislých náhodných premenných sa už bude správať systematicky(!). Toto je veľmi všeobecný výsledok. Na tomto poznatku je založených mnoho štatistických testov.</p>
+<div class="example">
+<p>Hádžeme férovou kockou 900 krát. Ideme aproximovať pravdepodobnosť, že uvidíme viacej ako 495 hláv. Každý hod mincou <span class="math inline">\(X_i \sim \text{Bern}(0.5)\)</span> a <span class="math inline">\(\text{E}[X_i] = 0.5, \text{Var}[X_i] = 0.25.\)</span></p>
+<p>Preto</p>
+<span class="math display">\[\begin{eqnarray*}
+P\left(\sum_{i=1}^{900} X_i &gt; 495\right)&amp;=&amp; P\left(\frac{\sum_{i=1}^{900} X_i}{900} &gt; \frac{495}{900}\right) \\
+&amp;=&amp; P\left(\bar{X}_n - 0.5 &gt; \frac{495}{900} -0.5\right)\\
+&amp;=&amp; P\left(\frac{\bar{X}_n - 0.5}{0.5} &gt; \frac{\frac{495}{900} -0.5}{0.5}\right)\\
+&amp;=&amp; P\left(\sqrt{900}\frac{\bar{X}_n - 0.5}{0.5} &gt; \sqrt{900}\frac{\frac{495}{900} -0.5}{0.5}\right)\\
+&amp;=&amp; P\left(\sqrt{900}\frac{\bar{X}_n - 0.5}{0.5} &gt; 30\frac{\frac{495}{900} -0.5}{0.5}\right)\\
+&amp;=&amp; P\left(\sqrt{900}\frac{\bar{X}_n - 0.5}{0.5} &gt; 3\right)\\
+&amp;\approx&amp; 1-\Phi(3) = 0.0013
+\end{eqnarray*}\]</span>
+<p>Princíp výpočtu takýchto aproximácií je vždy rovnaký. Začneme s tým, čo chceme vypočítať a ekvivalentnými úpravami to prevedieme na formuláciu CLV.</p>
+</div>
+<div class="example">
+<p>Majme nezávislé <span class="math inline">\(X_1, X_2, \cdots X_{12}\)</span> kde <span class="math inline">\(X_i \sim \text{Unif}[0,1].\)</span> Pomocou CLV aproximujte <span class="math inline">\(P(|\bar{X}_n - 0.5| \leq 0.1).\)</span> <span class="math display">\[\begin{eqnarray*}
+P(|\bar{X}_n - 0.5| \leq 0.1) &amp;=&amp; P(\sqrt{12}(\bar{X}_n - 0.5)| \leq \sqrt{12}\cdot 0.1)\\
+&amp;=&amp; P\left(\left|\sqrt{12}\frac{\bar{X}_n - 0.5}{\sqrt{\frac{1}{12}}}\right| \leq \sqrt{12}\frac{0.1}{\sqrt{\frac{1}{12}}}\right)\\
+&amp;=&amp; P\left(\left|\sqrt{12}\frac{\bar{X}_n - 0.5}{\sqrt{\frac{1}{12}}}\right| \leq 1.2\right)\\
+&amp;\approx&amp; \Phi(1.2) - \Phi(-1.2) = 0.7698.
+\end{eqnarray*}\]</span></p>
+<p>Využili sme skutočnosť, že <span class="math inline">\(\sqrt{n}\frac{\bar{X}_n - \mu}{\sigma}\)</span> je približne normovane normálne rozdelená náhodná premenná (<span class="math inline">\(\text{N}(0,1)\)</span>).</p>
+</div>
+</section>
+<section id="cvičenia" class="level2" data-number="9.3">
+<h2 data-number="9.3" class="anchored" data-anchor-id="cvičenia"><span class="header-section-number">9.3</span> Cvičenia</h2>
+<div id="exr-" class="Exercise theorem exercise">
+<p><span class="theorem-title"><strong>Exercise 9.1</strong></span> Majme postupnosť nezávislých a rovnako rozdelených náhodných premenných <span class="math inline">\(X_1,X_2,X_3,\cdots\)</span>, kde <span class="math inline">\(X_1 \sim \text{Exp}(1).\)</span></p>
+<p>Aké veľké musí byť <span class="math inline">\(n\)</span> aby platilo <span class="math inline">\(P(0.9 \leq \bar{X}_n \leq 1.1)\geq 0.9\)</span> ?</p>
+</div>
+<div id="exr-" class="Exercise theorem exercise">
+<p><span class="theorem-title"><strong>Exercise 9.2</strong></span> Výťah unesie 4tony nákladu. Majme 100 krabíc, každá s priemernou váhou 39kg a so smerodajnou odchýlkou 2kg. Aproximujte pravdepodobnosť, že výťah bude preťažený.</p>
+</div>
+<div id="exr-" class="Exercise theorem exercise">
+<p><span class="theorem-title"><strong>Exercise 9.3</strong></span> Majme postupnosť nezávislých a rovnako rozdelených náhodných premenných <span class="math inline">\(X_1,X_2,X_3,\cdots\)</span>, kde <span class="math inline">\(\text{E}[X_1] = 200, \text{Var}[X_1]=40, n=100.\)</span></p>
+<p>Aproximujte pomocou CLV hodnotu <span class="math inline">\(P(190 \leq \bar{X}_n \leq 210)\)</span>.</p>
+</div>
+<!-- ## Domáca úloha 8 {-} -->
+<!-- Prosím odovzdať do 1.5.2024 do 19:59. -->
+<!-- ::: {.exercise name="DÚ 8.1"} -->
+<!-- Na Deň otvorených dverí príde 100 hostí. Každý hosť si zoberie 0, 1 alebo 2 brožúry o Katedre matematiky s pravdepodobnosťou 1/4, 1/2 a 1/4. Ľudia si brožúry berú nezávisle. Koľko brožúr musíme dať vytlačiť, aby sme si boli na 97\% istí, že nebudú chýbať? -->
+<!-- Porovnajte výsledky, ktoré dostanete: -->
+<!-- * aplikovaním Markovovej nerovnosti -->
+<!-- * pomocou Centrálnej limitnej vety -->
+<!-- ::: -->
+<!-- ::: {.exercise name="DÚ 8.2"} -->
+<!-- Máme produkt, o ktorého kazivosti vieme, že je 0.1\%. V poslednej objednávke, v ktorej bolo 1200ks týchto produktov sme pozorovali 4 chybné produkty, čo sa nám zdá dosť veľa. Aká je pravdepodobnosť, že by sme pozorovali 4 alebo viacej chybných produktov? -->
+<!-- Porovnajte výsledky, ktoré dostanete: -->
+<!-- * aplikovaním Markovovej nerovnosti -->
+<!-- * priamym výpočtom pomocou Binomického rozdelenia -->
+<!-- * aproximáciou Binomického rozdelenia pomocou Poissonoveho rozdelenia -->
+<!-- * aproximáciou pomocou Centrálnej limitnej vety -->
+<!-- ::: -->
+<!-- ::: {.exercise name="DÚ 8.3"} -->
+<!-- Predstavte, že by ste simulačne chceli odhadnúť obsah tohoto útvaru, ktorý je ohraničený krivkami, ktorých predpis teraz *nepoznáme*. Budeme uniformne náhodne vyberať $X$ a $Y$ a pozerať sa, aká proporcia $(X,Y)$ padne medzi tieto krivky. -->
+<!-- ```{r clv-9,echo=FALSE, fig.width=4, fig.height=4} -->
+<!-- set.seed(302) -->
+<!-- x <- seq(0,1,by=0.01) -->
+<!-- y1 <- x^3 -->
+<!-- y2 <- sqrt(abs(2+log(x+0.01))) -->
+<!-- plot(x,y1,type="l", -->
+<!--      xlab = "", -->
+<!--      ylab = "", -->
+<!--      main = "Ešte divnejší útvar") -->
+<!-- lines(x,y2) -->
+<!-- polygon(c(x,x[101:1]),c(y1,y2[101:1]),col="gray") -->
+<!-- ``` -->
+<!-- Odhadnite koľko *najmenej* simulácií by ste potrebovali, aby ste mali zagarantované, že odhadnete skutočný obsah s presnosťou 0.001 s pravdepodobnosťou aspoň $99.9\%$. -->
+<!-- ::: -->
+<!-- ::: {.exercise name="DÚ 8.4"} -->
+<!-- V populácii máme $8.2\%$ farboslepých ľudí. Náhodne vyberieme $n$ ľudí do prieskumu, pýtame sa ich a predpokladáme, že nám hovoria pravdu. -->
+<!-- (a) Aká je pravdepodobnosť, že podiel farboslepých ľudí v našej vzorke sa od reality bude líšiť o viac ako $2$ percentuálne body, ak vezmeme vzorku $200$, resp. $5000$ ľudí? Odpovedzte (obidve) -->
+<!-- * pomocou Čebyševovej nerovnosti -->
+<!-- * na základe aproximácie pomocou Centrálnej limitnej vety. -->
+<!-- (b) Koľkých ľudí sa musíme opýtať, ak chceme, aby sa s $90\%$-tnou istotou podiel farboslepých ľudí v našej vzorke líšil od reality najviac o $1$ percentuálny bod? Odpovedzte (obidve) -->
+<!-- * pomocou Čebyševovej nerovnosti -->
+<!-- * na základe aproximácie pomocou Centrálnej limitnej vety. -->
+<!-- ::: -->
+<!-- ::: {.exercise name="DÚ 8.5"} -->
+<!-- Ukážte, že platí -->
+<!-- $$P(|X-\text{E}[X]|\geq \epsilon) \leq \frac{1}{\epsilon}\text{E}[|X-\text{E}[X]|].$$ -->
+<!-- ::: -->
+<!-- ::: {.exercise name="DÚ 8.6 BONUS (+30%)"} -->
+<!-- Zvažujete kúpu konkrétneho bicykla, ktorý sa predáva v dvoch rôznych obchodoch. Prvý obchod _Anaconda bicycles_ reportuje, že 19 z 20 ľudí bolo s týmto bicyklom spokojných. U druhého obchodu _Borisove bicykle_ bolo 92 z 100 ľudí spokojných. Nech náhodné premenné $X_A \sim Bin(20,p)$ a $X_B \sim Bin(100,p)$ označujú počty ľudí spokojných s tými bicyklami v daných obchodoch. Predpokladajme, že informácie o spokojnosti zákazníkov, ktoré pozorujeme nie je systematicky oveľa viacej alebo menej kvalitné, čo kvantifikujeme nasledovným spôsobom -->
+<!-- $$|P(X_A \geq 19) - P(X_B \geq 92)| < 0.05.$$ -->
+<!-- Naviac predpokladajme, že $p>0.8.$ -->
+<!-- Ako veľmi sú ľudia spokojní? -->
+<!-- Inými slovami, aké hodnoty pravdepodobnosti $p$ sú v súlade s týmito predpokladmi? -->
+<!-- ```{r clv-10,echo=FALSE,eval=FALSE, fig.width=4, fig.height=4} -->
+<!-- set.seed(302) -->
+<!-- x <- seq(0.8,1,by=0.001) -->
+<!-- y1 <- 1-pbinom(18,20,x) -->
+<!-- y2 <- 1-pbinom(91,100,x) -->
+<!-- y3 <- abs(y1-y2) -->
+<!-- plot(x,y1,type="l",col="red", -->
+<!--      xlab = "", -->
+<!--      ylab = "", -->
+<!--      main = "pp", -->
+<!--      ylim = c(0,1)) -->
+<!-- lines(x,y2) -->
+<!-- lines(x,y3,col="blue") -->
+<!-- abline(h=0.05) -->
+<!-- ``` -->
+<!-- :::  -->
+<!-- ## Domáca úloha 11 {-} -->
+<!-- Odovzdať do 1.5.2023 do 23:59. -->
+<!-- Zvyšok ku kapitole 8 -->
+<!-- ::: {.exercise name="DÚ 11.1"} -->
+<!-- Majme postupnosť $X_1, X_2, \dots$ náhodných premenných so strednou hodnotou $6.5$ a varianciou $4$. Pomocou Čebyševovej nerovnosti odhadnite, aké veľké $n$ musíme zobrať, aby sme si boli istí, že -->
+<!-- $$P(6 < \bar{X}_n < 7) \geq 0.9 \quad?$$ -->
+<!-- Výsledok porovnajte s odhadom pomocou Centrálnej limitnej vety. -->
+<!-- ::: -->
+<!-- ::: {.exercise name="DÚ 11.2"} -->
+<!-- Zo sčítania obyvateľstva vieme, že v populácii máme $18.4\%$ vysokoškolsky vzdelaných ľudí. Náhodne vyberieme $n$ ľudí do prieskumu. -->
+<!-- (a) Pomocou Čebyševovej nerovnosti odhadnite, aká je pravdepodobnosť, že pomer vysokoškolsky vzdelaných ľudí v našej vzorke sa od reality bude líšiť o viac ako $2\%$, ak vezmeme vzorku $100$, resp. $1000$ ľudí? -->
+<!-- (b) Pomocou Čebyševovej nerovnosti odhadnite, koľkých ľudí sa musíme opýtať, ak chceme, aby sa s $95\%$-tnou istotou pomer vysokoškolsky vzdelaných ľudí v prieskume líšil od reality najviac o $2\%$, resp. $5\%$? -->
+<!-- ::: -->
+<!-- Kapitola 9 -->
+<!-- ::: {.exercise name="DÚ 11.3"} -->
+<!-- Na krst knihy je pozvaných 100 hostí. Každý hosť si zoberie 0, 1 alebo 2 brožúry o knihe s pravdepodobnosťou 1/4, 1/2 a 1/4. Ľudia si brožúry berú nezávisle. Koľko brožúr musíme dať vytlačiť, aby sme si boli na 95\% istý, že nebudú chýbať? -->
+<!-- ::: -->
+<!-- ::: {.exercise name="DÚ 11.4"} -->
+<!-- 200 ľudí čaká v rade na lístky na koncert. Každý človek v rade si kúpi v priemere 2.3 lístkov zo smerodajnou odchýlkou 2. V sále je 500 voľných miest. Aproximujte pravdepodobosť, že sa každému ujde toľko lístkov, koľko chce. Explicitne pomenujte zjednodušujúce predpoklady, ktoré urobíte. -->
+<!-- ::: -->
+<!-- ::: {.exercise name="DÚ 11.5"} -->
+<!-- V lekárni sa týždenne predá v priemere 25 krabičiek lieku na krvný tlak so smerodajnou odchýlkou 5 krabičiek. Lekáreň má v sklade 40 krabičiek lieku a každý týžden je naplánovaná dodávka 22 krabičiek. -->
+<!-- (a) Aproximujte pravdepodobnosť, že po 10 týždňoch bude mať lekáreň na sklade menej ako 15 krabičiek. -->
+<!-- (b) Aká by mala byť plánovaná týždenná dodávka, aby bola pravdepodobnosť, že po 10 týždňoch bude mať lekáreň na sklade menej ako 15 krabičiek, menšia ako 0.5\%? -->
+<!-- Explicitne pomenujte zjednodušujúce predpoklady, ktoré urobíte. -->
+<!-- ::: -->
+<!-- ## Domáca úloha 10 {-} -->
+<!-- ::: {.exercise name="DÚ 9.1"} -->
+<!-- Na svadbu je pozvaných 64 hostí. Každý hosť zje 0, 1 alebo 2 koláče s pravdepodobnosťou 1/4, 1/2 a 1/4. Ľudia jedia koláče nezávisle. Koľko koláčov musíme objednať, aby sme si boli na 95\% istý, že nebudú chýbať? -->
+<!-- :::  -->
+<!-- ::: {.exercise name="DÚ 9.2"} -->
+<!-- Výťah unesie 4tony nákladu. Majme 100 krabíc, každá s priemernou váhou 39kg a so smerodajnou odchýlkou 2kg. Aproximujte pravdepodobnosť, že výťah bude preťažený. -->
+<!-- :::  -->
+<!-- ::: {.exercise name="DÚ 9.3"} -->
+<!-- Zo skúseností vieme, že na matematický ples sa lístky veľmi rýchlo vypredajú: každý človek v rade si kúpi v priemere 2.3 lístkov zo smerodajnou odchýlkou 2. Máme 250 voľných miest a v rade čaká 100 ľudí. Aproximujte pravdepodobosť, že sa každému ujde toľko lístkov, koľko chce. Explicitne pomenujte zjednodušujúce predpoklady, ktoré urobíte.  -->
+<!-- :::  -->
+<!-- ::: {.exercise name="DÚ 9.4"} -->
+<!-- Na pumpe v Hronskej Breznici sa týždenne predá v priemere 50000 litrov benzínu so smerodajnou odchýlkou 10000 litrov. Na začiatku je v zásobníku 74000 litrov a každý týžden je naplánovaná dodávka 47000 litrov. -->
+<!-- * Aproximujte pravdepodobnosť, že po 11 týždňoch bude v zásobníku menej ako 20000 litrov. -->
+<!-- * Aká by mala byť plánovaná týždenná dodávka, aby bola pravdepodobnosť, že po 11 týždňoch bude v zásobníku menej ako 20000 litrov menšia ako 0.5\%? -->
+<!-- :::  -->
+
+
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const isCodeAnnotation = (el) => {
+    for (const clz of el.classList) {
+      if (clz.startsWith('code-annotation-')) {                     
+        return true;
+      }
+    }
+    return false;
+  }
+  const onCopySuccess = function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  }
+  const getTextToCopy = function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+    text: getTextToCopy
+  });
+  clipboard.on('success', onCopySuccess);
+  if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+    const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+      text: getTextToCopy,
+      container: window.document.getElementById('quarto-embedded-source-code-modal')
+    });
+    clipboardModal.on('success', onCopySuccess);
+  }
+    var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+    var mailtoRegex = new RegExp(/^mailto:/);
+      var filterRegex = new RegExp('/' + window.location.host + '/');
+    var isInternal = (href) => {
+        return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+    }
+    // Inspect non-navigation links and adorn them if external
+ 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+    for (var i=0; i<links.length; i++) {
+      const link = links[i];
+      if (!isInternal(link.href)) {
+        // undo the damage that might have been done by quarto-nav.js in the case of
+        // links that we want to consider external
+        if (link.dataset.originalHref !== undefined) {
+          link.href = link.dataset.originalHref;
+        }
+      }
+    }
+  function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+    const config = {
+      allowHTML: true,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start',
+    };
+    if (contentFn) {
+      config.content = contentFn;
+    }
+    if (onTriggerFn) {
+      config.onTrigger = onTriggerFn;
+    }
+    if (onUntriggerFn) {
+      config.onUntrigger = onUntriggerFn;
+    }
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      if (note) {
+        return note.innerHTML;
+      } else {
+        return "";
+      }
+    });
+  }
+  const xrefs = window.document.querySelectorAll('a.quarto-xref');
+  const processXRef = (id, note) => {
+    // Strip column container classes
+    const stripColumnClz = (el) => {
+      el.classList.remove("page-full", "page-columns");
+      if (el.children) {
+        for (const child of el.children) {
+          stripColumnClz(child);
+        }
+      }
+    }
+    stripColumnClz(note)
+    if (id === null || id.startsWith('sec-')) {
+      // Special case sections, only their first couple elements
+      const container = document.createElement("div");
+      if (note.children && note.children.length > 2) {
+        container.appendChild(note.children[0].cloneNode(true));
+        for (let i = 1; i < note.children.length; i++) {
+          const child = note.children[i];
+          if (child.tagName === "P" && child.innerText === "") {
+            continue;
+          } else {
+            container.appendChild(child.cloneNode(true));
+            break;
+          }
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(container);
+        }
+        return container.innerHTML
+      } else {
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        return note.innerHTML;
+      }
+    } else {
+      // Remove any anchor links if they are present
+      const anchorLink = note.querySelector('a.anchorjs-link');
+      if (anchorLink) {
+        anchorLink.remove();
+      }
+      if (window.Quarto?.typesetMath) {
+        window.Quarto.typesetMath(note);
+      }
+      if (note.classList.contains("callout")) {
+        return note.outerHTML;
+      } else {
+        return note.innerHTML;
+      }
+    }
+  }
+  for (var i=0; i<xrefs.length; i++) {
+    const xref = xrefs[i];
+    tippyHover(xref, undefined, function(instance) {
+      instance.disable();
+      let url = xref.getAttribute('href');
+      let hash = undefined; 
+      if (url.startsWith('#')) {
+        hash = url;
+      } else {
+        try { hash = new URL(url).hash; } catch {}
+      }
+      if (hash) {
+        const id = hash.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note !== null) {
+          try {
+            const html = processXRef(id, note.cloneNode(true));
+            instance.setContent(html);
+          } finally {
+            instance.enable();
+            instance.show();
+          }
+        } else {
+          // See if we can fetch this
+          fetch(url.split('#')[0])
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.getElementById(id);
+            if (note !== null) {
+              const html = processXRef(id, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      } else {
+        // See if we can fetch a full url (with no hash to target)
+        // This is a special case and we should probably do some content thinning / targeting
+        fetch(url)
+        .then(res => res.text())
+        .then(html => {
+          const parser = new DOMParser();
+          const htmlDoc = parser.parseFromString(html, "text/html");
+          const note = htmlDoc.querySelector('main.content');
+          if (note !== null) {
+            // This should only happen for chapter cross references
+            // (since there is no id in the URL)
+            // remove the first header
+            if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+              note.children[0].remove();
+            }
+            const html = processXRef(null, note);
+            instance.setContent(html);
+          } 
+        }).finally(() => {
+          instance.enable();
+          instance.show();
+        });
+      }
+    }, function(instance) {
+    });
+  }
+      let selectedAnnoteEl;
+      const selectorForAnnotation = ( cell, annotation) => {
+        let cellAttr = 'data-code-cell="' + cell + '"';
+        let lineAttr = 'data-code-annotation="' +  annotation + '"';
+        const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+        return selector;
+      }
+      const selectCodeLines = (annoteEl) => {
+        const doc = window.document;
+        const targetCell = annoteEl.getAttribute("data-target-cell");
+        const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+        const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+        const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+        const lineIds = lines.map((line) => {
+          return targetCell + "-" + line;
+        })
+        let top = null;
+        let height = null;
+        let parent = null;
+        if (lineIds.length > 0) {
+            //compute the position of the single el (top and bottom and make a div)
+            const el = window.document.getElementById(lineIds[0]);
+            top = el.offsetTop;
+            height = el.offsetHeight;
+            parent = el.parentElement.parentElement;
+          if (lineIds.length > 1) {
+            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+            const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+            height = bottom - top;
+          }
+          if (top !== null && height !== null && parent !== null) {
+            // cook up a div (if necessary) and position it 
+            let div = window.document.getElementById("code-annotation-line-highlight");
+            if (div === null) {
+              div = window.document.createElement("div");
+              div.setAttribute("id", "code-annotation-line-highlight");
+              div.style.position = 'absolute';
+              parent.appendChild(div);
+            }
+            div.style.top = top - 2 + "px";
+            div.style.height = height + 4 + "px";
+            div.style.left = 0;
+            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+            if (gutterDiv === null) {
+              gutterDiv = window.document.createElement("div");
+              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+              gutterDiv.style.position = 'absolute';
+              const codeCell = window.document.getElementById(targetCell);
+              const gutter = codeCell.querySelector('.code-annotation-gutter');
+              gutter.appendChild(gutterDiv);
+            }
+            gutterDiv.style.top = top - 2 + "px";
+            gutterDiv.style.height = height + 4 + "px";
+          }
+          selectedAnnoteEl = annoteEl;
+        }
+      };
+      const unselectCodeLines = () => {
+        const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+        elementsIds.forEach((elId) => {
+          const div = window.document.getElementById(elId);
+          if (div) {
+            div.remove();
+          }
+        });
+        selectedAnnoteEl = undefined;
+      };
+        // Handle positioning of the toggle
+    window.addEventListener(
+      "resize",
+      throttle(() => {
+        elRect = undefined;
+        if (selectedAnnoteEl) {
+          selectCodeLines(selectedAnnoteEl);
+        }
+      }, 10)
+    );
+    function throttle(fn, ms) {
+    let throttle = false;
+    let timer;
+      return (...args) => {
+        if(!throttle) { // first call gets through
+            fn.apply(this, args);
+            throttle = true;
+        } else { // all the others get throttled
+            if(timer) clearTimeout(timer); // cancel #2
+            timer = setTimeout(() => {
+              fn.apply(this, args);
+              timer = throttle = false;
+            }, ms);
+        }
+      };
+    }
+      // Attach click handler to the DT
+      const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+      for (const annoteDlNode of annoteDls) {
+        annoteDlNode.addEventListener('click', (event) => {
+          const clickedEl = event.target;
+          if (clickedEl !== selectedAnnoteEl) {
+            unselectCodeLines();
+            const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+            if (activeEl) {
+              activeEl.classList.remove('code-annotation-active');
+            }
+            selectCodeLines(clickedEl);
+            clickedEl.classList.add('code-annotation-active');
+          } else {
+            // Unselect the line
+            unselectCodeLines();
+            clickedEl.classList.remove('code-annotation-active');
+          }
+        });
+      }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script>
+<nav class="page-navigation">
+  <div class="nav-page nav-page-previous">
+      <a href="./zvc.html" class="pagination-link" aria-label="Zákon veľkých čísel">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Zákon veľkých čísel</span></span>
+      </a>          
+  </div>
+  <div class="nav-page nav-page-next">
+      <a href="./opa.html" class="pagination-link" aria-label="Opakovanie">
+        <span class="nav-page-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Opakovanie</span></span> <i class="bi bi-arrow-right-short"></i>
+      </a>
+  </div>
+</nav>
+</div> <!-- /content -->
+
+
+
+
+</body></html>

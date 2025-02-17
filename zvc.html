@@ -1,0 +1,970 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.6.40">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>8&nbsp; Zákon veľkých čísel – Pravdepodobnosť a štatistika 1</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+</style>
+
+
+<script src="site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="site_libs/quarto-nav/headroom.min.js"></script>
+<script src="site_libs/clipboard/clipboard.min.js"></script>
+<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="site_libs/quarto-search/fuse.min.js"></script>
+<script src="site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="./">
+<link href="./clv.html" rel="next">
+<link href="./cov.html" rel="prev">
+<script src="site_libs/quarto-html/quarto.js"></script>
+<script src="site_libs/quarto-html/popper.min.js"></script>
+<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="site_libs/quarto-html/anchor.min.js"></script>
+<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-549806ee2085284f45b00abea8c6df48.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="site_libs/bootstrap/bootstrap-626149efe8f5d16e1d391ba177679bf0.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "sidebar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "start",
+  "type": "textbox",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN") {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
+
+</head>
+
+<body class="nav-sidebar floating">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+  <nav class="quarto-secondary-nav">
+    <div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
+      </button>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./zvc.html"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Zákon veľkých čísel</span></a></li></ol></nav>
+        <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        </a>
+      <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
+        <i class="bi bi-search"></i>
+      </button>
+    </div>
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
+    <div class="pt-lg-2 mt-2 text-left sidebar-header">
+    <div class="sidebar-title mb-0 py-0">
+      <a href="./">Pravdepodobnosť a štatistika 1</a> 
+    </div>
+      </div>
+        <div class="mt-2 flex-shrink-0 align-items-center">
+        <div class="sidebar-search">
+        <div id="quarto-search" class="" title="Search"></div>
+        </div>
+        </div>
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">O tomto kurze</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./intro.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Interpretácia pravdepodobnosti</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./set.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Pravdepodobnosť</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./cond.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Podmienená pravdepodobnosť</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./np.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Náhodná premenná</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./dnp.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Diskrétna náhodná premenná</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./snp.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Spojitá náhodná premenná</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./cov.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Súvis medzi náhodnými premennými</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./zvc.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Zákon veľkých čísel</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./clv.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Centrálna limitná veta</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./opa.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Opakovanie</span></span></a>
+  </div>
+</li>
+    </ul>
+    </div>
+</nav>
+<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Table of contents</h2>
+   
+  <ul>
+  <li><a href="#konvergencia-podľa-pravdepodobnosti" id="toc-konvergencia-podľa-pravdepodobnosti" class="nav-link active" data-scroll-target="#konvergencia-podľa-pravdepodobnosti"><span class="header-section-number">8.1</span> Konvergencia podľa pravdepodobnosti</a></li>
+  <li><a href="#markovova-nerovnosť" id="toc-markovova-nerovnosť" class="nav-link" data-scroll-target="#markovova-nerovnosť"><span class="header-section-number">8.2</span> Markovova nerovnosť</a></li>
+  <li><a href="#čebyševova-nerovnosť" id="toc-čebyševova-nerovnosť" class="nav-link" data-scroll-target="#čebyševova-nerovnosť"><span class="header-section-number">8.3</span> Čebyševova nerovnosť</a></li>
+  <li><a href="#slabý-zákon-veľkých-čísel" id="toc-slabý-zákon-veľkých-čísel" class="nav-link" data-scroll-target="#slabý-zákon-veľkých-čísel"><span class="header-section-number">8.4</span> Slabý Zákon Veľkých čísel</a></li>
+  <li><a href="#čo-zákon-o-veľkých-číslach-nehovorí" id="toc-čo-zákon-o-veľkých-číslach-nehovorí" class="nav-link" data-scroll-target="#čo-zákon-o-veľkých-číslach-nehovorí"><span class="header-section-number">8.5</span> Čo zákon o veľkých číslach nehovorí</a></li>
+  <li><a href="#cvičenia" id="toc-cvičenia" class="nav-link" data-scroll-target="#cvičenia"><span class="header-section-number">8.6</span> Cvičenia</a></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title"><span id="zvc" class="quarto-section-identifier"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Zákon veľkých čísel</span></span></h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<p>Zákon veľkých čisel je jedným z najdôležitejších výsledkov v pravdepodobnosti a štatistike. Hovorí o tom, že aritmetický priemer vypočítaný zo stále väčšieho a väčšíeho počtu nezávislých a rovnako rozdelených náhodných premenných sa blíži k skutočnej strednej hodnote.<a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a> Zároveň je to aj výsledok, ktorý sme potichu používali len sme o tom nehovorili explicitne. Vždy, keď používame počítačovú simuláciu na ukázanie akýchsi vlastností náhodnej premennej, využívame fakt, že pri dostatočne veľkom množstve simulácií sú tieto odsimulované vlastnosti výpovedné o skutočných vlastnostiach.</p>
+<div class="example">
+<p>Majme mincu o ktorej nevieme, či je férová alebo nie. Chceli by sme vedieť aká je pravdepodobnosť toho, že padne hlava (<span class="math inline">\(X=1\)</span>) alebo znak (<span class="math inline">\(X=0\)</span>). Teda uvažujeme <span class="math inline">\(X \sim \text{Bern}(p)\)</span>. Hádžeme mincou, napríklad 8 krát a dostávame realizáciu siedmych náhodných premenných <span class="math inline">\(X_1, X_2, X_3, X_4, X_5, X_6, X_7, X_8.\)</span> Hádžeme tak, že výsledok každého hodu nesúvisí s tým predošlým, takže <span class="math inline">\(\{X_i\}_{i=1}^8\)</span> sú nezávislé. Každé <span class="math inline">\(X_i\)</span> je hod mincou, takže <span class="math inline">\(X_i \sim \text{Bern}(p)\)</span> Nevieme aké je <span class="math inline">\(p\)</span> ale intuícia nám hovorí, že to bude blízke <span class="math inline">\(\sum_{i=1}^{8}X_i/8.\)</span> Vskutku, <span class="math inline">\(Y = \sum_{i=1}^{8}X_i \sim \text{Bin}(8,p)\)</span> a <span class="math inline">\(\text{E}[Y] = 8p\)</span> preto <span class="math inline">\(\text{E}[Y/8] = p.\)</span> Osem realizácií je dosť málo, čím viacej by sme ich mali, tým bližšie by bol aritmetický priemer skutočnému priemeru.</p>
+<p>Zákon veľkých čisel upresňuje túto intuíciu.</p>
+</div>
+<p>V prvom rade treba zadefinovať, čo znamenená <em>blízke</em> alebo <em>blížiť sa</em>. Cudzím slovom <em>konvergovať</em>. Ešte predtým, čo znamená nezávislosť náhodných premenných pre viac ako len dve náhodné premenné.</p>
+<p>Hovoríme, že náhodné premenné <span class="math inline">\(X_1, X_2, \dots, X_n\)</span> sú <strong>nezávislé</strong> ak platí,</p>
+<p><span class="math display">\[P(X_1 \leq x_1, X_2 \leq x_2, \dots, X_n \leq x_n) = P(X_1 \leq x_1) \cdot P(X_2 \leq x_2) \cdots P(X_n \leq x_n)\]</span></p>
+<p>pre všetky <span class="math inline">\(x_1, x_2, \dots, x_n \in \mathbb{R}.\)</span></p>
+<p>Alternatívne by sme mohli zapísať <span class="math display">\[p_{X_1 X_2 \cdots X_n}(x_1, x_2,\dots ,x_n) \equiv P(X_1=x_1, X_2=x_2, \cdots, X_n=x_n)  = P(X_1=x_1) \cdot P(X_2=x_2) \cdots P(X_n=x_n),\]</span> pre diskrétne rozdelené náhodné premenné a všetky <span class="math inline">\(x_i \in \mathcal{S}_{X_i}\)</span> a</p>
+<p><span class="math display">\[f_{X_1 X_2 \cdots X_n}(x_1, x_2,\dots ,x_n) = f_{X_1}(x_1) \cdot f_{X_2}(x_2) \cdots f_{X_n}(x_n),\]</span></p>
+<p>pre spojité náhodné premenné a všetky <span class="math inline">\(x_1, x_2, \dots, x_n \in \mathbb{R},\)</span> kde <span class="math inline">\(f_{X_1 X_2 \cdots X_n}(x_1, x_2,\dots ,x_n)\)</span> označuje združenú mnohorozmernú funkciu hustoty. Platí pre ňu:</p>
+<p><span class="math display">\[ P\left(X_1 \in [a_1,b_1],\cdots, X_n \in [a_n,b_n] \right) = \int_{a_1}^{b_1} \dots \int_{a_n}^{b_n} f_{X_1 X_2 \cdots X_n}(x_1, x_2,\dots ,x_n) dx_n \dots dx_1.\]</span> Ide len o obyčajné zovšeobecnenie vzťahu z predošlej kapitoly pre viac ako dve premenné.</p>
+<section id="konvergencia-podľa-pravdepodobnosti" class="level2" data-number="8.1">
+<h2 data-number="8.1" class="anchored" data-anchor-id="konvergencia-podľa-pravdepodobnosti"><span class="header-section-number">8.1</span> Konvergencia podľa pravdepodobnosti</h2>
+<p>Existujú rôzne spôsoby <em>blíženia sa</em> keď hovoríme o náhodných premenných. Jeden takýto koncept si teraz zadefinujeme. Majme postupnosť náhodných premenných <span class="math inline">\(\{X_i\}_{i=1}^{\infty} = X_1, X_2, X_3 \cdots\)</span>.</p>
+<p>Hovoríme, že postupnosť náhodných premenných <span class="math inline">\(\{X_i\}_{i=1}^{\infty}\)</span> <strong>konverguje podľa pravdepodobnosti</strong> k náhodnej premennej <span class="math inline">\(X\)</span> ak platí:</p>
+<p><span class="math display">\[\forall \epsilon &gt; 0: \lim_{n \rightarrow \infty}P(|X_n - X| &lt; \epsilon) = 1.\]</span> Toto označujeme <span class="math inline">\(X_n \rightarrow_P X.\)</span></p>
+<p>Pripomeňme si, čo je vlastne tento objekt <span class="math inline">\(P(|X_n - X| &lt; \epsilon):\)</span></p>
+<p><span class="math display">\[P(|X_n - X| &lt; \epsilon) = P \left( \{\omega \in \Omega: |X_n(\omega) - X(\omega)|&lt; \epsilon \} \right).\]</span> To znamená, že pre akékoľvek malé <span class="math inline">\(\epsilon\)</span> existuje nejaké dostatočne veľké <span class="math inline">\(n_0\)</span> také, že pre všetky <span class="math inline">\(n \geq n_0\)</span> bude pravdepodobnosť toho, že <span class="math inline">\(X_n\)</span> bude <span class="math inline">\(\epsilon\)</span>-blízko <span class="math inline">\(X\)</span> ľubovoľne blízka nule.<a href="#fn2" class="footnote-ref" id="fnref2" role="doc-noteref"><sup>2</sup></a> Pri fixnom <span class="math inline">\(\epsilon\)</span> sa pozeráme na čísla <span class="math inline">\(a_n \equiv P(|X_n - X| &lt; \epsilon)\)</span> len ako na nejakú postupnosť <span class="math inline">\(a_n\)</span>, ktorá sa mení s <span class="math inline">\(n\)</span>.</p>
+<p>Špeciálnym prípadom je, ak je limitná náhodná premenná <span class="math inline">\(X\)</span> rovná nejakej konštante, teda ak <span class="math inline">\(X_n \rightarrow_P c.\)</span></p>
+</section>
+<section id="markovova-nerovnosť" class="level2" data-number="8.2">
+<h2 data-number="8.2" class="anchored" data-anchor-id="markovova-nerovnosť"><span class="header-section-number">8.2</span> Markovova nerovnosť</h2>
+<div class="theorem">
+<p>Majme nezápornú náhodnú premennú <span class="math inline">\(X\)</span> a číslo <span class="math inline">\(c \in \mathbb{R}.\)</span> Potom platí</p>
+<p><span class="math display">\[P(X \geq c) \leq \frac{\text{E}[X]}{c}.\]</span></p>
+</div>
+<div class="proof">
+<p><span class="proof-title"><em>Proof</em>. </span>Skonštruujme náhodnú premennú <span class="math inline">\(Y\)</span> nasledovne:</p>
+<span class="math display">\[\begin{equation*}
+Y =
+\begin{cases}
+0, &amp; \text{ak}\ X &lt; c,\\
+c, &amp; \text{ak}\ X \geq c.
+\end{cases}
+\end{equation*}\]</span>
+<p>Z konštrukcie vyplýva, že <span class="math inline">\(Y \leq X\)</span> preto platí <span class="math inline">\(\text{E}[Y] \leq \text{E}[X].\)</span> Preto platí <span class="math display">\[\text{E}[Y] = c \cdot P(X \geq c) + 0 \cdot P(X &lt; c),\]</span> a preusporiadaním dostaneme želanú nerovnosť.</p>
+</div>
+<p>Markovova nerovnosť je <strong>tesná</strong>, to znamená, že už ju nemôžeme vylepšiť. Ona totiž platí pre všetky nezáporné náhodné premenné, takže aj pre <span class="math inline">\(Y\)</span> z dôkazu pre ktoré nastáva priamo rovnosť. Ak by sme chceli vylepšiť MN a nájsť menšiu hornú medzu ako <span class="math inline">\(\frac{\text{E}[X]}{c}\)</span> pre všetky možné nezáporné náhodné premenné, došli by sme k sporu, lebo pre <span class="math inline">\(Y\)</span> z dôkazu by neplatila.</p>
+</section>
+<section id="čebyševova-nerovnosť" class="level2" data-number="8.3">
+<h2 data-number="8.3" class="anchored" data-anchor-id="čebyševova-nerovnosť"><span class="header-section-number">8.3</span> Čebyševova nerovnosť</h2>
+<div class="theorem">
+<p>Majme náhodnú premennú so strednou hodnotou <span class="math inline">\(\mu\)</span> a konečnou varianciou <span class="math inline">\(\sigma^2.\)</span> Potom pre akékoľvek číslo <span class="math inline">\(k &gt; 0\)</span> platí:</p>
+<p><span class="math display">\[P(|X-\mu|\geq k \sigma) \leq \frac{1}{k^2}.\]</span></p>
+</div>
+<p>Alternatívnou formuláciou, ak zvolíme <span class="math inline">\(k=\frac{c}{\sigma}\)</span> je</p>
+<p><span class="math display">\[P(|X-\mu|\geq c) \leq \frac{\sigma^2}{c^2}.\]</span></p>
+<div class="proof">
+<p><span class="proof-title"><em>Proof</em>. </span>Označme <span class="math inline">\(Y = (X-\mu)^2,\)</span> ktorá je nezáporná náhodná premenná a zároveň platí <span class="math inline">\(\text{E}[Y] = \sigma^2.\)</span> Naviac platí <span class="math display">\[P(|X-\mu|\geq k \sigma) = P((X-\mu)^2\geq k^2 \sigma^2) \leq \frac{\sigma^2}{k^2 \sigma^2} = \frac{1}{k^2},\]</span> kde nerovnosť vyplýva z Markovovej nerovnosti.</p>
+</div>
+<p>Nezávisle od typu rozdelenia:</p>
+<ul>
+<li>pravdepodobnosť, že sme viac ako 2 smerodajné odchýlky vzdialený od priemeru je menšia ako 1/4,</li>
+<li>pravdepodobnosť, že sme viac ako 3 smerodajné odchýlky vzdialený od priemeru je menšia ako 1/9,</li>
+<li>pravdepodobnosť, že sme viac ako 4 smerodajné odchýlky vzdialený od priemeru je menšia ako 1/16,</li>
+<li>pravdepodobnosť, že sme viac ako 5 smerodajné odchýlky vzdialený od priemeru je menšia ako 1/25.</li>
+</ul>
+<p>Toto je ale len horná medza. V skutočnosti môže byť táto pravdepodobnosť oveľa menšia. Prečo je tomu tak? No táto nerovnosť je len tak dobrá ako je dobrá Markovovská nerovnosť v dôkaze Čebyševovej nerovnosti.</p>
+</section>
+<section id="slabý-zákon-veľkých-čísel" class="level2" data-number="8.4">
+<h2 data-number="8.4" class="anchored" data-anchor-id="slabý-zákon-veľkých-čísel"><span class="header-section-number">8.4</span> Slabý Zákon Veľkých čísel</h2>
+<p>Pripomeňme, že pre nezávislé náhodné premenné <span class="math inline">\(X,Y\)</span> platí <span class="math inline">\(\text{Var}[X+Y] = \text{Var}[X] + \text{Var}[Y].\)</span></p>
+<p>Pre <span class="math inline">\(n\)</span> nezávislých náhodných premenných <span class="math inline">\(X_1,...,X_n\)</span> analogicky platí <span class="math inline">\(\text{Var}[X_1+...+X_n] = \text{Var}[X_1] +...+ \text{Var}[X_n].\)</span></p>
+<p>&nbsp;</p>
+<p>Pripomeňme tiež, že <span class="math inline">\(\text{Var}[aX+b] = a^2\text{Var}[X].\)</span><a href="#fn3" class="footnote-ref" id="fnref3" role="doc-noteref"><sup>3</sup></a> Ide o použitie tohoto výsledku, ak <span class="math inline">\(Y\)</span> je konštantná 1 a teda <span class="math inline">\(\text{Var}(Y)=0\)</span> a <span class="math inline">\(\text{Cov}(X,Y)=0\)</span>. <span class="math display">\[
+\begin{split}
+\text{Var}[aX+bY] &amp;= \text{E}\left[ [(aX+bY]-\text{E}[aX+bY)]^2 \right] \\
+&amp;= \text{E}\left[ (a (X-\text{E}[X]) + b (Y-\text{E}[Y])^2 \right] \\
+&amp;= \text{E}\left[ a^2 \, (X-\text{E}[X])^2 + b^2 \, (Y-\text{E}[Y])^2 + 2ab \, (X-\text{E}[X]) (Y-\text{E}[Y]) \right] \\
+&amp;= \text{E}\left[ a^2 \, (X-\text{E}[X])^2 \right] + \text{E}\left[ b^2 \, (Y-\text{E}[Y])^2 \right] + \text{E}\left[ 2ab \, (X-\text{E}[X]) (Y-\text{E}[Y]) \right] \\
+&amp;= a^2 \, \text{Var}[X] + b^2 \, \text{Var}[Y] + 2ab \, \text{Cov}[X,Y] \; . \\
+\end{split}
+\]</span></p>
+<p>&nbsp;</p>
+<p>Teraz príde jeden z najdôležitejších výsledkov prezentovaných v rámci tohoto kurzu.</p>
+<p>&nbsp; &nbsp;</p>
+<p>[Dramatická pauza.]</p>
+<p>&nbsp; &nbsp;</p>
+<div class="theorem">
+<p>Majme postupnosť nezávislých náhodných premenných s rovnakou strednou hodnotou <span class="math inline">\(\mu\)</span> a konečnou varianciou <span class="math inline">\(\sigma^2.\)</span> Potom platí <span class="math display">\[\bar X_n \equiv \frac{\sum_{i=1}^{n}X_i}{n} \rightarrow_P \mu.\]</span></p>
+</div>
+<div class="proof">
+<p><span class="proof-title"><em>Proof</em>. </span>Nakoľko <span class="math inline">\(X_1,X_2,X_3,\cdots\)</span> sú nezávislé platí <span class="math display">\[\text{Var}\left[\sum_{i=1}^{n}X_i\right] = \sum_{i=1}^{n}\text{Var}[X_i] = n\sigma^2,\]</span> preto <span class="math display">\[\text{Var}\left[\bar X_n \right]  = \text{Var}\left[\sum_{i=1}^{n}X_i/n\right] = \frac{1}{n^2}\text{Var}\left[\sum_{i=1}^{n}X_i\right] = \frac{n\sigma^2}{n^2} = \frac{\sigma^2}{n}.\]</span></p>
+<p>Naviac <span class="math display">\[\text{E}\left[\bar X_n\right] = \text{E}\left[\sum_{i=1}^{n}X_i/n\right] = \sum_{i=1}^{n}\text{E}[X_i]/n = \frac{n\mu}{n} = \mu.\]</span></p>
+<p>Použitím Čebyševovej nerovnosti dostávame</p>
+<p><span class="math display">\[ P(|\bar X_n-\mu|\geq \epsilon ) \leq \frac{\sigma^2}{\epsilon^2n},\]</span> a preto <span class="math inline">\(\lim_{n \rightarrow \infty }P(|\bar X_n-\mu|\geq \epsilon ) = 0\)</span>, teda <span class="math inline">\(\lim_{n \rightarrow \infty }P(|\bar X_n-\mu| &lt; \epsilon ) = 1,\)</span> pre akékoľvek <span class="math inline">\(\epsilon &gt; 0,\)</span> čo sme chceli ukázať.</p>
+</div>
+<p>Tu je ilustrácia kde sa aritmetický priemer pre výrazne iné typy náhodných premenných blíži ku svojej skutočnej hodnote.</p>
+<div class="cell">
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="zvc_files/figure-html/zvc-1-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="zvc_files/figure-html/zvc-1-2.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="zvc_files/figure-html/zvc-1-3.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="zvc_files/figure-html/zvc-1-4.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>Ak však vyskúšame Cauchyho rozdelenie, ktoré nemá strednú hodnotu, dostaneme nasledujúci obrázok.</p>
+<div class="cell">
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="zvc_files/figure-html/zvc-2-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>Zákon veľkých čísel o tomto prípade nehovorí nič.</p>
+<div class="example">
+<p>Nech <span class="math inline">\(A\)</span> je nejaká udalosť a nech <span class="math display">\[\begin{equation*}
+1_A(\omega) =
+\begin{cases}
+1, &amp; \text{ak}\ \omega \in A, \\
+0, &amp; \text{inak},
+\end{cases}
+\end{equation*}\]</span> je identifikátorová funkcia udalosti <span class="math inline">\(A.\)</span></p>
+<p>Potom platí <span class="math inline">\(\text{E}[1_A] = 1\cdot P(A) + 0\cdot P(A^C) = P(A).\)</span></p>
+<p>Preto ak odsimulujeme na počítači 10000 simulácií a v nich <span class="math inline">\(A\)</span> nastala 13 krát, odhadujeme, že <span class="math inline">\(P(A)\)</span> je rovné <span class="math inline">\(0.0013.\)</span> Tento odhad sa bude blížiť ku skutočnej hodnote pre stále väčšie množstvo simulácií. Je to kvôli ZVČ, lebo <span class="math inline">\(\bar{X}_n = \frac{0+ 0+ 1+ \cdots + 0}{10000} = 0.0013,\)</span> kde <span class="math inline">\(X_i\)</span> majú rovnaké pravdepodobnostné rozdelenie ako <span class="math inline">\(1_A\)</span> a sú nezávislé.</p>
+</div>
+<div class="example">
+<p>Chceli by sme simulačne vypočítať číslo <span class="math inline">\(\pi.\)</span> Obsah štvrťkruhu so stredom v <span class="math inline">\([0,0]\)</span> s polomerom 1 vo štvorci <span class="math inline">\([0,1] \times [0,1]\)</span> je rovný <span class="math inline">\(\pi/4.\)</span> Vygenerujeme mnoho čísel z <span class="math inline">\([0,1] \times [0,1]\)</span> a pozrieme sa na proporciu tých, ktoré skončia vo štvrťkruhu. Nech <span class="math inline">\(X_i=1\)</span> vtedy ak dané číslo patrí štvrťkruhu. Potom</p>
+<p><span class="math display">\[P \left(\left| \frac{X_1 + X_2 + \cdots X_n}{n} - \frac{\pi}{4}\right|\geq \epsilon \right) \leq \frac{\text{Var}[X_i]}{n \epsilon^2} = \frac{\frac{\pi}{4}(1-\frac{\pi}{4})}{n \epsilon^2}.\]</span></p>
+<p>Nevieme však koľko je <span class="math inline">\(\frac{\pi}{4}(1-\frac{\pi}{4})\)</span> (toto číslo chceme aproximovať) ale funkcia <span class="math inline">\(p(1-p)\)</span> nadobúda svoje maximum v <span class="math inline">\(1/4.\)</span> Preto</p>
+<p><span class="math display">\[P \left(\left| \frac{X_1 + X_2 + \cdots X_n}{n} - \frac{\pi}{4}\right|\geq \epsilon \right) \leq  \frac{1}{4 n \epsilon^2}.\]</span></p>
+<p>Ak napríklad chceme dostať simulačný odhad na 3 desatinné miesta, teda s presnosťou <span class="math inline">\(1/1000,\)</span> musíme zvoliť <span class="math inline">\(\epsilon = 1/4000.\)</span><a href="#fn4" class="footnote-ref" id="fnref4" role="doc-noteref"><sup>4</sup></a>: Ak si chceme byť istý, že náš odhad bude v tomto rozmedzí s pravdepodobnosťou <span class="math inline">\(1\%,\)</span> potrebujeme aby <span class="math display">\[\frac{4000^2}{4 n} = \frac{4,000,000}{n} \leq 0.01 \implies n \geq 400,000,000.\]</span> Takže potrebujeme aspoň 400 miliónov simulácií.<a href="#fn5" class="footnote-ref" id="fnref5" role="doc-noteref"><sup>5</sup></a></p>
+</div>
+</section>
+<section id="čo-zákon-o-veľkých-číslach-nehovorí" class="level2" data-number="8.5">
+<h2 data-number="8.5" class="anchored" data-anchor-id="čo-zákon-o-veľkých-číslach-nehovorí"><span class="header-section-number">8.5</span> Čo zákon o veľkých číslach nehovorí</h2>
+<p>Hádžeme férovou mincou. Za posledných 20 hodov nám nepadla ani raz hlava. Ale vieme, že platí ZVČ, preto by teraz malo padať viacej hláv, nie?</p>
+<p>Veru nie. ZVČ hovorí o <em>limitnom prípade</em> (a nekonečno je o dosť viacej ako 20). Skutočnosť, že sa nám teraz nedarilo hádzať hlavy (alebo hádzať 6ku v doskovej hre) nijakovsky nesúví s tým, čo sa bude diať neskôr. Tie hody sú stále nezávislé a šanca uvidieť hlavu je rovnako veľká ako na začiatku hádzania.</p>
+</section>
+<section id="cvičenia" class="level2" data-number="8.6">
+<h2 data-number="8.6" class="anchored" data-anchor-id="cvičenia"><span class="header-section-number">8.6</span> Cvičenia</h2>
+<div id="exr-" class="Exercise theorem exercise">
+<p><span class="theorem-title"><strong>Exercise 8.1</strong></span> Porovnajte Markovovskú nerovnosť pre <span class="math inline">\(P(X \geq 4)\)</span> so skutočnou hodnotou, ak <span class="math inline">\(X\sim \text{Exp}(1/2).\)</span> Kedy je Markovovská nerovnosť neinformatívna?</p>
+</div>
+<div id="exr-" class="Exercise theorem exercise">
+<p><span class="theorem-title"><strong>Exercise 8.2</strong></span> Majme náhodnú premennú, pre ktorú platí <span class="math inline">\(P(X\geq 0) = 1\)</span> a <span class="math inline">\(P(X \geq 10) = 1/5.\)</span> Ukážte, že <span class="math inline">\(\text{E}[X] \geq 2.\)</span></p>
+</div>
+<div id="exr-" class="Exercise theorem exercise">
+<p><span class="theorem-title"><strong>Exercise 8.3</strong></span> Majme náhodnú premennú, pre ktorú platí <span class="math inline">\(\text{E}[X] = 10, P(X \leq 7) =0.2, P(X \geq 13)= 0.3.\)</span> Dokážte, že <span class="math inline">\(\text{Var}[X] \geq 9/2.\)</span></p>
+</div>
+<div id="exr-" class="Exercise theorem exercise">
+<p><span class="theorem-title"><strong>Exercise 8.4</strong></span> Akú veľkú musíme zvoliť vzorku nezávislých náhodných premenných (s konečnou strednou hodnotou a varianciou), aby bola pravdepodobnosť, že sa bude aritmetický priemer nachádzať bližšie ako dve smerodajné odchýlky od strednej hodnoty, aspoň <span class="math inline">\(99\%\)</span>?</p>
+</div>
+<div id="exr-" class="Exercise theorem exercise">
+<p><span class="theorem-title"><strong>Exercise 8.5</strong></span> Majme postupnosť <span class="math inline">\(X_1, X_2,\dots\)</span> nezávislých náhodných premenných so strednou hodnotou <span class="math inline">\(3.5\)</span> a varianciou <span class="math inline">\(35/12\)</span>. Akú veľkú musíme nastaviť hodnotu <span class="math inline">\(n\)</span>, aby sme si boli istí, že <span class="math display">\[P(3 &lt; \bar{X}_n &lt; 4) \geq 0.8.\]</span></p>
+</div>
+<div id="exr-" class="Exercise theorem exercise">
+<p><span class="theorem-title"><strong>Exercise 8.6</strong></span> Majme postupnosť <span class="math inline">\(X_1, X_2,\dots\)</span> náhodných premenných nezávislých hodov férovou kockou. Koľkokrát musíme hodiť hockou, aby sme si boli istí, že <span class="math display">\[P(3 &lt; \bar{X}_n &lt; 4) \geq 0.8.\]</span> Porovnajte s predošlým výsledkom.</p>
+</div>
+<div id="exr-" class="Exercise theorem exercise">
+<p><span class="theorem-title"><strong>Exercise 8.7</strong></span> Majme postupnosť <span class="math inline">\(X_1, X_2,\dots\)</span> náhodných premenných, pre ktoré platí <span class="math inline">\(P(X_n = n^2) = 1/n\)</span> a <span class="math inline">\(P(X_n=0)=1-1/n.\)</span> Ukážte, že <span class="math inline">\(X_n \rightarrow_P 0\)</span> a zároveň <span class="math inline">\(\lim_{n \rightarrow \infty} \text{E}[X_n] = \infty.\)</span></p>
+</div>
+<div id="exr-" class="Exercise theorem exercise">
+<p><span class="theorem-title"><strong>Exercise 8.8</strong></span> Férovou mincou hádžete nezávisle 100 krát. Odhadnite pravdepodobnosť pomocou Čebyševovej nerovnosti, že hlavou hodíte viac ako 30, ale menej ako 70 krát. Porovnajte so skutočnou pravdepodobnosťou.</p>
+</div>
+<!-- ## Domáca úloha 10 {-} -->
+<!-- Odovzdať do 22.4.2023 do 23:59. -->
+<!-- ::: {.exercise name="DÚ 10.1"} -->
+<!-- Majme náhodné premenné $X,Y$ s nasledovnou združenou funkciou hustoty. -->
+<!-- \begin{equation*} -->
+<!-- f_{XY}(x,y) = -->
+<!-- \begin{cases} -->
+<!-- cx^2 y, & \text{ak}\ x^2 \leq y \leq 1 \\ -->
+<!-- 0, & \text{inak}, -->
+<!-- \end{cases} -->
+<!-- \end{equation*} -->
+<!-- Vypočítajte -->
+<!-- (a) hodnotu konštanty $c,$ -->
+<!-- (b) $P(X \geq Y).$ -->
+<!-- (c) Určte hustotu náhodnej premennej $X$. -->
+<!-- (d) Určte hustotu náhodnej premennej $Y$. -->
+<!-- ::: -->
+<!-- ::: {.exercise name="DÚ 10.2"} -->
+<!-- Nech $X$ je rovnomerne rozdelená na intervale $[0,4]$. Vypočítajte presnú hodnotu $P(X \geq 2),P(X \geq 3),P(X \geq 4)$, -->
+<!-- vypočítajte odhad týchto pravdepodobností pomocou vhodnej nerovnosti a porovnajte ich. -->
+<!-- ::: -->
+<!-- ::: {.exercise name="DÚ 10.3"} -->
+<!-- Majme postupnosť $X_1, X_2, \dots$ náhodných premenných so strednou hodnotou $6.5$ a varianciou $4$. Aké veľké $n$ musíme zobrať, aby sme si boli istí, že  -->
+<!-- $$P(6 < \bar{X}_n < 7) \geq 0.9 \quad?$$ -->
+<!-- ::: -->
+<!-- ::: {.exercise name="DÚ 10.4"} -->
+<!-- Férovou mincou hádžete 100 krát. Odhadnite pravdepodobnosť, že hlavou hodíte viac ako 30, ale menej ako 70 krát. -->
+<!-- ::: -->
+<!-- ::: {.exercise name="DÚ 10.5"} -->
+<!-- Zo sčítania obyvateľstva vieme, že v populácii máme $18.4\%$ vysokoškolsky vzdelaných ľudí. Náhodne vyberieme $n$ ľudí do prieskumu. -->
+<!-- (a) Aká je pravdepodobnosť, že pomer vysokoškolsky vzdelaných ľudí v našej vzorke sa od reality bude líšiť o viac ako $2\%$, ak vezmeme vzorku $100$, resp. $1000$ ľudí? -->
+<!-- (b) Koľkých ľudí sa musíme opýtať, ak chceme, aby sa s $95\%$-tnou istotou pomer vysokoškolsky vzdelaných ľudí v prieskume líšil od reality najviac o $2\%$, resp. $5\%$? -->
+<!-- ::: -->
+<!-- ## Domáca úloha 9 {-} -->
+<!-- ::: {.exercise name="DÚ 9.1"} -->
+<!-- Porovnajte Čebyševovu nerovnosť pre $P(|X| \geq 2)$ s jej skutočnou hodnotou, ak $X \sim N(0,1).$ V ktorých prípadoch je Čebyševova nerovnosť neinformatívna?  -->
+<!-- :::  -->
+<!-- ::: {.exercise name="DÚ 9.2"} -->
+<!-- Odvoďte variant Markovovskej nerovnosti pre náhodnú premennú $X$ pre ktorú platí $X > a,$ kde $a>0.$ Ukážte, že táto nerovnosť je tesná. -->
+<!-- :::  -->
+<!-- ::: {.exercise name="DÚ 9.3"} -->
+<!-- V prieskume sme sa opýtali 1500 ľuďí, či majú radšej zelené žuvačky alebo modré.  Ak by bolo práve 27\% ľudí, ktorí majú radi zelené žuvačky, o koľko najviac percent sa takýto prieskum môže vzďaľovať od 27\% aby bola pravdepodobnosť toho, že bude prieskum dosť presný aspoň 90\%? -->
+<!-- :::  -->
+<!-- ::: {.exercise name="DÚ 9.4"} -->
+<!-- V tomto fascinujúcom livestreame (https://www.youtube.com/watch?v=rjYT3WUWq0s) sa hádzalo kockou 1024 krát (nemusíte ho pozerať úplne celý). -->
+<!-- Číslo 5 padlo len 157krát. Ak bola kocka férová aká je pravdepodobnosť, že by padlo 157 krát alebo menej? Na základe Čebyševovej nerovnosti zostavte hornú hranicu pre pravdepodobnosť udalosti, že by pomer padnutí čísla 5 bol ešte vzdialenejší od $\frac{1}{6}$ ako je $\frac{157}{1024}$. Porovnajte túto hornú hranicu so skutočnou pravdepodobnosťou (uvažujte nezávislé hody a fixnú pravdepodobnosť $\frac{1}{6}$). -->
+<!-- Aké čísla padli v posledných dvoch hodoch? Ako to súvisí so zákonom veľkých čísel? -->
+<!-- :::  -->
+<!-- ## Domáca úloha 7 {-} -->
+<!-- Prosím odovzdať do 24.4.2024 do 19:59. -->
+<!-- ::: {.exercise name="DÚ 7.1"} -->
+<!-- V tomto [fascinujúcom livestreame](https://www.youtube.com/watch?v=rjYT3WUWq0s) sa hádzalo kockou 1024 krát (nemusíte ho pozerať úplne celý). -->
+<!-- Číslo 5 padlo len 157krát. Ak bola kocka férová aká je pravdepodobnosť, že by padlo 157 krát alebo menej? Na základe Čebyševovej nerovnosti zostavte hornú hranicu pre pravdepodobnosť udalosti, že by pomer padnutí čísla 5 bol ešte vzdialenejší od $\frac{1}{6}$ ako je $\frac{157}{1024}$. Porovnajte túto hornú hranicu so skutočnou pravdepodobnosťou (uvažujte nezávislé hody a fixnú pravdepodobnosť $\frac{1}{6}$). -->
+<!-- ::: -->
+<!-- ::: {.exercise name="DÚ 7.2"}  -->
+<!-- Odvoďte variant Markovovskej nerovnosti pre náhodnú premennú $X$ pre ktorú platí $X > a,$ kde $a>0.$ Ukážte, že táto nerovnosť je tesná. -->
+<!-- ::: -->
+<!-- ::: {.exercise name="DÚ 7.3"} -->
+<!-- Zo sčítania obyvateľstva vieme, že v populácii máme $18.4\%$ vysokoškolsky vzdelaných ľudí. Náhodne vyberieme $n$ ľudí do prieskumu. -->
+<!-- (a) Aká je pravdepodobnosť, že pomer vysokoškolsky vzdelaných ľudí v našej vzorke sa od reality bude líšiť o viac ako $2$ percentuálne body, ak vezmeme vzorku $100$, resp. $1000$ ľudí? -->
+<!-- (b) Koľkých ľudí sa musíme opýtať, ak chceme, aby sa s $95\%$-tnou istotou pomer vysokoškolsky vzdelaných ľudí v prieskume líšil od reality najviac o $2$ percentuálne body, resp. $5$ percentuálnych bodov? -->
+<!-- ::: -->
+<!-- ::: {.exercise name="DÚ 7.4"} -->
+<!-- Vymyslite takú trojicu náhodných premenných $X_1, X_2, X_3$, aby -->
+<!-- * $X_1, X_2$ boli nezávislé, -->
+<!-- * $X_2, X_3$ boli nezávislé, -->
+<!-- * $X_1, X_3$ boli nezávislé, -->
+<!-- * $X_1, X_2, X_3$ __neboli__ nezávislé. -->
+<!-- Podrobne vysvetlite. -->
+<!-- :::  -->
+<!-- ::: {.exercise name="DÚ 7.5"} -->
+<!-- Predstavte, že by ste simulačne chceli odhadnúť obsah tohoto útvaru, ktorý je ohraničený krivkami $y = x^2$ a $y= \sqrt{x}$. Budeme uniformne náhodne vyberať $X$ a $Y$ a pozerať sa, aká proporcia $(X,Y)$ padne medzi tieto krivky. -->
+<!-- ```{r zvc-9,echo=FALSE, fig.width=4, fig.height=4} -->
+<!-- set.seed(302) -->
+<!-- x <- seq(0,1,by=0.01) -->
+<!-- y1 <- x^2 -->
+<!-- y2 <- sqrt(x) -->
+<!-- plot(x,y1,type="l", -->
+<!--      xlab = "", -->
+<!--      ylab = "", -->
+<!--      main = "Divný útvar") -->
+<!-- lines(x,y2) -->
+<!-- polygon(c(x,x[101:1]),c(y1,y2[101:1]),col="gray") -->
+<!-- ``` -->
+<!-- Odhadnite koľko *najmenej* simulácií by ste potrebovali, aby ste mali zagarantované, že odhadnete skutočný obsah s presnosťou 0.01 s pravdepodobnosťou aspoň $99\%$. -->
+<!-- :::  -->
+<!-- ::: {.exercise name="DÚ 7.6 BONUS"} -->
+<!-- Existujú aj iné typy konvergencie náhodných premenných okrem tej, ktorú sme si zaviedli. -->
+<!-- Jednou takou je *konvergencia s pravdpodobnosťou 1*. Hovoríme, že postupnosť náhodných premenných $X_1, X_2, X_3, \dots$ konverguje s pravdpodobnosťou 1 ku náhodnej premennej $X$ ak platí: -->
+<!-- $$P(\lim_{n \rightarrow \infty} X_n(\omega) = X(\omega)) = 1.$$ -->
+<!-- Zapisujeme to $X_n \rightarrow_{a.s} X$.[^as] -->
+<!-- [^as]: Skratka "a.s." je z anglického "almost surely", po slovensky "skoro furt". Pravdepodobnosť všetkých $\omega$, pre ktoré $P(\lim_{n \rightarrow \infty} X_n(\omega) = X(\omega)) = 1$ neplatí musí byť nula, teda ich musí byť dosť málo. Kompletný neskrátený zápis vyzerá nasledovne: $$P\left(\{\omega \in \Omega: \lim_{n \rightarrow \infty} X_n(\omega) = X(\omega)\}\right) = 1.$$ -->
+<!-- Nájdite príklad postupnosti náhodných premenných pre ktorú platí -->
+<!-- $X_n \rightarrow_{p} X$ ale neplatí $X_n \rightarrow_{a.s} X$. -->
+<!-- ::: -->
+
+
+</section>
+<section id="footnotes" class="footnotes footnotes-end-of-document" role="doc-endnotes">
+<hr>
+<ol>
+<li id="fn1"><p>Ak táto existuje.<a href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn2"><p>Tých idenfikátorov je naozaj veľa. Plný zápis je nasledovný: <span class="math display">\[\forall \epsilon &gt;0: \forall \epsilon_1 &gt;0: \exists n_0 \in \mathbb{N}: \forall n \geq n_0: |P \left( \{\omega \in \Omega: |X_n(\omega) - X(\omega)|&lt; \epsilon \} \right) - 1| \leq \epsilon_1.\]</span> Všimnite si, že rola týchto dvoch malých <span class="math inline">\(\epsilon\)</span> a <span class="math inline">\(\epsilon_1\)</span> je rôzna. Kým <span class="math inline">\(\epsilon\)</span> kontroluje ako blízko je <span class="math inline">\(X_n\)</span> of <span class="math inline">\(X\)</span>, <span class="math inline">\(\epsilon_1\)</span> kontroluje ako blízko je hodnota <span class="math inline">\(P(|X_n - X| &lt; \epsilon)\)</span> od nuly.<a href="#fnref2" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn3"><p>Ak <span class="math inline">\(\text{Var}[X]&lt;\infty.\)</span><a href="#fnref3" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn4"><p>Je tam <span class="math inline">\(\epsilon = 1/4000\)</span> a nie <span class="math inline">\(\epsilon = 1/1000\)</span> kvôli tomu, že chceme mať hodnotu <span class="math inline">\(\pi\)</span> dostatočne presnú. Ale v rovnici je <span class="math inline">\(\frac{\pi}{4}.\)</span><a href="#fnref4" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn5"><p>Čo je mimochodom dosť veľa.<a href="#fnref5" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+</ol>
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const isCodeAnnotation = (el) => {
+    for (const clz of el.classList) {
+      if (clz.startsWith('code-annotation-')) {                     
+        return true;
+      }
+    }
+    return false;
+  }
+  const onCopySuccess = function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  }
+  const getTextToCopy = function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+    text: getTextToCopy
+  });
+  clipboard.on('success', onCopySuccess);
+  if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+    const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+      text: getTextToCopy,
+      container: window.document.getElementById('quarto-embedded-source-code-modal')
+    });
+    clipboardModal.on('success', onCopySuccess);
+  }
+    var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+    var mailtoRegex = new RegExp(/^mailto:/);
+      var filterRegex = new RegExp('/' + window.location.host + '/');
+    var isInternal = (href) => {
+        return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+    }
+    // Inspect non-navigation links and adorn them if external
+ 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+    for (var i=0; i<links.length; i++) {
+      const link = links[i];
+      if (!isInternal(link.href)) {
+        // undo the damage that might have been done by quarto-nav.js in the case of
+        // links that we want to consider external
+        if (link.dataset.originalHref !== undefined) {
+          link.href = link.dataset.originalHref;
+        }
+      }
+    }
+  function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+    const config = {
+      allowHTML: true,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start',
+    };
+    if (contentFn) {
+      config.content = contentFn;
+    }
+    if (onTriggerFn) {
+      config.onTrigger = onTriggerFn;
+    }
+    if (onUntriggerFn) {
+      config.onUntrigger = onUntriggerFn;
+    }
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      if (note) {
+        return note.innerHTML;
+      } else {
+        return "";
+      }
+    });
+  }
+  const xrefs = window.document.querySelectorAll('a.quarto-xref');
+  const processXRef = (id, note) => {
+    // Strip column container classes
+    const stripColumnClz = (el) => {
+      el.classList.remove("page-full", "page-columns");
+      if (el.children) {
+        for (const child of el.children) {
+          stripColumnClz(child);
+        }
+      }
+    }
+    stripColumnClz(note)
+    if (id === null || id.startsWith('sec-')) {
+      // Special case sections, only their first couple elements
+      const container = document.createElement("div");
+      if (note.children && note.children.length > 2) {
+        container.appendChild(note.children[0].cloneNode(true));
+        for (let i = 1; i < note.children.length; i++) {
+          const child = note.children[i];
+          if (child.tagName === "P" && child.innerText === "") {
+            continue;
+          } else {
+            container.appendChild(child.cloneNode(true));
+            break;
+          }
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(container);
+        }
+        return container.innerHTML
+      } else {
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        return note.innerHTML;
+      }
+    } else {
+      // Remove any anchor links if they are present
+      const anchorLink = note.querySelector('a.anchorjs-link');
+      if (anchorLink) {
+        anchorLink.remove();
+      }
+      if (window.Quarto?.typesetMath) {
+        window.Quarto.typesetMath(note);
+      }
+      if (note.classList.contains("callout")) {
+        return note.outerHTML;
+      } else {
+        return note.innerHTML;
+      }
+    }
+  }
+  for (var i=0; i<xrefs.length; i++) {
+    const xref = xrefs[i];
+    tippyHover(xref, undefined, function(instance) {
+      instance.disable();
+      let url = xref.getAttribute('href');
+      let hash = undefined; 
+      if (url.startsWith('#')) {
+        hash = url;
+      } else {
+        try { hash = new URL(url).hash; } catch {}
+      }
+      if (hash) {
+        const id = hash.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note !== null) {
+          try {
+            const html = processXRef(id, note.cloneNode(true));
+            instance.setContent(html);
+          } finally {
+            instance.enable();
+            instance.show();
+          }
+        } else {
+          // See if we can fetch this
+          fetch(url.split('#')[0])
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.getElementById(id);
+            if (note !== null) {
+              const html = processXRef(id, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      } else {
+        // See if we can fetch a full url (with no hash to target)
+        // This is a special case and we should probably do some content thinning / targeting
+        fetch(url)
+        .then(res => res.text())
+        .then(html => {
+          const parser = new DOMParser();
+          const htmlDoc = parser.parseFromString(html, "text/html");
+          const note = htmlDoc.querySelector('main.content');
+          if (note !== null) {
+            // This should only happen for chapter cross references
+            // (since there is no id in the URL)
+            // remove the first header
+            if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+              note.children[0].remove();
+            }
+            const html = processXRef(null, note);
+            instance.setContent(html);
+          } 
+        }).finally(() => {
+          instance.enable();
+          instance.show();
+        });
+      }
+    }, function(instance) {
+    });
+  }
+      let selectedAnnoteEl;
+      const selectorForAnnotation = ( cell, annotation) => {
+        let cellAttr = 'data-code-cell="' + cell + '"';
+        let lineAttr = 'data-code-annotation="' +  annotation + '"';
+        const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+        return selector;
+      }
+      const selectCodeLines = (annoteEl) => {
+        const doc = window.document;
+        const targetCell = annoteEl.getAttribute("data-target-cell");
+        const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+        const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+        const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+        const lineIds = lines.map((line) => {
+          return targetCell + "-" + line;
+        })
+        let top = null;
+        let height = null;
+        let parent = null;
+        if (lineIds.length > 0) {
+            //compute the position of the single el (top and bottom and make a div)
+            const el = window.document.getElementById(lineIds[0]);
+            top = el.offsetTop;
+            height = el.offsetHeight;
+            parent = el.parentElement.parentElement;
+          if (lineIds.length > 1) {
+            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+            const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+            height = bottom - top;
+          }
+          if (top !== null && height !== null && parent !== null) {
+            // cook up a div (if necessary) and position it 
+            let div = window.document.getElementById("code-annotation-line-highlight");
+            if (div === null) {
+              div = window.document.createElement("div");
+              div.setAttribute("id", "code-annotation-line-highlight");
+              div.style.position = 'absolute';
+              parent.appendChild(div);
+            }
+            div.style.top = top - 2 + "px";
+            div.style.height = height + 4 + "px";
+            div.style.left = 0;
+            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+            if (gutterDiv === null) {
+              gutterDiv = window.document.createElement("div");
+              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+              gutterDiv.style.position = 'absolute';
+              const codeCell = window.document.getElementById(targetCell);
+              const gutter = codeCell.querySelector('.code-annotation-gutter');
+              gutter.appendChild(gutterDiv);
+            }
+            gutterDiv.style.top = top - 2 + "px";
+            gutterDiv.style.height = height + 4 + "px";
+          }
+          selectedAnnoteEl = annoteEl;
+        }
+      };
+      const unselectCodeLines = () => {
+        const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+        elementsIds.forEach((elId) => {
+          const div = window.document.getElementById(elId);
+          if (div) {
+            div.remove();
+          }
+        });
+        selectedAnnoteEl = undefined;
+      };
+        // Handle positioning of the toggle
+    window.addEventListener(
+      "resize",
+      throttle(() => {
+        elRect = undefined;
+        if (selectedAnnoteEl) {
+          selectCodeLines(selectedAnnoteEl);
+        }
+      }, 10)
+    );
+    function throttle(fn, ms) {
+    let throttle = false;
+    let timer;
+      return (...args) => {
+        if(!throttle) { // first call gets through
+            fn.apply(this, args);
+            throttle = true;
+        } else { // all the others get throttled
+            if(timer) clearTimeout(timer); // cancel #2
+            timer = setTimeout(() => {
+              fn.apply(this, args);
+              timer = throttle = false;
+            }, ms);
+        }
+      };
+    }
+      // Attach click handler to the DT
+      const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+      for (const annoteDlNode of annoteDls) {
+        annoteDlNode.addEventListener('click', (event) => {
+          const clickedEl = event.target;
+          if (clickedEl !== selectedAnnoteEl) {
+            unselectCodeLines();
+            const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+            if (activeEl) {
+              activeEl.classList.remove('code-annotation-active');
+            }
+            selectCodeLines(clickedEl);
+            clickedEl.classList.add('code-annotation-active');
+          } else {
+            // Unselect the line
+            unselectCodeLines();
+            clickedEl.classList.remove('code-annotation-active');
+          }
+        });
+      }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script>
+<nav class="page-navigation">
+  <div class="nav-page nav-page-previous">
+      <a href="./cov.html" class="pagination-link" aria-label="Súvis medzi náhodnými premennými">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Súvis medzi náhodnými premennými</span></span>
+      </a>          
+  </div>
+  <div class="nav-page nav-page-next">
+      <a href="./clv.html" class="pagination-link" aria-label="Centrálna limitná veta">
+        <span class="nav-page-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Centrálna limitná veta</span></span> <i class="bi bi-arrow-right-short"></i>
+      </a>
+  </div>
+</nav>
+</div> <!-- /content -->
+
+
+
+
+</body></html>
