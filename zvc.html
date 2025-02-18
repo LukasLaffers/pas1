@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="sk" xml:lang="sk"><head>
 
 <meta charset="utf-8">
 <meta name="generator" content="quarto-1.6.40">
@@ -55,17 +55,17 @@ ul.task-list li input[type="checkbox"] {
   ],
   "show-item-context": false,
   "language": {
-    "search-no-results-text": "No results",
-    "search-matching-documents-text": "matching documents",
-    "search-copy-link-title": "Copy link to search",
-    "search-hide-matches-text": "Hide additional matches",
-    "search-more-match-text": "more match in this document",
-    "search-more-matches-text": "more matches in this document",
-    "search-clear-button-title": "Clear",
+    "search-no-results-text": "Žiadne výsledky",
+    "search-matching-documents-text": "zhodné dokumenty",
+    "search-copy-link-title": "Skopírovať odkaz pre vyhľadávanie",
+    "search-hide-matches-text": "Skryť ďalšie výsledky",
+    "search-more-match-text": "ďalší výsledok v tomto dokumente",
+    "search-more-matches-text": "ďalších výsledkov v tomto dokumente",
+    "search-clear-button-title": "Vymazať",
     "search-text-placeholder": "",
-    "search-detached-cancel-button-title": "Cancel",
-    "search-submit-button-title": "Submit",
-    "search-label": "Search"
+    "search-detached-cancel-button-title": "Zrušiť",
+    "search-submit-button-title": "Odoslať",
+    "search-label": "Hľadať"
   }
 }</script>
 
@@ -107,13 +107,13 @@ window.Quarto = {
   <header id="quarto-header" class="headroom fixed-top">
   <nav class="quarto-secondary-nav">
     <div class="container-fluid d-flex">
-      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Prepnúť postrannú navigáciu" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
         <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./zvc.html"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Zákon veľkých čísel</span></a></li></ol></nav>
-        <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Prepnúť postrannú navigáciu" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
-      <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
+      <button type="button" class="btn quarto-search-button" aria-label="Hľadať" onclick="window.quartoOpenSearch();">
         <i class="bi bi-search"></i>
       </button>
     </div>
@@ -130,7 +130,7 @@ window.Quarto = {
       </div>
         <div class="mt-2 flex-shrink-0 align-items-center">
         <div class="sidebar-search">
-        <div id="quarto-search" class="" title="Search"></div>
+        <div id="quarto-search" class="" title="Hľadať"></div>
         </div>
         </div>
     <div class="sidebar-menu-container"> 
@@ -208,7 +208,7 @@ window.Quarto = {
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
         <nav id="TOC" role="doc-toc" class="toc-active">
-    <h2 id="toc-title">Table of contents</h2>
+    <h2 id="toc-title">Obsah</h2>
    
   <ul>
   <li><a href="#konvergencia-podľa-pravdepodobnosti" id="toc-konvergencia-podľa-pravdepodobnosti" class="nav-link active" data-scroll-target="#konvergencia-podľa-pravdepodobnosti"><span class="header-section-number">8.1</span> Konvergencia podľa pravdepodobnosti</a></li>
@@ -244,7 +244,7 @@ window.Quarto = {
 
 <p>Zákon veľkých čisel je jedným z najdôležitejších výsledkov v pravdepodobnosti a štatistike. Hovorí o tom, že aritmetický priemer vypočítaný zo stále väčšieho a väčšíeho počtu nezávislých a rovnako rozdelených náhodných premenných sa blíži k skutočnej strednej hodnote.<a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a> Zároveň je to aj výsledok, ktorý sme potichu používali len sme o tom nehovorili explicitne. Vždy, keď používame počítačovú simuláciu na ukázanie akýchsi vlastností náhodnej premennej, využívame fakt, že pri dostatočne veľkom množstve simulácií sú tieto odsimulované vlastnosti výpovedné o skutočných vlastnostiach.</p>
 <div id="exm-" class="Example theorem example">
-<p><span class="theorem-title"><strong>Example 8.1</strong></span> Majme mincu o ktorej nevieme, či je férová alebo nie. Chceli by sme vedieť aká je pravdepodobnosť toho, že padne hlava (<span class="math inline">\(X=1\)</span>) alebo znak (<span class="math inline">\(X=0\)</span>). Teda uvažujeme <span class="math inline">\(X \sim \text{Bern}(p)\)</span>. Hádžeme mincou, napríklad 8 krát a dostávame realizáciu siedmych náhodných premenných <span class="math inline">\(X_1, X_2, X_3, X_4, X_5, X_6, X_7, X_8.\)</span> Hádžeme tak, že výsledok každého hodu nesúvisí s tým predošlým, takže <span class="math inline">\(\{X_i\}_{i=1}^8\)</span> sú nezávislé. Každé <span class="math inline">\(X_i\)</span> je hod mincou, takže <span class="math inline">\(X_i \sim \text{Bern}(p)\)</span> Nevieme aké je <span class="math inline">\(p\)</span> ale intuícia nám hovorí, že to bude blízke <span class="math inline">\(\sum_{i=1}^{8}X_i/8.\)</span> Vskutku, <span class="math inline">\(Y = \sum_{i=1}^{8}X_i \sim \text{Bin}(8,p)\)</span> a <span class="math inline">\(\text{E}[Y] = 8p\)</span> preto <span class="math inline">\(\text{E}[Y/8] = p.\)</span> Osem realizácií je dosť málo, čím viacej by sme ich mali, tým bližšie by bol aritmetický priemer skutočnému priemeru.</p>
+<p><span class="theorem-title"><strong>Príklad 8.1</strong></span> Majme mincu o ktorej nevieme, či je férová alebo nie. Chceli by sme vedieť aká je pravdepodobnosť toho, že padne hlava (<span class="math inline">\(X=1\)</span>) alebo znak (<span class="math inline">\(X=0\)</span>). Teda uvažujeme <span class="math inline">\(X \sim \text{Bern}(p)\)</span>. Hádžeme mincou, napríklad 8 krát a dostávame realizáciu siedmych náhodných premenných <span class="math inline">\(X_1, X_2, X_3, X_4, X_5, X_6, X_7, X_8.\)</span> Hádžeme tak, že výsledok každého hodu nesúvisí s tým predošlým, takže <span class="math inline">\(\{X_i\}_{i=1}^8\)</span> sú nezávislé. Každé <span class="math inline">\(X_i\)</span> je hod mincou, takže <span class="math inline">\(X_i \sim \text{Bern}(p)\)</span> Nevieme aké je <span class="math inline">\(p\)</span> ale intuícia nám hovorí, že to bude blízke <span class="math inline">\(\sum_{i=1}^{8}X_i/8.\)</span> Vskutku, <span class="math inline">\(Y = \sum_{i=1}^{8}X_i \sim \text{Bin}(8,p)\)</span> a <span class="math inline">\(\text{E}[Y] = 8p\)</span> preto <span class="math inline">\(\text{E}[Y/8] = p.\)</span> Osem realizácií je dosť málo, čím viacej by sme ich mali, tým bližšie by bol aritmetický priemer skutočnému priemeru.</p>
 <p>Zákon veľkých čisel upresňuje túto intuíciu.</p>
 </div>
 <p>V prvom rade treba zadefinovať, čo znamenená <em>blízke</em> alebo <em>blížiť sa</em>. Cudzím slovom <em>konvergovať</em>. Ešte predtým, čo znamená nezávislosť náhodných premenných pre viac ako len dve náhodné premenné.</p>
@@ -271,7 +271,7 @@ window.Quarto = {
 <p><span class="math display">\[P(X \geq c) \leq \frac{\text{E}[X]}{c}.\]</span></p>
 </div>
 <div class="proof">
-<p><span class="proof-title"><em>Proof</em>. </span>Skonštruujme náhodnú premennú <span class="math inline">\(Y\)</span> nasledovne:</p>
+<p><span class="proof-title"><em>Dôkaz</em>. </span>Skonštruujme náhodnú premennú <span class="math inline">\(Y\)</span> nasledovne:</p>
 <span class="math display">\[\begin{equation*}
 Y =
 \begin{cases}
@@ -292,7 +292,7 @@ c, &amp; \text{ak}\ X \geq c.
 <p>Alternatívnou formuláciou, ak zvolíme <span class="math inline">\(k=\frac{c}{\sigma}\)</span> je</p>
 <p><span class="math display">\[P(|X-\mu|\geq c) \leq \frac{\sigma^2}{c^2}.\]</span></p>
 <div class="proof">
-<p><span class="proof-title"><em>Proof</em>. </span>Označme <span class="math inline">\(Y = (X-\mu)^2,\)</span> ktorá je nezáporná náhodná premenná a zároveň platí <span class="math inline">\(\text{E}[Y] = \sigma^2.\)</span> Naviac platí <span class="math display">\[P(|X-\mu|\geq k \sigma) = P((X-\mu)^2\geq k^2 \sigma^2) \leq \frac{\sigma^2}{k^2 \sigma^2} = \frac{1}{k^2},\]</span> kde nerovnosť vyplýva z Markovovej nerovnosti.</p>
+<p><span class="proof-title"><em>Dôkaz</em>. </span>Označme <span class="math inline">\(Y = (X-\mu)^2,\)</span> ktorá je nezáporná náhodná premenná a zároveň platí <span class="math inline">\(\text{E}[Y] = \sigma^2.\)</span> Naviac platí <span class="math display">\[P(|X-\mu|\geq k \sigma) = P((X-\mu)^2\geq k^2 \sigma^2) \leq \frac{\sigma^2}{k^2 \sigma^2} = \frac{1}{k^2},\]</span> kde nerovnosť vyplýva z Markovovej nerovnosti.</p>
 </div>
 <p>Nezávisle od typu rozdelenia:</p>
 <ul>
@@ -326,7 +326,7 @@ c, &amp; \text{ak}\ X \geq c.
 <p>Majme postupnosť nezávislých náhodných premenných s rovnakou strednou hodnotou <span class="math inline">\(\mu\)</span> a konečnou varianciou <span class="math inline">\(\sigma^2.\)</span> Potom platí <span class="math display">\[\bar X_n \equiv \frac{\sum_{i=1}^{n}X_i}{n} \rightarrow_P \mu.\]</span></p>
 </div>
 <div class="proof">
-<p><span class="proof-title"><em>Proof</em>. </span>Nakoľko <span class="math inline">\(X_1,X_2,X_3,\cdots\)</span> sú nezávislé platí <span class="math display">\[\text{Var}\left[\sum_{i=1}^{n}X_i\right] = \sum_{i=1}^{n}\text{Var}[X_i] = n\sigma^2,\]</span> preto <span class="math display">\[\text{Var}\left[\bar X_n \right]  = \text{Var}\left[\sum_{i=1}^{n}X_i/n\right] = \frac{1}{n^2}\text{Var}\left[\sum_{i=1}^{n}X_i\right] = \frac{n\sigma^2}{n^2} = \frac{\sigma^2}{n}.\]</span></p>
+<p><span class="proof-title"><em>Dôkaz</em>. </span>Nakoľko <span class="math inline">\(X_1,X_2,X_3,\cdots\)</span> sú nezávislé platí <span class="math display">\[\text{Var}\left[\sum_{i=1}^{n}X_i\right] = \sum_{i=1}^{n}\text{Var}[X_i] = n\sigma^2,\]</span> preto <span class="math display">\[\text{Var}\left[\bar X_n \right]  = \text{Var}\left[\sum_{i=1}^{n}X_i/n\right] = \frac{1}{n^2}\text{Var}\left[\sum_{i=1}^{n}X_i\right] = \frac{n\sigma^2}{n^2} = \frac{\sigma^2}{n}.\]</span></p>
 <p>Naviac <span class="math display">\[\text{E}\left[\bar X_n\right] = \text{E}\left[\sum_{i=1}^{n}X_i/n\right] = \sum_{i=1}^{n}\text{E}[X_i]/n = \frac{n\mu}{n} = \mu.\]</span></p>
 <p>Použitím Čebyševovej nerovnosti dostávame</p>
 <p><span class="math display">\[ P(|\bar X_n-\mu|\geq \epsilon ) \leq \frac{\sigma^2}{\epsilon^2n},\]</span> a preto <span class="math inline">\(\lim_{n \rightarrow \infty }P(|\bar X_n-\mu|\geq \epsilon ) = 0\)</span>, teda <span class="math inline">\(\lim_{n \rightarrow \infty }P(|\bar X_n-\mu| &lt; \epsilon ) = 1,\)</span> pre akékoľvek <span class="math inline">\(\epsilon &gt; 0,\)</span> čo sme chceli ukázať.</p>
@@ -374,7 +374,7 @@ c, &amp; \text{ak}\ X \geq c.
 </div>
 <p>Zákon veľkých čísel o tomto prípade nehovorí nič.</p>
 <div id="exm-" class="Example theorem example">
-<p><span class="theorem-title"><strong>Example 8.2</strong></span> Nech <span class="math inline">\(A\)</span> je nejaká udalosť a nech <span class="math display">\[\begin{equation*}
+<p><span class="theorem-title"><strong>Príklad 8.2</strong></span> Nech <span class="math inline">\(A\)</span> je nejaká udalosť a nech <span class="math display">\[\begin{equation*}
 1_A(\omega) =
 \begin{cases}
 1, &amp; \text{ak}\ \omega \in A, \\
@@ -385,7 +385,7 @@ c, &amp; \text{ak}\ X \geq c.
 <p>Preto ak odsimulujeme na počítači 10000 simulácií a v nich <span class="math inline">\(A\)</span> nastala 13 krát, odhadujeme, že <span class="math inline">\(P(A)\)</span> je rovné <span class="math inline">\(0.0013.\)</span> Tento odhad sa bude blížiť ku skutočnej hodnote pre stále väčšie množstvo simulácií. Je to kvôli ZVČ, lebo <span class="math inline">\(\bar{X}_n = \frac{0+ 0+ 1+ \cdots + 0}{10000} = 0.0013,\)</span> kde <span class="math inline">\(X_i\)</span> majú rovnaké pravdepodobnostné rozdelenie ako <span class="math inline">\(1_A\)</span> a sú nezávislé.</p>
 </div>
 <div id="exm-" class="Example theorem example">
-<p><span class="theorem-title"><strong>Example 8.3</strong></span> Chceli by sme simulačne vypočítať číslo <span class="math inline">\(\pi.\)</span> Obsah štvrťkruhu so stredom v <span class="math inline">\([0,0]\)</span> s polomerom 1 vo štvorci <span class="math inline">\([0,1] \times [0,1]\)</span> je rovný <span class="math inline">\(\pi/4.\)</span> Vygenerujeme mnoho čísel z <span class="math inline">\([0,1] \times [0,1]\)</span> a pozrieme sa na proporciu tých, ktoré skončia vo štvrťkruhu. Nech <span class="math inline">\(X_i=1\)</span> vtedy ak dané číslo patrí štvrťkruhu. Potom</p>
+<p><span class="theorem-title"><strong>Príklad 8.3</strong></span> Chceli by sme simulačne vypočítať číslo <span class="math inline">\(\pi.\)</span> Obsah štvrťkruhu so stredom v <span class="math inline">\([0,0]\)</span> s polomerom 1 vo štvorci <span class="math inline">\([0,1] \times [0,1]\)</span> je rovný <span class="math inline">\(\pi/4.\)</span> Vygenerujeme mnoho čísel z <span class="math inline">\([0,1] \times [0,1]\)</span> a pozrieme sa na proporciu tých, ktoré skončia vo štvrťkruhu. Nech <span class="math inline">\(X_i=1\)</span> vtedy ak dané číslo patrí štvrťkruhu. Potom</p>
 <p><span class="math display">\[P \left(\left| \frac{X_1 + X_2 + \cdots X_n}{n} - \frac{\pi}{4}\right|\geq \epsilon \right) \leq \frac{\text{Var}[X_i]}{n \epsilon^2} = \frac{\frac{\pi}{4}(1-\frac{\pi}{4})}{n \epsilon^2}.\]</span></p>
 <p>Nevieme však koľko je <span class="math inline">\(\frac{\pi}{4}(1-\frac{\pi}{4})\)</span> (toto číslo chceme aproximovať) ale funkcia <span class="math inline">\(p(1-p)\)</span> nadobúda svoje maximum v <span class="math inline">\(1/4.\)</span> Preto</p>
 <p><span class="math display">\[P \left(\left| \frac{X_1 + X_2 + \cdots X_n}{n} - \frac{\pi}{4}\right|\geq \epsilon \right) \leq  \frac{1}{4 n \epsilon^2}.\]</span></p>
@@ -400,28 +400,28 @@ c, &amp; \text{ak}\ X \geq c.
 <section id="cvičenia" class="level2" data-number="8.6">
 <h2 data-number="8.6" class="anchored" data-anchor-id="cvičenia"><span class="header-section-number">8.6</span> Cvičenia</h2>
 <div id="exr-" class="Exercise theorem exercise">
-<p><span class="theorem-title"><strong>Exercise 8.1</strong></span> Porovnajte Markovovskú nerovnosť pre <span class="math inline">\(P(X \geq 4)\)</span> so skutočnou hodnotou, ak <span class="math inline">\(X\sim \text{Exp}(1/2).\)</span> Kedy je Markovovská nerovnosť neinformatívna?</p>
+<p><span class="theorem-title"><strong>Cvičenie 8.1</strong></span> Porovnajte Markovovskú nerovnosť pre <span class="math inline">\(P(X \geq 4)\)</span> so skutočnou hodnotou, ak <span class="math inline">\(X\sim \text{Exp}(1/2).\)</span> Kedy je Markovovská nerovnosť neinformatívna?</p>
 </div>
 <div id="exr-" class="Exercise theorem exercise">
-<p><span class="theorem-title"><strong>Exercise 8.2</strong></span> Majme náhodnú premennú, pre ktorú platí <span class="math inline">\(P(X\geq 0) = 1\)</span> a <span class="math inline">\(P(X \geq 10) = 1/5.\)</span> Ukážte, že <span class="math inline">\(\text{E}[X] \geq 2.\)</span></p>
+<p><span class="theorem-title"><strong>Cvičenie 8.2</strong></span> Majme náhodnú premennú, pre ktorú platí <span class="math inline">\(P(X\geq 0) = 1\)</span> a <span class="math inline">\(P(X \geq 10) = 1/5.\)</span> Ukážte, že <span class="math inline">\(\text{E}[X] \geq 2.\)</span></p>
 </div>
 <div id="exr-" class="Exercise theorem exercise">
-<p><span class="theorem-title"><strong>Exercise 8.3</strong></span> Majme náhodnú premennú, pre ktorú platí <span class="math inline">\(\text{E}[X] = 10, P(X \leq 7) =0.2, P(X \geq 13)= 0.3.\)</span> Dokážte, že <span class="math inline">\(\text{Var}[X] \geq 9/2.\)</span></p>
+<p><span class="theorem-title"><strong>Cvičenie 8.3</strong></span> Majme náhodnú premennú, pre ktorú platí <span class="math inline">\(\text{E}[X] = 10, P(X \leq 7) =0.2, P(X \geq 13)= 0.3.\)</span> Dokážte, že <span class="math inline">\(\text{Var}[X] \geq 9/2.\)</span></p>
 </div>
 <div id="exr-" class="Exercise theorem exercise">
-<p><span class="theorem-title"><strong>Exercise 8.4</strong></span> Akú veľkú musíme zvoliť vzorku nezávislých náhodných premenných (s konečnou strednou hodnotou a varianciou), aby bola pravdepodobnosť, že sa bude aritmetický priemer nachádzať bližšie ako dve smerodajné odchýlky od strednej hodnoty, aspoň <span class="math inline">\(99\%\)</span>?</p>
+<p><span class="theorem-title"><strong>Cvičenie 8.4</strong></span> Akú veľkú musíme zvoliť vzorku nezávislých náhodných premenných (s konečnou strednou hodnotou a varianciou), aby bola pravdepodobnosť, že sa bude aritmetický priemer nachádzať bližšie ako dve smerodajné odchýlky od strednej hodnoty, aspoň <span class="math inline">\(99\%\)</span>?</p>
 </div>
 <div id="exr-" class="Exercise theorem exercise">
-<p><span class="theorem-title"><strong>Exercise 8.5</strong></span> Majme postupnosť <span class="math inline">\(X_1, X_2,\dots\)</span> nezávislých náhodných premenných so strednou hodnotou <span class="math inline">\(3.5\)</span> a varianciou <span class="math inline">\(35/12\)</span>. Akú veľkú musíme nastaviť hodnotu <span class="math inline">\(n\)</span>, aby sme si boli istí, že <span class="math display">\[P(3 &lt; \bar{X}_n &lt; 4) \geq 0.8.\]</span></p>
+<p><span class="theorem-title"><strong>Cvičenie 8.5</strong></span> Majme postupnosť <span class="math inline">\(X_1, X_2,\dots\)</span> nezávislých náhodných premenných so strednou hodnotou <span class="math inline">\(3.5\)</span> a varianciou <span class="math inline">\(35/12\)</span>. Akú veľkú musíme nastaviť hodnotu <span class="math inline">\(n\)</span>, aby sme si boli istí, že <span class="math display">\[P(3 &lt; \bar{X}_n &lt; 4) \geq 0.8.\]</span></p>
 </div>
 <div id="exr-" class="Exercise theorem exercise">
-<p><span class="theorem-title"><strong>Exercise 8.6</strong></span> Majme postupnosť <span class="math inline">\(X_1, X_2,\dots\)</span> náhodných premenných nezávislých hodov férovou kockou. Koľkokrát musíme hodiť hockou, aby sme si boli istí, že <span class="math display">\[P(3 &lt; \bar{X}_n &lt; 4) \geq 0.8.\]</span> Porovnajte s predošlým výsledkom.</p>
+<p><span class="theorem-title"><strong>Cvičenie 8.6</strong></span> Majme postupnosť <span class="math inline">\(X_1, X_2,\dots\)</span> náhodných premenných nezávislých hodov férovou kockou. Koľkokrát musíme hodiť hockou, aby sme si boli istí, že <span class="math display">\[P(3 &lt; \bar{X}_n &lt; 4) \geq 0.8.\]</span> Porovnajte s predošlým výsledkom.</p>
 </div>
 <div id="exr-" class="Exercise theorem exercise">
-<p><span class="theorem-title"><strong>Exercise 8.7</strong></span> Majme postupnosť <span class="math inline">\(X_1, X_2,\dots\)</span> náhodných premenných, pre ktoré platí <span class="math inline">\(P(X_n = n^2) = 1/n\)</span> a <span class="math inline">\(P(X_n=0)=1-1/n.\)</span> Ukážte, že <span class="math inline">\(X_n \rightarrow_P 0\)</span> a zároveň <span class="math inline">\(\lim_{n \rightarrow \infty} \text{E}[X_n] = \infty.\)</span></p>
+<p><span class="theorem-title"><strong>Cvičenie 8.7</strong></span> Majme postupnosť <span class="math inline">\(X_1, X_2,\dots\)</span> náhodných premenných, pre ktoré platí <span class="math inline">\(P(X_n = n^2) = 1/n\)</span> a <span class="math inline">\(P(X_n=0)=1-1/n.\)</span> Ukážte, že <span class="math inline">\(X_n \rightarrow_P 0\)</span> a zároveň <span class="math inline">\(\lim_{n \rightarrow \infty} \text{E}[X_n] = \infty.\)</span></p>
 </div>
 <div id="exr-" class="Exercise theorem exercise">
-<p><span class="theorem-title"><strong>Exercise 8.8</strong></span> Férovou mincou hádžete nezávisle 100 krát. Odhadnite pravdepodobnosť pomocou Čebyševovej nerovnosti, že hlavou hodíte viac ako 30, ale menej ako 70 krát. Porovnajte so skutočnou pravdepodobnosťou.</p>
+<p><span class="theorem-title"><strong>Cvičenie 8.8</strong></span> Férovou mincou hádžete nezávisle 100 krát. Odhadnite pravdepodobnosť pomocou Čebyševovej nerovnosti, že hlavou hodíte viac ako 30, ale menej ako 70 krát. Porovnajte so skutočnou pravdepodobnosťou.</p>
 </div>
 <!-- ## Domáca úloha 10 {-} -->
 <!-- Odovzdať do 22.4.2023 do 23:59. -->
@@ -576,12 +576,12 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     // flash "checked"
     button.classList.add('code-copy-button-checked');
     var currentTitle = button.getAttribute("title");
-    button.setAttribute("title", "Copied!");
+    button.setAttribute("title", "Skopírované!");
     let tooltip;
     if (window.bootstrap) {
       button.setAttribute("data-bs-toggle", "tooltip");
       button.setAttribute("data-bs-placement", "left");
-      button.setAttribute("data-bs-title", "Copied!");
+      button.setAttribute("data-bs-title", "Skopírované!");
       tooltip = new bootstrap.Tooltip(button, 
         { trigger: "manual", 
           customClass: "code-copy-button-tooltip",
