@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="sk" xml:lang="sk"><head>
 
 <meta charset="utf-8">
 <meta name="generator" content="quarto-1.6.40">
@@ -55,17 +55,17 @@ ul.task-list li input[type="checkbox"] {
   ],
   "show-item-context": false,
   "language": {
-    "search-no-results-text": "No results",
-    "search-matching-documents-text": "matching documents",
-    "search-copy-link-title": "Copy link to search",
-    "search-hide-matches-text": "Hide additional matches",
-    "search-more-match-text": "more match in this document",
-    "search-more-matches-text": "more matches in this document",
-    "search-clear-button-title": "Clear",
+    "search-no-results-text": "Žiadne výsledky",
+    "search-matching-documents-text": "zhodné dokumenty",
+    "search-copy-link-title": "Skopírovať odkaz pre vyhľadávanie",
+    "search-hide-matches-text": "Skryť ďalšie výsledky",
+    "search-more-match-text": "ďalší výsledok v tomto dokumente",
+    "search-more-matches-text": "ďalších výsledkov v tomto dokumente",
+    "search-clear-button-title": "Vymazať",
     "search-text-placeholder": "",
-    "search-detached-cancel-button-title": "Cancel",
-    "search-submit-button-title": "Submit",
-    "search-label": "Search"
+    "search-detached-cancel-button-title": "Zrušiť",
+    "search-submit-button-title": "Odoslať",
+    "search-label": "Hľadať"
   }
 }</script>
 
@@ -107,13 +107,13 @@ window.Quarto = {
   <header id="quarto-header" class="headroom fixed-top">
   <nav class="quarto-secondary-nav">
     <div class="container-fluid d-flex">
-      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Prepnúť postrannú navigáciu" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
         <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./np.html"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Náhodná premenná</span></a></li></ol></nav>
-        <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Prepnúť postrannú navigáciu" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
-      <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
+      <button type="button" class="btn quarto-search-button" aria-label="Hľadať" onclick="window.quartoOpenSearch();">
         <i class="bi bi-search"></i>
       </button>
     </div>
@@ -130,7 +130,7 @@ window.Quarto = {
       </div>
         <div class="mt-2 flex-shrink-0 align-items-center">
         <div class="sidebar-search">
-        <div id="quarto-search" class="" title="Search"></div>
+        <div id="quarto-search" class="" title="Hľadať"></div>
         </div>
         </div>
     <div class="sidebar-menu-container"> 
@@ -208,7 +208,7 @@ window.Quarto = {
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
         <nav id="TOC" role="doc-toc" class="toc-active">
-    <h2 id="toc-title">Table of contents</h2>
+    <h2 id="toc-title">Obsah</h2>
    
   <ul>
   <li><a href="#čo-je-to-náhodná-premenná." id="toc-čo-je-to-náhodná-premenná." class="nav-link active" data-scroll-target="#čo-je-to-náhodná-premenná."><span class="header-section-number">4.1</span> Čo je to náhodná premenná.</a></li>
@@ -267,7 +267,7 @@ window.Quarto = {
 </div>
 </div>
 <div id="exm-" class="Example theorem example">
-<p><span class="theorem-title"><strong>Example 4.1</strong></span> Hádžeme férovou kockou. Označme <span class="math inline">\(\Omega = \{1,2,3,4,5,6\},\)</span> kde napr. <span class="math inline">\(4\)</span> značí, že na kocke padlo číslo <span class="math inline">\(4\)</span>. Nech <span class="math inline">\(\mathcal{F} = 2^{\Omega}\)</span> a nech <span class="math inline">\(P(A) = \frac{|A|}{6}.\)</span> Označme písmenom <span class="math inline">\(X\)</span> náhodnú premennú, ktorá bude označovať číslo, ktoré padne na kocke. Náhodná premenná <span class="math inline">\(X\)</span> priradí každému elementu <span class="math inline">\(k\)</span> z <span class="math inline">\(\Omega\)</span> reálne číslo nasledovne: <span class="math inline">\(X(k) = k.\)</span> Množina <span class="math inline">\(\{X \leq x\} = \{\omega \in \Omega: X(\omega) \leq x\}\)</span> musí byť v <span class="math inline">\(\mathcal{F}\)</span> pre všetky <span class="math inline">\(x \in \mathbb{R}.\)</span> Napríklad</p>
+<p><span class="theorem-title"><strong>Príklad 4.1</strong></span> Hádžeme férovou kockou. Označme <span class="math inline">\(\Omega = \{1,2,3,4,5,6\},\)</span> kde napr. <span class="math inline">\(4\)</span> značí, že na kocke padlo číslo <span class="math inline">\(4\)</span>. Nech <span class="math inline">\(\mathcal{F} = 2^{\Omega}\)</span> a nech <span class="math inline">\(P(A) = \frac{|A|}{6}.\)</span> Označme písmenom <span class="math inline">\(X\)</span> náhodnú premennú, ktorá bude označovať číslo, ktoré padne na kocke. Náhodná premenná <span class="math inline">\(X\)</span> priradí každému elementu <span class="math inline">\(k\)</span> z <span class="math inline">\(\Omega\)</span> reálne číslo nasledovne: <span class="math inline">\(X(k) = k.\)</span> Množina <span class="math inline">\(\{X \leq x\} = \{\omega \in \Omega: X(\omega) \leq x\}\)</span> musí byť v <span class="math inline">\(\mathcal{F}\)</span> pre všetky <span class="math inline">\(x \in \mathbb{R}.\)</span> Napríklad</p>
 <ul>
 <li><span class="math inline">\(\{X \leq -2\} = \emptyset \in \mathcal{F},\)</span></li>
 <li><span class="math inline">\(\{X \leq 0.5\} = \emptyset \in \mathcal{F},\)</span></li>
@@ -277,7 +277,7 @@ window.Quarto = {
 <p>Množina <span class="math inline">\(2^{\Omega}\)</span> je preto dostatočne “bohatá” na to, aby na nej bola táto funkcia <span class="math inline">\(X\)</span> náhodnou premennou.</p>
 </div>
 <div id="exm-" class="Example theorem example">
-<p><span class="theorem-title"><strong>Example 4.2</strong></span> Znovu hádžeme férovou kockou. Označme <span class="math inline">\(\Omega = \{1,2,3,4,5,6\},\)</span> kde napr. <span class="math inline">\(4\)</span> značí, že na kocke padlo číslo <span class="math inline">\(4\)</span>. Nech množina udalostí <span class="math inline">\(\mathcal{F^*} = \left\{\emptyset, \Omega, \{1,3,5 \}, \{2,4,6 \} \right\}\)</span> je tentokrát “chudobnejšia” a nech <span class="math inline">\(P(A) = \frac{|A|}{6}.\)</span> Označme písmenom <span class="math inline">\(Y\)</span> funkciu, ktorej hodnota bude 1, ak bude číslo párne a 0 ak bude nepárne.</p>
+<p><span class="theorem-title"><strong>Príklad 4.2</strong></span> Znovu hádžeme férovou kockou. Označme <span class="math inline">\(\Omega = \{1,2,3,4,5,6\},\)</span> kde napr. <span class="math inline">\(4\)</span> značí, že na kocke padlo číslo <span class="math inline">\(4\)</span>. Nech množina udalostí <span class="math inline">\(\mathcal{F^*} = \left\{\emptyset, \Omega, \{1,3,5 \}, \{2,4,6 \} \right\}\)</span> je tentokrát “chudobnejšia” a nech <span class="math inline">\(P(A) = \frac{|A|}{6}.\)</span> Označme písmenom <span class="math inline">\(Y\)</span> funkciu, ktorej hodnota bude 1, ak bude číslo párne a 0 ak bude nepárne.</p>
 <!-- MP: tu nema byt Y v dalsom riadku?? -->
 <p>Množina <span class="math inline">\(\{Y \leq y\} = \{\omega \in \Omega: Y(\omega) \leq y\}\)</span> musí byť v <span class="math inline">\(\mathcal{F}^*\)</span> pre všetky <span class="math inline">\(y \in \mathbb{R}.\)</span> Napríklad</p>
 <ul>
@@ -291,7 +291,7 @@ window.Quarto = {
 <p>Poučenie: kým množina udalostí <span class="math inline">\(\mathcal{F}\)</span> bola dosť veľká, pri <span class="math inline">\(\mathcal{F^*}\)</span> už nevieme priraďovať pravdepodobnosti hocijakým otázkam. Napriklad na to, aby sme vedeli priradiť pravdepodobnosť udalosti “Padne na kocke číslo menšie ako 2.3?” potrebujem, aby množina <span class="math inline">\(\{1,2\}\)</span> bola tiež udalosťou. Ale to pri <span class="math inline">\(\mathcal{F^*}\)</span> nie je. Množina udalostí <span class="math inline">\(\mathcal{F^*}\)</span> totiž vie jedine rozlišovať, či pádne párne <span class="math inline">\(\{2,4,6\} \in \mathcal{F^*}\)</span> alebo nepárne číslo <span class="math inline">\(\{1,3,5 \} \in \mathcal{F^*}\)</span>. Náhodnej premennej <span class="math inline">\(Y\)</span> to ale nevadí, lebo ona “zlepí” hodnoty <span class="math inline">\(1\)</span>, <span class="math inline">\(3\)</span> aj <span class="math inline">\(5\)</span> do hodnoty <span class="math inline">\(0\)</span>, lebo všetky tieto hodnoty sú pre ňu rovnako nepárne. <!-- MP: do hodnoty 0 nezlepi len 1, 3, 5?? --></p>
 </div>
 <div id="exm-" class="Example theorem example">
-<p><span class="theorem-title"><strong>Example 4.3</strong></span> Hádžeme dvoma férovými kockami. Označme <span class="math inline">\(\Omega = \{(1,1),(1,2),(1,3),(1,4),(1,5),(1,6),(2,1),(2,2),(2,3),\cdots, (6,5),(6,6)\},\)</span> kde napr. <span class="math inline">\((3,2)\)</span> značí, že na prvej kocke padlo číslo <span class="math inline">\(3\)</span> a na druhej kocke padlo číslo <span class="math inline">\(2\)</span>. Nech <span class="math inline">\(\mathcal{F} = 2^{\Omega}\)</span> a nech <span class="math inline">\(P(A) = \frac{|A|}{36}.\)</span> Označme písmenom <span class="math inline">\(X\)</span> náhodnú premennú, ktorá bude označovať súčet dvoch čísiel, ktoré padnú na kockách. Náhodná premenná <span class="math inline">\(X\)</span> priradí každému elementu <span class="math inline">\((k_1,k_2)\)</span> z <span class="math inline">\(\Omega\)</span> reálne číslo nasledovne: <span class="math inline">\(X((k_1,k_2)) = k_1 + k_2.\)</span></p>
+<p><span class="theorem-title"><strong>Príklad 4.3</strong></span> Hádžeme dvoma férovými kockami. Označme <span class="math inline">\(\Omega = \{(1,1),(1,2),(1,3),(1,4),(1,5),(1,6),(2,1),(2,2),(2,3),\cdots, (6,5),(6,6)\},\)</span> kde napr. <span class="math inline">\((3,2)\)</span> značí, že na prvej kocke padlo číslo <span class="math inline">\(3\)</span> a na druhej kocke padlo číslo <span class="math inline">\(2\)</span>. Nech <span class="math inline">\(\mathcal{F} = 2^{\Omega}\)</span> a nech <span class="math inline">\(P(A) = \frac{|A|}{36}.\)</span> Označme písmenom <span class="math inline">\(X\)</span> náhodnú premennú, ktorá bude označovať súčet dvoch čísiel, ktoré padnú na kockách. Náhodná premenná <span class="math inline">\(X\)</span> priradí každému elementu <span class="math inline">\((k_1,k_2)\)</span> z <span class="math inline">\(\Omega\)</span> reálne číslo nasledovne: <span class="math inline">\(X((k_1,k_2)) = k_1 + k_2.\)</span></p>
 </div>
 </section>
 <section id="kumulatívna-distribučná-funkcia" class="level2" data-number="4.2">
@@ -317,7 +317,7 @@ window.Quarto = {
 <p>Tieto vlastnosti nám ukazujú, že pomocou kumulatívnej distribučnej funkcie vieme vyjadriť pravdepodobnosť toho, že náhodná premenná nabobudne hodnotu v akomkoľvek intervale. Pripomeňme, že napríklad <span class="math inline">\(P(X \in [a,b))\)</span> je len skrátený zápis pre pravdepodobnosť nasledovnej množiny <span class="math inline">\(P\left(\{\omega \in \Omega: a \leq X(\omega) &lt; b \} \right).\)</span></p>
 <p>Kumulatívna distribučná funkcia poskytuje kompletnú informáciu o pravdepodobnostnom správaní náhodnej premenej. Inými slovami, úplne popisuje typ náhodnosti.</p>
 <div id="exm-" class="Example theorem example">
-<p><span class="theorem-title"><strong>Example 4.4</strong></span> Hádžeme férovou kockou a máme náhodnu premennú číslo, ktoré padlo na kocke <span class="math inline">\(X\)</span> a identifikátorovú premennú <span class="math inline">\(Y\)</span> čí padlo párne číslo ako v príkladoch @ref(exm:jednakocka) a @ref(exm:jednakocka2).</p>
+<p><span class="theorem-title"><strong>Príklad 4.4</strong></span> Hádžeme férovou kockou a máme náhodnu premennú číslo, ktoré padlo na kocke <span class="math inline">\(X\)</span> a identifikátorovú premennú <span class="math inline">\(Y\)</span> čí padlo párne číslo ako v príkladoch @ref(exm:jednakocka) a @ref(exm:jednakocka2).</p>
 </div>
 <div class="cell">
 <div class="cell-output-display">
@@ -338,7 +338,7 @@ window.Quarto = {
 </div>
 </div>
 <div id="exm-" class="Example theorem example">
-<p><span class="theorem-title"><strong>Example 4.5</strong></span> Hádžeme dvoma férovými kockami a máme náhodnu premennú súčet dvoch kociek <span class="math inline">\(X\)</span> ako v príklade @ref(exm:dvekocky).</p>
+<p><span class="theorem-title"><strong>Príklad 4.5</strong></span> Hádžeme dvoma férovými kockami a máme náhodnu premennú súčet dvoch kociek <span class="math inline">\(X\)</span> ako v príklade @ref(exm:dvekocky).</p>
 </div>
 <div class="cell">
 <div class="cell-output-display">
@@ -350,7 +350,7 @@ window.Quarto = {
 </div>
 </div>
 <div id="exm-" class="Example theorem example">
-<p><span class="theorem-title"><strong>Example 4.6</strong></span> Predpokladajme, že náhodná premenná <span class="math inline">\(X\)</span> reprezentuje IQ v populácii, jej kumulatívna distribučná funkcia môže vyzerať napríklad takto:</p>
+<p><span class="theorem-title"><strong>Príklad 4.6</strong></span> Predpokladajme, že náhodná premenná <span class="math inline">\(X\)</span> reprezentuje IQ v populácii, jej kumulatívna distribučná funkcia môže vyzerať napríklad takto:</p>
 </div>
 <div class="cell">
 <div class="cell-output-display">
@@ -363,7 +363,7 @@ window.Quarto = {
 </div>
 <!-- main = "Kumulatívna distribučná funkcia: hod dvomi kockou" :) :) -->
 <div id="exm-" class="Example theorem example">
-<p><span class="theorem-title"><strong>Example 4.7</strong></span> Hádžeme sedemnástimi férovými kockami a máme náhodnú premennú súčet sedemnástich kociek <span class="math inline">\(X\)</span> ako v príklade @ref(exm:dvekocky), kde boli len dve.</p>
+<p><span class="theorem-title"><strong>Príklad 4.7</strong></span> Hádžeme sedemnástimi férovými kockami a máme náhodnú premennú súčet sedemnástich kociek <span class="math inline">\(X\)</span> ako v príklade @ref(exm:dvekocky), kde boli len dve.</p>
 </div>
 <div class="cell">
 <div class="cell-output-display">
@@ -376,7 +376,7 @@ window.Quarto = {
 </div>
 <!-- main = "Kumulatívna distribučná funkcia: hod dvomi kockou" :) :) -->
 <div id="exm-" class="Example theorem example">
-<p><span class="theorem-title"><strong>Example 4.8</strong></span> Vyška mužov (modrou) a žien (červenou), v populácii kde je 60% žien. Celková kumulatívna distribučná funkcia pre mužov a ženy spolu je čiernou.</p>
+<p><span class="theorem-title"><strong>Príklad 4.8</strong></span> Vyška mužov (modrou) a žien (červenou), v populácii kde je 60% žien. Celková kumulatívna distribučná funkcia pre mužov a ženy spolu je čiernou.</p>
 </div>
 <div class="cell">
 <div class="cell-output-display">
@@ -388,7 +388,7 @@ window.Quarto = {
 </div>
 </div>
 <div id="exm-" class="Example theorem example">
-<p><span class="theorem-title"><strong>Example 4.9</strong></span> Uvažujme výšky z predchádzajúceho príkladu. Majte nasledovnú súťaž. Človek hodí mincou: ak padne hlava (<span class="math inline">\(M=1\)</span>), tak vyhrá cenu vo výške (v eurách) svojej výšky v cm <span class="math inline">\(H\)</span>. Ak padne znak (<span class="math inline">\(M=0\)</span>), tak nevyhrá nič. Výhra je teda <span class="math inline">\(V = H \cdot M\)</span>.</p>
+<p><span class="theorem-title"><strong>Príklad 4.9</strong></span> Uvažujme výšky z predchádzajúceho príkladu. Majte nasledovnú súťaž. Človek hodí mincou: ak padne hlava (<span class="math inline">\(M=1\)</span>), tak vyhrá cenu vo výške (v eurách) svojej výšky v cm <span class="math inline">\(H\)</span>. Ak padne znak (<span class="math inline">\(M=0\)</span>), tak nevyhrá nič. Výhra je teda <span class="math inline">\(V = H \cdot M\)</span>.</p>
 </div>
 <div class="cell">
 <div class="cell-output-display">
@@ -408,7 +408,7 @@ window.Quarto = {
 <section id="cvičenia" class="level2" data-number="4.4">
 <h2 data-number="4.4" class="anchored" data-anchor-id="cvičenia"><span class="header-section-number">4.4</span> Cvičenia</h2>
 <div id="exr-" class="Exercise theorem exercise">
-<p><span class="theorem-title"><strong>Exercise 4.1</strong></span> Podrobne vysvetlite, čo je chybné na nasledovných označeniach/tvrdeniach:</p>
+<p><span class="theorem-title"><strong>Cvičenie 4.1</strong></span> Podrobne vysvetlite, čo je chybné na nasledovných označeniach/tvrdeniach:</p>
 <ul>
 <li><span class="math inline">\(F_X(0.5)=1.3\)</span>,</li>
 <li><span class="math inline">\(F_X(0.5)=-\pi/3\)</span>,</li>
@@ -422,7 +422,7 @@ window.Quarto = {
 </ul>
 </div>
 <div id="exr-" class="Exercise theorem exercise">
-<p><span class="theorem-title"><strong>Exercise 4.2</strong></span> Majme náhodnú premennú <span class="math inline">\(M\)</span>, ktorá nadobúda hodnoty <span class="math inline">\(1, 2, 3, \dots\)</span> s pravdepodobnosťami <span class="math inline">\(P(M=m) = \frac{1}{2^m}.\)</span></p>
+<p><span class="theorem-title"><strong>Cvičenie 4.2</strong></span> Majme náhodnú premennú <span class="math inline">\(M\)</span>, ktorá nadobúda hodnoty <span class="math inline">\(1, 2, 3, \dots\)</span> s pravdepodobnosťami <span class="math inline">\(P(M=m) = \frac{1}{2^m}.\)</span></p>
 <ul>
 <li>Nájdite kumulatívnu distribučnú funkciu <span class="math inline">\(M\)</span>,</li>
 <li>Vypočítajte <span class="math inline">\(P(3 &lt; M \leq 7),\)</span></li>
@@ -430,7 +430,7 @@ window.Quarto = {
 </ul>
 </div>
 <div id="exr-" class="Exercise theorem exercise">
-<p><span class="theorem-title"><strong>Exercise 4.3</strong></span> Overte, či nasledujúce funkcie môžu byť kumulatívnou distribučnou funkciou.</p>
+<p><span class="theorem-title"><strong>Cvičenie 4.3</strong></span> Overte, či nasledujúce funkcie môžu byť kumulatívnou distribučnou funkciou.</p>
 <ul>
 <li><span class="math inline">\(F(x) = \begin{cases}  1-4^{-x} &amp; \text{ak } x \geq 0, \\  0 &amp; \text{ak } x &lt; 0,  \end{cases}\)</span></li>
 <li><span class="math inline">\(F(x) = \begin{cases} 0&amp;\text{pre $x&lt;a$},\\ \frac{x-a}{b-a}&amp;\text{pre $x\in[a,b)$},\\ 1&amp;\text{pre $x\ge b$},\\ \end{cases}\)</span></li>
@@ -441,17 +441,17 @@ window.Quarto = {
 </ul>
 </div>
 <div id="exr-" class="Exercise theorem exercise">
-<p><span class="theorem-title"><strong>Exercise 4.4</strong></span> Uvažujme hádzanie jednou kockou. Nech <span class="math inline">\(\Omega=\{ 1,2,3,4,5,6\}\)</span> a nech <span class="math inline">\(\mathcal{F} =\{\Omega, \emptyset, \{1\},\{2,3,4,5,6\} \}.\)</span> Zostrojte dve funkcie <span class="math inline">\(X_1: \Omega \rightarrow \mathbb{R}\)</span> a <span class="math inline">\(X_2: \Omega \rightarrow \mathbb{R}\)</span> také, že</p>
+<p><span class="theorem-title"><strong>Cvičenie 4.4</strong></span> Uvažujme hádzanie jednou kockou. Nech <span class="math inline">\(\Omega=\{ 1,2,3,4,5,6\}\)</span> a nech <span class="math inline">\(\mathcal{F} =\{\Omega, \emptyset, \{1\},\{2,3,4,5,6\} \}.\)</span> Zostrojte dve funkcie <span class="math inline">\(X_1: \Omega \rightarrow \mathbb{R}\)</span> a <span class="math inline">\(X_2: \Omega \rightarrow \mathbb{R}\)</span> také, že</p>
 <ul>
 <li><span class="math inline">\(X_1\)</span> je náhodná premenná,</li>
 <li><span class="math inline">\(X_2\)</span> nie je náhodná premenná.</li>
 </ul>
 </div>
 <div id="exr-" class="Exercise theorem exercise">
-<p><span class="theorem-title"><strong>Exercise 4.5</strong></span> Uvažujme náhodnú premennú <span class="math inline">\(Y\)</span> ktorá nadobúda hodnoty <span class="math inline">\(0, 1, 2, 3\)</span> s pravdepodobnosťami <span class="math inline">\(0.5, 0.25, 0.125, 0.125\)</span>. Zobrazte jej kumulatívnu distribučnú funkciu.</p>
+<p><span class="theorem-title"><strong>Cvičenie 4.5</strong></span> Uvažujme náhodnú premennú <span class="math inline">\(Y\)</span> ktorá nadobúda hodnoty <span class="math inline">\(0, 1, 2, 3\)</span> s pravdepodobnosťami <span class="math inline">\(0.5, 0.25, 0.125, 0.125\)</span>. Zobrazte jej kumulatívnu distribučnú funkciu.</p>
 </div>
 <div id="exr-" class="Exercise theorem exercise">
-<p><span class="theorem-title"><strong>Exercise 4.6</strong></span> Načrtnite dve rôzne kumulatívne distribučné funkcie <span class="math inline">\(F_X, F_Y\)</span> (pre náhodné premenné <span class="math inline">\(X\)</span> a <span class="math inline">\(Y\)</span>) pre ktoré platí <span class="math inline">\(F_X(120) = F_Y(120) = 0.5\)</span>, <span class="math inline">\(F_X(140) &gt; F_Y(140)\)</span> a <span class="math inline">\(F_X(90) &lt; F_Y(90).\)</span></p>
+<p><span class="theorem-title"><strong>Cvičenie 4.6</strong></span> Načrtnite dve rôzne kumulatívne distribučné funkcie <span class="math inline">\(F_X, F_Y\)</span> (pre náhodné premenné <span class="math inline">\(X\)</span> a <span class="math inline">\(Y\)</span>) pre ktoré platí <span class="math inline">\(F_X(120) = F_Y(120) = 0.5\)</span>, <span class="math inline">\(F_X(140) &gt; F_Y(140)\)</span> a <span class="math inline">\(F_X(90) &lt; F_Y(90).\)</span></p>
 <p>Načrtnite, ako by vyzerala kumulatívna distribučná <span class="math inline">\(S = ZX + (1-Z)Y\)</span>, kde náhodná premenná <span class="math inline">\(Z\)</span> má nasledovnú kumulatívnu distribučnú funkciu:</p>
 </div>
 <div class="cell">
@@ -464,10 +464,10 @@ window.Quarto = {
 </div>
 </div>
 <div id="exr-" class="Exercise theorem exercise">
-<p><span class="theorem-title"><strong>Exercise 4.7</strong></span> Na Univerzite je 60% žien a 40% mužov. Náhodne vybratý študent/ka odpovedá na dotazník. Dotazník pre mužov má 20 otázok, dotazník pre ženy má 25 otázok. Nech <span class="math inline">\(X\)</span> označuje počet opýtaných otázok pre náhodne zvoleného človeka. Určite <span class="math inline">\(P(X\leq x)\)</span> pre všetky <span class="math inline">\(x \in \mathbb{R}.\)</span></p>
+<p><span class="theorem-title"><strong>Cvičenie 4.7</strong></span> Na Univerzite je 60% žien a 40% mužov. Náhodne vybratý študent/ka odpovedá na dotazník. Dotazník pre mužov má 20 otázok, dotazník pre ženy má 25 otázok. Nech <span class="math inline">\(X\)</span> označuje počet opýtaných otázok pre náhodne zvoleného človeka. Určite <span class="math inline">\(P(X\leq x)\)</span> pre všetky <span class="math inline">\(x \in \mathbb{R}.\)</span></p>
 </div>
 <div id="exr-" class="Exercise theorem exercise">
-<p><span class="theorem-title"><strong>Exercise 4.8</strong></span> Nech <span class="math inline">\(X\)</span> je číslo, ktoré padne na vrchu férovej kocky. Nech <span class="math inline">\(Y=X^3+1\)</span> a <span class="math inline">\(Z=\sqrt{X}.\)</span> Určite</p>
+<p><span class="theorem-title"><strong>Cvičenie 4.8</strong></span> Nech <span class="math inline">\(X\)</span> je číslo, ktoré padne na vrchu férovej kocky. Nech <span class="math inline">\(Y=X^3+1\)</span> a <span class="math inline">\(Z=\sqrt{X}.\)</span> Určite</p>
 <ul>
 <li><span class="math inline">\(P(Y=y)\)</span> pre všetky reálne čísla <span class="math inline">\(y \in \mathbb{R}\)</span>,</li>
 <li><span class="math inline">\(P(Z=z)\)</span> pre všetky reálne čísla <span class="math inline">\(z \in \mathbb{R}\)</span>,</li>
@@ -660,12 +660,12 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     // flash "checked"
     button.classList.add('code-copy-button-checked');
     var currentTitle = button.getAttribute("title");
-    button.setAttribute("title", "Copied!");
+    button.setAttribute("title", "Skopírované!");
     let tooltip;
     if (window.bootstrap) {
       button.setAttribute("data-bs-toggle", "tooltip");
       button.setAttribute("data-bs-placement", "left");
-      button.setAttribute("data-bs-title", "Copied!");
+      button.setAttribute("data-bs-title", "Skopírované!");
       tooltip = new bootstrap.Tooltip(button, 
         { trigger: "manual", 
           customClass: "code-copy-button-tooltip",
