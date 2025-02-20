@@ -683,7 +683,7 @@ P(A \cup B \cup C) &amp;=&amp; P(A) + P(B) + P(C) \\
 &amp;&amp; + P(A \cap B \cap C).
 \end{eqnarray*}\]</span>
 </div>
-<div id="exr-" class="theorem exercise">
+<div id="exr-vrec" class="theorem exercise">
 <p><span class="theorem-title"><strong>Cvičenie 2.23</strong></span> Majme vrecúško s farebnymi guličkami. Konkrétne sa v ňom nachádza <span class="math inline">\(č\)</span> červených guličiek, <span class="math inline">\(b\)</span> bielych guličiek a <span class="math inline">\(m\)</span> modrých guličiek. Postupne vyberáme po jednej guličke z vrecúška tak, že ich nedávame naspäť. Aká je pravdepodobnosť, že vytiahneme všetky červené guličky ešte predtým, než vytiahneme nejakú bielu?</p>
 </div>
 <div id="exr-zapo" class="theorem exercise">
@@ -872,6 +872,12 @@ a,b,c,d &amp;\geq&amp; 0
 <li><p>Musíme nájsť <span class="math inline">\(k\)</span> tak, aby <span class="math inline">\(1-\frac{{2 \choose{0}}{48 \choose{k}}}{{50 \choose{k}}} &gt; 0.5\)</span></p></li>
 </ol>
 <p>Dosadením dostávame, že pre <span class="math inline">\(k=14\)</span> je to 48.57%, pre <span class="math inline">\(k=15\)</span> je to 51.43%.</p>
+<p><a href="#exr-vrec" class="quarto-xref">Cvičenie&nbsp;<span>2.23</span></a></p>
+<p>Kľúčové pri tejto úlohe je uvedomiť si, že na modrých guličkách vôbec nezáleží. Pôsobia tam len ako šum. Ak je ich veľmi veľa, tak ich budeme veľa ťahať kým sa nebude meniť to, čo nás zaujíma, a to je pomer medzi bielymi a červenými guličkami.</p>
+<p>Preformulujeme to na nasledovný problém. Máme vo vrecku <span class="math inline">\(č\)</span> červených a <span class="math inline">\(b\)</span> bielych guličiek. Aká je pravdepodobnosť, že prvých <span class="math inline">\(č\)</span> guličiek bude červených? Z vrecúška, kde sú čísla <span class="math inline">\(\{1,2,3,...,č+b\}\)</span> musím vytiahnuť <span class="math inline">\(č\)</span> guličiek a musím vytiahnuť konkrétne čísla <span class="math inline">\(\{1,2,...,č\}\)</span>. To je práve jedna možnosť spomedzi všetkých možných <span class="math inline">\(č\)</span> čísel, ktoré môžem vytiahnuť. Týchto možností je <span class="math inline">\({č+b \choose č}.\)</span> Takže pravdepodobnosť je</p>
+<p><span class="math inline">\(P(A) = \frac{1}{{č+b \choose č}} = \frac{č!b!}{(č+b)!}.\)</span></p>
+<p>Skutočnosť, že na počte modrých guličiek nezáleží sa môže zdať na začiatku proti intuitívna. Simuláciou však môžeme poľahky overiť, že je to skutočne tak. Tieto simulácie sa budeme učiť robiť budúci semester v rámci pokračovania tohoto kurzu <a href="https://lukaslaffers.github.io/pas2/" class="uri">https://lukaslaffers.github.io/pas2/</a>.</p>
+<p>Uvedomme si tiež, že <span class="math inline">\(P(A) = \frac{č!b!}{(č+b)!} =\frac{č!}{(č+b)(č+b-1)...(b+1)} = \frac{č}{č+b}\cdot \frac{č-1}{č+b-1} \cdots\frac{1}{b+1},\)</span> čo zodpovedá postupnému ťahaniu červených guličiek. Znovu vidíme, že záleží len na tom, či bude červená vytiahutá skôr ako biela, koľko je tam modrých nám môže byť jedno.</p>
 <p><a href="#exr-zapo" class="quarto-xref">Cvičenie&nbsp;<span>2.24</span></a></p>
 <p>Dôkaz matematickou indukciou cez <span class="math inline">\(n.\)</span></p>
 </div>
