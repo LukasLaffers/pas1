@@ -212,11 +212,12 @@ window.Quarto = {
    
   <ul>
   <li><a href="#čo-je-to-podmienená-pravdepodobnosť" id="toc-čo-je-to-podmienená-pravdepodobnosť" class="nav-link active" data-scroll-target="#čo-je-to-podmienená-pravdepodobnosť"><span class="header-section-number">3.1</span> Čo je to podmienená pravdepodobnosť</a></li>
-  <li><a href="#bayes" id="toc-bayes" class="nav-link" data-scroll-target="#bayes"><span class="header-section-number">3.2</span> Bayesova veta</a></li>
+  <li><a href="#sec-bayes" id="toc-sec-bayes" class="nav-link" data-scroll-target="#sec-bayes"><span class="header-section-number">3.2</span> Bayesova veta</a></li>
   <li><a href="#indep" id="toc-indep" class="nav-link" data-scroll-target="#indep"><span class="header-section-number">3.3</span> Nezávislosť</a></li>
   <li><a href="#condprob" id="toc-condprob" class="nav-link" data-scroll-target="#condprob"><span class="header-section-number">3.4</span> Podmienená pravdepodobnosť je tiež pravdepodobnosť</a></li>
   <li><a href="#zhrnutie" id="toc-zhrnutie" class="nav-link" data-scroll-target="#zhrnutie"><span class="header-section-number">3.5</span> Zhrnutie</a></li>
   <li><a href="#cvičenia" id="toc-cvičenia" class="nav-link" data-scroll-target="#cvičenia"><span class="header-section-number">3.6</span> Cvičenia</a></li>
+  <li><a href="#ďalšie-cvičenia" id="toc-ďalšie-cvičenia" class="nav-link" data-scroll-target="#ďalšie-cvičenia"><span class="header-section-number">3.7</span> Ďalšie cvičenia</a></li>
   </ul>
 </nav>
     </div>
@@ -257,7 +258,7 @@ window.Quarto = {
 </div>
 </div>
 </div>
-<p>Podmienená pravdepodobnosť je ohromne užitočný koncept. Hovorí nám napríklad o tom, ako v zmysle poznania novej informácie (dozvedeli sme sa, že nastala udalosť <span class="math inline">\(B\)</span>) meníme to, čo si myslíme o pravdepodobnosti toho, že nastane udalosť <span class="math inline">\(A.\)</span> Na začiatku by sme si boli mysleli, že šanca, že Slovensko vyhrá na MS v ľadovom hokeji je malá (<span class="math inline">\(P(A)\)</span>). Avšak vidiac náš fantastický výkon v základnej skupine <span class="math inline">\(B\)</span> sa teraz už nádejame, že zlato nie je až také márne (<span class="math inline">\(P(A|B) &gt; P(A)\)</span>).<a href="#fn2" class="footnote-ref" id="fnref2" role="doc-noteref"><sup>2</sup></a></p>
+<p>Podmienená pravdepodobnosť je ohromne užitočný koncept. Hovorí nám napríklad o tom, ako v zmysle poznania novej informácie (dozvedeli sme sa, že nastala udalosť <span class="math inline">\(B\)</span>) meníme to, čo si myslíme o pravdepodobnosti toho, že nastane udalosť <span class="math inline">\(A.\)</span> Na začiatku by sme si boli mysleli, že šanca, že Slovensko vyhrá na MS v ľadovom hokeji je malá (<span class="math inline">\(P(A)\)</span>). Avšak vidiac náš fantastický výkon v základnej skupine <span class="math inline">\(B\)</span> sa teraz už nádejame, že zlato nie je až také márne (<span class="math inline">\(P(A|B) &gt; P(A)\)</span>).</p>
 <div class="cell" data-layout-align="center">
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
@@ -270,7 +271,7 @@ window.Quarto = {
 </div>
 <div id="exm-" class="theorem example">
 <p><span class="theorem-title"><strong>Príklad 3.1</strong></span> Hádžeme dvoma férovými kockami. Pravdepodobnosť, že na nich padne súčet 4, <span class="math inline">\(P(A) = \frac{3}{36} = \frac{1}{12}.\)</span> Aká je pravdepodobnosť, že padne súčet 4, ak vieme, že na prvej kocke padlo číslo 3?</p>
-<p>Označme si rôzne udalosti:<a href="#fn3" class="footnote-ref" id="fnref3" role="doc-noteref"><sup>3</sup></a></p>
+<p>Označme si rôzne udalosti:<a href="#fn2" class="footnote-ref" id="fnref2" role="doc-noteref"><sup>2</sup></a></p>
 <ul>
 <li>A - na dvoch kockách padne súčet 4</li>
 <li>B - na prvej kocke padne číslo 3</li>
@@ -291,8 +292,8 @@ window.Quarto = {
 <p>Nakoľko udalosti <span class="math inline">\(M\)</span> a <span class="math inline">\(Ž\)</span> sú disjunktné (<span class="math inline">\(Ž=M^C\)</span>), musia byť aj udalosti <span class="math inline">\(D \cap Ž\)</span> a <span class="math inline">\(D \cap M\)</span> tiež disjunktné. Podľa spočitateľnej aditivity pravdpodobnosti teda máme: <span class="math display">\[P(D) = P( \{D \cap Ž\} \cup \{D \cap M\} ) = P( D \cap Ž) + P( D \cap M) = 0.18 + 0.08 = 0.26.\]</span></p>
 </div>
 </section>
-<section id="bayes" class="level2" data-number="3.2">
-<h2 data-number="3.2" class="anchored" data-anchor-id="bayes"><span class="header-section-number">3.2</span> Bayesova veta</h2>
+<section id="sec-bayes" class="level2" data-number="3.2">
+<h2 data-number="3.2" class="anchored" data-anchor-id="sec-bayes"><span class="header-section-number">3.2</span> Bayesova veta</h2>
 <p>Bayesova veta je jedným z najdôležitejších výsledkov v teórii pravdepodobnosti.</p>
 <p>Uvažujme <span class="math inline">\(A_1\)</span> a <span class="math inline">\(A_2\)</span> disjunktné udalosti také, že <span class="math inline">\(\Omega = A_1 \cup A_2.\)</span> To znamená, že nastane <span class="math inline">\(A_1\)</span> alebo <span class="math inline">\(A_2 = A_1^C\)</span>, teda <span class="math inline">\(P(A_1) + P(A_2) = 1.\)</span> Pre takéto množiny platí <span class="math display">\[A = (A \cap A_1) \cup (A \cap A_2).\]</span> Nakoľko aj množiny <span class="math inline">\(A \cap A_1\)</span> a <span class="math inline">\(A \cap A_2\)</span> sú tiež disjunktné, vďaka <em>spočitateľnej aditivite</em> pravdepodobnosti dostávame <span class="math display">\[P(A) = P(A \cap A_1) + P(A \cap A_2).\]</span> Využitím definície podmienenej pravdepodobnosti dospejeme k <span class="math display">\[P(A) = P(A \cap A_1) + P(A \cap A_2) = P(A|A_1)P(A_1) + P(A|A_2)P(A_2).\]</span> Aplikovovaním podmienenej pravdepodobnosti do pôvodného vzťahu máme <span class="math display">\[P(A_1|A) = \frac{P(A_1 \cap A)}{P(A)} = \frac{P(A|A_1)P(A_1)}{ P(A|A_1)P(A_1) + P(A|A_2)P(A_2)}.\]</span> Tomuto výsledku hovoríme <strong>Bayesova veta</strong>. V prípade, že máme viacej disjunktných udalostí <span class="math inline">\(A_1, A_2,\cdots,A_n\)</span>, takých, že <span class="math inline">\(\cup_{i=1}^{n} A_i = \Omega\)</span> (takéto množiny nazývame <strong>rozklad</strong> množiny <span class="math inline">\(\Omega\)</span>), podobným dôvodením dostávame: <span class="math display">\[P(A_1|A) = \frac{P(A_1 \cap A)}{P(A)} = \frac{P(A|A_1)P(A_1)}{ \sum_{i=1}^{n}P(A|A_i)P(A_i)}.\]</span></p>
 <div class="cell" data-layout-align="center">
@@ -320,21 +321,25 @@ window.Quarto = {
 P(CH|\oplus) &amp;=&amp; \frac{P(CH \cap \oplus)}{P(\oplus)} = \frac{P(\oplus|CH)P(CH)}{ P(\oplus|CH)P(CH) + P(\oplus|Z)P(Z)}\\
         &amp;=&amp; \frac{0.9 \cdot 0.01}{0.9 \cdot 0.01 + 0.01 \cdot 0.99} = 0.476.
 \end{eqnarray*}\]</span>
-<p>Teda je približne 48%. Menej než polovica. Toto je výrazne menej ako väčšina ľudí čaká (tip: vyskúšajte to aj na lekárov). Tuto je nesmierne dôležité zdôrazniť, že išlo o <em>skríningové</em> testovanie.<a href="#fn4" class="footnote-ref" id="fnref4" role="doc-noteref"><sup>4</sup></a></p>
-<p>Ak by sme napríklad testovali len ľudí s príznakmi, už by neplatilo, že <span class="math inline">\(P(CH)=0.01\)</span>, ale bolo by to výrazne viacej. Ľudia s príznakmi totiž nie sú rovnakí ako tí náhodne vybraní z populácie.<a href="#fn5" class="footnote-ref" id="fnref5" role="doc-noteref"><sup>5</sup></a></p>
+<p>Teda je približne 48%. Menej než polovica. Toto je výrazne menej ako väčšina ľudí čaká (tip: vyskúšajte to aj na lekárov). Tuto je nesmierne dôležité zdôrazniť, že išlo o <em>skríningové</em> testovanie.<a href="#fn3" class="footnote-ref" id="fnref3" role="doc-noteref"><sup>3</sup></a></p>
+<p>Ak by sme napríklad testovali len ľudí s príznakmi, už by neplatilo, že <span class="math inline">\(P(CH)=0.01\)</span>, ale bolo by to výrazne viacej. Ľudia s príznakmi totiž nie sú rovnakí ako tí náhodne vybraní z populácie.<a href="#fn4" class="footnote-ref" id="fnref4" role="doc-noteref"><sup>4</sup></a></p>
 <p>Vráťme sa naspäť k tomu, prečo je tých 48% tak prekvapivo veľa. Je to člen <span class="math inline">\(P(\oplus|Z)P(Z)\)</span> v menovateli v zlomku na výpočet <span class="math inline">\(P(CH|\oplus).\)</span> Síce je pravdepodobnosť <span class="math inline">\(P(\oplus|Z)\)</span>, teda falošnej pozitivity, veľmi malá, ale zdravej populácie je veľká väčšina <span class="math inline">\(P(Z)=0.99.\)</span></p>
 </div>
 <div class="cell" data-layout-align="center">
 <div class="cell-output-display">
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="fig_bayes_test1a.png" class="img-fluid figure-img" style="width:80.0%"></p>
-<figcaption>Ilustrácia Bayesovej vety na príklade s testovaním.</figcaption>
+<div id="fig-bayes" class="quarto-float quarto-figure quarto-figure-center anchored" data-fig-align="center">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-bayes-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="fig_bayes_test1a.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:80.0%">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-bayes-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Obrázok&nbsp;3.1: Ilustrácia Bayesovej vety na príklade s testovaním.
+</figcaption>
 </figure>
 </div>
 </div>
 </div>
-<div id="exm-" class="Exercise theorem example">
+<div id="exm-" class="theorem example">
 <p><span class="theorem-title"><strong>Príklad 3.4</strong></span> Majme dve vrecká s guličkami. V prvom je 7 červených a 2 modré guličky. V druhom vrecku je 5 červených a 9 modrých guličiek. Náhodne vyberieme jedno z vreciek (s pravdepodobnosťou 1/2) a z neho jednu z guličiek. Ukáže sa, že je červená. Aká je pravdepodobnosť, že táto gulička pochádza z prvého vrecka?</p>
 <p>Označme si udalosť, že vyberáme z vrecka 1 ako <span class="math inline">\(V_1\)</span> a že z vrecka 2 ako <span class="math inline">\(V_2.\)</span> Na základe predpokladu vieme, že <span class="math inline">\(P(V_1) = P(V_2) = \frac{1}{2}.\)</span> Ďalej označme udalosť, že vyberieme červenú guličku ako <span class="math inline">\(Č\)</span>. Priamočiarym použitím Bayesovej vety dostávame: <span class="math display">\[P(V_1|Č) = \frac{P(Č|V_1)P(V_1)}{P(Č|V_1)P(V_1)+P(Č|V_2)P(V_2)} = \frac{\frac{7}{9}\frac{1}{2}}{\frac{7}{9}\frac{1}{2} + \frac{5}{14}\frac{1}{2}} \approx 0.685.\]</span></p>
 </div>
@@ -360,7 +365,7 @@ P(CH|\oplus) &amp;=&amp; \frac{P(CH \cap \oplus)}{P(\oplus)} = \frac{P(\oplus|CH
 <p><span class="math display">\[P(A|B)= P(A).\]</span> To, že dve udalosti sú závislé, znamená, že nastatie jednej udalosti nesie nejakú informáciu o tej druhej udalosti. Môže ju zvýšiť alebo znížiť.</p>
 <p>Koncept nezávislosti sme doteraz neformálne používali pri rôznych príkladoch s kockami, s mincami, či s kartami. Teraz sme si tento pojem formalizovali.</p>
 <div id="exm-" class="theorem example">
-<p><span class="theorem-title"><strong>Príklad 3.5</strong></span> Uvažujme pravdepodobnostný priestor <span class="math inline">\(([0,1],\mathcal{F},P),\)</span> kde <span class="math inline">\(P\)</span> priradí každému intervalu jeho dĺžku a <span class="math inline">\(\mathcal{F}\)</span> je množina všetkých udalostí, ktorým vieme priradiť pravdepodobnosť.<a href="#fn6" class="footnote-ref" id="fnref6" role="doc-noteref"><sup>6</sup></a> Majme nasledovné dve udalosti <span class="math inline">\(A = \left(\frac{1}{2},\frac{3}{4}\right)\)</span> a <span class="math inline">\(B = \left(0,\frac{2}{3}\right).\)</span> Sú tieto udalosti nezávislé?</p>
+<p><span class="theorem-title"><strong>Príklad 3.5</strong></span> Uvažujme pravdepodobnostný priestor <span class="math inline">\(([0,1],\mathcal{F},P),\)</span> kde <span class="math inline">\(P\)</span> priradí každému intervalu jeho dĺžku a <span class="math inline">\(\mathcal{F}\)</span> je množina všetkých udalostí, ktorým vieme priradiť pravdepodobnosť.<a href="#fn5" class="footnote-ref" id="fnref5" role="doc-noteref"><sup>5</sup></a> Majme nasledovné dve udalosti <span class="math inline">\(A = \left(\frac{1}{2},\frac{3}{4}\right)\)</span> a <span class="math inline">\(B = \left(0,\frac{2}{3}\right).\)</span> Sú tieto udalosti nezávislé?</p>
 <p>Na prvý pohľad by sa možno zdalo, že nie. Lebo nie sú disjunktné. Alebo? Pozrime sa na to bližšie. <span class="math display">\[\begin{eqnarray*}
 P(A \cap B) &amp;=&amp; P\left( \left(\frac{1}{2},\frac{3}{4}\right) \cap \left(0,\frac{2}{3}\right) \right) = P\left( \left(\frac{1}{2},\frac{2}{3}\right) \right) = \frac{1}{6} \\
 P(A) P(B)&amp;=&amp; P\left( \left(\frac{1}{2},\frac{3}{4}\right)  \right) P\left(  \left(0,\frac{2}{3}\right) \right) = \frac{1}{4}\frac{2}{3} = \frac{1}{6}
@@ -375,7 +380,7 @@ P(A) P(B)&amp;=&amp; P\left( \left(\frac{1}{2},\frac{3}{4}\right)  \right) P\lef
 <li><span class="math inline">\(P^*(\Omega) = \frac{P(\Omega \cap B)}{P(B)} = \frac{P(B)}{P(B)} = 1.\)</span></li>
 <li><span class="math inline">\(P^*\left(\cup_{i=1}^{\infty} A_i\right) = \frac{P\left(\cup_{i=1}^{\infty} A_i \cap B \right)}{P(B)} = \sum_{i=1}^{\infty} \frac{P\left(\cup_{i=1}^{\infty} A_i \cap B \right)}{P(B)} = \sum_{i=1}^{\infty} P^*(A_i)\)</span> pre akékoľvek disjunktné udalosti <span class="math inline">\(A_1, A_2, A_3,\dots\)</span>. Prostredná nerovnosť platí, lebo aj množiny <span class="math inline">\(A_1 \cap B, A_2 \cap B, A_3 \cap B, \cdots\)</span> sú tiež disjunktné a len sme využili vlastnosť spočitateľnej aditivity pôvodnej pravdepodobnostnej funkcie <span class="math inline">\(P\)</span>.</li>
 </ol>
-<p>Pre fixnú udalosť, pre ktorú platí <span class="math inline">\(P(B)&gt;0\)</span>, sa teda podmienená pravdepodobnosť správa ako každá iná pravdepodobnostná funkcia. Všetky vlastnosti, ktoré sme odvodili pre pôvodnú pravdepodobnostú funkciu z prvotných princípov, budú preto platné aj pre podmienenú pravdepodobnosť.<a href="#fn7" class="footnote-ref" id="fnref7" role="doc-noteref"><sup>7</sup></a></p>
+<p>Pre fixnú udalosť, pre ktorú platí <span class="math inline">\(P(B)&gt;0\)</span>, sa teda podmienená pravdepodobnosť správa ako každá iná pravdepodobnostná funkcia. Všetky vlastnosti, ktoré sme odvodili pre pôvodnú pravdepodobnostú funkciu z prvotných princípov, budú preto platné aj pre podmienenú pravdepodobnosť.<a href="#fn6" class="footnote-ref" id="fnref6" role="doc-noteref"><sup>6</sup></a></p>
 </section>
 <section id="zhrnutie" class="level2" data-number="3.5">
 <h2 data-number="3.5" class="anchored" data-anchor-id="zhrnutie"><span class="header-section-number">3.5</span> Zhrnutie</h2>
@@ -398,8 +403,8 @@ P(A) P(B)&amp;=&amp; P\left( \left(\frac{1}{2},\frac{3}{4}\right)  \right) P\lef
 <div id="exr-" class="theorem exercise">
 <p><span class="theorem-title"><strong>Cvičenie 3.3</strong></span> Ukážte, že ak sú udalosti <span class="math inline">\(A\)</span> a <span class="math inline">\(B\)</span> nezávislé, potom sú aj udalosti <span class="math inline">\(A\)</span> a <span class="math inline">\(B^C\)</span> nezávislé.</p>
 </div>
-<div class="exercise" name="*">
-<p>Nájdite taký príklad pravdepodobnostného priestoru a udalostí <span class="math inline">\(A_1, A_2, A_3\)</span>, kde súčasne platí</p>
+<div id="exr-" class="theorem exercise">
+<p><span class="theorem-title"><strong>Cvičenie 3.4 (*Nezávislosti)</strong></span> Nájdite taký príklad pravdepodobnostného priestoru a udalostí <span class="math inline">\(A_1, A_2, A_3\)</span>, kde súčasne platí</p>
 <ul>
 <li><span class="math inline">\(A_1\)</span> a <span class="math inline">\(A_2\)</span> sú nezávislé,</li>
 <li><span class="math inline">\(A_2\)</span> a <span class="math inline">\(A_3\)</span> sú nezávislé,</li>
@@ -408,7 +413,7 @@ P(A) P(B)&amp;=&amp; P\left( \left(\frac{1}{2},\frac{3}{4}\right)  \right) P\lef
 </ul>
 </div>
 <div id="exr-" class="theorem exercise">
-<p><span class="theorem-title"><strong>Cvičenie 3.4</strong></span> Uveďte príklad pravdepododobnostného priestoru a nejakých udalostí <span class="math inline">\(A_1\)</span>, <span class="math inline">\(A_2\)</span>, <span class="math inline">\(A_3\)</span>, <span class="math inline">\(A_4\)</span> tak, aby platilo súčasne</p>
+<p><span class="theorem-title"><strong>Cvičenie 3.5</strong></span> Uveďte príklad pravdepododobnostného priestoru a nejakých udalostí <span class="math inline">\(A_1\)</span>, <span class="math inline">\(A_2\)</span>, <span class="math inline">\(A_3\)</span>, <span class="math inline">\(A_4\)</span> tak, aby platilo súčasne</p>
 <ul>
 <li><span class="math inline">\(P(A_1|A_2) &gt; P(A_1),\)</span></li>
 <li><span class="math inline">\(P(A_2|A_3) &gt; P(A_2),\)</span></li>
@@ -417,7 +422,7 @@ P(A) P(B)&amp;=&amp; P\left( \left(\frac{1}{2},\frac{3}{4}\right)  \right) P\lef
 <p>Ak sa to nedá, tak to dokážte.</p>
 </div>
 <div id="exr-" class="theorem exercise">
-<p><span class="theorem-title"><strong>Cvičenie 3.5</strong></span> Nech je</p>
+<p><span class="theorem-title"><strong>Cvičenie 3.6</strong></span> Nech je</p>
 <ul>
 <li>pravdepodobnosť, že sneží 20%,</li>
 <li>pravdepodobnosť nehody 10%,</li>
@@ -426,34 +431,34 @@ P(A) P(B)&amp;=&amp; P\left( \left(\frac{1}{2},\frac{3}{4}\right)  \right) P\lef
 <p>Aká je pravdepodobnosť, že sneží, ak vieme, že nastala nehoda?</p>
 </div>
 <div id="exr-" class="theorem exercise">
-<p><span class="theorem-title"><strong>Cvičenie 3.6</strong></span> Máme 3 bezpečnostné systémy, tri rôzne vrstvy ochrany nášho počítačového programu. Ak zlyhá prvý (s pravdepodobnosťou 0.03), aktivuje sa druhý, ktorý zlyhá s pravdepodobnosťou 0.01. V prípade zlyhania druhého je pravdepodobnosť zlyhania posledného 0.05. Aká je pravdepodobnosť, že zlyhajú všetky tri bezpečnostné systémy?</p>
+<p><span class="theorem-title"><strong>Cvičenie 3.7</strong></span> Máme 3 bezpečnostné systémy, tri rôzne vrstvy ochrany nášho počítačového programu. Ak zlyhá prvý (s pravdepodobnosťou 0.03), aktivuje sa druhý, ktorý zlyhá s pravdepodobnosťou 0.01. V prípade zlyhania druhého je pravdepodobnosť zlyhania posledného 0.05. Aká je pravdepodobnosť, že zlyhajú všetky tri bezpečnostné systémy?</p>
 </div>
 <div id="exr-" class="theorem exercise">
-<p><span class="theorem-title"><strong>Cvičenie 3.7</strong></span> Dve výrobné linky produkujú ten istý typ súčiastky. Prvá linka vyrobí 10000 súčiastok týždenne a 1000 je chybných. Druhá linka vyrobí 20000 súčiastok a z nich je 1500 chybných. Aká je šanca, že náhodne vybratá súčiastka bude chybná? Vybrali sme chybnú súčiastku. Aká je pravdepodobnosť, že pochádza z prvej výrobnej linky?</p>
+<p><span class="theorem-title"><strong>Cvičenie 3.8</strong></span> Dve výrobné linky produkujú ten istý typ súčiastky. Prvá linka vyrobí 10000 súčiastok týždenne a 1000 je chybných. Druhá linka vyrobí 20000 súčiastok a z nich je 1500 chybných. Aká je šanca, že náhodne vybratá súčiastka bude chybná? Vybrali sme chybnú súčiastku. Aká je pravdepodobnosť, že pochádza z prvej výrobnej linky?</p>
 </div>
 <div id="exr-" class="theorem exercise">
-<p><span class="theorem-title"><strong>Cvičenie 3.8</strong></span> Na západnom Slovensku (2.5mil. obyvateľov) má 33% ľudí VŠ vzdelanie, na stredom Slovensku (1.5mil. obyvateľov) má 20% ľudí VŠ vzdelanie a na východnom Slovensku (1.8mil. obyvateľov) je to 22%. Náhodne vybraný človek nemá VŠ vzdelanie. Aká je pravdepodobnosť, že pochádza zo západného Slovenska?</p>
+<p><span class="theorem-title"><strong>Cvičenie 3.9</strong></span> Na západnom Slovensku (2.5mil. obyvateľov) má 33% ľudí VŠ vzdelanie, na stredom Slovensku (1.5mil. obyvateľov) má 20% ľudí VŠ vzdelanie a na východnom Slovensku (1.8mil. obyvateľov) je to 22%. Náhodne vybraný človek nemá VŠ vzdelanie. Aká je pravdepodobnosť, že pochádza zo západného Slovenska?</p>
 </div>
 <div id="exr-" class="theorem exercise">
-<p><span class="theorem-title"><strong>Cvičenie 3.9</strong></span> Uvažuje test na tuberkulózu, ktorého senzitivita aj špecificita sú 99%. Skutočná prevalencia tuberkulózy v populácii nech je 0.00004. Aká je pravdepodobosť, že náhodne vybraný človek má tuberkulózu, ak má pozitívny test?</p>
+<p><span class="theorem-title"><strong>Cvičenie 3.10</strong></span> Uvažuje test na tuberkulózu, ktorého senzitivita aj špecificita sú 99%. Skutočná prevalencia tuberkulózy v populácii nech je 0.00004. Aká je pravdepodobosť, že náhodne vybraný človek má tuberkulózu, ak má pozitívny test?</p>
 </div>
 <div id="exr-" class="theorem exercise">
-<p><span class="theorem-title"><strong>Cvičenie 3.10</strong></span> Malá firma vyhodnotila, že so 75% svojich zamestnancov je spokojná. Zistilo sa, že z týchto malo až 80% predošlú pracovnú skúsenosť. Z tých ostatných zamestnancov, s ktorými firma nebola spokojná to bolo len 15%. Firma práve zamestnala nového pracovníka, ktorý mal predošlú pracovnú skúsenosť. Aká je pravdepodobnosť, že s ním firma nebude spokojná?</p>
+<p><span class="theorem-title"><strong>Cvičenie 3.11</strong></span> Malá firma vyhodnotila, že so 75% svojich zamestnancov je spokojná. Zistilo sa, že z týchto malo až 80% predošlú pracovnú skúsenosť. Z tých ostatných zamestnancov, s ktorými firma nebola spokojná to bolo len 15%. Firma práve zamestnala nového pracovníka, ktorý mal predošlú pracovnú skúsenosť. Aká je pravdepodobnosť, že s ním firma nebude spokojná?</p>
 </div>
 <div id="exr-" class="theorem exercise">
-<p><span class="theorem-title"><strong>Cvičenie 3.11</strong></span> Desať percent pacientov vstupujúcich na kliniku má poškodenú pečeň. Päť percent týchto pacientov je alkoholikov. Z tých pacientov, ktorí majú poškodenú pečeň, je 7% alkoholikov. Aká je pravdepdoobnosť, že pacient, ktorý je alkoholik má poškodenú pečeň?</p>
+<p><span class="theorem-title"><strong>Cvičenie 3.12</strong></span> Desať percent pacientov vstupujúcich na kliniku má poškodenú pečeň. Päť percent týchto pacientov je alkoholikov. Z tých pacientov, ktorí majú poškodenú pečeň, je 7% alkoholikov. Aká je pravdepdoobnosť, že pacient, ktorý je alkoholik má poškodenú pečeň?</p>
 </div>
 <div id="exr-" class="theorem exercise">
-<p><span class="theorem-title"><strong>Cvičenie 3.12</strong></span> Nech je pravdepodobnosť, že náš vlak bude meškať 60%. Aká je šanca, že prídeme tam aj späť načas, bez meškania?</p>
+<p><span class="theorem-title"><strong>Cvičenie 3.13</strong></span> Nech je pravdepodobnosť, že náš vlak bude meškať 60%. Aká je šanca, že prídeme tam aj späť načas, bez meškania?</p>
 </div>
 <div id="exr-" class="theorem exercise">
-<p><span class="theorem-title"><strong>Cvičenie 3.13</strong></span> Na pošte je dlhý rad. Pravdepodobnosť, že požiadavka každého čakajúceho bude vyriešená do 1 minúty je 10%. Aká je pravdepodobnosť, že každý zo 17 ľudí v rade predo mnou bude obslúžený do jednej minúty?</p>
+<p><span class="theorem-title"><strong>Cvičenie 3.14</strong></span> Na pošte je dlhý rad. Pravdepodobnosť, že požiadavka každého čakajúceho bude vyriešená do 1 minúty je 10%. Aká je pravdepodobnosť, že každý zo 17 ľudí v rade predo mnou bude obslúžený do jednej minúty?</p>
 </div>
 <div id="exr-" class="theorem exercise">
-<p><span class="theorem-title"><strong>Cvičenie 3.14</strong></span> Na predpandemickej párty (offline) sa stretne <span class="math inline">\(n\)</span> ľudí. Aké je najmenšie <span class="math inline">\(n\)</span> také, aby bola šanca, že aspoň jedna dvojica má narodeniny v ten istý deň väčšia ako 50? (Pomôcka: samozrejme prekvapivo malá, inak by sa to nevolalo <em>paradox</em>.) Predpokladajme, že každý jeden človek má pravdepodobnosť práve <span class="math inline">\(\frac{1}{365},\)</span> že sa narodí v nejaký konkrétny deň, ignorujúc prestupné roky.</p>
+<p><span class="theorem-title"><strong>Cvičenie 3.15 (Narodeninový paradox)</strong></span> Na predpandemickej párty (offline) sa stretne <span class="math inline">\(n\)</span> ľudí. Aké je najmenšie <span class="math inline">\(n\)</span> také, aby bola šanca, že aspoň jedna dvojica má narodeniny v ten istý deň väčšia ako 50? (Pomôcka: ehm, áno, samozrejme prekvapivo malá, inak by sa to nevolalo <em>paradox</em>.) Predpokladajme, že každý jeden človek má pravdepodobnosť práve <span class="math inline">\(\frac{1}{365},\)</span> že sa narodí v nejaký konkrétny deň, ignorujúc prestupné roky.</p>
 </div>
 <div id="exr-" class="theorem exercise">
-<p><span class="theorem-title"><strong>Cvičenie 3.15</strong></span> Kedysi išla v televízii nasledovná súťaž o auto. Boli troje dverí, A, B, C. Za dvoma z týchto troch dverí bola koza, za jednými dverami bolo auto. Súťažiaci si vybral jednu z týchto dvoch dverí. Moderátor potom otvoril jedny z tých dvoch dverí, ktoré si súťažiaci nevybral a za nimi bola vždy koza. Zostali tak už iba dvoje dverí. Súťažiaci si v druhom kole mohol vybrať z dvoch možností: (1) zostane na svojom pôvodnom tipe, (2) zmení svoje rozhodnutie na tie druhé dvere, ktoré ešte ostali neotvorené.</p>
+<p><span class="theorem-title"><strong>Cvičenie 3.16 (Monty Hall problém)</strong></span> Kedysi išla v televízii nasledovná súťaž o auto. Boli troje dverí, A, B, C. Za dvoma z týchto troch dverí bola koza, za jednými dverami bolo auto. Súťažiaci si vybral jednu z týchto dvoch dverí. Moderátor potom otvoril jedny z tých dvoch dverí, ktoré si súťažiaci nevybral a za nimi bola vždy koza. Zostali tak už iba dvoje dverí. Súťažiaci si v druhom kole mohol vybrať z dvoch možností: (1) zostane na svojom pôvodnom tipe, (2) zmení svoje rozhodnutie na tie druhé dvere, ktoré ešte ostali neotvorené.</p>
 <p>Ktorá z možností (1) alebo (2) je lepšia? Alebo sú rovnocenné?</p>
 </div>
 <div class="callout callout-style-default callout-note callout-titled">
@@ -470,109 +475,140 @@ Poznámka
 </div>
 </div>
 <div id="exr-" class="theorem exercise">
-<p><span class="theorem-title"><strong>Cvičenie 3.16</strong></span> V rodine sú dve deti. Vieme, že jedno z nich je dievča. Aká je pravdepodobnosť, že obe sú dievčatá?</p>
+<p><span class="theorem-title"><strong>Cvičenie 3.17 (**Deti)</strong></span> V rodine sú dve deti. Vieme, že jedno z nich je dievča. Aká je pravdepodobnosť, že obe sú dievčatá?</p>
 <p>V rodine sú dve deti. Jedno dieťa sa volá Gertrúda. Aká je pravdepodobnosť, že obe sú dievčatá?</p>
+</div>
+</section>
+<section id="ďalšie-cvičenia" class="level2" data-number="3.7">
+<h2 data-number="3.7" class="anchored" data-anchor-id="ďalšie-cvičenia"><span class="header-section-number">3.7</span> Ďalšie cvičenia</h2>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Pozrieť si to?
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Nasledujúce príklady boli v minulých rokoch súčasťou povinných a hodnotených domácich úloh. Domáce úlohy sú však tento rok nepovinné. Tieto však budú stále užitočné pre porozumenie učiva a pomôžu Vám nakalibrovať sa, aká úroveň porozumenia sa od Vás približne očakáva.</p>
+</div>
 </div>
 <!-- ## Domáca úloha 2 {-} -->
 <!-- Prosím odovzdať do 28.2.2024 19:59 cez formulár (tento Vám príde emailom). Výnimky len vo vážnych prípadoch a len ak sú komunikované dopredu. -->
 <!-- V riešeniach používajte prosím plnovýznamové vety a nahrávajte riešenia v jednom `pdf` súbore nazvanom podľa Vašich priezvísk v tvare `DU2_priezvisko1_priezvisko2.pdf` (napríklad `DU2_Kovacova_Zelinka.pdf`). -->
-<!-- ::: {.exercise name="DÚ 2.1"} -->
-<!-- Pravdepodobnosť, že prší, je 30%. -->
-<!-- Pravdepodobnosť, že nestihneme ranné cvičenia, je 10%. -->
-<!-- Pravdepodobnosť, že nestihneme ranné cvičenia, ak prší, je 30%. -->
-<!-- Aká je pravdepodobnosť, že prší ak meškáme na ranné cvičenia? -->
-<!-- ::: -->
-<!-- ::: {.exercise name="DÚ 2.2"} -->
-<!-- Hodíme dvakrát férovou kockou, jedna je červená a druhá modrá. Nech teraz -->
-<!-- * $A$ označuje udalosť, že na oboch kockách padne také isté číslo, -->
-<!-- * $B$ označuje udalosť, že súčet na oboch kockách je 12, -->
-<!-- * $C$ označuje udalosť, že na červenej kocke padne číslo 4, -->
-<!-- * $D$ označuje udalosť, že na modrej kocke padne číslo 4. -->
-<!-- Odpovedzte na nasledujúce otázky: -->
-<!-- * Sú $A$ a $B$ nezávislé? -->
-<!-- * Sú $A$ a $C$ nezávislé? -->
-<!-- * Sú $A$ a $D$ nezávislé? -->
-<!-- * Sú $C$ a $D$ nezávislé? -->
-<!-- * Je súbor udalostí $A,C$ a $D$ nezávislý? -->
-<!-- ::: -->
-<!-- ::: {.exercise name="DÚ 2.3"} -->
-<!-- Nech $A$ a $B$ sú udalosti s kladnou pravdepodobnosťou. Ukážte, že platí  -->
-<!-- $P(A|B) > P(A)$ práve vtedy a len vtedy, keď platí $P(B|A) > P(B).$ -->
-<!-- ::: -->
-<!-- ::: {.exercise name="DÚ 2.4"} -->
-<!-- Uvažuje test na špecifický typ chrípky, ktorého senzitivita je 93\% aj špecificita je 95\%. Skutočná prevalencia tejto chrípky v populácii nech je 0.0002.  -->
-<!-- * Aká je pravdepodobosť, že náhodne vybraný človek má tento typ chrípky, ak má pozitívny test? -->
-<!-- * Ako by sa musela zvýšiť špecificita tohoto testu na to, aby táto pravdepodobnosť bola väčšia ako 80\% ? -->
-<!-- * Aká je pravdepodobosť, že náhodne vybraný človek nemá tento typ chrípky, ak má negatívny test? -->
-<!-- (Nenechávajte výsledok v tvare zlomku ale dosaďte a vypočítajte tie pravdepodobnosti.) -->
-<!-- ::: -->
-<!-- ::: {.exercise name="DÚ 2.5"} -->
-<!-- Nájdite taký príklad pravdepodobnostného priestoru a udalostí $A_1, A_2, A_3$, kde súčasne platí -->
-<!-- * $A_1$ a $A_2$ sú nezávislé, -->
-<!-- * $A_2$ a $A_3$ sú nezávislé, -->
-<!-- * $A_1$ a $A_3$ sú nezávislé, -->
-<!-- * $A_1, A_2, A_3$ nie sú nezávislé (t.j. nie je pravda, že súbor udalostí $A_1, A_2, A_3$ je nezávislý). -->
-<!-- ::: -->
-<!-- ::: {.exercise name="DÚ 2.6 (Bonus)"} -->
-<!-- Navrhnite stratégiu, ktorou budete vyhrávať v Monty Hall súťaži s pravdepodobnosťou $\frac{\pi}{6}$. -->
-<!-- ::: -->
-<!-- ::: {.exercise name="DÚ 3.1"} -->
-<!-- Aká je hodnota $P(A|B)$, ak vieme, že $A \subset B$ a $P(B) >0$? -->
-<!-- ::: -->
-<!-- ::: {.exercise name="DÚ 3.2"} -->
-<!-- Pravdepodobnosť, že prší, je 30%. -->
-<!-- Pravdepodobnosť, že nestihneme autobus, je 2%. -->
-<!-- Pravdepodobnosť, že nestihneme autobus, ak prší, je 60%. -->
-<!-- Autobus sme stihli. Aká je pravdepodobnosť, že prší? -->
-<!-- ::: -->
-<!-- ::: {.exercise name="DÚ 3.3"} -->
-<!-- Vo firme máme 3 rôzne pozície. Na pozícii "vedúci" je 10 ľudí, z toho 3 ženy. Na pozícii "štatistik" je 80 ľudí, z toho 55 žien. Na pozícii "programátor" je 120 zamestnancov, z toho 35 je žien. -->
-<!-- (a) Určte pravdepodobnosť, že náhodne vybratý zamestnanec je žena. -->
-<!-- (b) Náhodne vyberieme osobu na konferenciu a je to muž. Aká je pravdepodobnosť, že to je vedúci? -->
-<!-- ::: -->
-<!-- ::: {.exercise name="DÚ 3.4"} -->
-<!-- Poznáme hodnoty $P(A)$, $P(A^C),$ $P(B|A)$ a $P(B|A^C).$ Pomocou týchto hodnôt vyjadrite $P(A|B).$ -->
-<!-- ::: -->
-<!-- ::: {.exercise name="DÚ 3.5"} -->
-<!-- Nech $A$, $B$ sú nezávislé udalosti a $P(B) < 1$. -->
-<!-- Vyberte správnu možnosť a zdôvodnite. -->
-<!-- (a) $P\left(A^C | B^C\right) = P\left(B^C\right)$. -->
-<!-- (b) $P\left(A^C | B^C\right) = P\left(A\right)$. -->
-<!-- (c) $P\left(A^C | B^C\right) = P\left(A^C\right)$. -->
-<!-- (d) $P\left(A^C | B^C\right) = P\left(B\right)$. -->
-<!-- ::: -->
-<!-- ::: {.exercise name="DÚ 3.6"} -->
-<!-- Pravdepodobnosť, že vyhráte na výhernom automate, je 0.02. -->
-<!-- Hráte 50 krát. -->
-<!-- (a) Aká je pravdepodobnosť, že vyhráte presne raz? -->
-<!-- (b) Aká je pravdepodobnosť, že vyhráte aspoň raz? -->
-<!-- (c) Koľkokrát by ste museli hrať, aby pravdepodobnosť, že vyhráte aspoň raz, bola aspoň 0.9? -->
-<!-- ::: -->
-<!-- ## Domáca úloha 2 {-} -->
-<!-- ::: {.exercise name="DÚ 2.1"} -->
-<!-- Poznáme hodnoty $P(A)$, $P(A^C),$ $P(B|A)$ a $P(B|A^C).$ Pomocou týchto hodnôt vyjadrite $P(A|B).$ -->
-<!-- ::: -->
-<!-- ::: {.exercise name="DÚ 2.2"} -->
-<!-- Nech je  -->
-<!-- * pravdepodobnosť, že prší 30\%, -->
-<!-- * pravdepodobnosť, že dážďovky vylezú von 10\%, -->
-<!-- * podmienená pravdepodobnosť, že dážďovky vylezú von, ak prší 80\%. -->
-<!-- Aká je pravdepodobnosť, že prší, ak vieme, že dážďovky nevyliezli von? -->
-<!-- ::: -->
-<!-- ::: {.exercise name="DÚ 2.3"} -->
-<!-- Desať percent pacientov vstupujúcich na kliniku má poškodenú pečeň. Päť percent pacientov vstupujúcich na kliniku je alkoholikov. Z tých pacientov, ktorí majú poškodenú pečeň, je 7\% alkoholikov. Aká je pravdepdoobnosť, že pacient, ktorý je alkoholik má poškodenú pečeň? -->
-<!-- ::: -->
-<!-- ::: {.exercise name="DÚ 2.4"} -->
-<!-- Majme SPAM filter fungujúci na detekcii podozrivých fráz. Nech je pravdepodobnosť vyskytnutia frázy "Vyhrali ste!" vo vzorke emailov $10^{-6}.$ Z pomedzi emailov, ktoré musí SPAM filter odfiltrovať je 20\% SPAMu. Vieme, že spomedzi SPAMových emailov sa fráza "Vyhrali ste!" nachádzala v troch emailoch z milióna. -->
-<!-- Aká je pravdepodobnosť, že náhodne vybratý email v ktorom je fráza "Vyhrali ste!" je SPAM? -->
-<!-- ::: -->
-<!-- ::: {.exercise name="DÚ 2.5"} -->
-<!-- Nech $A,B,C$ sú nejaké udalosti a nech $P(C)>0$. Ukážte, že platí -->
-<!-- $$P(A\cap B^C|C)= P(A|C) - P(A \cap B|C).$$ -->
-<!-- ::: -->
-<!-- ::: {.exercise name="DÚ 2.6"} -->
-<!--  Uvažujme test, ktorý vôbec nefunguje. To znamená, že výsledok testu je nezávislý od toho, či je človek chorý alebo nie. Ilustrujte túto situáciu na podobnom obrázku ako je  @ref(fig:bayes). -->
-<!-- ::: -->
+<div id="exr-" class="theorem exercise">
+<p><span class="theorem-title"><strong>Cvičenie 3.18</strong></span> Pravdepodobnosť, že prší, je 30%.</p>
+<p>Pravdepodobnosť, že nestihneme ranné cvičenia, je 10%.</p>
+<p>Pravdepodobnosť, že nestihneme ranné cvičenia, ak prší, je 30%.</p>
+<p>Aká je pravdepodobnosť, že prší ak meškáme na ranné cvičenia?</p>
+</div>
+<div id="exr-" class="theorem exercise">
+<p><span class="theorem-title"><strong>Cvičenie 3.19</strong></span> Hodíme dvakrát férovou kockou, jedna je červená a druhá modrá. Nech teraz</p>
+<ul>
+<li><p><span class="math inline">\(A\)</span> označuje udalosť, že na oboch kockách padne také isté číslo,</p></li>
+<li><p><span class="math inline">\(B\)</span> označuje udalosť, že súčet na oboch kockách je 12,</p></li>
+<li><p><span class="math inline">\(C\)</span> označuje udalosť, že na červenej kocke padne číslo 4,</p></li>
+<li><p><span class="math inline">\(D\)</span> označuje udalosť, že na modrej kocke padne číslo 4.</p></li>
+</ul>
+<p>Odpovedzte na nasledujúce otázky:</p>
+<ul>
+<li><p>Sú <span class="math inline">\(A\)</span> a <span class="math inline">\(B\)</span> nezávislé?</p></li>
+<li><p>Sú <span class="math inline">\(A\)</span> a <span class="math inline">\(C\)</span> nezávislé?</p></li>
+<li><p>Sú <span class="math inline">\(A\)</span> a <span class="math inline">\(D\)</span> nezávislé?</p></li>
+<li><p>Sú <span class="math inline">\(C\)</span> a <span class="math inline">\(D\)</span> nezávislé?</p></li>
+<li><p>Je súbor udalostí <span class="math inline">\(A,C\)</span> a <span class="math inline">\(D\)</span> nezávislý?</p></li>
+</ul>
+</div>
+<div id="exr-" class="theorem exercise">
+<p><span class="theorem-title"><strong>Cvičenie 3.20</strong></span> Nech <span class="math inline">\(A\)</span> a <span class="math inline">\(B\)</span> sú udalosti s kladnou pravdepodobnosťou. Ukážte, že platí</p>
+<p><span class="math inline">\(P(A|B) &gt; P(A)\)</span> práve vtedy a len vtedy, keď platí <span class="math inline">\(P(B|A) &gt; P(B).\)</span></p>
+</div>
+<div id="exr-" class="theorem exercise">
+<p><span class="theorem-title"><strong>Cvičenie 3.21</strong></span> Uvažuje test na špecifický typ chrípky, ktorého senzitivita je 93% aj špecificita je 95%. Skutočná prevalencia tejto chrípky v populácii nech je 0.0002.</p>
+<ul>
+<li><p>Aká je pravdepodobosť, že náhodne vybraný človek má tento typ chrípky, ak má pozitívny test?</p></li>
+<li><p>Ako by sa musela zvýšiť špecificita tohoto testu na to, aby táto pravdepodobnosť bola väčšia ako 80% ?</p></li>
+<li><p>Aká je pravdepodobosť, že náhodne vybraný človek nemá tento typ chrípky, ak má negatívny test?</p></li>
+</ul>
+<p>(Nenechávajte výsledok v tvare zlomku ale dosaďte a vypočítajte tie pravdepodobnosti.)</p>
+</div>
+<div id="exr-" class="theorem exercise">
+<p><span class="theorem-title"><strong>Cvičenie 3.22</strong></span> Nájdite taký príklad pravdepodobnostného priestoru a udalostí <span class="math inline">\(A_1, A_2, A_3\)</span>, kde súčasne platí</p>
+<ul>
+<li><p><span class="math inline">\(A_1\)</span> a <span class="math inline">\(A_2\)</span> sú nezávislé,</p></li>
+<li><p><span class="math inline">\(A_2\)</span> a <span class="math inline">\(A_3\)</span> sú nezávislé,</p></li>
+<li><p><span class="math inline">\(A_1\)</span> a <span class="math inline">\(A_3\)</span> sú nezávislé,</p></li>
+<li><p><span class="math inline">\(A_1, A_2, A_3\)</span> nie sú nezávislé (t.j. nie je pravda, že súbor udalostí <span class="math inline">\(A_1, A_2, A_3\)</span> je nezávislý).</p></li>
+</ul>
+</div>
+<div id="exr-" class="theorem exercise">
+<p><span class="theorem-title"><strong>Cvičenie 3.23</strong></span> Navrhnite stratégiu, ktorou budete vyhrávať v Monty Hall súťaži s pravdepodobnosťou <span class="math inline">\(\frac{\pi}{6}\)</span>.</p>
+</div>
+<div id="exr-" class="theorem exercise">
+<p><span class="theorem-title"><strong>Cvičenie 3.24</strong></span> Aká je hodnota <span class="math inline">\(P(A|B)\)</span>, ak vieme, že <span class="math inline">\(A \subset B\)</span> a <span class="math inline">\(P(B) &gt;0\)</span>?</p>
+</div>
+<div id="exr-" class="theorem exercise">
+<p><span class="theorem-title"><strong>Cvičenie 3.25</strong></span> Pravdepodobnosť, že prší, je 30%.</p>
+<p>Pravdepodobnosť, že nestihneme autobus, je 2%.</p>
+<p>Pravdepodobnosť, že nestihneme autobus, ak prší, je 60%.</p>
+<p>Autobus sme stihli. Aká je pravdepodobnosť, že prší?</p>
+</div>
+<div id="exr-" class="theorem exercise">
+<p><span class="theorem-title"><strong>Cvičenie 3.26</strong></span> Vo firme máme 3 rôzne pozície. Na pozícii “vedúci” je 10 ľudí, z toho 3 ženy. Na pozícii “štatistik” je 80 ľudí, z toho 55 žien. Na pozícii “programátor” je 120 zamestnancov, z toho 35 je žien.</p>
+<ol type="a">
+<li><p>Určte pravdepodobnosť, že náhodne vybratý zamestnanec je žena.</p></li>
+<li><p>Náhodne vyberieme osobu na konferenciu a je to muž. Aká je pravdepodobnosť, že to je vedúci?</p></li>
+</ol>
+</div>
+<div id="exr-" class="theorem exercise">
+<p><span class="theorem-title"><strong>Cvičenie 3.27</strong></span> Poznáme hodnoty <span class="math inline">\(P(A)\)</span>, <span class="math inline">\(P(A^C),\)</span> <span class="math inline">\(P(B|A)\)</span> a <span class="math inline">\(P(B|A^C).\)</span> Pomocou týchto hodnôt vyjadrite <span class="math inline">\(P(A|B).\)</span></p>
+</div>
+<div id="exr-" class="theorem exercise">
+<p><span class="theorem-title"><strong>Cvičenie 3.28</strong></span> Nech <span class="math inline">\(A\)</span>, <span class="math inline">\(B\)</span> sú nezávislé udalosti a <span class="math inline">\(P(B) &lt; 1\)</span>.</p>
+<p>Vyberte správnu možnosť a zdôvodnite.</p>
+<ol type="a">
+<li><p><span class="math inline">\(P\left(A^C | B^C\right) = P\left(B^C\right)\)</span>.</p></li>
+<li><p><span class="math inline">\(P\left(A^C | B^C\right) = P\left(A\right)\)</span>.</p></li>
+<li><p><span class="math inline">\(P\left(A^C | B^C\right) = P\left(A^C\right)\)</span>.</p></li>
+<li><p><span class="math inline">\(P\left(A^C | B^C\right) = P\left(B\right)\)</span>.</p></li>
+</ol>
+</div>
+<div id="exr-" class="theorem exercise">
+<p><span class="theorem-title"><strong>Cvičenie 3.29</strong></span> Pravdepodobnosť, že vyhráte na výhernom automate, je 0.02.</p>
+<p>Hráte 50 krát.</p>
+<ol type="a">
+<li><p>Aká je pravdepodobnosť, že vyhráte presne raz?</p></li>
+<li><p>Aká je pravdepodobnosť, že vyhráte aspoň raz?</p></li>
+<li><p>Koľkokrát by ste museli hrať, aby pravdepodobnosť, že vyhráte aspoň raz, bola aspoň 0.9?</p></li>
+</ol>
+</div>
+<div id="exr-" class="theorem exercise">
+<p><span class="theorem-title"><strong>Cvičenie 3.30</strong></span> Poznáme hodnoty <span class="math inline">\(P(A)\)</span>, <span class="math inline">\(P(A^C),\)</span> <span class="math inline">\(P(B|A)\)</span> a <span class="math inline">\(P(B|A^C).\)</span> Pomocou týchto hodnôt vyjadrite <span class="math inline">\(P(A|B).\)</span></p>
+</div>
+<div id="exr-" class="theorem exercise">
+<p><span class="theorem-title"><strong>Cvičenie 3.31</strong></span> Nech je</p>
+<ul>
+<li><p>pravdepodobnosť, že prší 30%,</p></li>
+<li><p>pravdepodobnosť, že dážďovky vylezú von 10%,</p></li>
+<li><p>podmienená pravdepodobnosť, že dážďovky vylezú von, ak prší 80%.</p></li>
+</ul>
+<p>Aká je pravdepodobnosť, že prší, ak vieme, že dážďovky nevyliezli von?</p>
+</div>
+<div id="exr-" class="theorem exercise">
+<p><span class="theorem-title"><strong>Cvičenie 3.32</strong></span> Desať percent pacientov vstupujúcich na kliniku má poškodenú pečeň. Päť percent pacientov vstupujúcich na kliniku je alkoholikov. Z tých pacientov, ktorí majú poškodenú pečeň, je 7% alkoholikov. Aká je pravdepdoobnosť, že pacient, ktorý je alkoholik má poškodenú pečeň?</p>
+</div>
+<div id="exr-" class="theorem exercise">
+<p><span class="theorem-title"><strong>Cvičenie 3.33</strong></span> Majme SPAM filter fungujúci na detekcii podozrivých fráz. Nech je pravdepodobnosť vyskytnutia frázy “Vyhrali ste!” vo vzorke emailov <span class="math inline">\(10^{-6}.\)</span> Z pomedzi emailov, ktoré musí SPAM filter odfiltrovať je 20% SPAMu. Vieme, že spomedzi SPAMových emailov sa fráza “Vyhrali ste!” nachádzala v troch emailoch z milióna.</p>
+<p>Aká je pravdepodobnosť, že náhodne vybratý email v ktorom je fráza “Vyhrali ste!” je SPAM?</p>
+</div>
+<div id="exr-" class="theorem exercise">
+<p><span class="theorem-title"><strong>Cvičenie 3.34</strong></span> Nech <span class="math inline">\(A,B,C\)</span> sú nejaké udalosti a nech <span class="math inline">\(P(C)&gt;0\)</span>. Ukážte, že platí</p>
+<p><span class="math display">\[P(A\cap B^C|C)= P(A|C) - P(A \cap B|C).\]</span></p>
+</div>
+<div id="exr-" class="theorem exercise">
+<p><span class="theorem-title"><strong>Cvičenie 3.35</strong></span> Uvažujme test, ktorý vôbec nefunguje. To znamená, že výsledok testu je nezávislý od toho, či je človek chorý alebo nie. Ilustrujte túto situáciu na podobnom obrázku ako je <a href="#fig-bayes" class="quarto-xref">Obrázok&nbsp;<span>3.1</span></a>.</p>
+</div>
 
 
 </section>
@@ -580,12 +616,11 @@ Poznámka
 <hr>
 <ol>
 <li id="fn1"><p>Neskôr, ale v inom kurze sa dozvieme, že sa dá podmieňovať aj udalosťami, ktorých pravdepodobnosť je priamo nula. Toto je zaujímavé uvažovať vo finančných aplikáciách. Kým pravdepodobnosť, že v nejakom konkrétnom okamihu bude cena ropy <em>presne</em> 100$ za barel je nula, neznamená to, že je neužitočné uvažovať o tom, aká by bola pravdepodobnosť nejakej inej udalosti, ak by cena ropy naozaj bola <em>práve</em> 100$ za barel. A presne na to nám bude treba poznať trochu viacej štruktúry ako sa učíme teraz.<a href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
-<li id="fn2"><p>Update 18.2.2022: Bronz nie je až taký márny.<a href="#fnref2" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
-<li id="fn3"><p>Akonáhle máme udalosti poriadne označené, polovicu riešenia máme za sebou. Tento prechod od písaného textu do matematického zápisu je kľúčový ale našťastie sa dá do veľkej miery natrénovať.<a href="#fnref3" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
-<li id="fn4"><p>Tieto čísla sú veľmi blízke tým zo skríningového testovania na školách na COVID19 v ČR v januári 2022.<a href="#fnref4" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
-<li id="fn5"><p>Skríningové testovanie sa odporúča aj pri niektorých typoch rakoviny, kde je skoré zachytenie dôležité pre dobrú prognózu. Vždy však treba brať do úvahy náklady spojené s množstvom falošne pozitívnych prípadov alebo s množstvom prípadov, kde pacient podstúpil náročnú liečbu napriek tomu, že by sa rakovina nemusela počas celého života pretaviť do problémov (keď človek umrie na inú diagnózu).<a href="#fnref5" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
-<li id="fn6"><p>Pravdepodobnosť na takomto pravdepodobnostnom priestore sa nazýva <em>Lebesgueova miera</em> na <span class="math inline">\([0,1]\)</span> a v tomto prípade platí <span class="math inline">\(\mathcal{F} \neq 2^{\Omega}\)</span> a <span class="math inline">\(\mathcal{F}\)</span> je množina Lebesgueovsky merateľných množín. Do väčších podrobností sa zahĺbite v rámci kurzov <em>Teória miery a integrálu</em> a <em>Teória pravdepodobnosti</em>.<a href="#fnref6" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
-<li id="fn7"><p>Neskôr sa tiež dozvieme, že množina podmnožín <span class="math inline">\(\Omega\)</span>, teda <span class="math inline">\(\mathcal{F},\)</span> môže byť pri podmieňovaní vo všeobecnosti menšia ako celá množina všetkých podmnožín <span class="math inline">\(2^{\Omega}.\)</span><a href="#fnref7" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn2"><p>Akonáhle máme udalosti poriadne označené, polovicu riešenia máme za sebou. Tento prechod od písaného textu do matematického zápisu je kľúčový ale našťastie sa dá do veľkej miery natrénovať.<a href="#fnref2" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn3"><p>Tieto čísla sú veľmi blízke tým zo skríningového testovania na školách na COVID19 v ČR v januári 2022.<a href="#fnref3" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn4"><p>Skríningové testovanie sa odporúča aj pri niektorých typoch rakoviny, kde je skoré zachytenie dôležité pre dobrú prognózu. Vždy však treba brať do úvahy náklady spojené s množstvom falošne pozitívnych prípadov alebo s množstvom prípadov, kde pacient podstúpil náročnú liečbu napriek tomu, že by sa rakovina nemusela počas celého života pretaviť do problémov (keď človek umrie na inú diagnózu).<a href="#fnref4" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn5"><p>Pravdepodobnosť na takomto pravdepodobnostnom priestore sa nazýva <em>Lebesgueova miera</em> na <span class="math inline">\([0,1]\)</span> a v tomto prípade platí <span class="math inline">\(\mathcal{F} \neq 2^{\Omega}\)</span> a <span class="math inline">\(\mathcal{F}\)</span> je množina Lebesgueovsky merateľných množín. Do väčších podrobností sa zahĺbite v rámci kurzov <em>Teória miery a integrálu</em> a <em>Teória pravdepodobnosti</em>.<a href="#fnref5" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn6"><p>Neskôr sa tiež dozvieme, že množina podmnožín <span class="math inline">\(\Omega\)</span>, teda <span class="math inline">\(\mathcal{F},\)</span> môže byť pri podmieňovaní vo všeobecnosti menšia ako celá množina všetkých podmnožín <span class="math inline">\(2^{\Omega}.\)</span><a href="#fnref6" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
 </ol>
 </section>
 
