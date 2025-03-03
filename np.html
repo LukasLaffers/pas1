@@ -215,6 +215,7 @@ window.Quarto = {
   <li><a href="#kumulatívna-distribučná-funkcia" id="toc-kumulatívna-distribučná-funkcia" class="nav-link" data-scroll-target="#kumulatívna-distribučná-funkcia"><span class="header-section-number">4.2</span> Kumulatívna distribučná funkcia</a></li>
   <li><a href="#zhrnutie" id="toc-zhrnutie" class="nav-link" data-scroll-target="#zhrnutie"><span class="header-section-number">4.3</span> Zhrnutie</a></li>
   <li><a href="#cvičenia" id="toc-cvičenia" class="nav-link" data-scroll-target="#cvičenia"><span class="header-section-number">4.4</span> Cvičenia</a></li>
+  <li><a href="#ďalšie-cvičenia" id="toc-ďalšie-cvičenia" class="nav-link" data-scroll-target="#ďalšie-cvičenia"><span class="header-section-number">4.5</span> Ďalšie cvičenia</a></li>
   </ul>
 </nav>
     </div>
@@ -241,7 +242,7 @@ window.Quarto = {
 
 
 <p>Doteraz sme si zadefinovali pravdepodobnostný priestor. Bola to trojica <span class="math inline">\((\Omega,\mathcal{F},P).\)</span> Kým <span class="math inline">\(\Omega\)</span> bola akákoľvek neprázdna množina, <span class="math inline">\(\mathcal{F}\)</span> aj <span class="math inline">\(P\)</span> museli spĺňať nejaké podmienky, napríklad <span class="math inline">\(P\)</span> musela byť spočitateľne aditívna.</p>
-<p>Prvky v množine <span class="math inline">\(\Omega\)</span> mohli byť úplne akékoľvek objekty, mohlo to byť číslo 5, mohol to byť symbol <span class="math inline">\(\omega_1\)</span>, slovo “zemiak”, obrázok domčeka alebo veta “na kocke padlo číslo 6”. Bolo to čokoľvek, čo opisovalo nejakú konkrétnu udalosť.</p>
+<p>Prvky v množine <span class="math inline">\(\Omega\)</span> mohli byť úplne akékoľvek objekty, mohlo to byť číslo 5, mohol to byť symbol <span class="math inline">\(\omega_1\)</span>, slovo “zemiak”, obrázok domčeka alebo veta “na kocke padlo číslo 6”. Bolo to čokoľvek, čo opisovalo to, čo mohlo nastať.</p>
 <p>Teraz sa ideme posunúť konceptuálne ďalej. Našou ambíciou bude kvantifikovať náhodnosť ešte podrobnejšie.</p>
 <p>V mnohých situáciách je užitočné nielen uvažovať, či nejaká udalosť nastane alebo nie.</p>
 <ul>
@@ -290,7 +291,7 @@ window.Quarto = {
 <p>Nie je. Množina <span class="math inline">\(\{X \leq 2.3\} = \{1,2\} \notin \mathcal{F^*}\)</span> a preto nespĺňa definíciu náhodnej premennej. V definícii sme zvolili <span class="math inline">\(x=2.3.\)</span></p>
 <p>Poučenie: kým množina udalostí <span class="math inline">\(\mathcal{F}\)</span> bola dosť veľká, pri <span class="math inline">\(\mathcal{F^*}\)</span> už nevieme priraďovať pravdepodobnosti hocijakým otázkam. Napriklad na to, aby sme vedeli priradiť pravdepodobnosť udalosti “Padne na kocke číslo menšie ako 2.3?” potrebujem, aby množina <span class="math inline">\(\{1,2\}\)</span> bola tiež udalosťou. Ale to pri <span class="math inline">\(\mathcal{F^*}\)</span> nie je. Množina udalostí <span class="math inline">\(\mathcal{F^*}\)</span> totiž vie jedine rozlišovať, či pádne párne <span class="math inline">\(\{2,4,6\} \in \mathcal{F^*}\)</span> alebo nepárne číslo <span class="math inline">\(\{1,3,5 \} \in \mathcal{F^*}\)</span>. Náhodnej premennej <span class="math inline">\(Y\)</span> to ale nevadí, lebo ona “zlepí” hodnoty <span class="math inline">\(1\)</span>, <span class="math inline">\(3\)</span> aj <span class="math inline">\(5\)</span> do hodnoty <span class="math inline">\(0\)</span>, lebo všetky tieto hodnoty sú pre ňu rovnako nepárne. <!-- MP: do hodnoty 0 nezlepi len 1, 3, 5?? --></p>
 </div>
-<div id="exm-" class="Example theorem example">
+<div id="exm-dvekocky" class="Example theorem example">
 <p><span class="theorem-title"><strong>Príklad 4.3</strong></span> Hádžeme dvoma férovými kockami. Označme <span class="math inline">\(\Omega = \{(1,1),(1,2),(1,3),(1,4),(1,5),(1,6),(2,1),(2,2),(2,3),\cdots, (6,5),(6,6)\},\)</span> kde napr. <span class="math inline">\((3,2)\)</span> značí, že na prvej kocke padlo číslo <span class="math inline">\(3\)</span> a na druhej kocke padlo číslo <span class="math inline">\(2\)</span>. Nech <span class="math inline">\(\mathcal{F} = 2^{\Omega}\)</span> a nech <span class="math inline">\(P(A) = \frac{|A|}{36}.\)</span> Označme písmenom <span class="math inline">\(X\)</span> náhodnú premennú, ktorá bude označovať súčet dvoch čísiel, ktoré padnú na kockách. Náhodná premenná <span class="math inline">\(X\)</span> priradí každému elementu <span class="math inline">\((k_1,k_2)\)</span> z <span class="math inline">\(\Omega\)</span> reálne číslo nasledovne: <span class="math inline">\(X((k_1,k_2)) = k_1 + k_2.\)</span></p>
 </div>
 </section>
@@ -349,7 +350,7 @@ window.Quarto = {
 </div>
 </div>
 </div>
-<div id="exm-" class="Example theorem example">
+<div id="exm-iq" class="Example theorem example">
 <p><span class="theorem-title"><strong>Príklad 4.6</strong></span> Predpokladajme, že náhodná premenná <span class="math inline">\(X\)</span> reprezentuje IQ v populácii, jej kumulatívna distribučná funkcia môže vyzerať napríklad takto:</p>
 </div>
 <div class="cell">
@@ -362,7 +363,7 @@ window.Quarto = {
 </div>
 </div>
 <!-- main = "Kumulatívna distribučná funkcia: hod dvomi kockou" :) :) -->
-<div id="exm-" class="Example theorem example">
+<div id="exm-velakociek" class="Example theorem example">
 <p><span class="theorem-title"><strong>Príklad 4.7</strong></span> Hádžeme sedemnástimi férovými kockami a máme náhodnú premennú súčet sedemnástich kociek <span class="math inline">\(X\)</span> ako v príklade @ref(exm:dvekocky), kde boli len dve.</p>
 </div>
 <div class="cell">
@@ -421,7 +422,7 @@ window.Quarto = {
 <li><span class="math inline">\(\mathcal{F} = 2^\Omega = 32\)</span>.</li>
 </ul>
 </div>
-<div id="exr-" class="Exercise theorem exercise">
+<div id="exr-mm" class="Exercise theorem exercise">
 <p><span class="theorem-title"><strong>Cvičenie 4.2</strong></span> Majme náhodnú premennú <span class="math inline">\(M\)</span>, ktorá nadobúda hodnoty <span class="math inline">\(1, 2, 3, \dots\)</span> s pravdepodobnosťami <span class="math inline">\(P(M=m) = \frac{1}{2^m}.\)</span></p>
 <ul>
 <li>Nájdite kumulatívnu distribučnú funkciu <span class="math inline">\(M\)</span>,</li>
@@ -432,7 +433,7 @@ window.Quarto = {
 <div id="exr-" class="Exercise theorem exercise">
 <p><span class="theorem-title"><strong>Cvičenie 4.3</strong></span> Overte, či nasledujúce funkcie môžu byť kumulatívnou distribučnou funkciou.</p>
 <ul>
-<li><span class="math inline">\(F(x) = \begin{cases}  1-4^{-x} &amp; \text{ak } x \geq 0, \\  0 &amp; \text{ak } x &lt; 0,  \end{cases}\)</span></li>
+<li><span class="math inline">\(F(x) = \begin{array}{ll} 1 - 4^{-x}, &amp; \text{ak } x \geq 0, \\0, &amp; \text{ak } x &lt; 0. \end{array}\)</span></li>
 <li><span class="math inline">\(F(x) = \begin{cases} 0&amp;\text{pre $x&lt;a$},\\ \frac{x-a}{b-a}&amp;\text{pre $x\in[a,b)$},\\ 1&amp;\text{pre $x\ge b$},\\ \end{cases}\)</span></li>
 <li><span class="math inline">\(F(x) = \frac{e^x}{1+e^x},\)</span></li>
 <li><span class="math inline">\(F(k) = \sum_{i=1}^k \frac{1}{2^k},\)</span></li>
@@ -475,119 +476,122 @@ window.Quarto = {
 <li><span class="math inline">\(P(Y+Z=v)\)</span> pre všetky reálne čísla <span class="math inline">\(v \in \mathbb{R}\)</span>.</li>
 </ul>
 </div>
+<div id="exr-" class="theorem exercise">
+<p><span class="theorem-title"><strong>Cvičenie 4.9</strong></span> Označme číslo, ktoré padne na falošnej kocke, na ktorej padá 6ka dvakrát tak často ako iné čísla, ako <span class="math inline">\(X.\)</span> Zobrazte kumulatívnu distribučnú funkciu náhodnej premennej <span class="math inline">\(X\)</span>.</p>
+</div>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-1-contents" aria-controls="callout-1" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Niektoré riešenia
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-1" class="callout-1-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p><a href="#exr-mm" class="quarto-xref">Cvičenie&nbsp;<span>4.2</span></a></p>
+<ul>
+<li><span class="math inline">\(F_M(n) = P(M\leq x) = \sum_{m = 1}^{n} \frac{1}{2^m},\)</span> pre <span class="math inline">\(n \in \mathbb{N}\)</span></li>
+<li><span class="math inline">\(P(3 &lt; M \leq 7) = F_M(7) - F_M(3) =\sum_{m = 1}^{7} \frac{1}{2^m} - \sum_{m = 1}^{3} \frac{1}{2^m} = \frac{1}{2^7} + \frac{1}{2^6} + \frac{1}{2^5} + \frac{1}{2^4}\)</span></li>
+<li><span class="math inline">\(P(M &gt; 3) = 1 - P(M \leq 2) = 1 - \frac{1}{2^1} - \frac{1}{2^2} = \frac{1}{4}.\)</span></li>
+</ul>
+</div>
+</div>
+</div>
+</section>
+<section id="ďalšie-cvičenia" class="level2" data-number="4.5">
+<h2 data-number="4.5" class="anchored" data-anchor-id="ďalšie-cvičenia"><span class="header-section-number">4.5</span> Ďalšie cvičenia</h2>
 <!-- ## Domáca úloha 3 {-}  -->
 <!-- Prosím odovzdať do 6.3.2024 19:59 cez formulár (tento Vám príde emailom a je aj na stránke kurzu, kde sú tiež priebežné výsledky). Výnimky len vo vážnych prípadoch a len ak sú komunikované dopredu. -->
 <!-- V riešeniach používajte prosím plnovýznamové vety a nahrávajte riešenia v jednom `pdf` súbore nazvanom podľa Vašich priezvísk v tvare `DU3_priezvisko1_priezvisko2.pdf` (napríklad `DU3_Kovacova_Zelinka.pdf`). -->
-<!-- ::: {.exercise name="DÚ 4.1 krížovka"} -->
-<!-- Majme náhodnú premennú $X$ na pravdepodobnostnom priestore $(\Omega, \mathcal{F},P).$ -->
-<!-- Kde $\Omega = \{w_1,w_2,w_3,w_4\}$ a $\mathcal{F} = 2^{\Omega}$. -->
-<!-- Doplňte: -->
-<!-- * Pravdepodobnosť je funkcia $P: \ \ \ \ \ \ \ \ \rightarrow \ \ \ \ \ \ \ \  \ .$ -->
-<!-- * Náhodná premenná $Y$ na pravdepodobnostnom priestore $(\ \ \ \ \ , \mathcal{F},P)$ je funkcia $Y: \ \ \ \ \ \ \rightarrow \ \ \ \ \ \,$ pre ktorú platí, že $\{\omega \in \Omega: \ \ \ \ \ \ \leq y \} \in \ \ \ \ \ \ $, pre všetky $y \in \ \ \ \ \ $. -->
-<!-- * Kumulatívna distribučná funkcia náhodnej premennej $Z$ na pravdepodobnostnom priestore $(\Omega, \mathcal{F},P)$ je funkcia $F_Z: \ \ \ \ \ \rightarrow \ \ \ \ \ \ \ \ \ .$ -->
-<!-- Nehodiace sa preškrtnite a vysvetlite: -->
-<!-- * $w_2 \in \Omega$ alebo  $w_2 \subseteq \Omega,$ -->
-<!-- * $\{w_2\} \in \Omega$ alebo $\{w_2\} \subseteq \Omega,$ -->
-<!-- * $\{w_2\} \in \mathcal{F}$ alebo $\{w_2\} \subseteq \mathcal{F},$ -->
-<!-- * $\{w_1, w_2\} \in \mathcal{F}$ alebo $\{w_1, w_2\} \notin \mathcal{F},$ -->
-<!-- ::: -->
-<!-- ::: {.exercise name="DÚ 4.2 Premier league"} -->
-<!-- Majme pravdepodobnostný priestor, ktorý modeluje to, ako môže dopadnúť futbalový zápas, o ktorom vieme, že žiaden tím nedal viacej ako 3 góly: -->
-<!-- * $\Omega = \{3:0,3:1,3:2,0:3,1:3,2:3\}$, -->
-<!-- * $\mathcal{F_1} = 2^{\Omega}$, -->
-<!-- * $\mathcal{F_2} = \{\Omega, \emptyset, \{ 3:0,3:1,3:2 \}, \{0:3,1:3,2:3\}\}$, -->
-<!-- * $\mathcal{F_3} = \{\Omega, \emptyset, \{ 3:0\}, \{3:1,3:2,0:3,1:3,2:3\}\}$, -->
-<!-- * $\mathcal{F_4} = \{\Omega, \emptyset\}$. -->
-<!-- Vymyslite: -->
-<!-- * funkciu $X: \Omega \rightarrow \mathbb{R}$, ktorá je náhodnou premennou ak je priestor udalostí $\mathcal{F_3}$, ale nie je náhodnou premennou ak je priestor udalostí $\mathcal{F_2},$ -->
-<!-- * funkciu $Y: \Omega \rightarrow \mathbb{R}$, ktorá je náhodnou premennou ak je priestor udalostí $\mathcal{F_1}$, aj ak je priestor udalostí $\mathcal{F_2}.$ -->
-<!-- * funkciu $Z: \Omega \rightarrow \mathbb{R}$, ktorá je náhodnou premennou ak je priestor udalostí $\mathcal{F_1}$, ale nie je náhodnou premennou ak je priestor udalostí $\mathcal{F_2},$ -->
-<!-- * funkciu $S: \Omega \rightarrow \mathbb{R}$, ktorá je náhodnou premennou ak je priestor udalostí $\mathcal{F_1}$, aj ak je je priestor udalostí $\mathcal{F_2}$, aj ak je priestor udalostí $\mathcal{F_3}$. -->
-<!-- * funkciu $T: \Omega \rightarrow \mathbb{R}$, ktorá je náhodnou premennou ak je priestor udalostí $\mathcal{F_1}$, aj ak je je priestor udalostí $\mathcal{F_2}$, aj ak je priestor udalostí $\mathcal{F_3}$, aj ak je priestor udalostí $\mathcal{F_4}$. -->
-<!-- Svoje voľby **podrobne** zdôvodnite. -->
-<!-- ::: -->
-<!-- ::: {.exercise name="DÚ 4.3"} -->
-<!-- Overte, či nasledujúce funkcie môžu byť kumulatívnou distribučnou funkciou. -->
-<!-- * $F(x) = \begin{cases} -->
-<!-- 0&\text{pre $x<0$},\\ -->
-<!-- x^2/9&\text{pre $x\in[0,3]$},\\ -->
-<!-- 1&\text{pre $x > 3$},\\ -->
-<!-- \end{cases}$ -->
-<!-- * $F(x) = \begin{cases} -->
-<!-- 0&\text{pre $x<a$},\\ -->
-<!-- \frac{x-a}{2b-a}&\text{pre $x\in[a,2b)$},\\ -->
-<!-- 1&\text{pre $x\ge 2b$},\\ -->
-<!-- \end{cases}$   -->
-<!-- * $F(x) = \frac{e^x}{1+2e^x},$ -->
-<!-- * $F(x) =  \begin{cases} -->
-<!--        1-3^{-x} & \text{ak } x \geq 0, \\ -->
-<!--         0 & \text{ak } x < 0, -->
-<!--     \end{cases}$ -->
-<!-- * $F(k) = \frac{3}{\pi}\sum_{i=1}^k { \frac{1}{k^2}}.$ -->
-<!-- ::: -->
-<!-- ::: {.exercise name="DÚ 4.4"} -->
-<!-- Pre kumulatívnu distribučnú funkciu z príkladu @ref(exm:velakociek) zistite približné hodnoty (stačí odčítať z grafu) nasledovných pravdepodobností -->
-<!-- * $P(X \leq 54)$, -->
-<!-- * $P(X < 17)$, -->
-<!-- * $P(X \geq 33)$, -->
-<!-- * $P(X \in [27,64])$. -->
-<!-- Pre kumulatívnu distribučnú funkciu z príkladu @ref(exm:iq) zistite približné hodnoty (stačí odčítať z grafu) nasledovných pravdepodobností -->
-<!-- * Pravdepodobnosť, že náhodne vybraný človek bude mať IQ väčšie ako $130$. -->
-<!-- * Pravdepodobnosť, že náhodne vybraný človek bude mať IQ menšie ako $100$. -->
-<!-- * Pravdepodobnosť, že náhodne vybraný človek bude mať IQ v rozmedzí $(80,120)$. -->
-<!-- * Pravdepodobnosť, že náhodne vybraný človek bude mať IQ v rozmedzí $[80,120]$. -->
-<!-- ::: -->
-<!-- ::: {.exercise name="DÚ 4.5"} -->
-<!-- Uvažujme $\mathcal{F_3} = \{\Omega, \emptyset, \{ 3:0\}, \{3:1,3:2,0:3,1:3,2:3\}\}$ z úlohy **(DÚ 4.2)**. -->
-<!-- Koľko najviac funkčných hodnôt a koľko najmenej funkčných  hodnôt môže nadobúdať funkcia $H: \Omega \rightarrow \mathbb{R},$ ktorá je náhodnou premennou na $(\Omega, \mathcal{F_3})$ ?  -->
-<!-- ::: -->
-<!-- ## Domáca úloha 4 {-} -->
-<!-- ::: {.exercise name="DÚ 4.1 - zvyšok časti 3"} -->
-<!-- Pravdepodobnosť, že vyhráte na výhernom automate, je 0.02. -->
-<!-- Hráte 50 krát. -->
-<!-- (a) Aká je pravdepodobnosť, že vyhráte presne raz? -->
-<!-- (b) Aká je pravdepodobnosť, že vyhráte aspoň raz? -->
-<!-- (c) Koľkokrát by ste museli hrať, aby pravdepodobnosť, že vyhráte aspoň raz, bola aspoň 0.9? -->
-<!-- ::: -->
-<!-- ::: {.exercise name="DÚ 4.2 - zvyšok časti 3"} -->
-<!-- Uvažuje test na tuberkulózu, ktorého senzitivita aj špecificita sú 99\%. Skutočná prevalencia tuberkulózy v populácii nech je 0.00004. Aká je pravdepodobosť, že náhodne vybraný človek má tuberkulózu, ak má pozitívny test? -->
-<!-- ::: -->
-<!-- ::: {.exercise name="DÚ 4.3 - zvyšok časti 3"} -->
-<!-- Desať percent pacientov vstupujúcich na kliniku má poškodenú pečeň. -->
-<!-- Päť percent pacientov vstupujúcich na kliniku je alkoholikov. -->
-<!-- Z tých pacientov, ktorí majú poškodenú pečeň, je 7\% alkoholikov. -->
-<!-- Aká je pravdepdoobnosť, že pacient, ktorý je alkoholik, má poškodenú pečeň? -->
-<!-- ::: -->
-<!-- ::: {.exercise name="DÚ 4.4 krížovka"} -->
-<!-- Majme náhodnú premennú $X$ na pravdepodobnostnom priestore $(\Omega, \mathcal{F},P).$ -->
-<!-- Kde $\Omega = \{w_1,w_2,w_3,w_4\}$ a $\mathcal{F} = 2^{\Omega}$. -->
-<!-- Doplňte: -->
-<!-- * Pravdepodobnosť je funkcia $P: \ \ \ \ \ \ \rightarrow [0,1].$ -->
-<!-- * Náhodná premenná $X$ na pravdepodobnostnom priestore $(\Omega, \mathcal{F},P)$ je funkcia $X: \ \ \ \ \ \ \rightarrow [0,1],$ pre ktorú platí, že $\{\omega \in \Omega: X(\omega) \leq x \} \in \ \ \ \ \ \ $, pre všetky $x \in \ \ \ \ \ $. -->
-<!-- * Kumulatívna distribučná funkcia náhodnej premennej $X$ na pravdepodobnostnom priestore $(\Omega, \mathcal{F},P)$ je funkcia $F: \ \ \ \ \ \rightarrow [0,1].$ -->
-<!-- Nehodiace sa preškrtnite a vysvetlite: -->
-<!-- * $w_2 \in \Omega$ alebo  $w_2 \subset \Omega,$ -->
-<!-- * $\{w_2\} \in \Omega$ alebo $\{w_2\} \subset \Omega,$ -->
-<!-- * $\{w_2\} \in \mathcal{F}$ alebo $\{w_2\} \subset \mathcal{F},$ -->
-<!-- * $\{w_1, w_2\} \in \mathcal{F}$ alebo $\{w_1, w_2\} \notin \mathcal{F},$ -->
-<!-- ::: -->
-<!-- ::: {.exercise name="DÚ 4.5 Wimbledon"} -->
-<!-- Majme pravdepodobnostný priestor, ktorý modeluje to, ako môže dopadnúť tenisový zápas, ktorý sa hrá na 3 víťazné sety: -->
-<!-- * $\Omega = \{3:0,3:1,3:2,0:3,1:3,2:3\}$, -->
-<!-- * $\mathcal{F_1} = 2^{\Omega}$, -->
-<!-- * $\mathcal{F_2} = \{\Omega, \emptyset, \{ 3:0,3:1,3:2 \}, \{0:3,1:3,2:3\}\}$. -->
-<!-- * $\mathcal{F_3} = \{\Omega, \emptyset, \{ 3:0\}, \{3:1,3:2,0:3,1:3,2:3\}\}$. -->
-<!-- Vymyslite: -->
-<!-- * funkciu $X: \Omega \rightarrow \mathbb{R}$, ktorá je náhodnou premennou ak je priestor udalostí $\mathcal{F_1}$, ale nie je náhodnou premennou ak je priestor udalostí $\mathcal{F_2},$ -->
-<!-- * funkciu $Y: \Omega \rightarrow \mathbb{R}$, ktorá je náhodnou premennou ak je priestor udalostí $\mathcal{F_1}$, aj ak je priestor udalostí $\mathcal{F_2}.$ -->
-<!-- * funkciu $Z: \Omega \rightarrow \mathbb{R}$, ktorá je náhodnou premennou ak je priestor udalostí $\mathcal{F_3}$, ale nie je náhodnou premennou ak je priestor udalostí $\mathcal{F_2},$ -->
-<!-- * funkciu $S: \Omega \rightarrow \mathbb{R}$, ktorá je náhodnou premennou ak je priestor udalostí $\mathcal{F_1}$, aj ak je je priestor udalostí $\mathcal{F_2}$, aj ak je je priestor udalostí $\mathcal{F_3}$. -->
-<!-- Svoje voľby podrobne zdôvodnite. -->
-<!-- ::: -->
+<div id="exr-fodbal" class="theorem exercise">
+<p><span class="theorem-title"><strong>Cvičenie 4.10</strong></span> Majme pravdepodobnostný priestor, ktorý modeluje to, ako môže dopadnúť futbalový zápas, o ktorom vieme, že žiaden tím nedal viacej ako 3 góly:</p>
+<ul>
+<li><p><span class="math inline">\(\Omega = \{3:0,3:1,3:2,0:3,1:3,2:3\}\)</span>,</p></li>
+<li><p><span class="math inline">\(\mathcal{F_1} = 2^{\Omega}\)</span>,</p></li>
+<li><p><span class="math inline">\(\mathcal{F_2} = \{\Omega, \emptyset, \{ 3:0,3:1,3:2 \}, \{0:3,1:3,2:3\}\}\)</span>,</p></li>
+<li><p><span class="math inline">\(\mathcal{F_3} = \{\Omega, \emptyset, \{ 3:0\}, \{3:1,3:2,0:3,1:3,2:3\}\}\)</span>,</p></li>
+<li><p><span class="math inline">\(\mathcal{F_4} = \{\Omega, \emptyset\}\)</span>.</p></li>
+</ul>
+<p>Vymyslite:</p>
+<ul>
+<li><p>funkciu <span class="math inline">\(X: \Omega \rightarrow \mathbb{R}\)</span>, ktorá je náhodnou premennou ak je priestor udalostí <span class="math inline">\(\mathcal{F_3}\)</span>, ale nie je náhodnou premennou ak je priestor udalostí <span class="math inline">\(\mathcal{F_2},\)</span></p></li>
+<li><p>funkciu <span class="math inline">\(Y: \Omega \rightarrow \mathbb{R}\)</span>, ktorá je náhodnou premennou ak je priestor udalostí <span class="math inline">\(\mathcal{F_1}\)</span>, aj ak je priestor udalostí <span class="math inline">\(\mathcal{F_2}.\)</span></p></li>
+<li><p>funkciu <span class="math inline">\(Z: \Omega \rightarrow \mathbb{R}\)</span>, ktorá je náhodnou premennou ak je priestor udalostí <span class="math inline">\(\mathcal{F_1}\)</span>, ale nie je náhodnou premennou ak je priestor udalostí <span class="math inline">\(\mathcal{F_2},\)</span></p></li>
+<li><p>funkciu <span class="math inline">\(S: \Omega \rightarrow \mathbb{R}\)</span>, ktorá je náhodnou premennou ak je priestor udalostí <span class="math inline">\(\mathcal{F_1}\)</span>, aj ak je je priestor udalostí <span class="math inline">\(\mathcal{F_2}\)</span>, aj ak je priestor udalostí <span class="math inline">\(\mathcal{F_3}\)</span>.</p></li>
+<li><p>funkciu <span class="math inline">\(T: \Omega \rightarrow \mathbb{R}\)</span>, ktorá je náhodnou premennou ak je priestor udalostí <span class="math inline">\(\mathcal{F_1}\)</span>, aj ak je je priestor udalostí <span class="math inline">\(\mathcal{F_2}\)</span>, aj ak je priestor udalostí <span class="math inline">\(\mathcal{F_3}\)</span>, aj ak je priestor udalostí <span class="math inline">\(\mathcal{F_4}\)</span>.</p></li>
+</ul>
+<p>Svoje voľby <strong>podrobne</strong> zdôvodnite.</p>
+</div>
+<div id="exr-" class="theorem exercise">
+<p><span class="theorem-title"><strong>Cvičenie 4.11</strong></span> Overte, či nasledujúce funkcie môžu byť kumulatívnou distribučnou funkciou.</p>
+<ul>
+<li><p><span class="math inline">\(F(x) = \begin{cases} 0&amp;\text{pre $x&lt;0$},\\ x^2/9&amp;\text{pre $x\in[0,3]$},\\ 1&amp;\text{pre $x &gt; 3$},\\ \end{cases}\)</span></p></li>
+<li><p><span class="math inline">\(F(x) = \begin{cases} 0&amp;\text{pre $x&lt;a$},\\ \frac{x-a}{2b-a}&amp;\text{pre $x\in[a,2b)$},\\ 1&amp;\text{pre $x\ge 2b$},\\ \end{cases}\)</span></p></li>
+<li><p><span class="math inline">\(F(x) = \frac{e^x}{1+2e^x},\)</span></p></li>
+<li><p><span class="math inline">\(F(x) =  \begin{cases} 1-3^{-x} &amp; \text{ak } x \geq 0, \\ 0 &amp; \text{ak } x &lt; 0,\end{cases}\)</span></p></li>
+<li><p><span class="math inline">\(F(k) = \frac{3}{\pi}\sum_{i=1}^k { \frac{1}{k^2}}.\)</span></p></li>
+</ul>
+</div>
+<div id="exr-" class="theorem exercise">
+<p><span class="theorem-title"><strong>Cvičenie 4.12</strong></span> Pre kumulatívnu distribučnú funkciu z <a href="#exm-velakociek" class="quarto-xref">Príklad&nbsp;<span>4.7</span></a> zistite približné hodnoty (stačí odčítať z grafu) nasledovných pravdepodobností</p>
+<ul>
+<li><p><span class="math inline">\(P(X \leq 54)\)</span>,</p></li>
+<li><p><span class="math inline">\(P(X &lt; 17)\)</span>,</p></li>
+<li><p><span class="math inline">\(P(X \geq 33)\)</span>,</p></li>
+<li><p><span class="math inline">\(P(X \in [27,64])\)</span>.</p></li>
+</ul>
+<p>Pre kumulatívnu distribučnú funkciu z <a href="#exm-iq" class="quarto-xref">Príklad&nbsp;<span>4.6</span></a> zistite približné hodnoty (stačí odčítať z grafu) nasledovných pravdepodobností * Pravdepodobnosť, že náhodne vybraný človek bude mať IQ väčšie ako <span class="math inline">\(130\)</span>.</p>
+<ul>
+<li><p>Pravdepodobnosť, že náhodne vybraný človek bude mať IQ menšie ako <span class="math inline">\(100\)</span>.</p></li>
+<li><p>Pravdepodobnosť, že náhodne vybraný človek bude mať IQ v rozmedzí <span class="math inline">\((80,120)\)</span>.</p></li>
+<li><p>Pravdepodobnosť, že náhodne vybraný človek bude mať IQ v rozmedzí <span class="math inline">\([80,120]\)</span>.</p></li>
+</ul>
+</div>
+<div id="exr-" class="theorem exercise">
+<p><span class="theorem-title"><strong>Cvičenie 4.13</strong></span> Uvažujme <span class="math inline">\(\mathcal{F_3} = \{\Omega, \emptyset, \{ 3:0\}, \{3:1,3:2,0:3,1:3,2:3\}\}\)</span> z <a href="#exr-fodbal" class="quarto-xref">Cvičenie&nbsp;<span>4.10</span></a>.</p>
+<p>Koľko najviac funkčných hodnôt a koľko najmenej funkčných hodnôt môže nadobúdať funkcia <span class="math inline">\(H: \Omega \rightarrow \mathbb{R},\)</span> ktorá je náhodnou premennou na <span class="math inline">\((\Omega, \mathcal{F_3})\)</span> ?</p>
+</div>
+<div id="exr-" class="theorem exercise">
+<p><span class="theorem-title"><strong>Cvičenie 4.14</strong></span> Majme náhodnú premennú <span class="math inline">\(X\)</span> na pravdepodobnostnom priestore <span class="math inline">\((\Omega, \mathcal{F},P).\)</span></p>
+<p>Kde <span class="math inline">\(\Omega = \{w_1,w_2,w_3,w_4\}\)</span> a <span class="math inline">\(\mathcal{F} = 2^{\Omega}\)</span>.</p>
+<p>Doplňte:</p>
+<ul>
+<li><p>Pravdepodobnosť je funkcia <span class="math inline">\(P: \ \ \ \ \ \ \rightarrow [0,1].\)</span></p></li>
+<li><p>Náhodná premenná <span class="math inline">\(X\)</span> na pravdepodobnostnom priestore <span class="math inline">\((\Omega, \mathcal{F},P)\)</span> je funkcia <span class="math inline">\(X: \ \ \ \ \ \ \rightarrow [0,1],\)</span> pre ktorú platí, že <span class="math inline">\(\{\omega \in \Omega: X(\omega) \leq x \} \in \ \ \ \ \ \ \)</span>, pre všetky <span class="math inline">\(x \in \ \ \ \ \ \)</span>.</p></li>
+<li><p>Kumulatívna distribučná funkcia náhodnej premennej <span class="math inline">\(X\)</span> na pravdepodobnostnom priestore <span class="math inline">\((\Omega, \mathcal{F},P)\)</span> je funkcia <span class="math inline">\(F: \ \ \ \ \ \rightarrow [0,1].\)</span></p></li>
+</ul>
+<p>Nehodiace sa preškrtnite a vysvetlite:</p>
+<ul>
+<li><p><span class="math inline">\(w_2 \in \Omega\)</span> alebo <span class="math inline">\(w_2 \subset \Omega,\)</span></p></li>
+<li><p><span class="math inline">\(\{w_2\} \in \Omega\)</span> alebo <span class="math inline">\(\{w_2\} \subset \Omega,\)</span></p></li>
+<li><p><span class="math inline">\(\{w_2\} \in \mathcal{F}\)</span> alebo <span class="math inline">\(\{w_2\} \subset \mathcal{F},\)</span></p></li>
+<li><p><span class="math inline">\(\{w_1, w_2\} \in \mathcal{F}\)</span> alebo <span class="math inline">\(\{w_1, w_2\} \notin \mathcal{F},\)</span></p></li>
+</ul>
+</div>
+<div id="exr-" class="theorem exercise">
+<p><span class="theorem-title"><strong>Cvičenie 4.15</strong></span> Majme pravdepodobnostný priestor, ktorý modeluje to, ako môže dopadnúť tenisový zápas, ktorý sa hrá na 3 víťazné sety:</p>
+<ul>
+<li><p><span class="math inline">\(\Omega = \{3:0,3:1,3:2,0:3,1:3,2:3\}\)</span>,</p></li>
+<li><p><span class="math inline">\(\mathcal{F_1} = 2^{\Omega}\)</span>,</p></li>
+<li><p><span class="math inline">\(\mathcal{F_2} = \{\Omega, \emptyset, \{ 3:0,3:1,3:2 \}, \{0:3,1:3,2:3\}\}\)</span>.</p></li>
+<li><p><span class="math inline">\(\mathcal{F_3} = \{\Omega, \emptyset, \{ 3:0\}, \{3:1,3:2,0:3,1:3,2:3\}\}\)</span>.</p></li>
+</ul>
+<p>Vymyslite:</p>
+<ul>
+<li><p>funkciu <span class="math inline">\(X: \Omega \rightarrow \mathbb{R}\)</span>, ktorá je náhodnou premennou ak je priestor udalostí <span class="math inline">\(\mathcal{F_1}\)</span>, ale nie je náhodnou premennou ak je priestor udalostí <span class="math inline">\(\mathcal{F_2},\)</span></p></li>
+<li><p>funkciu <span class="math inline">\(Y: \Omega \rightarrow \mathbb{R}\)</span>, ktorá je náhodnou premennou ak je priestor udalostí <span class="math inline">\(\mathcal{F_1}\)</span>, aj ak je priestor udalostí <span class="math inline">\(\mathcal{F_2}.\)</span></p></li>
+<li><p>funkciu <span class="math inline">\(Z: \Omega \rightarrow \mathbb{R}\)</span>, ktorá je náhodnou premennou ak je priestor udalostí <span class="math inline">\(\mathcal{F_3}\)</span>, ale nie je náhodnou premennou ak je priestor udalostí <span class="math inline">\(\mathcal{F_2},\)</span></p></li>
+<li><p>funkciu <span class="math inline">\(S: \Omega \rightarrow \mathbb{R}\)</span>, ktorá je náhodnou premennou ak je priestor udalostí <span class="math inline">\(\mathcal{F_1}\)</span>, aj ak je je priestor udalostí <span class="math inline">\(\mathcal{F_2}\)</span>, aj ak je je priestor udalostí <span class="math inline">\(\mathcal{F_3}\)</span>.</p></li>
+</ul>
+<p>Svoje voľby podrobne zdôvodnite.</p>
+</div>
 <!-- Správne riešenie domácej úlohy 3.5: -->
 <!-- Pre $A$, $B$ - nezávislé udalosti a $P(B) < 1$ bolo treba ukázať, že -->
 <!-- $P\left(A^C | B^C\right) = P\left(A^C\right)$. -->
-<!-- Dá sa to napríklad takto:  -->
+<!-- Dá sa to napríklad takto: -->
 <!-- $P(B) < 1$ znamená, že $P(B^C) = 1-P(B) > 0$ a teda môžeme počítať: -->
 <!-- \begin{eqnarray*} -->
 <!-- P\left(A^C | B^C\right) &=& \frac{P(A^C \cap B^C)}{P(B^C)} = \frac{1-P(A \cup B)}{1-P(B)} =\\ -->
