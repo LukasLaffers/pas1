@@ -372,8 +372,8 @@ E[Z] &amp;=&amp; \sum_{z \in \mathcal{S}_Z} z \cdot p_Z(z) = \sum_{x \in \mathca
 <p><span class="math display">\[\text{Var}[X] =  \sum_{x \in \mathcal{S}_X} (x - \text{E}[X])^2 \cdot p_X(x).\]</span> Naviac platí</p>
 <span class="math display">\[\begin{eqnarray*}
 \text{Var}[X] &amp;=&amp; E\left[ X^2-2X\cdot \text{E}[X]+(\text{E}[X])^2 \right] \\
-&amp;=&amp; E[X^2] - 2 \text{E}[X] \cdot \text{E}[X] + \left(\text{E}[X]\right)^2  \\
-&amp;=&amp; E[X^2] - \left(\text{E}[X]\right)^2,
+&amp;=&amp; \text{E}[X^2] - 2 \text{E}[X] \cdot \text{E}[X] + \left(\text{E}[X]\right)^2  \\
+&amp;=&amp; \text{E}[X^2] - \left(\text{E}[X]\right)^2,
 \end{eqnarray*}\]</span>
 <p>kde sme využili linearitu strednej hodnoty náhodnej premennej.</p>
 <p><strong>Smerodajná odchýlka</strong> náhodnej premennej je odmocnina z jej variancie</p>
@@ -383,8 +383,8 @@ E[Z] &amp;=&amp; \sum_{z \in \mathcal{S}_Z} z \cdot p_Z(z) = \sum_{x \in \mathca
 <p><span class="theorem-title"><strong>Príklad 5.6</strong></span> Variancia a smerodajná odchýlka výsledku hodu neférovej mince.</p>
 <span class="math display">\[\begin{eqnarray*}
 \text{E}[X] &amp;=&amp; 0 \cdot 0.2 + 1 \cdot 0.8 = 0.8,\\
-E[X^2] &amp;=&amp; 0^2 \cdot 0.2 + 1^2 \cdot 0.8 = 0.8,\\
-\text{Var}[X] &amp;=&amp; E[X^2] - (\text{E}[X])^2 = 0.8 - 0.8^2 = 0.16, \\
+\text{E}[X^2] &amp;=&amp; 0^2 \cdot 0.2 + 1^2 \cdot 0.8 = 0.8,\\
+\text{Var}[X] &amp;=&amp; \text{E}[X^2] - (\text{E}[X])^2 = 0.8 - 0.8^2 = 0.16, \\
 \text{sd}[X] &amp;=&amp; \sqrt{\text{Var}[X]} = \sqrt{0.16} = 0.4.
 \end{eqnarray*}\]</span>
 </div>
@@ -765,7 +765,7 @@ P(X = 3) &amp;=&amp; {k + r - 1 \choose r-1} (1-p)^k p^r\\
 </section>
 <section id="cvičenia" class="level2" data-number="5.11">
 <h2 data-number="5.11" class="anchored" data-anchor-id="cvičenia"><span class="header-section-number">5.11</span> Cvičenia</h2>
-<div id="exr-" class="Exercise theorem exercise">
+<div id="exr-nemoze" class="theorem exercise">
 <p><span class="theorem-title"><strong>Cvičenie 5.1</strong></span> Ukážte, že nemôže existovať taká konštanta <span class="math inline">\(c \in \mathbb{R},\)</span> že by nasledovná funkcia popisovala pravdepodobnostnú funkciu náhodnej premennej <span class="math inline">\(X\)</span>: <span class="math display">\[\begin{equation*}
 p_X(k)=
 \begin{cases}
@@ -774,94 +774,94 @@ p_X(k)=
 \end{cases}
 \end{equation*}\]</span></p>
 </div>
-<div id="exr-" class="Exercise theorem exercise">
+<div id="exr-var1" class="theorem exercise">
 <p><span class="theorem-title"><strong>Cvičenie 5.2</strong></span> Vypočítajte varianciu diskrétnej rovnomerne rozdelenej náhodnej premennej.</p>
 </div>
-<div id="exr-" class="Exercise theorem exercise">
+<div id="exr-binom1" class="theorem exercise">
 <p><span class="theorem-title"><strong>Cvičenie 5.3</strong></span> Majme náhodnú premennú <span class="math inline">\(X\)</span>, ktorá je rozdelená binomicky s parametrami <span class="math inline">\(n=10\)</span> a <span class="math inline">\(p=0.25\)</span>. Vypočítajte <span class="math inline">\(P(X &lt; 4).\)</span></p>
 </div>
-<div id="exr-" class="Exercise theorem exercise">
+<div id="exr-binom2" class="theorem exercise">
 <p><span class="theorem-title"><strong>Cvičenie 5.4</strong></span> Majme náhodnú premennú <span class="math inline">\(X\)</span>, ktorá je rozdelená binomicky s parametrami <span class="math inline">\(n=8\)</span> a <span class="math inline">\(p=0.8\)</span>. Vypočítajte <span class="math inline">\(P(X &gt; 6).\)</span></p>
 </div>
-<div id="exr-" class="Exercise theorem exercise">
+<div id="exr-raketa" class="theorem exercise">
 <p><span class="theorem-title"><strong>Cvičenie 5.5</strong></span> Raketový modul má 6 tesnení. Každé z nich môže zlyhať s pravdepodobnosťou <span class="math inline">\(0.01\)</span>. Aká je pravdepodobnosť, že zlyhá nie viacej ako jedno tesnenie ?</p>
 </div>
-<div id="exr-" class="Exercise theorem exercise">
+<div id="exr-test1" class="theorem exercise">
 <p><span class="theorem-title"><strong>Cvičenie 5.6</strong></span> Na prejdenie desaťotázkového testu s možnosťami A, B, C, D, kde práve jedna odpoveď je správna, treba správne odpovedať na aspoň 5 otázok. Aká je šanca, že to študent zvládne bez učenia?</p>
 </div>
-<div id="exr-" class="Exercise theorem exercise">
+<div id="exr-test12" class="theorem exercise">
 <p><span class="theorem-title"><strong>Cvičenie 5.7</strong></span> Na prejdenie desaťotázkového testu s možnosťami A, B, C, D, kde práve jedna odpoveď je správna, treba správne odpovedať na aspoň 5 otázok. Na prvých 5 otázok vie študent odpovedať správne s pravdepodobnosťou 80%, druhých päť sa týka látky, ktorú nikdy nevidel. Aká je šanca, že tento študent zvládne tento test?</p>
 </div>
-<div id="exr-" class="Exercise theorem exercise">
+<div id="exr-pois" class="theorem exercise">
 <p><span class="theorem-title"><strong>Cvičenie 5.8</strong></span> Majme náhodnú premennú <span class="math inline">\(X\)</span>, ktorá je rozdelená Poissonovsky s parametrom <span class="math inline">\(\lambda = 8\)</span>. Vypočítajte <span class="math inline">\(P(X = 2).\)</span></p>
 </div>
-<div id="exr-" class="Exercise theorem exercise">
+<div id="exr-pois2" class="theorem exercise">
 <p><span class="theorem-title"><strong>Cvičenie 5.9</strong></span> Počet rastlinných druhov na exotickom ostrove je modelovaný <span class="math inline">\(Pois(10)\)</span> na každých <span class="math inline">\(1m^2\)</span>. Aká je pravdepodobnosť, že na náhodne zvolenom metri štvorcovom nájdeme viacej ako 12 ale menej ako 15 rôznych rastlinných druhov?</p>
 </div>
-<div id="exr-" class="Exercise theorem exercise">
+<div id="exr-pois3" class="theorem exercise">
 <p><span class="theorem-title"><strong>Cvičenie 5.10</strong></span> Majme náhodnú premennú <span class="math inline">\(X\)</span>, ktorá je rozdelená geometricky s parametrom <span class="math inline">\(p=0.8\)</span>. Vypočítajte <span class="math inline">\(P(X \geq 5).\)</span></p>
 </div>
-<div id="exr-" class="Exercise theorem exercise">
+<div id="exr-geom1" class="theorem exercise">
 <p><span class="theorem-title"><strong>Cvičenie 5.11</strong></span> Majme náhodnú premennú <span class="math inline">\(X\)</span>, ktorá je rozdelená geometricky s parametrom <span class="math inline">\(p=0.2\)</span>. Vypočítajte <span class="math inline">\(P(X &lt;3).\)</span></p>
 </div>
-<div id="exr-" class="Exercise theorem exercise">
+<div id="exr-hgeom1" class="theorem exercise">
 <p><span class="theorem-title"><strong>Cvičenie 5.12</strong></span> Majme náhodnú premennú <span class="math inline">\(X\)</span>, ktorá je rozdelená hypergeometricky s parametrami <span class="math inline">\(N=10, K=6,n=5\)</span>. Vypočítajte <span class="math inline">\(P(X = 3).\)</span></p>
 </div>
-<div id="exr-" class="Exercise theorem exercise">
+<div id="exr-hgeom2" class="theorem exercise">
 <p><span class="theorem-title"><strong>Cvičenie 5.13</strong></span> Majme náhodnú premennú <span class="math inline">\(X\)</span>, ktorá je rozdelená hypergeometricky s parametrami <span class="math inline">\(N=12, K=5,n=5\)</span>. Vypočítajte <span class="math inline">\(P(X = 3).\)</span></p>
 </div>
-<div class="exercise" name="*">
-<p>Zdôvodnite, prečo sa <span class="math inline">\(\text{Bin}(n,p)\)</span> rozdelená náhodná premenná správa podobne ako <span class="math inline">\(Pois(\lambda),\)</span> pre <span class="math inline">\(n \rightarrow \infty\)</span> a <span class="math inline">\(p \rightarrow 0\)</span> a súčasne <span class="math inline">\(\lambda = np.\)</span></p>
+<div id="exr-approx" class="theorem exercise">
+<p><span class="theorem-title"><strong>Cvičenie 5.14</strong></span> Zdôvodnite, prečo sa <span class="math inline">\(\text{Bin}(n,p)\)</span> rozdelená náhodná premenná správa podobne ako <span class="math inline">\(Pois(\lambda),\)</span> pre <span class="math inline">\(n \rightarrow \infty\)</span> a <span class="math inline">\(p \rightarrow 0\)</span> a súčasne <span class="math inline">\(\lambda = np.\)</span></p>
 </div>
-<div id="exr-" class="Exercise theorem exercise">
-<p><span class="theorem-title"><strong>Cvičenie 5.14</strong></span> Ak je šanca katastrofy každých sto rokov rovná <span class="math inline">\(1/6\)</span>, aká je pravdepodobnosť, že nejaká katastrofa nastane počas nasledujúcich 500 rokov?</p>
+<div id="exr-kata" class="theorem exercise">
+<p><span class="theorem-title"><strong>Cvičenie 5.15</strong></span> Ak je šanca katastrofy každých sto rokov rovná <span class="math inline">\(1/6\)</span>, aká je pravdepodobnosť, že nejaká katastrofa nastane počas nasledujúcich 500 rokov?</p>
 </div>
-<div id="exr-" class="Exercise theorem exercise">
-<p><span class="theorem-title"><strong>Cvičenie 5.15</strong></span> Vypočítajte hodnotu</p>
+<div id="exr-sum" class="theorem exercise">
+<p><span class="theorem-title"><strong>Cvičenie 5.16</strong></span> Vypočítajte hodnotu</p>
 <p><span class="math display">\[\sum_{j=2}^{n} j(j-1) {n \choose j} p^j (1-p)^{n-j}.\]</span></p>
 </div>
-<div id="exr-" class="Exercise theorem exercise">
-<p><span class="theorem-title"><strong>Cvičenie 5.16</strong></span> Aké je pravdepodobnostné rozdelenie počtu uhádnutých otázok na ABCD teste z celkového počtu 10 otázok, ak vieme, že z prvých dvoch otázok otázok bola správne zodpovedaná práve jedna otázka?</p>
+<div id="exr-rozd" class="theorem exercise">
+<p><span class="theorem-title"><strong>Cvičenie 5.17</strong></span> Aké je pravdepodobnostné rozdelenie počtu uhádnutých otázok na ABCD teste z celkového počtu 10 otázok, ak vieme, že z prvých dvoch otázok otázok bola správne zodpovedaná práve jedna otázka?</p>
 </div>
-<div id="exr-" class="Exercise theorem exercise">
-<p><span class="theorem-title"><strong>Cvičenie 5.17</strong></span> V klinickom skúšaní máme dve skupiny po 10 pacientov. V prvej skupine je pravdepodobnosť úspešnosti liečby <span class="math inline">\(0.5\)</span>, v druhej skupine je to <span class="math inline">\(0.7\)</span>. Uvažujme, že výsledky všetkých pacientov sú od seba nezávislé. Aká je pravdepodobnosť, že v prvej skupine bude aspoň toľko úspešne vyliečených ako a v druhej skupine?</p>
+<div id="exr-skusanie" class="theorem exercise">
+<p><span class="theorem-title"><strong>Cvičenie 5.18</strong></span> V klinickom skúšaní máme dve skupiny po 10 pacientov. V prvej skupine je pravdepodobnosť úspešnosti liečby <span class="math inline">\(0.5\)</span>, v druhej skupine je to <span class="math inline">\(0.7\)</span>. Uvažujme, že výsledky všetkých pacientov sú od seba nezávislé. Aká je pravdepodobnosť, že v prvej skupine bude aspoň toľko úspešne vyliečených ako a v druhej skupine?</p>
 </div>
-<div id="exr-" class="Exercise theorem exercise">
-<p><span class="theorem-title"><strong>Cvičenie 5.18</strong></span> Presné testy sú drahé. Uvažujme nasledujúcu situáciu. Máme 1000 ľudí, ktorých potrebujeme otestovať. Pravdepodobnosť pozititívneho testu nech je 0.01. Namiesto toho, aby sme otestovali každého človeka osobitne. Tak spojíme odberové vzorky do 10 skupín po 100. Ak bude v nejakej skupine detekovaná pozitivita, tak pretestujeme všetkých 100 ľudí v tejto skupine.</p>
+<div id="exr-testy" class="theorem exercise">
+<p><span class="theorem-title"><strong>Cvičenie 5.19</strong></span> Presné testy sú drahé. Uvažujme nasledujúcu situáciu. Máme 1000 ľudí, ktorých potrebujeme otestovať. Pravdepodobnosť pozititívneho testu nech je 0.01. Namiesto toho, aby sme otestovali každého človeka osobitne. Tak spojíme odberové vzorky do 10 skupín po 100. Ak bude v nejakej skupine detekovaná pozitivita, tak pretestujeme všetkých 100 ľudí v tejto skupine.</p>
 <ul>
 <li>Koľko testov v priemere urobíme?</li>
 <li>Aká je pravdepodobnosť, že týmto spôsobom urobíme viacej testov ako 1000?</li>
 </ul>
 </div>
-<div id="exr-" class="Exercise theorem exercise">
-<p><span class="theorem-title"><strong>Cvičenie 5.19</strong></span> Nech je pravdepodobnosť narodenia trojičiek <span class="math inline">\(1/10000\)</span>. Aká je pravdepodobnosť, že z 8000 pôrodov sa narodia trojičky práve jedenkrát?</p>
+<div id="exr-porody" class="theorem exercise">
+<p><span class="theorem-title"><strong>Cvičenie 5.20</strong></span> Nech je pravdepodobnosť narodenia trojičiek <span class="math inline">\(1/10000\)</span>. Aká je pravdepodobnosť, že z 8000 pôrodov sa narodia trojičky práve jedenkrát?</p>
 </div>
-<div id="exr-" class="Exercise theorem exercise">
-<p><span class="theorem-title"><strong>Cvičenie 5.20</strong></span> Letecká prepravná spoločnosť predáva 200 lístkov napriek tomu, že v lietadle je len 198 miest nakoľko v priemere <span class="math inline">\(3\%\)</span> ľudí neprídu. Toto je bežnou praxou a nazýva sa to <em>overbooking</em>. Aká je pravdepodobnosť, že si všetci pasažieri budú mať kde v lietadle sadnúť?</p>
+<div id="exr-lety" class="theorem exercise">
+<p><span class="theorem-title"><strong>Cvičenie 5.21</strong></span> Letecká prepravná spoločnosť predáva 200 lístkov napriek tomu, že v lietadle je len 198 miest nakoľko v priemere <span class="math inline">\(3\%\)</span> ľudí neprídu. Toto je bežnou praxou a nazýva sa to <em>overbooking</em>. Aká je pravdepodobnosť, že si všetci pasažieri budú mať kde v lietadle sadnúť?</p>
 </div>
-<div id="exr-" class="Exercise theorem exercise">
-<p><span class="theorem-title"><strong>Cvičenie 5.21</strong></span> Nech je v populácii 0.1% ľudí farboslepých. Aká je šanca, že v náhodnej vzorke 800 ľudí nebude viacej ako jeden človek farboslepý?</p>
+<div id="exr-farbo" class="theorem exercise">
+<p><span class="theorem-title"><strong>Cvičenie 5.22</strong></span> Nech je v populácii 0.1% ľudí farboslepých. Aká je šanca, že v náhodnej vzorke 800 ľudí nebude viacej ako jeden človek farboslepý?</p>
 </div>
-<div id="exr-" class="Exercise theorem exercise">
-<p><span class="theorem-title"><strong>Cvičenie 5.22</strong></span> V balíku je 37 gumených žížal. Z nich 13 sú kyslé gumené žížaly a 24 sú nekyslé gumené žížaly. Aká je šanca, že náhodne vybratá hrsť veľkosti 8 žížal bude mať práve 3 kyslé gumené žížaly.</p>
+<div id="exr-zizaly" class="theorem exercise">
+<p><span class="theorem-title"><strong>Cvičenie 5.23</strong></span> V balíku je 37 gumených žížal. Z nich 13 sú kyslé gumené žížaly a 24 sú nekyslé gumené žížaly. Aká je šanca, že náhodne vybratá hrsť veľkosti 8 žížal bude mať práve 3 kyslé gumené žížaly.</p>
 </div>
-<div id="exr-" class="Exercise theorem exercise">
-<p><span class="theorem-title"><strong>Cvičenie 5.23</strong></span> Uvažujme boxera, ktorý potrebuje 4 víťazné údery na to, aby knockoutoval súpera. Sám však znesie úderov 6, siedmy už nie. Je o čosi lepší ako jeho súper a šanca, že daná výmena skončí v jeho prospech je <span class="math inline">\(0.53\)</span>. Aká je šanca, že zápas skončí v jeho prospech?</p>
+<div id="exr-boxer" class="theorem exercise">
+<p><span class="theorem-title"><strong>Cvičenie 5.24</strong></span> Uvažujme boxera, ktorý potrebuje 4 víťazné údery na to, aby knockoutoval súpera. Sám však znesie úderov 6, siedmy už nie. Je o čosi lepší ako jeho súper a šanca, že daná výmena skončí v jeho prospech je <span class="math inline">\(0.53\)</span>. Aká je šanca, že zápas skončí v jeho prospech?</p>
 </div>
-<div id="exr-" class="Exercise theorem exercise">
-<p><span class="theorem-title"><strong>Cvičenie 5.24</strong></span> Chyba pri každom produkčnom cykle stroja je <span class="math inline">\(0.015\)</span>, denne zvládne stroj 8 cyklov. Stroj sa po 3 chybách zasekne a treba ho servisovať. Aká je šanca, že stroj bude fungovať bez zastavenia celé dva pracovné týždne?</p>
+<div id="exr-stroj" class="theorem exercise">
+<p><span class="theorem-title"><strong>Cvičenie 5.25</strong></span> Chyba pri každom produkčnom cykle stroja je <span class="math inline">\(0.015\)</span>, denne zvládne stroj 8 cyklov. Stroj sa po 3 chybách zasekne a treba ho servisovať. Aká je šanca, že stroj bude fungovať bez zastavenia celé dva pracovné týždne?</p>
 </div>
-<div id="exr-" class="Exercise theorem exercise">
-<p><span class="theorem-title"><strong>Cvičenie 5.25</strong></span> Výskumníčka musí získať 20 dotazníkových odpovedí. Každý človek odpovie na žiadosť odoslať dotazník s pravdepodobnosťou <span class="math inline">\(40\%\)</span>. Aká je pravdepodobnosť, že musí výskumníčka osloviť viacej ako 50 ľudí?</p>
+<div id="exr-dotaznik" class="theorem exercise">
+<p><span class="theorem-title"><strong>Cvičenie 5.26</strong></span> Výskumníčka musí získať 20 dotazníkových odpovedí. Každý človek odpovie na žiadosť odoslať dotazník s pravdepodobnosťou <span class="math inline">\(40\%\)</span>. Aká je pravdepodobnosť, že musí výskumníčka osloviť viacej ako 50 ľudí?</p>
 </div>
-<div id="exr-" class="Exercise theorem exercise">
-<p><span class="theorem-title"><strong>Cvičenie 5.26</strong></span> Ukážte, že limita pravdepodobnostnej funkcie hypergeometricky rozdelenej náhodnej premennej sa blíži k pravdepodobnostnej funkcii binomicky rozdelenej náhodnej premennej pre <span class="math inline">\(M/N \rightarrow p.\)</span></p>
+<div id="exr-limita" class="theorem exercise">
+<p><span class="theorem-title"><strong>Cvičenie 5.27</strong></span> Ukážte, že limita pravdepodobnostnej funkcie hypergeometricky rozdelenej náhodnej premennej sa blíži k pravdepodobnostnej funkcii binomicky rozdelenej náhodnej premennej pre <span class="math inline">\(M/N \rightarrow p.\)</span></p>
 </div>
-<div id="exr-" class="Exercise theorem exercise">
-<p><span class="theorem-title"><strong>Cvičenie 5.27</strong></span> Odvoďte varianciu pre náhodnú premennú <span class="math inline">\(X \sim \text{Bin}(n,p).\)</span></p>
+<div id="exr-var" class="theorem exercise">
+<p><span class="theorem-title"><strong>Cvičenie 5.28</strong></span> Odvoďte varianciu pre náhodnú premennú <span class="math inline">\(X \sim \text{Bin}(n,p).\)</span></p>
 </div>
-<div id="exr-" class="Exercise theorem exercise">
-<p><span class="theorem-title"><strong>Cvičenie 5.28</strong></span> &nbsp;</p>
+<div id="exr-dopln" class="theorem exercise">
+<p><span class="theorem-title"><strong>Cvičenie 5.29</strong></span> &nbsp;</p>
 <ol type="A">
 <li><p>Doplňte veľkosť chýbajúcej hodnoty <span class="math inline">\(p_X(5).\)</span></p></li>
 <li><p>Doplňte veľkosť chýbajúcej hodnoty <span class="math inline">\(p_X(5)\)</span> a <span class="math inline">\(p_X(6)\)</span> tak, aby <span class="math inline">\(\text{E}[X]=3.6.\)</span> <!-- (1*0.1+2*0.2+3*0.3+4*0.1 +5*0+6*0.3) --></p></li>
@@ -877,8 +877,8 @@ p_X(k)=
 </div>
 </div>
 </div>
-<div id="exr-" class="Exercise theorem exercise">
-<p><span class="theorem-title"><strong>Cvičenie 5.29</strong></span> Máme náhodnú premennú, ktorej realizácie sú 7,8,8,9,8,7,8,8,7,6,7,8,8,8,7,6,7,6,7,7,8,9,8,7,9,6,9,9,6,6,9,…</p>
+<div id="exr-priblizne" class="theorem exercise">
+<p><span class="theorem-title"><strong>Cvičenie 5.30</strong></span> Máme náhodnú premennú, ktorej realizácie sú 7,8,8,9,8,7,8,8,7,6,7,8,8,8,7,6,7,6,7,7,8,9,8,7,9,6,9,9,6,6,9,…</p>
 <p>Čo by ste povedali, aká je približne stredná hodnota?</p>
 <ul>
 <li>6</li>
@@ -899,8 +899,8 @@ p_X(k)=
 <li>16</li>
 </ul>
 </div>
-<div id="exr-" class="Exercise theorem exercise">
-<p><span class="theorem-title"><strong>Cvičenie 5.30</strong></span> Doplňte</p>
+<div id="exr-doplnit2" class="theorem exercise">
+<p><span class="theorem-title"><strong>Cvičenie 5.31</strong></span> Doplňte</p>
 <div class="cell">
 <div class="cell-output-display">
 <div>
@@ -911,8 +911,8 @@ p_X(k)=
 </div>
 </div>
 </div>
-<div id="exr-" class="Exercise theorem exercise">
-<p><span class="theorem-title"><strong>Cvičenie 5.31</strong></span> Prepojte</p>
+<div id="exr-prepojit" class="theorem exercise">
+<p><span class="theorem-title"><strong>Cvičenie 5.32</strong></span> Prepojte</p>
 <ol type="A">
 <li><p>Rovnomerné rozdelenie.</p></li>
 <li><p>Bernoulliho rozdelenie.</p></li>
@@ -932,6 +932,271 @@ p_X(k)=
 <li><p>Výhra v stávkovej spoločnosti, kde kurz implikuje pravdepodobnosť výhry 36%.</p></li>
 <li><p>Rok, kedy konečne prvýkrát stihnem urobiť daňové priznanie bez odkladu.</p></li>
 </ol>
+</div>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-1-contents" aria-controls="callout-1" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Niektoré riešenia
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-1" class="callout-1-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p><a href="#exr-nemoze" class="quarto-xref">Cvičenie&nbsp;<span>5.1</span></a></p>
+<p>Nakoľko musí platiť <span class="math inline">\(\sum_{k \in \mathcal{S}_X} p_X(k) = 1\)</span> a zároveň <span class="math inline">\(p_X(k) \geq 0,\)</span> daná konštanta <span class="math inline">\(c\)</span> neexistuje, lebo <span class="math inline">\(\sum_{k \in \mathcal{S}_X} \frac{1}{k} \rightarrow \infty.\)</span></p>
+<p><a href="#exr-var1" class="quarto-xref">Cvičenie&nbsp;<span>5.2</span></a></p>
+<p><span class="math inline">\(X \sim \text{Unif}(\{1,2,...,m\})\)</span></p>
+<p>Pre varianciu máme vzťah:</p>
+<p><span class="math display">\[\text{Var}[X] = \text{E}[X^2] - (\text{E}[X])^2.\]</span></p>
+<p>Najskôr vypočítame strednú hodnotu:</p>
+<p><span class="math display">\[\text{E}[X] = \sum_{k=1}^{m} k P(X = k) = \sum_{k=1}^{m} k \cdot \frac{1}{m} = \frac{1}{m} \sum_{k=1}^{m} k.\]</span></p>
+<p>Použitím vzťahu pre súčet prvých ( m ) prirodzených čísel,</p>
+<p><span class="math display">\[\sum_{k=1}^{m} k = \frac{m(m+1)}{2},\]</span></p>
+<p>dostaneme</p>
+<p><span class="math display">\[\text{E}[X] = \frac{1}{m} \cdot \frac{m(m+1)}{2} = \frac{m+1}{2}.\]</span></p>
+<p>Teraz vypočítame ( [X^2] ):</p>
+<p><span class="math display">\[\text{E}[X^2] = \sum_{k=1}^{m} k^2 P(X = k) = \sum_{k=1}^{m} k^2 \cdot \frac{1}{m} = \frac{1}{m} \sum_{k=1}^{m} k^2.\]</span></p>
+<p>Použitím vzťahu pre súčet druhých mocnín prvých ( m ) prirodzených čísel,</p>
+<p><span class="math display">\[\sum_{k=1}^{m} k^2 = \frac{m(m+1)(2m+1)}{6},\]</span></p>
+<p>dostaneme</p>
+<p><span class="math display">\[\text{E}[X^2] = \frac{1}{m} \cdot \frac{m(m+1)(2m+1)}{6} = \frac{(m+1)(2m+1)}{6}.\]</span></p>
+<p>Dosadením vypočítaných hodnôt:</p>
+<p><span class="math display">\[\text{Var}[X] = \frac{(m+1)(2m+1)}{6} - \left( \frac{m+1}{2} \right)^2.\]</span></p>
+<p>Rozpísaním, <span class="math display">\[
+\begin{eqnarray*}
+\text{Var}[X] &amp;=&amp; \frac{(m+1)(2m+1)}{6} - \frac{(m+1)^2}{4}\\
+&amp;=&amp; \frac{4(m+1)(2m+1) - 6(m+1)^2}{24}\\
+&amp;=&amp; \frac{(m+1) \left[ 4(2m+1) - 6(m+1) \right]}{24}\\
+  &amp;=&amp; \frac{(m+1)(2m+1 - 3m - 3)}{12} = \frac{m^2 - 1}{12}.
+\end{eqnarray*}
+\]</span></p>
+<p><a href="#exr-binom1" class="quarto-xref">Cvičenie&nbsp;<span>5.3</span></a></p>
+<p><span class="math inline">\(X \sim Bin(10,0.25)\)</span></p>
+<p><span class="math display">\[
+\begin{eqnarray*}
+P(X &lt; 4) &amp;=&amp; p_X(0) + p_X(1) + p_X(2) + p_X(3) =  \\
+&amp;=&amp; {10 \choose 0} 0.25^0 0.75^{10} + {10 \choose 1} 0.25^1 0.75^{9} \\
+&amp;&amp; + {10 \choose 2} 0.25^2 0.75^{8}+ {10 \choose 3} 0.25^3 0.75^{7}  \\
+&amp;\approx&amp; 0.056 + 0.188 + 0.282 + 0.250 = 77.6\%.
+\end{eqnarray*}
+\]</span></p>
+<p><a href="#exr-binom2" class="quarto-xref">Cvičenie&nbsp;<span>5.4</span></a></p>
+<p><span class="math inline">\(X \sim Bin(8,0.8)\)</span></p>
+<p><span class="math display">\[
+\begin{eqnarray*}
+P(X &gt; 6) &amp;=&amp; p_X(7) + p_X(8) \\
+&amp;=&amp; {8 \choose 7} 0.8^7 0.2^{1} + {8 \choose 8} 0.8^8 0.2^{0}  \\
+&amp;\approx&amp; 0.336 + 0.168 = 50.4\%.
+\end{eqnarray*}
+\]</span></p>
+<p><a href="#exr-raketa" class="quarto-xref">Cvičenie&nbsp;<span>5.5</span></a></p>
+<p><span class="math inline">\(X \sim Bin(6,0.01)\)</span></p>
+<p><span class="math display">\[
+\begin{eqnarray*}
+P(X \leq 1) &amp;=&amp; p_X(0) + p_X(1) \\
+&amp;=&amp; {6 \choose 0} 0.01^0 0.99^{6} + {6 \choose 1} 0.01^1 0.99^{5}  \\
+&amp;\approx&amp; 0.941 +  0.057 = 99.8\%.
+\end{eqnarray*}
+\]</span></p>
+<p><a href="#exr-test1" class="quarto-xref">Cvičenie&nbsp;<span>5.6</span></a></p>
+<p><span class="math inline">\(X \sim Bin(10,0.25)\)</span></p>
+<p><span class="math display">\[
+\begin{eqnarray*}
+P(X \geq 5) &amp;=&amp; p_X(5) + p_X(6) + p_X(7) + p_X(8) + p_X(9) + p_X(10)  \\
+&amp;=&amp; {10 \choose 5} 0.25^5 0.75^{5} + {10 \choose 6} 0.25^6 0.75^{4} + {10 \choose 7} 0.25^7 0.75^{3}   \\
+&amp;&amp;  + {10 \choose 8} 0.25^8 0.75^{2} + {10 \choose 9} 0.25^9 0.75^{1} + {10 \choose 10} 0.25^{10} 0.75^{0}   \\
+&amp;\approx&amp; 0.0584 + 0.0162 +  0.0031  \\
+&amp;&amp; + 0.0004 +  0.0000 +  0.0000 = 7.81\%.
+\end{eqnarray*}
+\]</span></p>
+<p><a href="#exr-pois" class="quarto-xref">Cvičenie&nbsp;<span>5.8</span></a></p>
+<p><span class="math inline">\(X \sim Pois(8)\)</span></p>
+<p><span class="math display">\[p_X(2) = \frac{8^2}{2!} e^{-8} \approx 1.08\%\]</span> <a href="#exr-pois2" class="quarto-xref">Cvičenie&nbsp;<span>5.9</span></a></p>
+<p><span class="math inline">\(X \sim Pois(10)\)</span></p>
+<p><span class="math display">\[
+\begin{eqnarray*}
+P(X \in (12,15)) &amp;=&amp; p_X(13) + p_X(14) \\
+&amp;\approx&amp;  0.0729 + 0.0521 = 12.5\%.
+\end{eqnarray*}
+\]</span> <span class="math display">\[P(X \in (12,15)) = p_X(13) + p_X(14) \]</span> <a href="#exr-hgeom1" class="quarto-xref">Cvičenie&nbsp;<span>5.12</span></a></p>
+<p><span class="math display">\[p_X(3) = \frac{{6 \choose 3} {4 \choose 2}}{{10 \choose 5}} \approx 47.62\%\]</span></p>
+<p><a href="#exr-kata" class="quarto-xref">Cvičenie&nbsp;<span>5.15</span></a></p>
+<p><span class="math inline">\(X \sim Geom(1/6)\)</span></p>
+<p>každých 100 rokov je jeden “pokus”. Pýtame sa, či počet “neúspechov” (nenastane katastrofa) predtým ako nastane prvý “úspech” (nastane katastrofa) je menší alebo rovný 4.</p>
+<p><span class="math display">\[
+\begin{eqnarray*}
+P(X \leq 4) &amp;=&amp; p_X(0) + p_X(1) + p_X(2) + \\
+            &amp;&amp; p_X(3) + p_X(4)\\
+&amp;\approx&amp;  0.167 + 0.139 + 0.116 +  \\
+&amp;&amp; 0.096 + 0.080 = 59.8\%.
+\end{eqnarray*}
+\]</span> Alternatívne, môžeme pomocou <span class="math inline">\(Y\)</span> označiť počet storočníc v ktorých nastane katastrofa:</p>
+<p><span class="math inline">\(Y \sim Bin(5,1/6)\)</span></p>
+<p><span class="math display">\[
+\begin{eqnarray*}
+P(Y&gt;0)  &amp;=&amp; 1 - P(Y=0) = 1 - p_Y(0)  \\
+        &amp;=&amp; 1 - {5 \choose 0} \left(\frac{1}{6}\right)^0 \left(\frac{5}{6}\right)^{5} \approx 59.8\%
+\end{eqnarray*}
+\]</span></p>
+<p><a href="#exr-sum" class="quarto-xref">Cvičenie&nbsp;<span>5.16</span></a></p>
+<p>Nech <span class="math inline">\(X \sim Bin(n,p).\)</span> Potom vieme, že <span class="math inline">\(\text{E}[X]=np\)</span> a <span class="math inline">\(\text{Var}[X]=np(1-p):\)</span></p>
+<p><span class="math display">\[
+\begin{eqnarray*}
+Q  &amp;=&amp; \sum_{j=2}^{n} j(j-1) {n \choose j} p^j (1-p)^{n-j} \\
+        &amp;=&amp; \sum_{j=0}^{n} j(j-1) {n \choose j} p^j (1-p)^{n-j} \\
+        &amp;=&amp; \sum_{j=0}^{n} j^2 {n \choose j} p^j (1-p)^{n-j} \\
+        &amp; &amp; - \sum_{j=0}^{n} j {n \choose j} p^j (1-p)^{n-j} \\
+        &amp;=&amp; \text{E}[X^2] - \text{E}[X] \\
+        &amp;=&amp; \text{Var}[X] + (\text{E}[X])^2 - \text{E}[X] \\
+        &amp;=&amp; n p (1-p) + p^2 - p \\
+        &amp;=&amp; n p (1-p) + p^2 - p \\
+        &amp;=&amp; p (1-p)(n-1).
+\end{eqnarray*}
+\]</span></p>
+<p><a href="#exr-porody" class="quarto-xref">Cvičenie&nbsp;<span>5.20</span></a></p>
+<p><span class="math inline">\(X \sim Bin(8000,1/10000)\)</span></p>
+<p>je dobre aproximovateľná pomocou</p>
+<p><span class="math inline">\(Y \sim Pois(0.8)\)</span></p>
+<p><span class="math inline">\(P(X = 1) =  {8 \ 000 \choose 1} \left(\frac{1}{10 \ 000}\right)^1 \left(\frac{9 \ 999}{10 \ 000}\right)^{7\ 999} \approx  35.94847\%\)</span></p>
+<p><span class="math inline">\(P(Y = 1) = \frac{0.8^1}{1!}e^{-0.8} \approx 35.94632\%\)</span></p>
+<p>takže sa líšia iba na úrovni tisícin percenta.</p>
+</div>
+</div>
+</div>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-2-contents" aria-controls="callout-2" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Cvičná písomka
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-2" class="callout-2-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<div id="exr-cislo0" class="theorem exercise">
+<p><span class="theorem-title"><strong>Cvičenie 5.33</strong></span> Uvažujme nasledovnú situáciu: trikrát hodíme férovou mincou.</p>
+<ul>
+<li>Zostrojte pravdepodobnostný priestor, ktorý zodpovedá tejto situácii.</li>
+</ul>
+<ol type="a">
+<li><span class="math inline">\(\Omega = \{ (0,0,0),(0,0,1),(0,1,0),(0,1,1),(1,0,0),(1,0,1),(1,1,0),(1,1,1) \}\)</span>, <span class="math inline">\(\mathcal{F} = 2^{\Omega}\)</span>, <span class="math inline">\(P(A)=\frac{|A|}{2^8}\)</span></li>
+<li><span class="math inline">\(\Omega = \{ (0,0,0),(0,0,1),(0,1,0),(0,1,1),(1,0,0),(1,0,1),(1,1,0),(1,1,1) \}\)</span>, <span class="math inline">\(\mathcal{F} = \{\emptyset,\Omega\}\)</span>, <span class="math inline">\(P(A)=\frac{|A|}{6}\)</span></li>
+<li><span class="math inline">\(\Omega = \{ (0,0),(0,1),(1,0),(1,1) \}\)</span>, <span class="math inline">\(\mathcal{F} = 2^{\Omega}\)</span>, <span class="math inline">\(P(A)=\frac{|A|}{6}\)</span></li>
+<li><span class="math inline">\(\Omega = \{ (\square,\square,\square),(\square,\square,\blacksquare),(\square,\blacksquare,\square),(\square,\blacksquare,\blacksquare),(\blacksquare,\square,\square),(\blacksquare,\square,\blacksquare),(\blacksquare,\blacksquare,\square),(\blacksquare,\blacksquare,\blacksquare) \}\)</span>, <span class="math inline">\(\mathcal{F} = 2^{\Omega}\)</span>, <span class="math inline">\(P(A)=\frac{|A|}{8}\)</span></li>
+<li><span class="math inline">\(\Omega = \{ (0,0,0),(0,0,1),(0,1,0),(0,1,1),(1,0,0),(1,0,1),(1,1,0),(1,1,1) \}\)</span>, <span class="math inline">\(\mathcal{F} = \{\emptyset,\Omega\}\)</span>, <span class="math inline">\(P(A)=\frac{|A|}{6}\)</span></li>
+</ol>
+<ul>
+<li>Aká je pravdepodobnosť, že na troch minciach padnú práve 2 hlavy?</li>
+</ul>
+<ol type="a">
+<li><span class="math inline">\(0\)</span></li>
+<li><span class="math inline">\(\frac{1}{4}\)</span></li>
+<li><span class="math inline">\(\frac{1}{2}\)</span></li>
+<li><span class="math inline">\(\frac{3}{8}\)</span></li>
+<li><span class="math inline">\(\frac{7}{8}\)</span></li>
+<li><span class="math inline">\(1\)</span></li>
+</ol>
+</div>
+<div id="exr-np" class="theorem exercise">
+<p><span class="theorem-title"><strong>Cvičenie 5.34</strong></span> Majme pravdepodobnostný priestor <span class="math inline">\((\Omega,\mathcal{F},P)\)</span>. Napíšte definíciu <strong>náhodnej premennej</strong>.</p>
+<ol type="a">
+<li>Zobrazenie <span class="math inline">\(X: \mathcal{F} \rightarrow \mathbb{R}\)</span> také, že <span class="math inline">\(\forall x\in \mathbb{R}: \{\omega \in \Omega: X(\omega)\leq x\} \in \Omega\)</span></li>
+<li>Zobrazenie <span class="math inline">\(X: \mathbb{R} \rightarrow \mathbb{R}\)</span> také, že <span class="math inline">\(\forall x\in \Omega: \{\omega \in \Omega: X(\omega)\leq x\} \in \mathcal{F}\)</span></li>
+<li>Zobrazenie <span class="math inline">\(X: \mathcal{F} \rightarrow \mathbb{R}\)</span> také, že <span class="math inline">\(\exists x\in \mathbb{R}: \{\omega \in \Omega: X(\omega)\leq x\} \in \Omega\)</span></li>
+<li>Zobrazenie <span class="math inline">\(X: \Omega \rightarrow \mathbb{R}\)</span> také, že <span class="math inline">\(\forall x\in \mathbb{R}: \{\omega \in \Omega: X(\omega)\leq x\} \in \mathcal{F}\)</span></li>
+<li>Zobrazenie <span class="math inline">\(X: \mathcal{F} \rightarrow \Omega\)</span> také, že <span class="math inline">\(\forall x\in \mathbb{R}: \{\omega \subset \Omega: X(\omega)\leq x\} \in \Omega\)</span></li>
+<li>Zobrazenie <span class="math inline">\(X: \Omega \rightarrow \mathbb{R}\)</span> také, že <span class="math inline">\(\exists x\in \mathbb{R}: \{\omega \in \Omega: X(\omega)\leq x\} \in \Omega\)</span></li>
+</ol>
+</div>
+<div id="exr-ktd" class="theorem exercise">
+<p><span class="theorem-title"><strong>Cvičenie 5.35</strong></span> Majme vo vrecúšku písmenká <span class="math inline">\(\{A,A,A,B,N,N\}\)</span>. Aká je pravdepodobnosť, že si ich vytiahnem v poradí BANANA?</p>
+<ol type="a">
+<li><span class="math inline">\(\frac{1}{{6 \choose 3}{6 \choose 2}}\)</span></li>
+<li><span class="math inline">\(\frac{6!}{3! 2!}\)</span></li>
+<li><span class="math inline">\(\frac{3! 2!}{6!}\)</span></li>
+<li><span class="math inline">\(\frac{{6 \choose 3}{6 \choose 2}}{2^6}\)</span></li>
+<li><span class="math inline">\(\frac{2^6}{{6 \choose 3}{6 \choose 2}}\)</span></li>
+<li>nedá sa určiť.</li>
+</ol>
+</div>
+<div id="exr-ktd" class="theorem exercise">
+<p><span class="theorem-title"><strong>Cvičenie 5.36</strong></span> Koľko riešení má <span class="math inline">\(a+b+c+d = 20,\)</span> kde <span class="math inline">\(a,b,c,d, \in \{0,1,2,3,... \}\)</span>?</p>
+<ol type="a">
+<li><span class="math inline">\(\frac{1}{{20 \choose 4}}\)</span></li>
+<li><span class="math inline">\({24 \choose 3}\)</span></li>
+<li><span class="math inline">\({23 \choose 3}\)</span></li>
+<li><span class="math inline">\(4!{24 \choose 3}\)</span></li>
+<li><span class="math inline">\({20 \choose 4}{16 \choose 3}{13 \choose 2}{11 \choose 1}\)</span></li>
+</ol>
+</div>
+<div id="exr-cislo1" class="theorem exercise">
+<p><span class="theorem-title"><strong>Cvičenie 5.37</strong></span> Test pozostáva z 20 otázok, každá má možnosti (A), (B), (C), (D), (E) a práve jedna odpoveď je správna. Aká je pravdepodobnosť, že študent, ktorý sa nič neučil zodpovie práve 3 otázky správne?</p>
+<ol type="a">
+<li><span class="math inline">\({20 \choose 3} 0.25^3 0.75^17\)</span></li>
+<li><span class="math inline">\(0.1\)</span></li>
+<li><span class="math inline">\({25 \choose 3} 0.25^3\)</span></li>
+<li><span class="math inline">\((1-0.2)^2 0.2\)</span></li>
+<li><span class="math inline">\((1-0.8)^18 0.2^2\)</span></li>
+<li><span class="math inline">\({20 \choose 3} 0.2^3 0.8^17\)</span></li>
+</ol>
+</div>
+<div id="exr-cislo2" class="theorem exercise">
+<p><span class="theorem-title"><strong>Cvičenie 5.38</strong></span> <span class="math display">\[\sum_{k=0}^n{n \choose k}0.3^k0.7^{n-k} = \]</span></p>
+<ol type="a">
+<li><span class="math inline">\(0\)</span></li>
+<li><span class="math inline">\(1\)</span></li>
+<li><span class="math inline">\(2\)</span></li>
+<li><span class="math inline">\(2^n\)</span></li>
+<li><span class="math inline">\(2^k\)</span></li>
+<li>nedá sa určiť.</li>
+</ol>
+</div>
+<div id="exr-blesky" class="theorem exercise">
+<p><span class="theorem-title"><strong>Cvičenie 5.39</strong></span> Nech je pravdepodobnosť, že bijú blesky 25%. Pravdepodobnosť, že budú záplavy 5%. Podmienená pravdepodobnosť, že budú záplavy, ak bijú blesky 30%.</p>
+<p>Aká je pravdepodobnosť, že bijú blesky, ak vieme, že nie sú záplavy?</p>
+<ol type="a">
+<li><span class="math inline">\(\frac{0.7 \cdot 0.25}{0.7 \cdot 0.25 + 0.95 \cdot 0.75}\)</span></li>
+<li><span class="math inline">\(\frac{0.7 \cdot 0.25}{0.95}\)</span></li>
+<li><span class="math inline">\(\frac{0.3 \cdot 0.25}{0.95}\)</span></li>
+<li><span class="math inline">\(\frac{0.7 \cdot 0.25}{0.05}\)</span></li>
+<li><span class="math inline">\(\frac{0.05 \cdot 0.3}{0.7 \cdot 0.25 + 0.95 \cdot 0.75}\)</span></li>
+</ol>
+</div>
+<div id="exr-senz" class="theorem exercise">
+<p><span class="theorem-title"><strong>Cvičenie 5.40</strong></span> Zvýšenie senzitivity diagnostického testu zvýši pravdepodobnosť, že pozitívne testovaný človek je skutočne chorý,</p>
+<ol type="a">
+<li>áno</li>
+<li>nie</li>
+<li>nedá sa určiť.</li>
+</ol>
+</div>
+<div id="exr-dopl3" class="theorem exercise">
+<p><span class="theorem-title"><strong>Cvičenie 5.41</strong></span> Určite <span class="math inline">\(p_X(4)\)</span> a <span class="math inline">\(p_X(5)\)</span> tak aby <span class="math inline">\(\text{E}(X) = 3.\)</span></p>
+<div class="cell">
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="dnp_files/figure-html/dnp-cv3-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+<ol type="a">
+<li><span class="math inline">\(p_X(4)=0\)</span>, <span class="math inline">\(p_X(5)=0.4\)</span></li>
+<li><span class="math inline">\(p_X(4)=0\)</span>, <span class="math inline">\(p_X(5)=0.2\)</span></li>
+<li><span class="math inline">\(p_X(4)=0.1\)</span>, <span class="math inline">\(p_X(5)=0.3\)</span></li>
+<li><span class="math inline">\(p_X(4)=0.2\)</span>, <span class="math inline">\(p_X(5)=0.2\)</span></li>
+<li><span class="math inline">\(p_X(4)=0.4\)</span>, <span class="math inline">\(p_X(5)=0\)</span></li>
+<li><span class="math inline">\(p_X(4)=0.2\)</span>, <span class="math inline">\(p_X(5)=0.4\)</span></li>
+</ol>
+</div>
+</div>
+</div>
 </div>
 <!-- ## Domáca úloha 4 {-} -->
 <!-- Prosím odovzdať do 20.3.2024 19:59 cez formulár (tento Vám príde emailom). Výnimky len vo vážnych prípadoch a len ak sú komunikované dopredu. -->
