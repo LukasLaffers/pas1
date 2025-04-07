@@ -245,6 +245,15 @@ window.Quarto = {
 
 
 <p>Doteraz sme hovorili o náhodných premenných, pre ktoré bola množina hodnôt, ktoré nadobúdali, konečná alebo nanajvýš spočitateľná. Existuje veľká skupina situácií, kedy je lepšie uvažovať o náhodnej premennej, ktorá nadobúda nespočitateľne veľa hodnôt, napríklad akékoľvek reálne čislo.</p>
+<p>Existujú rôzne špecifické typy spojite rozdelených náhodných premenných</p>
+<ul>
+<li>rovnomerné rozdelenie na intervale <span class="math inline">\((a,b),\)</span></li>
+<li>normálne rozdelenie,</li>
+<li>exponenciálne rozdelenie,</li>
+<li>t-rozdelenie,</li>
+<li>chí-kvadrát rozdelenie,</li>
+</ul>
+<p>a mnoho mnoho iných.</p>
 <section id="funkcia-hustoty-spojite-rozdelenej-náhodnej-premennej" class="level2" data-number="6.1">
 <h2 data-number="6.1" class="anchored" data-anchor-id="funkcia-hustoty-spojite-rozdelenej-náhodnej-premennej"><span class="header-section-number">6.1</span> Funkcia hustoty spojite rozdelenej náhodnej premennej</h2>
 <p>Popisovať náhodnosť pre tieto premenné si vyžaduje iný prístup. Pre diskrétne náhodné premenné stačilo pravdepodobnosti <em>vymenovať</em>. Teraz to nie je možné, lebo ich je príliš veľa (konkrétne nespočitateľne veľa) a pravdepodobnosť toho, že náhodná premenná bude nadobúdať práve nejakú konkrétnu hodnotu bude 0.</p>
@@ -426,15 +435,6 @@ F_X(t)=
 <p>preto <span class="math inline">\(M = 2\log(2).\)</span></p>
 </div>
 <p><span class="math display">\[\\[0.7in]\]</span></p>
-<p>Existujú rôzne špecifické typy spojite rozdelených náhodných premenných</p>
-<ul>
-<li>rovnomerné rozdelenie na intervale <span class="math inline">\((a,b),\)</span></li>
-<li>normálne rozdelenie,</li>
-<li>exponenciálne rozdelenie,</li>
-<li>t-rozdelenie,</li>
-<li>chí-kvadrát rozdelenie,</li>
-</ul>
-<p>a mnoho mnoho iných.</p>
 </section>
 <section id="rovnomerné-rozdelenie" class="level2" data-number="6.3">
 <h2 data-number="6.3" class="anchored" data-anchor-id="rovnomerné-rozdelenie"><span class="header-section-number">6.3</span> Rovnomerné rozdelenie</h2>
@@ -732,7 +732,7 @@ a \sin x, &amp; \text{ak}\ x  \in (0,\pi], \\
 <p>Nájdite a načrtnite jej kumulatívnu distribučnú funkciu.</p>
 <p>Vypočítajte jej strednú hodnotu, varianciu, medián a <span class="math inline">\(P(X \geq 1).\)</span></p>
 </div>
-<div id="exr-" class="Exercise theorem exercise">
+<div id="exr-polyn" class="Exercise theorem exercise">
 <p><span class="theorem-title"><strong>Cvičenie 6.7</strong></span> Majme náhodnú premennú s nasledovnou funkciu hustoty pravdepodobnosti:</p>
 <span class="math display">\[\begin{equation*}
 f_X(x)=
@@ -744,12 +744,12 @@ x - \frac{x^3}{4}, &amp; \text{ak}\ x \in (0,2), \\
 <p>Nájdite a načrtnite jej kumulatívnu distribučnú funkciu.</p>
 <p>Vypočítajte jej strednú hodnotu, varianciu, medián a <span class="math inline">\(P(|X-1| \leq 0.5)\)</span></p>
 </div>
-<div id="exr-" class="Exercise theorem exercise">
+<div id="exr-unif" class="Exercise theorem exercise">
 <p><span class="theorem-title"><strong>Cvičenie 6.8</strong></span> Nech <span class="math inline">\(X \sim \text{Unif}[4,6]\)</span></p>
 <p>Nájdite kumulatívnu distribučnú funkciu náhodnej premennej <span class="math inline">\(X\)</span>.</p>
 <p>Nájdite kumulatívnu distribučnú funkciu náhodnej premennej <span class="math inline">\(X^2\)</span>.</p>
 </div>
-<div id="exr-" class="Exercise theorem exercise">
+<div id="exr-linearita" class="Exercise theorem exercise">
 <p><span class="theorem-title"><strong>Cvičenie 6.9</strong></span> Využitím linearity strednej hodnoty ukážte, že platí</p>
 <p><span class="math display">\[\text{Var}[aX+b] = a^2 \text{Var}[X].\]</span></p>
 </div>
@@ -764,14 +764,14 @@ c.e^{-x}, &amp; \text{ak}\ x  &gt; 0, \\
 \end{equation*}\]</span>
 <p>Určite konštantu <span class="math inline">\(c\)</span>.</p>
 </div>
-<div id="exr-" class="Exercise theorem exercise">
+<div id="exr-nemoze" class="Exercise theorem exercise">
 <p><span class="theorem-title"><strong>Cvičenie 6.11</strong></span> Ukážte, že neexistuje žiadna náhodná premenná, pre ktorú platí <span class="math inline">\(\text{E}[X] = 4\)</span> a súčasne <span class="math inline">\(\text{E}[X^2]=15.\)</span></p>
 </div>
-<div id="exr-" class="Exercise theorem exercise">
+<div id="exr-normal" class="Exercise theorem exercise">
 <p><span class="theorem-title"><strong>Cvičenie 6.12</strong></span> Nech <span class="math inline">\(X \sim \text{N}(0,1)\)</span> a <span class="math inline">\(Y \sim \text{N}(1,1)\)</span></p>
 <p>Ukážte, že <span class="math inline">\(P(X&lt;3) &gt; P(Y&lt;3).\)</span></p>
 </div>
-<div id="exr-" class="Exercise theorem exercise">
+<div id="exr-korektne" class="Exercise theorem exercise">
 <p><span class="theorem-title"><strong>Cvičenie 6.13</strong></span> Ukážte, že nasledujúce funkcie hustoty sú korektné</p>
 <ul>
 <li>(Weibullovo rozdelenie)</li>
@@ -806,7 +806,7 @@ f_X(x)=
 </ul>
 <p><span class="math display">\[f_X(x) =e^{-x}\text{exp}\{-e^{-x}\}.\]</span></p>
 </div>
-<div id="exr-" class="Exercise theorem exercise">
+<div id="exr-nudny" class="Exercise theorem exercise">
 <p><span class="theorem-title"><strong>Cvičenie 6.14</strong></span> Majme náhodnú premennú s takouto funkciou hustoty</p>
 <span class="math display">\[\begin{equation*}
 f_X(x)=
@@ -821,11 +821,11 @@ c x^2, &amp; \text{ak}\ |x| &lt; 1, \\
 <li>Vypočítajte <span class="math inline">\(P\left(X \geq \frac{1}{2}\right)\)</span></li>
 </ul>
 </div>
-<div id="exr-" class="Exercise theorem exercise">
+<div id="exr-x2" class="Exercise theorem exercise">
 <p><span class="theorem-title"><strong>Cvičenie 6.15</strong></span> Majme náhodnú premennú s takouto funkciou hustoty</p>
 <p><span class="math display">\[ f_X(x)=\frac{1}{2} e^{-|x|}.\]</span> Vypočítajte kumulatívnu distribučnú funkciu pre <span class="math inline">\(Y = X^2.\)</span></p>
 </div>
-<div id="exr-" class="Exercise theorem exercise">
+<div id="exr-poly2" class="Exercise theorem exercise">
 <p><span class="theorem-title"><strong>Cvičenie 6.16</strong></span> Majme náhodnú premennú s takouto funkciou hustoty</p>
 <span class="math display">\[\begin{equation*}
 f_X(x)=
@@ -855,14 +855,359 @@ x^2 \left( 2x + \frac{3}{2}\right), &amp; \text{ak}\ 0 &lt; x \leq 1, \\
 <p><span class="theorem-title"><strong>Cvičenie 6.18</strong></span> Majme kladnú spojitú náhodnú premennú. Ukážte, že platí</p>
 <p><span class="math display">\[\text{E}[X] = \int_{0}^{\infty}P(X \geq x) dx.\]</span></p>
 </div>
-<div id="exr-" class="Exercise theorem exercise">
+<div id="exr-hust" class="Exercise theorem exercise">
 <p><span class="theorem-title"><strong>Cvičenie 6.19</strong></span> Nech <span class="math inline">\(f_{X_1}\)</span> a <span class="math inline">\(f_{X_2}\)</span> sú hustoty pravdepodobnosti náhodných premenných <span class="math inline">\(X_1\)</span> a <span class="math inline">\(X_2.\)</span> Rozhodnite, či môže platiť <span class="math inline">\(f_{X_1}(x) &gt; f_{X_2}(x)\)</span> pre všetky <span class="math inline">\(x \in \mathbb{R}.\)</span></p>
 </div>
-<div id="exr-" class="Exercise theorem exercise">
+<div id="exr-ziarovka" class="Exercise theorem exercise">
 <p><span class="theorem-title"><strong>Cvičenie 6.20</strong></span> Životnosť súčiastky je exponenciálne rozdelená so strednou hodnotou 1 rok. Aká je pravdepodobnosť, že ak funguje už 2 roky, že bude fungovať dalšie 3 roky?</p>
 </div>
-<div id="exr-" class="Exercise theorem exercise">
+<div id="exr-web" class="Exercise theorem exercise">
 <p><span class="theorem-title"><strong>Cvičenie 6.21</strong></span> Na náš web príde človek približne každých 10min. Aká je šanca, ze počas polhodinového výpadku nikto nechcel navštíviť náš web? (Použite exponenciálne rozdelenie.)</p>
+</div>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-1-contents" aria-controls="callout-1" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Niektoré riešenia
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-1" class="callout-1-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p><a href="#exr-polyn" class="quarto-xref">Cvičenie&nbsp;<span>6.7</span></a></p>
+<p>Pre <span class="math inline">\(x \leq 0\)</span>:</p>
+<p><span class="math display">\[
+F_X(x) = 0
+\]</span></p>
+<p>Pre <span class="math inline">\(x \in (0,2)\)</span>:</p>
+<p><span class="math display">\[
+F_X(x) = \int_0^x \left(t - \frac{t^3}{4}\right) dt = \frac{x^2}{2} - \frac{x^4}{16}
+\]</span></p>
+<p>Pre <span class="math inline">\(x \geq 2\)</span>:</p>
+<p><span class="math display">\[
+F_X(x) = 1
+\]</span></p>
+<p>Teda:</p>
+<p><span class="math display">\[
+F_X(x) =
+\begin{cases}
+0, &amp; x \leq 0, \\
+\frac{x^2}{2} - \frac{x^4}{16}, &amp; 0 &lt; x &lt; 2, \\
+1, &amp; x \geq 2.
+\end{cases}
+\]</span></p>
+<p>Vypočítame strednú hodnotu:</p>
+<p><span class="math display">\[
+\text{E}[X] = \int_0^2 x \left(x - \frac{x^3}{4}\right) dx = \int_0^2 \left(x^2 - \frac{x^4}{4}\right) dx = \frac{8}{3} - \frac{8}{5} = \frac{16}{15}
+\]</span></p>
+<p>Najprv vypočítame <span class="math inline">\(\text{E}[X^2]\)</span>:</p>
+<p><span class="math display">\[
+\text{E}[X^2] = \int_0^2 x^2 \left(x - \frac{x^3}{4}\right) dx = \int_0^2 \left(x^3 - \frac{x^5}{4}\right) dx = \frac{4}{3}
+\]</span></p>
+<p>Potom:</p>
+<p><span class="math display">\[
+\text{Var}(X) = \text{E}[X^2] - (\text{E}[X])^2 = \frac{4}{3} - \left(\frac{16}{15}\right)^2 = \frac{44}{225}
+\]</span></p>
+<p>Medián</p>
+<p>Hľadáme <span class="math inline">\(m\)</span>, pre ktoré <span class="math inline">\(F_X(m) = 0.5\)</span>:</p>
+<p><span class="math display">\[
+\frac{m^2}{2} - \frac{m^4}{16} = 0.5
+\]</span></p>
+<p>Po úprave:</p>
+<p><span class="math display">\[
+m^4 - 8m^2 + 8 = 0
+\]</span></p>
+<p>Riešením je:</p>
+<p><span class="math display">\[
+m = \sqrt{4 - 2\sqrt{2}} \approx 1.08
+\]</span></p>
+<p>Pravdepodobnosť <span class="math inline">\(P(|X - 1| \leq 0.5)\)</span></p>
+<p><span class="math display">\[
+P(0.5 \leq X \leq 1.5) = \int_{0.5}^{1.5} \left(x - \frac{x^3}{4}\right) dx = F_X(1.5) - F_X(0.5)
+\]</span></p>
+<p>Spočítame:</p>
+<p><span class="math display">\[
+F_X(1.5) = \frac{(1.5)^2}{2} - \frac{(1.5)^4}{16} = 1.125 - 0.3164 = 0.8086
+\]</span></p>
+<p><span class="math display">\[
+F_X(0.5) = \frac{(0.5)^2}{2} - \frac{(0.5)^4}{16} = 0.125 - 0.0039 = 0.1211
+\]</span></p>
+<p>Teda:</p>
+<p><span class="math display">\[
+P(|X - 1| \leq 0.5) = 0.8086 - 0.1211 = 0.6875
+\]</span></p>
+<p><a href="#exr-unif" class="quarto-xref">Cvičenie&nbsp;<span>6.8</span></a></p>
+<p>Pre <span class="math inline">\(X \sim \text{Unif}[a,b] = \text{Unif}[4,6]\)</span> hustota pravdepodobnosti:</p>
+<p><span class="math display">\[
+f_X(x) =
+\begin{cases}
+\frac{1}{6 - 4} = \frac{1}{2}, &amp; x \in [4,6], \\
+0, &amp; \text{inak}
+\end{cases}
+\]</span></p>
+<p>CDF je daná ako:</p>
+<p><span class="math display">\[
+F_X(x) =
+\begin{cases}
+0, &amp; x &lt; 4, \\
+\frac{x - 4}{2}, &amp; 4 \leq x \leq 6, \\
+1, &amp; x &gt; 6
+\end{cases}
+\]</span></p>
+<p>Definujme <span class="math inline">\(Y = X^2\)</span>. Premenná <span class="math inline">\(X\)</span> nadobúda hodnoty v intervale <span class="math inline">\([4,6]\)</span>, takže:</p>
+<p><span class="math display">\[
+Y \in [4^2, 6^2] = [16, 36]
+\]</span></p>
+<p>Chceme nájsť:</p>
+<p><span class="math display">\[
+F_Y(y) = P(Y \leq y) = P(X^2 \leq y) = P(X \leq \sqrt{y}) \quad \text{pre } y \in [16,36]
+\]</span></p>
+<p>Použijeme CDF premennej <span class="math inline">\(X\)</span>:</p>
+<p><span class="math display">\[
+F_Y(y) =
+\begin{cases}
+0, &amp; y &lt; 16, \\
+F_X(\sqrt{y}) = \frac{\sqrt{y} - 4}{2}, &amp; 16 \leq y \leq 36, \\
+1, &amp; y &gt; 36
+\end{cases}
+\]</span></p>
+<p><a href="#exr-linearita" class="quarto-xref">Cvičenie&nbsp;<span>6.9</span></a></p>
+<p>Využijeme linearitu strednej hodnoty:</p>
+<p><span class="math display">\[
+\text{E}[aX + b] = a \text{E}[X] + b
+\]</span></p>
+<p><span class="math display">\[
+\begin{align*}
+\text{E}[(aX + b)^2] &amp;= \text{E}[a^2X^2 + 2abX + b^2] \\
+&amp;= a^2 \text{E}[X^2] + 2ab \text{E}[X] + b^2
+\end{align*}
+\]</span></p>
+<p><span class="math display">\[
+\begin{align*}
+\text{Var}[aX + b]
+&amp;= \text{E}[(aX + b)^2] - (\text{E}[aX + b])^2 \\
+&amp;= \left( a^2 \text{E}[X^2] + 2ab \text{E}[X] + b^2 \right)
+- \left( a \text{E}[X] + b \right)^2 \\
+&amp;= a^2 \text{E}[X^2] + 2ab \text{E}[X] + b^2
+- \left( a^2 (\text{E}[X])^2 + 2ab \text{E}[X] + b^2 \right) \\
+&amp;= a^2 \left( \text{E}[X^2] - (\text{E}[X])^2 \right) \\
+&amp;= a^2 \, \text{Var}[X]
+\end{align*}
+\]</span></p>
+<p><a href="#exr-nemoze" class="quarto-xref">Cvičenie&nbsp;<span>6.11</span></a></p>
+<p>Pre každú náhodnú premennú (pre ktorú existuje stredná hodnota a variancia) platí:</p>
+<p><span class="math display">\[
+\text{Var}(X) = \text{E}[X^2] - \left( \text{E}[X] \right)^2
+\]</span></p>
+<p>Použijeme zadanie:</p>
+<ul>
+<li><span class="math inline">\(\text{E}[X] = 4\)</span></li>
+<li><span class="math inline">\(\text{E}[X^2] = 15\)</span></li>
+</ul>
+<p>Dosadíme:</p>
+<p><span class="math display">\[
+\text{Var}(X) = 15 - (4)^2 = 15 - 16 = -1
+\]</span> Dostávame, že variancia je záporná, čo je však v spore s tým, že variancia je stredná hodnota nezápornej náhodnej premennej.</p>
+<p><a href="#exr-normal" class="quarto-xref">Cvičenie&nbsp;<span>6.12</span></a></p>
+<p>Náhodná premenná <span class="math inline">\(X\)</span> má už štandardné normálne rozdelenie:</p>
+<p><span class="math display">\[
+P(X &lt; 3) = \Phi(3)
+\]</span></p>
+<p>Premennú <span class="math inline">\(Y \sim \mathcal{N}(1,1)\)</span> štandardizujeme:</p>
+<p><span class="math display">\[
+P(Y &lt; 3) = P\left( \frac{Y - 1}{1} &lt; \frac{3 - 1}{1} \right) = P(Z &lt; 2), \quad Z \sim \mathcal{N}(0,1)
+\]</span></p>
+<p>Teda:</p>
+<p><span class="math display">\[
+P(Y &lt; 3) = \Phi(2)
+\]</span></p>
+<p>Distribučná funkcia <span class="math inline">\(\Phi\)</span> štandardného normálneho rozdelenia je rastúca. Preto platí:</p>
+<p><span class="math display">\[
+\Phi(3) &gt; \Phi(2)
+\]</span></p>
+<p>Z čoho vyplýva:</p>
+<p><span class="math display">\[
+P(X &lt; 3) &gt; P(Y &lt; 3)
+\]</span></p>
+<p><a href="#exr-korektne" class="quarto-xref">Cvičenie&nbsp;<span>6.13</span></a></p>
+<p>Weibull:</p>
+<p><span class="math display">\[
+f_X(x) =
+\begin{cases}
+\alpha x^{\alpha-1} e^{-x^{\alpha}}, &amp; x &gt; 0 \\
+0, &amp; \text{inak}
+\end{cases}, \quad \alpha &gt; 0
+\]</span></p>
+<p>Substitúcia: <span class="math inline">\(t = x^{\alpha} \Rightarrow dt = \alpha x^{\alpha -1} dx\)</span></p>
+<p><span class="math display">\[
+\int_0^\infty \alpha x^{\alpha-1} e^{-x^{\alpha}} dx
+= \int_0^\infty e^{-t} dt = 1
+\]</span></p>
+<p>Pareto:</p>
+<p><span class="math display">\[
+f_X(x) =
+\begin{cases}
+\alpha (1 + x)^{-\alpha - 1}, &amp; x &gt; 0 \\
+0, &amp; \text{inak}
+\end{cases}, \quad \alpha &gt; 0
+\]</span></p>
+<p>Substitúcia: <span class="math inline">\(u = 1 + x\)</span>, <span class="math inline">\(du = dx\)</span></p>
+<p><span class="math display">\[
+\int_0^\infty \alpha (1 + x)^{-\alpha - 1} dx = \alpha \int_1^\infty u^{-\alpha - 1} du
+= \alpha \left[ \frac{u^{-\alpha}}{-\alpha} \right]_1^\infty = 1
+\]</span></p>
+<p>Cauchy:</p>
+<p><span class="math display">\[
+f_X(x) = \frac{1}{\pi} \cdot \frac{1}{1 + x^2}
+\]</span></p>
+<p><span class="math display">\[
+\int_{-\infty}^\infty \frac{1}{\pi} \cdot \frac{1}{1 + x^2} dx
+= \frac{1}{\pi} \cdot \left[ \arctan(x) \right]_{-\infty}^{\infty} = \frac{1}{\pi} (\frac{\pi}{2} - (-\frac{\pi}{2})) = 1
+\]</span></p>
+<p>Laplace:</p>
+<p><span class="math display">\[
+f_X(x) = \frac{1}{2} e^{-|x|}
+\]</span></p>
+<p>Funkcia hustoty je párna, takže:</p>
+<p><span class="math display">\[
+\int_{-\infty}^\infty \frac{1}{2} e^{-|x|} dx = 2 \cdot \int_0^\infty \frac{1}{2} e^{-x} dx = \int_0^\infty e^{-x} dx = 1
+\]</span></p>
+<p>Extreme Value:</p>
+<p><span class="math display">\[
+f_X(x) = e^{-x} \cdot \exp\{-e^{-x}\}
+\]</span></p>
+<p>Nezáporná funkcia, definovaná pre všetky reálne čísla.</p>
+<p>Substitúcia: <span class="math inline">\(t = e^{-x} \Rightarrow dt = -e^{-x} dx = -t dx \Rightarrow dx = -\frac{dt}{t}\)</span></p>
+<p>Keď <span class="math inline">\(x \to \infty \Rightarrow t \to 0\)</span>, <span class="math inline">\(x \to -\infty \Rightarrow t \to \infty\)</span></p>
+<p><span class="math display">\[
+\int_{-\infty}^\infty e^{-x} \cdot e^{-e^{-x}} dx
+= \int_{\infty}^{0} t \cdot e^{-t} \cdot \left(-\frac{1}{t}\right) dt
+= \int_0^\infty e^{-t} dt = 1
+\]</span></p>
+<p><a href="#exr-nudny" class="quarto-xref">Cvičenie&nbsp;<span>6.14</span></a></p>
+<p>Hustota musí spĺňať:</p>
+<p><span class="math display">\[
+\int_{-\infty}^{\infty} f_X(x)\,dx = 1
+\]</span></p>
+<p><span class="math display">\[
+\int_{-1}^{1} c x^2 dx = c \int_{-1}^{1} x^2 dx = c \cdot \left[ \frac{x^3}{3} \right]_{-1}^{1} = c \cdot \left( \frac{1}{3} - \left(-\frac{1}{3}\right) \right) = c \cdot \frac{2}{3}
+\]</span></p>
+<p>Teda:</p>
+<p><span class="math display">\[
+c \cdot \frac{2}{3} = 1 \Rightarrow c = \frac{3}{2}
+\]</span></p>
+<p>Teda správna hustota je:</p>
+<p><span class="math display">\[
+f_X(x) =
+\begin{cases}
+\frac{3}{2} x^2, &amp; |x| &lt; 1 \\
+0, &amp; \text{inak}
+\end{cases}
+\]</span></p>
+<p><span class="math display">\[
+\mathbb{E}[X] = \int_{-1}^1 x f_X(x)\,dx = \int_{-1}^1 x \cdot \frac{3}{2} x^2 dx = \frac{3}{2} \int_{-1}^1 x^3 dx = 0
+\]</span></p>
+<p>(Funkcia <span class="math inline">\(x^3\)</span> je nepárna na symetrickom intervale.)</p>
+<p><span class="math display">\[
+\text{Var}[X] = \mathbb{E}[X^2] - (\mathbb{E}[X])^2 = \mathbb{E}[X^2]
+\]</span></p>
+<p><span class="math display">\[
+\mathbb{E}[X^2] = \int_{-1}^1 x^2 f_X(x)\,dx = \int_{-1}^1 x^2 \cdot \frac{3}{2} x^2 dx = \frac{3}{2} \int_{-1}^1 x^4 dx
+= \frac{3}{2} \cdot \left[ \frac{x^5}{5} \right]_{-1}^{1} = \frac{3}{2} \cdot \frac{2}{5} = \frac{3}{5}
+\]</span></p>
+<p>Teda:</p>
+<p><span class="math display">\[
+\mathbb{E}[X] = 0, \quad \text{Var}[X] = \frac{3}{5}
+\]</span></p>
+<p><span class="math display">\[
+P\left(X \geq \frac{1}{2}\right) = \int_{1/2}^1 f_X(x)\,dx = \int_{1/2}^{1} \frac{3}{2} x^2 dx
+= \frac{3}{2} \cdot \left[ \frac{x^3}{3} \right]_{1/2}^{1}
+= \frac{3}{2} \cdot \left( \frac{1}{3} - \frac{1}{24} \right)
+= \frac{3}{2} \cdot \frac{7}{24} = \frac{7}{16}
+\]</span></p>
+<p><a href="#exr-x2" class="quarto-xref">Cvičenie&nbsp;<span>6.15</span></a></p>
+<p>Kumulatívna distribučná funkcia pre <span class="math inline">\(X\)</span> je:</p>
+<p>Pre <span class="math inline">\(x \geq 0\)</span>: <span class="math display">\[
+F_X(x) = \int_{-\infty}^{x} \frac{1}{2} e^{-|t|} dt = \frac{1}{2} + \frac{1}{2}(1 - e^{-x}) = 1 - \frac{1}{2} e^{-x}
+\]</span></p>
+<p>Pre <span class="math inline">\(x &lt; 0\)</span>: <span class="math display">\[
+F_X(x) = \frac{1}{2} e^x
+\]</span></p>
+<p>Kumulatívna distribučná funkcia pre <span class="math inline">\(Y = X^2\)</span></p>
+<p>Chceme nájsť <span class="math inline">\(F_Y(y) = P(Y \leq y) = P(X^2 \leq y)\)</span>. Pre <span class="math inline">\(Y = X^2\)</span> platí, že <span class="math inline">\(Y \geq 0\)</span>, takže:</p>
+<p><span class="math display">\[
+F_Y(y) = P(-\sqrt{y} \leq X \leq \sqrt{y}) = F_X(\sqrt{y}) - F_X(-\sqrt{y})
+\]</span></p>
+<p>Pre <span class="math inline">\(y \geq 0\)</span>:</p>
+<p><span class="math display">\[
+F_X(\sqrt{y}) = 1 - \frac{1}{2} e^{-\sqrt{y}}, \quad F_X(-\sqrt{y}) = \frac{1}{2} e^{-\sqrt{y}}
+\]</span></p>
+<p><span class="math display">\[
+F_Y(y) = \left( 1 - \frac{1}{2} e^{-\sqrt{y}} \right) - \frac{1}{2} e^{-\sqrt{y}} = 1 - \frac{1}{2} \left( e^{-\sqrt{y}} + e^{-\sqrt{y}} \right) = 1 - e^{-\sqrt{y}}
+\]</span></p>
+<p>Pre <span class="math inline">\(y &lt; 0\)</span>:</p>
+<p><span class="math display">\[
+F_Y(y) = 0 \quad (\text{pre } y &lt; 0, \text{ pretože } Y = X^2 \geq 0)
+\]</span></p>
+<p>Kumulatívna distribučná funkcia pre <span class="math inline">\(Y = X^2\)</span> je:</p>
+<p><span class="math display">\[
+F_Y(y) =
+\begin{cases}
+0, &amp; y &lt; 0 \\
+1 - e^{-\sqrt{y}}, &amp; y \geq 0
+\end{cases}
+\]</span></p>
+<p><a href="#exr-poly2" class="quarto-xref">Cvičenie&nbsp;<span>6.16</span></a></p>
+<p>Podmienenú pravdepodobnosť môžeme vyjadriť ako:</p>
+<p><span class="math display">\[
+P\left( X \geq \frac{2}{3} \mid X &gt; \frac{1}{3} \right) = \frac{P\left( X \geq \frac{2}{3}, X &gt; \frac{1}{3} \right)}{P(X &gt; \frac{1}{3})}
+\]</span></p>
+<p>Pravdepodobnosť <span class="math inline">\(P(X &gt; \frac{1}{3})\)</span> je daná integrálom hustoty od $ $ do 1:</p>
+<p><span class="math display">\[
+P(X &gt; \frac{1}{3}) = \int_{\frac{1}{3}}^1 4 x^3 \, dx
+\]</span></p>
+<p>Po integrovaní:</p>
+<p><span class="math display">\[
+\int 4 x^3 \, dx = x^4
+\]</span></p>
+<p><span class="math display">\[
+P(X &gt; \frac{1}{3}) = \left[ x^4 \right]_{\frac{1}{3}}^1 = 1^4 - \left( \frac{1}{3} \right)^4 = 1 - \frac{1}{81} = \frac{80}{81}
+\]</span></p>
+<p>Tento výraz je jednoducho pravdepodobnosť <span class="math inline">\(P\left( X \geq \frac{2}{3} \right)\)</span>, pretože $ X $ automaticky znamená $ X &gt; $. Pre túto pravdepodobnosť vypočítame integrál od $ $ do 1:</p>
+<p><span class="math display">\[
+P\left( X \geq \frac{2}{3} \right) = \int_{\frac{2}{3}}^1 4 x^3 \, dx
+\]</span></p>
+<p>Po integrovaní:</p>
+<p><span class="math display">\[
+P\left( X \geq \frac{2}{3} \right) = \left[ x^4 \right]_{\frac{2}{3}}^1 = 1^4 - \left( \frac{2}{3} \right)^4 = 1 - \frac{16}{81} = \frac{65}{81}
+\]</span></p>
+<p>Teraz môžeme vypočítať podmienenú pravdepodobnosť:</p>
+<p><span class="math display">\[
+P\left( X \geq \frac{2}{3} \mid X &gt; \frac{1}{3} \right) = \frac{P\left( X \geq \frac{2}{3} \right)}{P(X &gt; \frac{1}{3})} = \frac{\frac{65}{81}}{\frac{80}{81}} = \frac{65}{80} = \frac{13}{16}
+\]</span></p>
+<p><a href="#exr-hust" class="quarto-xref">Cvičenie&nbsp;<span>6.19</span></a></p>
+<p>Integrál rozdielu dvoch funkcií musí byť kladný</p>
+<p><span class="math display">\[\int_{-\infty}^{\infty} f_{X_1}(x) - f_{X_2}(x) dx &gt; 0\]</span></p>
+<p>a to je v spore s tým, že obe hustoty majú integrál 1:</p>
+<p><span class="math display">\[\int_{-\infty}^{\infty} f_{X_1}(x) dx - \int_{-\infty}^{\infty} f_{X_2}(x) dx = 1 - 1 = 0.\]</span></p>
+<p><a href="#exr-ziarovka" class="quarto-xref">Cvičenie&nbsp;<span>6.20</span></a></p>
+<p>Pre exponenciálne rozdelenú súčiastku so strednou hodnotou 1 rok (<span class="math inline">\(\lambda = 1\)</span>) je pravdepodobnosť, že bude fungovať ďalšie 3 roky, ak už funguje 2 roky, daná vzťahom:</p>
+<p><span class="math display">\[
+P(T \geq 2+3 \mid T \geq 2) = P(T \geq 3) = e^{-3\cdot 1} \approx 0.0498.
+\]</span></p>
+<p>Teda pravdepodobnosť je približne 4.98%.</p>
+<p><a href="#exr-web" class="quarto-xref">Cvičenie&nbsp;<span>6.21</span></a></p>
+<p>Naš web je navštevovaný v priemere každých 10 minút, čo znamená, že parameter rýchlosti je <span class="math display">\[
+\lambda = \frac{1}{10} \quad \text{(na minútu)}.
+\]</span> Za polhodinový interval (30 minút) je stredný počet návštev <span class="math display">\[
+\lambda t = \frac{1}{10} \times 30 = 3.
+\]</span> Pravdepodobnosť, že za tento čas nepríde žiadny návštevník, je podľa Poissonovho procesu: <span class="math display">\[
+P(N=0) = e^{-\lambda t} = e^{-3} \approx 0.0498.
+\]</span> Teda šanca je približne 4.98%.</p>
+</div>
+</div>
 </div>
 <!-- ## Domáca úloha 5 {-} -->
 <!-- Prosím odovzdať do 3.4.2024 19:59 cez formulár (tento Vám príde emailom). Výnimky len vo vážnych prípadoch a len ak sú komunikované dopredu. -->
