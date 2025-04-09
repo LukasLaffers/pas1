@@ -482,6 +482,45 @@ Pravdedpodobnostná funkcia
 \text{Corr}[X,Y] &amp;=&amp; 0.
 \end{eqnarray*}\]</span>
 </div>
+<div id="exm-" class="Example theorem example">
+<p><span class="theorem-title"><strong>Príklad 7.5</strong></span> Uvažujme náhodný vektor <span class="math inline">\((X, Y)\)</span>, ktorý je rovnomerne rozdelený na trojuholníku</p>
+<p><span class="math display">\[
+T = \left\{ (x, y) \in \mathbb{R}^2 : 0 \le y \le x \le 1 \right\}
+\]</span></p>
+<p>Ide o dolný trojuholník pod uhlopriečkou danou vzťahom <span class="math inline">\(y = x\)</span> v jednotkovom štvorci.</p>
+<p>Obsah trojuholníka je:</p>
+<p><span class="math display">\[
+\text{Obsah}(T) = \int_0^1 x\,dx = \frac{1}{2}
+\]</span></p>
+<p>Preto spoločná hustota je:</p>
+<p><span class="math display">\[
+f_{X,Y}(x, y) =
+\begin{cases}
+2 &amp; \text{ak } 0 \le y \le x \le 1 \\
+0 &amp; \text{inak}
+\end{cases}
+\]</span></p>
+<p><span class="math display">\[
+f_X(x) = \int_0^x f_{X,Y}(x, y)\,dy = \int_0^x 2\,dy = 2x,\quad x \in [0, 1]
+\]</span></p>
+<p><span class="math display">\[
+f_Y(y) = \int_y^1 f_{X,Y}(x, y)\,dx = \int_y^1 2\,dx = 2(1 - y),\quad y \in [0, 1]
+\]</span></p>
+<p>Ak by <span class="math inline">\(X\)</span> a <span class="math inline">\(Y\)</span> boli nezávislé, platilo by:</p>
+<p><span class="math display">\[
+f_{X,Y}(x, y) = f_X(x) \cdot f_Y(y)
+\]</span></p>
+<p>Skúsme overiť pre <span class="math inline">\(x = 0{,}6\)</span>, <span class="math inline">\(y = 0{,}4\)</span>:</p>
+<p><span class="math display">\[
+\begin{align*}
+f_{X,Y}(0{,}6, 0{,}4) &amp;= 2 \\
+f_X(0{,}6) &amp;= 2 \cdot 0{,}6 = 1{,}2 \\
+f_Y(0{,}4) &amp;= 2 \cdot (1 - 0{,}4) = 1{,}2 \\
+f_X(0{,}6) \cdot f_Y(0{,}4) &amp;= 1{,}2 \cdot 1{,}2 = 1{,}44 \ne 2
+\end{align*}
+\]</span></p>
+<p>Napriek tomu, že spoločné rozdelenie je rovnomerné na platnej oblasti, premenné <span class="math inline">\(X\)</span> a <span class="math inline">\(Y\)</span> <strong>nie sú nezávislé</strong>, pretože hodnota jednej obmedzuje rozsah druhej.</p>
+</div>
 </section>
 <section id="vizualizácie" class="level2" data-number="7.3">
 <h2 data-number="7.3" class="anchored" data-anchor-id="vizualizácie"><span class="header-section-number">7.3</span> Vizualizácie</h2>
@@ -572,6 +611,11 @@ x &amp; \text{ak } 0 \leq s \leq 1 \text{ a } t &gt; 1
 </div>
 </div>
 </div>
+<p>Zaujímavé zdroje (cudzie, nie moje):</p>
+<ul>
+<li><a href="https://socr.umich.edu/HTML5/BivariateNormal/BVN2/">Interaktívne kreslítko</a> Bobrovnikov, Mark, Jared Tianyi Chai, and Ivo D. Dinov. “Interactive visualization and computation of 2D and 3D probability distributions.” SN computer science 3.4 (2022): 327.</li>
+<li><a href="https://www.geogebra.org/m/pO4JcWPz">V GeoGebre</a> <a href="https://www.geogebra.org/u/psassman">Peter Sassman</a></li>
+</ul>
 </section>
 <section id="cvičenia" class="level2" data-number="7.4">
 <h2 data-number="7.4" class="anchored" data-anchor-id="cvičenia"><span class="header-section-number">7.4</span> Cvičenia</h2>
