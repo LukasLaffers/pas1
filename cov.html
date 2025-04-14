@@ -488,9 +488,11 @@ Pravdedpodobnostná funkcia
 T = \left\{ (x, y) \in \mathbb{R}^2 : 0 \le y \le x \le 1 \right\}
 \]</span></p>
 <p>Ide o dolný trojuholník pod uhlopriečkou danou vzťahom <span class="math inline">\(y = x\)</span> v jednotkovom štvorci.</p>
-<p>Obsah trojuholníka je:</p>
+<p>Obsah trojuholníka je daný integrovaním jednotky cez relevantnú oblasť:</p>
 <p><span class="math display">\[
-\text{Obsah}(T) = \int_0^1 x\,dx = \frac{1}{2}
+\text{Obsah}(T) = \int_0^1 \int_0^x 1 \, dy\, dx = \int_0^1 x\,dx = \frac{1}{2}.
+\]</span> Alternatívne (vymenením poradia integrovania): <span class="math display">\[
+\text{Obsah}(T) = \int_0^1 \int_y^1 1 \, dx\, dy = \int_0^1 (1-y)\,dy = \left[ y - \frac{y^2}{2}\right]_0^1 =\frac{1}{2}.
 \]</span></p>
 <p>Preto spoločná hustota je:</p>
 <p><span class="math display">\[
@@ -659,7 +661,7 @@ p_W(w)= P(W=w) =
 0, &amp; \text{inak}.
 \end{cases}
 \end{equation*}\]</span>
-<p>Nech naviac <span class="math inline">\(X\)</span> a <span class="math inline">\(W\)</span> sú nezávislé náhodné premenné. Zadefinujme <span class="math inline">\(Y = X W.\)</span> Ukážte, že <span class="math inline">\(\text{Cov}[X,Y]=0\)</span> a že <span class="math inline">\(X\)</span> a <span class="math inline">\(Y\)</span> nie sú nezávislé.</p>
+<p>Nech naviac <span class="math inline">\(X\)</span> a <span class="math inline">\(W\)</span> sú nezávislé náhodné premenné. Zadefinujme <span class="math inline">\(Y = X W.\)</span> Ukážte, že <span class="math inline">\(\text{Cov}[X,Y]=0\)</span> a že náhodné premenné <span class="math inline">\(X\)</span> a <span class="math inline">\(Y\)</span> nie sú nezávislé.</p>
 </div>
 <div id="exr-" class="Exercise theorem exercise">
 <p><span class="theorem-title"><strong>Cvičenie 7.4</strong></span> Ukážte, že pre náhodné premenné, pre ktoré platí <span class="math inline">\(Y = aX + b,\)</span> je <span class="math inline">\(\text{Cov}[X,Y] = 1\)</span> alebo <span class="math inline">\(\text{Cov}[X,Y] = -1.\)</span></p>
@@ -800,7 +802,7 @@ f_{XY}(x,y) =
 \end{equation*}\]</span></p>
 <p>Vypočítajte</p>
 <ol type="a">
-<li><p>hustotu náhodnej premennej <span class="math inline">\(X\)</span>,</p></li>
+<li><p>kumulatívnu distribučnú funkciu náhodného vektora <span class="math inline">\((X,Y)\)</span>,</p></li>
 <li><p><span class="math inline">\(\text{E}[X],\)</span></p></li>
 <li><p><span class="math inline">\(\text{Var}[X],\)</span></p></li>
 <li><p><span class="math inline">\(\text{Cov}[X, Y],\)</span></p></li>
