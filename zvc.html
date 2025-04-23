@@ -362,6 +362,15 @@ c, &amp; \text{ak}\ X \geq c.
 </div>
 </div>
 </div>
+<div class="cell">
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="zvc_files/figure-html/animzvc-.gif" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
 <p>Ak však vyskúšame Cauchyho rozdelenie, ktoré nemá strednú hodnotu, dostaneme nasledujúci obrázok.</p>
 <div class="cell">
 <div class="cell-output-display">
@@ -399,29 +408,104 @@ c, &amp; \text{ak}\ X \geq c.
 </section>
 <section id="cvičenia" class="level2" data-number="8.6">
 <h2 data-number="8.6" class="anchored" data-anchor-id="cvičenia"><span class="header-section-number">8.6</span> Cvičenia</h2>
-<div id="exr-" class="Exercise theorem exercise">
+<div id="exr-mark" class="Exercise theorem exercise">
 <p><span class="theorem-title"><strong>Cvičenie 8.1</strong></span> Porovnajte Markovovskú nerovnosť pre <span class="math inline">\(P(X \geq 4)\)</span> so skutočnou hodnotou, ak <span class="math inline">\(X\sim \text{Exp}(1/2).\)</span> Kedy je Markovovská nerovnosť neinformatívna?</p>
 </div>
-<div id="exr-" class="Exercise theorem exercise">
+<div id="exr-ceb" class="Exercise theorem exercise">
 <p><span class="theorem-title"><strong>Cvičenie 8.2</strong></span> Majme náhodnú premennú, pre ktorú platí <span class="math inline">\(P(X\geq 0) = 1\)</span> a <span class="math inline">\(P(X \geq 10) = 1/5.\)</span> Ukážte, že <span class="math inline">\(\text{E}[X] \geq 2.\)</span></p>
 </div>
-<div id="exr-" class="Exercise theorem exercise">
+<div id="exr-ceb2" class="Exercise theorem exercise">
 <p><span class="theorem-title"><strong>Cvičenie 8.3</strong></span> Majme náhodnú premennú, pre ktorú platí <span class="math inline">\(\text{E}[X] = 10, P(X \leq 7) =0.2, P(X \geq 13)= 0.3.\)</span> Dokážte, že <span class="math inline">\(\text{Var}[X] \geq 9/2.\)</span></p>
 </div>
-<div id="exr-" class="Exercise theorem exercise">
+<div id="exr-ceb3" class="Exercise theorem exercise">
 <p><span class="theorem-title"><strong>Cvičenie 8.4</strong></span> Akú veľkú musíme zvoliť vzorku nezávislých náhodných premenných (s konečnou strednou hodnotou a varianciou), aby bola pravdepodobnosť, že sa bude aritmetický priemer nachádzať bližšie ako dve smerodajné odchýlky od strednej hodnoty, aspoň <span class="math inline">\(99\%\)</span>?</p>
 </div>
-<div id="exr-" class="Exercise theorem exercise">
+<div id="exr-nezav" class="Exercise theorem exercise">
 <p><span class="theorem-title"><strong>Cvičenie 8.5</strong></span> Majme postupnosť <span class="math inline">\(X_1, X_2,\dots\)</span> nezávislých náhodných premenných so strednou hodnotou <span class="math inline">\(3.5\)</span> a varianciou <span class="math inline">\(35/12\)</span>. Akú veľkú musíme nastaviť hodnotu <span class="math inline">\(n\)</span>, aby sme si boli istí, že <span class="math display">\[P(3 &lt; \bar{X}_n &lt; 4) \geq 0.8.\]</span></p>
 </div>
 <div id="exr-" class="Exercise theorem exercise">
 <p><span class="theorem-title"><strong>Cvičenie 8.6</strong></span> Majme postupnosť <span class="math inline">\(X_1, X_2,\dots\)</span> náhodných premenných nezávislých hodov férovou kockou. Koľkokrát musíme hodiť hockou, aby sme si boli istí, že <span class="math display">\[P(3 &lt; \bar{X}_n &lt; 4) \geq 0.8.\]</span> Porovnajte s predošlým výsledkom.</p>
 </div>
-<div id="exr-" class="Exercise theorem exercise">
+<div id="exr-konv" class="Exercise theorem exercise">
 <p><span class="theorem-title"><strong>Cvičenie 8.7</strong></span> Majme postupnosť <span class="math inline">\(X_1, X_2,\dots\)</span> náhodných premenných, pre ktoré platí <span class="math inline">\(P(X_n = n^2) = 1/n\)</span> a <span class="math inline">\(P(X_n=0)=1-1/n.\)</span> Ukážte, že <span class="math inline">\(X_n \rightarrow_P 0\)</span> a zároveň <span class="math inline">\(\lim_{n \rightarrow \infty} \text{E}[X_n] = \infty.\)</span></p>
 </div>
-<div id="exr-" class="Exercise theorem exercise">
+<div id="exr-kockceb" class="Exercise theorem exercise">
 <p><span class="theorem-title"><strong>Cvičenie 8.8</strong></span> Férovou mincou hádžete nezávisle 100 krát. Odhadnite pravdepodobnosť pomocou Čebyševovej nerovnosti, že hlavou hodíte viac ako 30, ale menej ako 70 krát. Porovnajte so skutočnou pravdepodobnosťou.</p>
+</div>
+<div id="exr-" class="Exercise theorem exercise">
+<p><span class="theorem-title"><strong>Cvičenie 8.9</strong></span> Porovnajte Čebyševovu nerovnosť pre <span class="math inline">\(P(|X| \geq 2)\)</span> s jej skutočnou hodnotou, ak <span class="math inline">\(X \sim N(0,1).\)</span> V ktorých prípadoch je Čebyševova nerovnosť neinformatívna?</p>
+</div>
+<div id="exr-" class="Exercise theorem exercise">
+<p><span class="theorem-title"><strong>Cvičenie 8.10</strong></span> Odvoďte variant Markovovskej nerovnosti pre náhodnú premennú <span class="math inline">\(X\)</span> pre ktorú platí <span class="math inline">\(X &gt; a,\)</span> kde <span class="math inline">\(a&gt;0.\)</span> Ukážte, že táto nerovnosť je tesná.</p>
+</div>
+<div id="exr-" class="Exercise theorem exercise">
+<p><span class="theorem-title"><strong>Cvičenie 8.11</strong></span> V prieskume sme sa opýtali 1500 ľuďí, či majú radšej zelené žuvačky alebo modré. Ak by bolo práve 27% ľudí, ktorí majú radi zelené žuvačky, o koľko najviac percent sa takýto prieskum môže vzďaľovať od 27% aby bola pravdepodobnosť toho, že bude prieskum dosť presný aspoň 90%?</p>
+</div>
+<div id="exr-" class="Exercise theorem exercise">
+<p><span class="theorem-title"><strong>Cvičenie 8.12</strong></span> V tomto fascinujúcom <a href="https://www.youtube.com/watch?v=rjYT3WUWq0s">livestreame</a> sa hádzalo kockou 1024 krát (nemusíte ho pozerať úplne celý).</p>
+<p>Číslo 5 padlo len 157krát. Ak bola kocka férová aká je pravdepodobnosť, že by padlo 157 krát alebo menej? Na základe Čebyševovej nerovnosti zostavte hornú hranicu pre pravdepodobnosť udalosti, že by pomer padnutí čísla 5 bol ešte vzdialenejší od <span class="math inline">\(\frac{1}{6}\)</span> ako je <span class="math inline">\(\frac{157}{1024}\)</span>. Porovnajte túto hornú hranicu so skutočnou pravdepodobnosťou (uvažujte nezávislé hody a fixnú pravdepodobnosť <span class="math inline">\(\frac{1}{6}\)</span>).</p>
+<p>Aké čísla padli v posledných dvoch hodoch? Ako to súvisí so zákonom veľkých čísel?</p>
+</div>
+<div id="exr-" class="exercise theorem">
+<p><span class="theorem-title"><strong>Cvičenie 8.13</strong></span> <em>Ťažšia úloha:</em> Existujú aj iné typy konvergencie náhodných premenných okrem tej, ktorú sme si zaviedli.</p>
+<p>Jednou takou je <em>konvergencia s pravdpodobnosťou 1</em>. Hovoríme, že postupnosť náhodných premenných <span class="math inline">\(X_1, X_2, X_3, \dots\)</span> konverguje s pravdpodobnosťou 1 ku náhodnej premennej <span class="math inline">\(X\)</span> ak platí:</p>
+<p><span class="math display">\[P(\lim_{n \rightarrow \infty} X_n(\omega) = X(\omega)) = 1.\]</span></p>
+<p>Zapisujeme to <span class="math inline">\(X_n \rightarrow_{a.s} X\)</span>.<a href="#fn6" class="footnote-ref" id="fnref6" role="doc-noteref"><sup>6</sup></a></p>
+<p>Nájdite príklad postupnosti náhodných premenných pre ktorú platí</p>
+<p><span class="math inline">\(X_n \rightarrow_{p} X\)</span> ale neplatí <span class="math inline">\(X_n \rightarrow_{a.s} X\)</span>.</p>
+</div>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-1-contents" aria-controls="callout-1" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Niektoré riešenia
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-1" class="callout-1-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p><a href="#exr-mark" class="quarto-xref">Cvičenie&nbsp;<span>8.1</span></a></p>
+<p><span class="math display">\[P(X \geq 4) \leq \frac{\text{E}[X]}{4} = \frac{2}{4} = \frac{1}{2}\]</span></p>
+<p><span class="math display">\[P(X \geq 4) = 1 - P(X &lt; 3) = 1 - (1- e^{-\frac{1}{2}\cdot 4}) = e^{-2} \approx 13.53\%\]</span></p>
+<p>Neinformatívna je pre <span class="math inline">\(c \geq \text{E}[X]\)</span> lebo potom je horná medza pravdepodobnosti väčšia ako 1.</p>
+<p><a href="#exr-ceb" class="quarto-xref">Cvičenie&nbsp;<span>8.2</span></a></p>
+<p><span class="math display">\[P(X \geq 10) \leq \frac{\text{E}[X]}{10} \implies \frac{1}{5} \leq \frac{\text{E}[X]}{10} \]</span></p>
+<p>a preto</p>
+<p><span class="math display">\[\text{E}[X] \geq 2.\]</span></p>
+<p><a href="#exr-ceb2" class="quarto-xref">Cvičenie&nbsp;<span>8.3</span></a></p>
+<p><span class="math display">\[P(X \leq 7) = 0.2, \ P(X \geq 10)=0.3 \ \ \implies P(|X-10| \geq 3) = 0.5\]</span> a</p>
+<p>Podľa Čebyševovej nerovnosti: <span class="math inline">\(P(|X-10| \geq 3) \leq \frac{\text{Var}[X]}{3^2}\)</span></p>
+<p><span class="math display">\[\frac{1}{2} \leq \frac{\text{Var}[X]}{9} \implies \text{Var}[X] \geq \frac{9}{2}.\]</span></p>
+<p><a href="#exr-ceb3" class="quarto-xref">Cvičenie&nbsp;<span>8.4</span></a></p>
+<p>Pre aritmetický priemer <span class="math inline">\(\bar{X}_n\)</span> z <span class="math inline">\(n\)</span> nezávislých a rovnako rozdelených náhodných premenných so strednou hodnotou <span class="math inline">\(\mu\)</span> a varianciou <span class="math inline">\(\sigma^2\)</span> platí <span class="math inline">\(\text{E}[\bar{X}_n] = \mu\)</span> a <span class="math inline">\(\text{Var}[\bar{X}_n] = \frac{\sigma^2}{n}.\)</span></p>
+<p>Preto</p>
+<p><span class="math display">\[P(|\bar{X}_n-\mu| &lt; 2\sigma) \geq 1 - \frac{\sigma^2/n}{(2\sigma)^2}\]</span></p>
+<p>Nastavíme <span class="math inline">\(n\)</span> tak aby</p>
+<p><span class="math display">\[1 - \frac{\sigma^2/n}{4\sigma^2} \geq 0.99 \implies 0.01 \geq \frac{1}{4n} \implies n \geq 25.\]</span></p>
+<p><a href="#exr-nezav" class="quarto-xref">Cvičenie&nbsp;<span>8.5</span></a></p>
+<p><span class="math display">\[P\left(|\bar{X}_n - 3.5| &lt; \frac{1}{2}\right) \geq 1 - \frac{\frac{\text{Var}[X]}{n}}{\left(\frac{1}{2}\right)^2}\]</span></p>
+<p>Nastavíme <span class="math inline">\(n\)</span> tak aby</p>
+<p><span class="math display">\[1 - \frac{\frac{\text{Var}[X]}{n}}{\frac{1}{4}} \geq 0.8\]</span></p>
+<p>a teda</p>
+<p><span class="math display">\[n \geq \text{Var}[X] 20 = \frac{175}{3} \approx 58.33.\]</span></p>
+<p>Stačí nám <span class="math inline">\(n\)</span> aspoň 59 alebo väčšie.</p>
+<p><a href="#exr-konv" class="quarto-xref">Cvičenie&nbsp;<span>8.7</span></a></p>
+<p>Pre <span class="math inline">\(\epsilon &lt; 1:\)</span></p>
+<p><span class="math display">\[P(|X_n - 0| &lt; \epsilon) = P(X_n = n^2) = \frac{1}{n} \rightarrow 0 \text{ pre } n \rightarrow \infty.\]</span> Ale <span class="math inline">\(E[X_n] = 0 \cdot (1-\frac{1}{n}) + n^2 \cdot \frac{1}{n} = n \rightarrow \infty.\)</span></p>
+<p><a href="#exr-kockceb" class="quarto-xref">Cvičenie&nbsp;<span>8.8</span></a></p>
+<p>Nech <span class="math inline">\(Y=\sum_{i=1}^n X_i.\)</span></p>
+<p>Kvôli nezávislosti platí:</p>
+<p><span class="math display">\[\text{Var}[Y] = \text{Var}\left[\sum_{i=1}^n X_i\right] = \sum_{i=1}^n \text{Var}[X_i]\]</span></p>
+<p><span class="math display">\[ = 100 \cdot \text{Var}[X_1] = 100 \cdot \frac{1}{2} \left(1- \frac{1}{2}\right) = 25.\]</span></p>
+<p>Podľa ČN máme</p>
+<p><span class="math display">\[P(|Y - 50| &lt; 20) = 1 - \frac{\text{Var}[Y]}{20^2} = 93.75\%.\]</span></p>
+<p>Pre <span class="math inline">\(Y \sim \text{Bin}(100,0.5)\)</span> s využitím počítača dostávame:</p>
+<p><span class="math display">\[P(Y \in (30,70)) = P(Y \in [31,69])  = \sum_{k=31}^{69} P(Y = k) \]</span></p>
+<p><span class="math display">\[= \sum_{k=31}^{69} {100 \choose k} 0.5^{k} 0.5^{100-k} = \dots = 0.9999215.\]</span></p>
+</div>
+</div>
 </div>
 <!-- ## Domáca úloha 10 {-} -->
 <!-- Odovzdať do 22.4.2023 do 23:59. -->
@@ -529,6 +613,7 @@ c, &amp; \text{ak}\ X \geq c.
 <li id="fn3"><p>Ak <span class="math inline">\(\text{Var}[X]&lt;\infty.\)</span><a href="#fnref3" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
 <li id="fn4"><p>Je tam <span class="math inline">\(\epsilon = 1/4000\)</span> a nie <span class="math inline">\(\epsilon = 1/1000\)</span> kvôli tomu, že chceme mať hodnotu <span class="math inline">\(\pi\)</span> dostatočne presnú. Ale v rovnici je <span class="math inline">\(\frac{\pi}{4}.\)</span><a href="#fnref4" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
 <li id="fn5"><p>Čo je mimochodom dosť veľa.<a href="#fnref5" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn6"><p>Skratka “a.s.” je z anglického “almost surely”, po slovensky “skoro furt”. Pravdepodobnosť všetkých <span class="math inline">\(\omega\)</span>, pre ktoré <span class="math inline">\(P(\lim_{n \rightarrow \infty} X_n(\omega) = X(\omega)) = 1\)</span> neplatí musí byť nula, teda ich musí byť dosť málo. Kompletný neskrátený zápis vyzerá nasledovne: <span class="math display">\[P\left(\{\omega \in \Omega: \lim_{n \rightarrow \infty} X_n(\omega) = X(\omega)\}\right) = 1.\]</span><a href="#fnref6" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
 </ol>
 </section>
 
