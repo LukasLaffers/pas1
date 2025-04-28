@@ -337,7 +337,8 @@ P(|\bar{X}_n - 0.5| \leq 0.1) &amp;=&amp; P(\sqrt{12}(\bar{X}_n - 0.5)| \leq \sq
 <p>Využili sme skutočnosť, že <span class="math inline">\(\sqrt{n}\frac{\bar{X}_n - \mu}{\sigma}\)</span> je približne normovane normálne rozdelená náhodná premenná (<span class="math inline">\(\text{N}(0,1)\)</span>).</p>
 </div>
 <p>&nbsp; &nbsp;</p>
-<p>Skvelá vizualizácia CLT je na tomto videu od <a href="https://www.youtube.com/watch?v=zeJD6dqJ5lo">3Blue1Brown</a>.</p>
+<p>Naozaj skvelá vizualizácia a vysvetlenie CLT je na tomto videu od <a href="https://www.youtube.com/watch?v=zeJD6dqJ5lo">3Blue1Brown</a>.</p>
+<p>Tu je zas vysvetelnie, skadiaľ je to číslo <span class="math inline">\(\pi\)</span> v funkcii hustoty normovaného normálneho rozdelenia. <a href="https://www.youtube.com/watch?v=cy8r7WSuT1I">3Blue1Brown</a></p>
 </section>
 <section id="cvičenia" class="level2" data-number="9.3">
 <h2 data-number="9.3" class="anchored" data-anchor-id="cvičenia"><span class="header-section-number">9.3</span> Cvičenia</h2>
@@ -351,6 +352,78 @@ P(|\bar{X}_n - 0.5| \leq 0.1) &amp;=&amp; P(\sqrt{12}(\bar{X}_n - 0.5)| \leq \sq
 <div id="exr-" class="Exercise theorem exercise">
 <p><span class="theorem-title"><strong>Cvičenie 9.3</strong></span> Majme postupnosť nezávislých a rovnako rozdelených náhodných premenných <span class="math inline">\(X_1,X_2,X_3,\cdots\)</span>, kde <span class="math inline">\(\text{E}[X_1] = 200, \text{Var}[X_1]=40, n=100.\)</span></p>
 <p>Aproximujte pomocou CLV hodnotu <span class="math inline">\(P(190 \leq \bar{X}_n \leq 210)\)</span>.</p>
+</div>
+<div id="exr-" class="Exercise theorem exercise">
+<p><span class="theorem-title"><strong>Cvičenie 9.4</strong></span> Na Deň otvorených dverí príde 100 hostí. Každý hosť si zoberie 0, 1 alebo 2 brožúry o Katedre matematiky s pravdepodobnosťou 1/4, 1/2 a 1/4. Ľudia si brožúry berú nezávisle. Koľko brožúr musíme dať vytlačiť, aby sme si boli na 97% istí, že nebudú chýbať?</p>
+<p>Porovnajte výsledky, ktoré dostanete:</p>
+<ul>
+<li>aplikovaním Markovovej nerovnosti</li>
+<li>pomocou Centrálnej limitnej vety</li>
+</ul>
+</div>
+<div id="exr-" class="Exercise theorem exercise">
+<p><span class="theorem-title"><strong>Cvičenie 9.5</strong></span> Máme produkt, o ktorého kazivosti vieme, že je 0.1%. V poslednej objednávke, v ktorej bolo 1200ks týchto produktov sme pozorovali 4 chybné produkty, čo sa nám zdá dosť veľa. Aká je pravdepodobnosť, že by sme pozorovali 4 alebo viacej chybných produktov?</p>
+<p>Porovnajte výsledky, ktoré dostanete:</p>
+<ul>
+<li>aplikovaním Markovovej nerovnosti</li>
+<li>priamym výpočtom pomocou Binomického rozdelenia</li>
+<li>aproximáciou Binomického rozdelenia pomocou Poissonoveho rozdelenia</li>
+<li>aproximáciou pomocou Centrálnej limitnej vety</li>
+</ul>
+</div>
+<div id="exr-" class="Exercise theorem exercise">
+<p><span class="theorem-title"><strong>Cvičenie 9.6</strong></span> Predstavte, že by ste simulačne chceli odhadnúť obsah tohoto útvaru, ktorý je ohraničený krivkami, ktorých predpis teraz <em>nepoznáme</em>. Budeme uniformne náhodne vyberať <span class="math inline">\(X\)</span> a <span class="math inline">\(Y\)</span> a pozerať sa, aká proporcia <span class="math inline">\((X,Y)\)</span> padne medzi tieto krivky.</p>
+<div class="cell">
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="clv_files/figure-html/clv-9-1.png" class="img-fluid figure-img" width="384"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>Odhadnite koľko <em>najmenej</em> simulácií by ste potrebovali, aby ste mali zagarantované, že odhadnete skutočný obsah s presnosťou 0.001 s pravdepodobnosťou aspoň <span class="math inline">\(99.9\%\)</span>.</p>
+</div>
+<div id="exr-" class="Exercise theorem exercise">
+<p><span class="theorem-title"><strong>Cvičenie 9.7</strong></span> V populácii máme <span class="math inline">\(8.2\%\)</span> farboslepých ľudí. Náhodne vyberieme <span class="math inline">\(n\)</span> ľudí do prieskumu, pýtame sa ich a predpokladáme, že nám hovoria pravdu.</p>
+<ol type="a">
+<li>Aká je pravdepodobnosť, že podiel farboslepých ľudí v našej vzorke sa od reality bude líšiť o viac ako <span class="math inline">\(2\)</span> percentuálne body, ak vezmeme vzorku <span class="math inline">\(200\)</span>, resp. <span class="math inline">\(5000\)</span> ľudí? Odpovedzte (obidve)</li>
+</ol>
+<ul>
+<li>pomocou Čebyševovej nerovnosti</li>
+<li>na základe aproximácie pomocou Centrálnej limitnej vety.</li>
+</ul>
+<ol start="2" type="a">
+<li>Koľkých ľudí sa musíme opýtať, ak chceme, aby sa s <span class="math inline">\(90\%\)</span>-tnou istotou podiel farboslepých ľudí v našej vzorke líšil od reality najviac o <span class="math inline">\(1\)</span> percentuálny bod? Odpovedzte (obidve)</li>
+</ol>
+<ul>
+<li>pomocou Čebyševovej nerovnosti</li>
+<li>na základe aproximácie pomocou Centrálnej limitnej vety.</li>
+</ul>
+</div>
+<div id="exr-" class="Exercise theorem exercise">
+<p><span class="theorem-title"><strong>Cvičenie 9.8</strong></span> Zvažujete kúpu konkrétneho bicykla, ktorý sa predáva v dvoch rôznych obchodoch. Prvý obchod <em>Anaconda bicycles</em> reportuje, že 19 z 20 ľudí bolo s týmto bicyklom spokojných. U druhého obchodu <em>Borisove bicykle</em> bolo 92 z 100 ľudí spokojných. Nech náhodné premenné <span class="math inline">\(X_A \sim Bin(20,p)\)</span> a <span class="math inline">\(X_B \sim Bin(100,p)\)</span> označujú počty ľudí spokojných s tými bicyklami v daných obchodoch. Predpokladajme, že informácie o spokojnosti zákazníkov, ktoré pozorujeme nie je systematicky oveľa viacej alebo menej kvalitné, čo kvantifikujeme nasledovným spôsobom</p>
+<p><span class="math display">\[|P(X_A \geq 19) - P(X_B \geq 92)| &lt; 0.05.\]</span></p>
+<p>Naviac predpokladajme, že <span class="math inline">\(p&gt;0.8.\)</span></p>
+<p>Ako veľmi sú ľudia spokojní?</p>
+<p>Inými slovami, aké hodnoty pravdepodobnosti <span class="math inline">\(p\)</span> sú v súlade s týmito predpokladmi?</p>
+</div>
+<div id="exr-" class="Exercise theorem exercise">
+<p><span class="theorem-title"><strong>Cvičenie 9.9</strong></span> Zo sčítania obyvateľstva vieme, že v populácii máme <span class="math inline">\(18.4\%\)</span> vysokoškolsky vzdelaných ľudí. Náhodne vyberieme <span class="math inline">\(n\)</span> ľudí do prieskumu.</p>
+<ol type="a">
+<li><p>Pomocou Čebyševovej nerovnosti odhadnite, aká je pravdepodobnosť, že pomer vysokoškolsky vzdelaných ľudí v našej vzorke sa od reality bude líšiť o viac ako <span class="math inline">\(2\%\)</span>, ak vezmeme vzorku <span class="math inline">\(100\)</span>, resp. <span class="math inline">\(1000\)</span> ľudí?</p></li>
+<li><p>Pomocou Čebyševovej nerovnosti odhadnite, koľkých ľudí sa musíme opýtať, ak chceme, aby sa s <span class="math inline">\(95\%\)</span>-tnou istotou pomer vysokoškolsky vzdelaných ľudí v prieskume líšil od reality najviac o <span class="math inline">\(2\%\)</span>, resp. <span class="math inline">\(5\%\)</span>?</p></li>
+</ol>
+</div>
+<div id="exr-" class="Exercise theorem exercise">
+<p><span class="theorem-title"><strong>Cvičenie 9.10</strong></span> 200 ľudí čaká v rade na lístky na koncert. Každý človek v rade si kúpi v priemere 2.3 lístkov zo smerodajnou odchýlkou 2. V sále je 500 voľných miest. Aproximujte pravdepodobosť, že sa každému ujde toľko lístkov, koľko chce. Explicitne pomenujte zjednodušujúce predpoklady, ktoré urobíte.</p>
+</div>
+<div id="exr-" class="Exercise theorem exercise">
+<p><span class="theorem-title"><strong>Cvičenie 9.11</strong></span> Na pumpe v Hronskej Breznici sa týždenne predá v priemere 50000 litrov benzínu so smerodajnou odchýlkou 10000 litrov. Na začiatku je v zásobníku 74000 litrov a každý týžden je naplánovaná dodávka 47000 litrov.</p>
+<ul>
+<li>Aproximujte pravdepodobnosť, že po 11 týždňoch bude v zásobníku menej ako 20000 litrov.</li>
+<li>Aká by mala byť plánovaná týždenná dodávka, aby bola pravdepodobnosť, že po 11 týždňoch bude v zásobníku menej ako 20000 litrov menšia ako 0.5%?</li>
+</ul>
 </div>
 <!-- ## Domáca úloha 8 {-} -->
 <!-- Prosím odovzdať do 1.5.2024 do 19:59. -->
