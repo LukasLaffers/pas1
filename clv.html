@@ -337,6 +337,24 @@ P(|\bar{X}_n - 0.5| \leq 0.1) &amp;=&amp; P(\sqrt{12}(\bar{X}_n - 0.5)| \leq \sq
 <p>Využili sme skutočnosť, že <span class="math inline">\(\sqrt{n}\frac{\bar{X}_n - \mu}{\sigma}\)</span> je približne normovane normálne rozdelená náhodná premenná (<span class="math inline">\(\text{N}(0,1)\)</span>).</p>
 </div>
 <p>&nbsp; &nbsp;</p>
+<p>Nasledujúci obrázok vizualizuje tri dôležité hodnoty pre normované normálne rozdelenie.</p>
+<p><span class="math display">\[
+\color{green} \Phi(1) - \Phi(-1) \approx 0.683, \quad
+\color{red} \Phi(2) - \Phi(-2) \approx 0.954, \quad
+\color{purple} \Phi(3) - \Phi(-3) \approx 0.997.
+\]</span></p>
+<div class="cell">
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="clv_files/figure-html/clv-normal-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>Vo výpočtovom prostredí R môžeme na výpočet <span class="math inline">\(\Phi(1.6)\)</span> môžete použiť funkciu <code>pnorm(1.6)</code> a na výpočet <span class="math inline">\(\Phi^{-1}(0.75)\)</span> môžete použiť funkciu <code>qnorm(0.75)</code>.</p>
+<p>V Exceli by to bolo <code>NORM.S.DIST(1.6,TRUE)</code> a <code>NORM.S.INV(0.75)</code>.</p>
+<p>&nbsp; &nbsp;</p>
 <p>Naozaj skvelá vizualizácia a vysvetlenie CLT je na tomto videu od <a href="https://www.youtube.com/watch?v=zeJD6dqJ5lo">3Blue1Brown</a>.</p>
 <p>Tu je zas vysvetelnie, skadiaľ je to číslo <span class="math inline">\(\pi\)</span> v funkcii hustoty normovaného normálneho rozdelenia. <a href="https://www.youtube.com/watch?v=cy8r7WSuT1I">3Blue1Brown</a></p>
 </section>
@@ -401,7 +419,7 @@ P(|\bar{X}_n - 0.5| \leq 0.1) &amp;=&amp; P(\sqrt{12}(\bar{X}_n - 0.5)| \leq \sq
 <li>na základe aproximácie pomocou Centrálnej limitnej vety.</li>
 </ul>
 </div>
-<div id="exr-" class="Exercise theorem exercise">
+<div id="exr-boris" class="Exercise theorem exercise">
 <p><span class="theorem-title"><strong>Cvičenie 9.8</strong></span> Zvažujete kúpu konkrétneho bicykla, ktorý sa predáva v dvoch rôznych obchodoch. Prvý obchod <em>Anaconda bicycles</em> reportuje, že 19 z 20 ľudí bolo s týmto bicyklom spokojných. U druhého obchodu <em>Borisove bicykle</em> bolo 92 z 100 ľudí spokojných. Nech náhodné premenné <span class="math inline">\(X_A \sim Bin(20,p)\)</span> a <span class="math inline">\(X_B \sim Bin(100,p)\)</span> označujú počty ľudí spokojných s tými bicyklami v daných obchodoch. Predpokladajme, že informácie o spokojnosti zákazníkov, ktoré pozorujeme nie je systematicky oveľa viacej alebo menej kvalitné, čo kvantifikujeme nasledovným spôsobom</p>
 <p><span class="math display">\[|P(X_A \geq 19) - P(X_B \geq 92)| &lt; 0.05.\]</span></p>
 <p>Naviac predpokladajme, že <span class="math inline">\(p&gt;0.8.\)</span></p>
@@ -415,15 +433,69 @@ P(|\bar{X}_n - 0.5| \leq 0.1) &amp;=&amp; P(\sqrt{12}(\bar{X}_n - 0.5)| \leq \sq
 <li><p>Pomocou Čebyševovej nerovnosti odhadnite, koľkých ľudí sa musíme opýtať, ak chceme, aby sa s <span class="math inline">\(95\%\)</span>-tnou istotou pomer vysokoškolsky vzdelaných ľudí v prieskume líšil od reality najviac o <span class="math inline">\(2\%\)</span>, resp. <span class="math inline">\(5\%\)</span>?</p></li>
 </ol>
 </div>
-<div id="exr-" class="Exercise theorem exercise">
+<div id="exr-listky" class="Exercise theorem exercise">
 <p><span class="theorem-title"><strong>Cvičenie 9.10</strong></span> 200 ľudí čaká v rade na lístky na koncert. Každý človek v rade si kúpi v priemere 2.3 lístkov zo smerodajnou odchýlkou 2. V sále je 500 voľných miest. Aproximujte pravdepodobosť, že sa každému ujde toľko lístkov, koľko chce. Explicitne pomenujte zjednodušujúce predpoklady, ktoré urobíte.</p>
 </div>
-<div id="exr-" class="Exercise theorem exercise">
+<div id="exr-breznica" class="Exercise theorem exercise">
 <p><span class="theorem-title"><strong>Cvičenie 9.11</strong></span> Na pumpe v Hronskej Breznici sa týždenne predá v priemere 50000 litrov benzínu so smerodajnou odchýlkou 10000 litrov. Na začiatku je v zásobníku 74000 litrov a každý týžden je naplánovaná dodávka 47000 litrov.</p>
 <ul>
 <li>Aproximujte pravdepodobnosť, že po 11 týždňoch bude v zásobníku menej ako 20000 litrov.</li>
 <li>Aká by mala byť plánovaná týždenná dodávka, aby bola pravdepodobnosť, že po 11 týždňoch bude v zásobníku menej ako 20000 litrov menšia ako 0.5%?</li>
 </ul>
+</div>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-1-contents" aria-controls="callout-1" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Niektoré riešenia
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-1" class="callout-1-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p><a href="#exr-boris" class="quarto-xref">Cvičenie&nbsp;<span>9.8</span></a></p>
+<p>Vyjadrím {<span class="math inline">\(P(X_A \geq 19)\)</span>} a {<span class="math inline">\(P(X_B \geq 92)\)</span>} a zakreslíme do obrázka. Rozdiel je zaznačený čiernou farbou.</p>
+<p>Zadaniu vyhovujú intervaly <span class="math inline">\([0.904, 0.916]\)</span> a <span class="math inline">\([0.982, 1].\)</span></p>
+<div class="cell">
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="clv_files/figure-html/clv-boris-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+<p><a href="#exr-listky" class="quarto-xref">Cvičenie&nbsp;<span>9.10</span></a></p>
+<p>200 ľudí čaká v rade na lístky na koncert. Každý človek v rade si kúpi v priemere 2.3 lístkov zo smerodajnou odchýlkou 2. V sále je 500 voľných miest. Aproximujte pravdepodobosť, že sa každému ujde toľko lístkov, koľko chce. Explicitne pomenujte zjednodušujúce predpoklady, ktoré urobíte.</p>
+<p>Nech <span class="math inline">\(X_i\)</span> označuje počet kúpených lístkov pre človek <span class="math inline">\(i\)</span>. Teda <span class="math inline">\(\text{E}[X_i] = 2.3\)</span> a <span class="math inline">\(\text{Var}[X_i] = 4.\)</span></p>
+<p>Uvažujeme, že počty kúpených lístkov rôznymi ľudmi sú nezávislé náhodné premenné.</p>
+<p>Nech <span class="math inline">\(S_n = X_1 + \cdots X_{n}\)</span> a <span class="math inline">\(\bar{X}_n = \frac{X_1 + \cdots X_{n}}{n} = \frac{S_n}{n}.\)</span></p>
+<p>Zaujíma nás či</p>
+<p><span class="math display">\[P\left(S_{200} \leq 500 \right) = P\left(\bar{X}_{200} \leq \frac{500}{200} \right) = P\left(\sqrt{200}\frac{\bar{X}_{200}-2.3}{2} \leq \sqrt{200}\frac{2.5-2.3}{2} \right)\]</span></p>
+<p><span class="math display">\[ \approx P(Z \leq \sqrt{2}) = \Phi(\sqrt{2}) =  92.13\%.\]</span></p>
+<p><a href="#exr-breznica" class="quarto-xref">Cvičenie&nbsp;<span>9.11</span></a></p>
+<p>Po 11 týždňoch bude v zásobníku</p>
+<p><span class="math inline">\(H = 74000 + X_1 + \cdots + X_{11} - (Y_1 + \cdots + Y_{11}) = 74 000 + S_{11} - T_{11}.\)</span></p>
+<p>kde</p>
+<p><span class="math inline">\(X_1 = 47 000\)</span> a <span class="math inline">\(\text{sd}[X_1] = 0.\)</span></p>
+<p><span class="math inline">\(Y_1 = 50 000\)</span> a <span class="math inline">\(\text{sd}[Y_1] = 10 000.\)</span></p>
+<ol type="a">
+<li></li>
+</ol>
+<p><span class="math display">\[P\left(H \leq 20 000 \right) = P\left(74 000 + 11 \cdot 47 000 - T_{11} \leq 20 000 \right) = P(T_{11} \geq 571 000)\]</span></p>
+<p><span class="math display">\[P(\frac{T_{11}}{11} \geq \frac{571 000}{11}) = P(\sqrt{11}\frac{\bar{Y}_{11} - 50 000}{10 000} \geq \sqrt{11}\frac{\frac{571 000}{11} - 50 000}{10 000}) \approx P(Z \geq 0.633) = 1-\Phi(0.633) = 26.3\%\]</span></p>
+<ol start="2" type="a">
+<li></li>
+</ol>
+<p>Musíme nájsť <span class="math inline">\(D\)</span> také, aby</p>
+<p><span class="math display">\[P\left(H \leq 20 000 \right) = P\left(74 000 + 11 \cdot D - T_{11} \leq 20 000 \right) \leq 0.005.\]</span> <span class="math display">\[P(\frac{T_{11}}{11} \geq \frac{54 000 + 11D}{11}) = P(\sqrt{11}\frac{\bar{Y}_{11} - 50 000}{10 000} \geq \sqrt{11}\frac{\frac{54 000 + 11D}{11} - 50 000}{10 000}) \approx P(Z \geq \sqrt{11}\frac{\frac{54 000 + 11D}{11} - 50 000}{10 000}) \]</span> Pretože <span class="math inline">\(\Phi(2.575) \approx 0.995,\)</span></p>
+<p>potrebujeme aby</p>
+<p><span class="math display">\[\sqrt{11}\frac{\frac{54 000 + 11D}{11} - 50 000}{10 000} &gt; 2.575\]</span></p>
+<p>Elementárnymi úprávami dosavame, že <span class="math inline">\(D &gt; 52856.56\)</span>.</p>
+</div>
+</div>
 </div>
 <!-- ## Domáca úloha 8 {-} -->
 <!-- Prosím odovzdať do 1.5.2024 do 19:59. -->
