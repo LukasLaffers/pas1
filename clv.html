@@ -314,7 +314,7 @@ P(X \leq x-\epsilon) &amp;\leq&amp;   P(X_n \leq x) + P(|X_n - X|&gt;\epsilon).
 </div>
 <p>Toto má dôležité praktické dôsledky. My vôbec nemusíme vedieť, aké má nejaká náhodná pravdepodobnostné rozdelenie. Ale vieme, že priemer nezávislých náhodných premenných sa už bude správať systematicky(!). Toto je veľmi všeobecný výsledok. Na tomto poznatku je založených mnoho štatistických testov.</p>
 <div id="exm-" class="Example theorem example">
-<p><span class="theorem-title"><strong>Príklad 9.1</strong></span> Hádžeme férovou kockou 900 krát. Ideme aproximovať pravdepodobnosť, že uvidíme viacej ako 495 hláv. Každý hod mincou <span class="math inline">\(X_i \sim \text{Bern}(0.5)\)</span> a <span class="math inline">\(\text{E}[X_i] = 0.5, \text{Var}[X_i] = 0.25.\)</span></p>
+<p><span class="theorem-title"><strong>Príklad 9.1</strong></span> Hádžeme férovou mincou 900 krát. Ideme aproximovať pravdepodobnosť, že uvidíme viacej ako 495 hláv. Každý hod mincou <span class="math inline">\(X_i \sim \text{Bern}(0.5)\)</span> a <span class="math inline">\(\text{E}[X_i] = 0.5, \text{Var}[X_i] = 0.25.\)</span></p>
 <p>Preto</p>
 <span class="math display">\[\begin{eqnarray*}
 P\left(\sum_{i=1}^{900} X_i &gt; 495\right)&amp;=&amp; P\left(\frac{\sum_{i=1}^{900} X_i}{900} &gt; \frac{495}{900}\right) \\
@@ -485,12 +485,13 @@ Niektoré riešenia
 <li></li>
 </ol>
 <p><span class="math display">\[P\left(H \leq 20 000 \right) = P\left(74 000 + 11 \cdot 47 000 - T_{11} \leq 20 000 \right) = P(T_{11} \geq 571 000)\]</span></p>
-<p><span class="math display">\[P(\frac{T_{11}}{11} \geq \frac{571 000}{11}) = P(\sqrt{11}\frac{\bar{Y}_{11} - 50 000}{10 000} \geq \sqrt{11}\frac{\frac{571 000}{11} - 50 000}{10 000}) \approx P(Z \geq 0.633) = 1-\Phi(0.633) = 26.3\%\]</span></p>
+<p><span class="math display">\[P\left(\frac{T_{11}}{11} \geq \frac{571 000}{11}\right) = P\left(\sqrt{11}\frac{\bar{Y}_{11} - 50 000}{10 000} \geq \sqrt{11}\frac{\frac{571 000}{11} - 50 000}{10 000}\right) \]</span></p>
+<p><span class="math display">\[\approx P\left(Z \geq 0.633\right) = 1-\Phi(0.633) = 26.3\%\]</span></p>
 <ol start="2" type="a">
 <li></li>
 </ol>
 <p>Musíme nájsť <span class="math inline">\(D\)</span> také, aby</p>
-<p><span class="math display">\[P\left(H \leq 20 000 \right) = P\left(74 000 + 11 \cdot D - T_{11} \leq 20 000 \right) \leq 0.005.\]</span> <span class="math display">\[P(\frac{T_{11}}{11} \geq \frac{54 000 + 11D}{11}) = P(\sqrt{11}\frac{\bar{Y}_{11} - 50 000}{10 000} \geq \sqrt{11}\frac{\frac{54 000 + 11D}{11} - 50 000}{10 000}) \approx P(Z \geq \sqrt{11}\frac{\frac{54 000 + 11D}{11} - 50 000}{10 000}) \]</span> Pretože <span class="math inline">\(\Phi(2.575) \approx 0.995,\)</span></p>
+<p><span class="math display">\[P\left(H \leq 20 000 \right) = P\left(74 000 + 11 \cdot D - T_{11} \leq 20 000 \right) \leq 0.005.\]</span> <span class="math display">\[P\left(\frac{T_{11}}{11} \geq \frac{54 000 + 11D}{11}\right) = P\left(\sqrt{11}\frac{\bar{Y}_{11} - 50 000}{10 000} \geq \sqrt{11}\frac{\frac{54 000 + 11D}{11} - 50 000}{10 000}\right) \]</span> <span class="math display">\[\approx P\left(Z \geq \sqrt{11}\frac{\frac{54 000 + 11D}{11} - 50 000}{10 000}\right) \]</span> Pretože <span class="math inline">\(\Phi(2.575) \approx 0.995,\)</span></p>
 <p>potrebujeme aby</p>
 <p><span class="math display">\[\sqrt{11}\frac{\frac{54 000 + 11D}{11} - 50 000}{10 000} &gt; 2.575\]</span></p>
 <p>Elementárnymi úprávami dosavame, že <span class="math inline">\(D &gt; 52856.56\)</span>.</p>
