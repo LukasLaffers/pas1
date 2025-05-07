@@ -621,7 +621,7 @@ x &amp; \text{ak } 0 \leq s \leq 1 \text{ a } t &gt; 1
 </section>
 <section id="cvičenia" class="level2" data-number="7.4">
 <h2 data-number="7.4" class="anchored" data-anchor-id="cvičenia"><span class="header-section-number">7.4</span> Cvičenia</h2>
-<div id="exr-" class="Exercise theorem exercise">
+<div id="exr-zostrojte" class="Exercise theorem exercise">
 <p><span class="theorem-title"><strong>Cvičenie 7.1</strong></span> Zostrojte združenú pravdepodobnostnú funkciu pre <span class="math inline">\(X,Y\)</span> tak, aby súčasne platilo:</p>
 <ul>
 <li><span class="math inline">\(\text{E}[X] = 2,\)</span></li>
@@ -631,7 +631,7 @@ x &amp; \text{ak } 0 \leq s \leq 1 \text{ a } t &gt; 1
 </ul>
 <p>Ak sa to nedá dokážte prečo.</p>
 </div>
-<div id="exr-" class="Exercise theorem exercise">
+<div id="exr-hustota" class="Exercise theorem exercise">
 <p><span class="theorem-title"><strong>Cvičenie 7.2</strong></span> Majme náhodné premenné <span class="math inline">\(X,Y\)</span> s nasledovnou združenou funkciou hustoty</p>
 <span class="math display">\[\begin{equation*}
 f_{XY}(x,y)=
@@ -651,7 +651,7 @@ cy^2, &amp; \text{ak}\ x \in [0,2], \ y \in [0,1],\\
 <li><span class="math inline">\(\text{Cov}[X,Y].\)</span></li>
 </ol>
 </div>
-<div id="exr-" class="Exercise theorem exercise">
+<div id="exr-kov" class="Exercise theorem exercise">
 <p><span class="theorem-title"><strong>Cvičenie 7.3</strong></span> Nech <span class="math inline">\(X \sim N(0,1)\)</span> a nech <span class="math inline">\(W\)</span> má nasledovnú pravdepodobnostnú funkciu</p>
 <span class="math display">\[\begin{equation*}
 p_W(w)= P(W=w) =
@@ -663,14 +663,14 @@ p_W(w)= P(W=w) =
 \end{equation*}\]</span>
 <p>Nech naviac <span class="math inline">\(X\)</span> a <span class="math inline">\(W\)</span> sú nezávislé náhodné premenné. Zadefinujme <span class="math inline">\(Y = X W.\)</span> Ukážte, že <span class="math inline">\(\text{Cov}[X,Y]=0\)</span> a že náhodné premenné <span class="math inline">\(X\)</span> a <span class="math inline">\(Y\)</span> nie sú nezávislé.</p>
 </div>
-<div id="exr-" class="Exercise theorem exercise">
-<p><span class="theorem-title"><strong>Cvičenie 7.4</strong></span> Ukážte, že pre náhodné premenné, pre ktoré platí <span class="math inline">\(Y = aX + b,\)</span> je <span class="math inline">\(\text{Cov}[X,Y] = 1\)</span> alebo <span class="math inline">\(\text{Cov}[X,Y] = -1.\)</span></p>
+<div id="exr-kov2" class="Exercise theorem exercise">
+<p><span class="theorem-title"><strong>Cvičenie 7.4</strong></span> Ukážte, že pre náhodné premenné, pre ktoré platí <span class="math inline">\(Y = aX + b,\)</span> je <span class="math inline">\(\text{Corr}[X,Y] = 1\)</span> alebo <span class="math inline">\(\text{Corr}[X,Y] = -1.\)</span></p>
 </div>
-<div id="exr-" class="Exercise theorem exercise">
+<div id="exr-exp1" class="Exercise theorem exercise">
 <p><span class="theorem-title"><strong>Cvičenie 7.5</strong></span> Ukážte, že pre nezávislé náhodné premenné platí <span class="math inline">\(\text{E}[X \cdot Y] = \text{E}[X] \text{E}[Y].\)</span> Ukážte tiež, že opačná implikácia neplatí.</p>
 </div>
-<div id="exr-" class="Exercise theorem exercise">
-<p><span class="theorem-title"><strong>Cvičenie 7.6</strong></span> Ukážte, že pre nezávislé náhodné premenné platí <span class="math inline">\(\text{Var}[X + Y] = \text{Var}[X] \text{Var}[Y].\)</span> Ukážte tiež, že opačná implikácia neplatí.</p>
+<div id="exr-var1" class="Exercise theorem exercise">
+<p><span class="theorem-title"><strong>Cvičenie 7.6</strong></span> Ukážte, že pre nezávislé náhodné premenné platí <span class="math inline">\(\text{Var}[X + Y] = \text{Var}[X] + \text{Var}[Y].\)</span> Ukážte tiež, že opačná implikácia neplatí.</p>
 </div>
 <div id="exr-" class="Exercise theorem exercise">
 <p><span class="theorem-title"><strong>Cvičenie 7.7</strong></span> Nech <span class="math inline">\(X\)</span> je počet obedov objednaných na stôl počas obeda. Nech <span class="math inline">\(Y\)</span> je počet nápojov objednaných na ten istý stôl počas obeda.</p>
@@ -879,6 +879,312 @@ f_{XY}(x,y)=
 <li>Určte hustotu náhodnej premennej <span class="math inline">\(Y\)</span>.</li>
 <li>Zistite, či <span class="math inline">\(X\)</span> a <span class="math inline">\(Y\)</span> sú nezávislé.</li>
 </ol>
+</div>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-1-contents" aria-controls="callout-1" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Niektoré riešenia
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-1" class="callout-1-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p><a href="#exr-zostrojte" class="quarto-xref">Cvičenie&nbsp;<span>7.1</span></a></p>
+<p>Pre jednoduchosť si zvoľme diskrétne náhodné premenné. Našou úlohou je zostrojiť nejakú združenú pravdepodobnostnú funkciu <span class="math inline">\(p_{XY}(x,y)\)</span>, tak aby platili tieto 4 rovnosti.</p>
+<p>V tomto prípade bude teda pravdepodobnostná funkcia tabuľka čísel. To aké hodnoty budú náhodné premenné <span class="math inline">\(X\)</span> a <span class="math inline">\(Y\)</span> nadobúdať (teda <span class="math inline">\(\mathcal{S}_X\)</span> a <span class="math inline">\(\mathcal{S}_Y\)</span>) si môžeme zvoliť. Zvoľme si <span class="math inline">\(\mathcal{S}_X = \{0,2,4\}\)</span> a <span class="math inline">\(\mathcal{S}_Y = \{0,2,4\}\)</span> a uvidíme, či budeme mať pri voľbe tabuľky <span class="math inline">\(p_{XY}(x,y)\)</span> dostatok flexibility na to, aby sme splinili to, čo máme.</p>
+<div class="cell">
+<div class="cell-output-display">
+<table class="lightable-classic caption-top table table-sm table-striped small" data-quarto-postprocess="true">
+<colgroup>
+<col style="width: 25%">
+<col style="width: 25%">
+<col style="width: 25%">
+<col style="width: 25%">
+</colgroup>
+<thead>
+<tr class="header">
+<th colspan="4" data-quarto-table-cell-role="th" style="text-align: center; padding-bottom: 0; padding-left: 3px; padding-right: 3px;"><div style="border-bottom: 1px solid #111111; margin-bottom: -1px; ">
+Pravdedpodobnostná funkcia
+</div></th>
+</tr>
+<tr class="even">
+<th style="text-align: left;" data-quarto-table-cell-role="th"></th>
+<th style="text-align: left;" data-quarto-table-cell-role="th">Y=0</th>
+<th style="text-align: left;" data-quarto-table-cell-role="th">Y=2</th>
+<th style="text-align: left;" data-quarto-table-cell-role="th">Y=4</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">X=0</td>
+<td style="text-align: left;">*</td>
+<td style="text-align: left;">*</td>
+<td style="text-align: left;">*</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">X=2</td>
+<td style="text-align: left;">*</td>
+<td style="text-align: left;">*</td>
+<td style="text-align: left;">*</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">X=4</td>
+<td style="text-align: left;">*</td>
+<td style="text-align: left;">*</td>
+<td style="text-align: left;">*</td>
+</tr>
+</tbody>
+</table>
+
+
+</div>
+</div>
+<p>&nbsp;</p>
+<p>Podmienky <span class="math inline">\(\text{E}[X]=2\)</span> a <span class="math inline">\(\text{E}[Y]=2\)</span> znamenajú, že súčet v prvom a v treťom stĺpci musia byť rovnaké (<span class="math inline">\(\text{E}[Y]=2\)</span>), taktiež súčet v prvom a v treťom riadku musia byť rovnaké (<span class="math inline">\(\text{E}[X]=2\)</span>).</p>
+<p>Podmienka <span class="math inline">\(\text{Cov}[X,Y] = \text{E}[XY] - \text{E}[X]\text{E}[Y] = \text{E}[XY] - 2\cdot 2 = 0.\)</span> Takže musíme mať <span class="math inline">\(\text{E}[XY] = 4.\)</span> Môžeme si tiež uvedomiť, ze <span class="math inline">\(\text{Cov}[X,Y] = 0\)</span> by bolo zabezpečené aj ak by boli <span class="math inline">\(X\)</span> a <span class="math inline">\(Y\)</span> nezávislé.</p>
+<p>Podmienka <span class="math inline">\(P(X\geq Y) = 0.5\)</span> implikuje <span class="math inline">\(P(X &lt; Y) = 0.5\)</span> a teda súčet <span class="math inline">\(p_{X,Y}(0,2) + p_{X,Y}(0,4) + p_{X,Y}(2,4) = 0.5.\)</span></p>
+<p>Môžeme si navoliť tabuľku tak, aby sa nám komplikovaná podmienka <span class="math inline">\(\text{E}[XY] = 4\)</span> splnila poľahky. Nakoľko <span class="math inline">\(XY\)</span> je veľakrát rovné nula, dostávame <span class="math inline">\(\text{E}[XY] = 2 \cdot 2 \cdot p_{X,Y}(2,2) + 2 \cdot 4 \cdot p_{X,Y}(2,4) + 4 \cdot 2 \cdot p_{X,Y}(4,2) + 4 \cdot 4 \cdot p_{X,Y}(4,4).\)</span> Ak zvolíme napríklad <span class="math inline">\(p_{X,Y}(2,2)=0, p_{X,Y}(2,4)=0, p_{X,Y}(4,2)=0, p_{X,Y}(4,4)=0.25,\)</span> podmienka <span class="math inline">\(\text{E}[XY] = 2\)</span> bude splnená.</p>
+<div class="cell">
+<div class="cell-output-display">
+<table class="lightable-classic caption-top table table-sm table-striped small" data-quarto-postprocess="true">
+<colgroup>
+<col style="width: 25%">
+<col style="width: 25%">
+<col style="width: 25%">
+<col style="width: 25%">
+</colgroup>
+<thead>
+<tr class="header">
+<th colspan="4" data-quarto-table-cell-role="th" style="text-align: center; padding-bottom: 0; padding-left: 3px; padding-right: 3px;"><div style="border-bottom: 1px solid #111111; margin-bottom: -1px; ">
+Pravdedpodobnostná funkcia
+</div></th>
+</tr>
+<tr class="even">
+<th style="text-align: left;" data-quarto-table-cell-role="th"></th>
+<th style="text-align: left;" data-quarto-table-cell-role="th">Y=0</th>
+<th style="text-align: left;" data-quarto-table-cell-role="th">Y=2</th>
+<th style="text-align: left;" data-quarto-table-cell-role="th">Y=4</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">X=0</td>
+<td style="text-align: left;">*</td>
+<td style="text-align: left;">*</td>
+<td style="text-align: left;">*</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">X=2</td>
+<td style="text-align: left;">*</td>
+<td style="text-align: left;">0</td>
+<td style="text-align: left;">0</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">X=4</td>
+<td style="text-align: left;">*</td>
+<td style="text-align: left;">0</td>
+<td style="text-align: left;">0.25</td>
+</tr>
+</tbody>
+</table>
+
+
+</div>
+</div>
+<p>&nbsp;</p>
+<p>Podmienku <span class="math inline">\(P(X\geq Y) = 0.5\)</span> teraz zaručíme tým, že <span class="math inline">\(p_{X,Y}(0,2)=0.5, p_{X,Y}(0,4)=0.\)</span></p>
+<div class="cell">
+<div class="cell-output-display">
+<table class="lightable-classic caption-top table table-sm table-striped small" data-quarto-postprocess="true">
+<colgroup>
+<col style="width: 25%">
+<col style="width: 25%">
+<col style="width: 25%">
+<col style="width: 25%">
+</colgroup>
+<thead>
+<tr class="header">
+<th colspan="4" data-quarto-table-cell-role="th" style="text-align: center; padding-bottom: 0; padding-left: 3px; padding-right: 3px;"><div style="border-bottom: 1px solid #111111; margin-bottom: -1px; ">
+Pravdedpodobnostná funkcia
+</div></th>
+</tr>
+<tr class="even">
+<th style="text-align: left;" data-quarto-table-cell-role="th"></th>
+<th style="text-align: left;" data-quarto-table-cell-role="th">Y=0</th>
+<th style="text-align: left;" data-quarto-table-cell-role="th">Y=2</th>
+<th style="text-align: left;" data-quarto-table-cell-role="th">Y=4</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">X=0</td>
+<td style="text-align: left;">*</td>
+<td style="text-align: left;">0.5</td>
+<td style="text-align: left;">0</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">X=2</td>
+<td style="text-align: left;">*</td>
+<td style="text-align: left;">0</td>
+<td style="text-align: left;">0</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">X=4</td>
+<td style="text-align: left;">*</td>
+<td style="text-align: left;">0</td>
+<td style="text-align: left;">0.25</td>
+</tr>
+</tbody>
+</table>
+
+
+</div>
+</div>
+<p>&nbsp;</p>
+<p>Teraz podmienky <span class="math inline">\(\text{E}[X]=2\)</span> a <span class="math inline">\(\text{E}[Y]=2\)</span> nás prinútia k tomu, aby sme tabuľku doplnili nasledovne</p>
+<div class="cell">
+<div class="cell-output-display">
+<table class="lightable-classic caption-top table table-sm table-striped small" data-quarto-postprocess="true">
+<colgroup>
+<col style="width: 25%">
+<col style="width: 25%">
+<col style="width: 25%">
+<col style="width: 25%">
+</colgroup>
+<thead>
+<tr class="header">
+<th colspan="4" data-quarto-table-cell-role="th" style="text-align: center; padding-bottom: 0; padding-left: 3px; padding-right: 3px;"><div style="border-bottom: 1px solid #111111; margin-bottom: -1px; ">
+Pravdedpodobnostná funkcia
+</div></th>
+</tr>
+<tr class="even">
+<th style="text-align: left;" data-quarto-table-cell-role="th"></th>
+<th style="text-align: left;" data-quarto-table-cell-role="th">Y=0</th>
+<th style="text-align: left;" data-quarto-table-cell-role="th">Y=2</th>
+<th style="text-align: left;" data-quarto-table-cell-role="th">Y=4</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">X=0</td>
+<td style="text-align: left;">0</td>
+<td style="text-align: left;">0.5</td>
+<td style="text-align: left;">0</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">X=2</td>
+<td style="text-align: left;">0</td>
+<td style="text-align: left;">0</td>
+<td style="text-align: left;">0</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">X=4</td>
+<td style="text-align: left;">0.25</td>
+<td style="text-align: left;">0</td>
+<td style="text-align: left;">0.25</td>
+</tr>
+</tbody>
+</table>
+
+
+</div>
+</div>
+<p>&nbsp;</p>
+<p>Toto je len jeden z mnohých spôsobov ako sa to dá riešiť. Možno trochu kostrbatý ale demonštruje ako môžeme o takomto príklade rozmýšľať.</p>
+<p>Systematický prístup je sformulovať tie podmienky ako sadu lineárnych restrikcií a tie potom vyriešiť s tým, že pravdepodobnostná tabuľka sa musí nasčítať na jedna.</p>
+<p><a href="#exr-hustota" class="quarto-xref">Cvičenie&nbsp;<span>7.2</span></a> (a) Podmienka: <span class="math inline">\(\int_0^2 \int_0^1 c y^2 \, dy \, dx = 1\)</span></p>
+<p><span class="math inline">\(\int_0^2 \int_0^1 c y^2 \, dy \, dx =
+\int_0^2 c \left( \int_0^1 y^2 \, dy \right) dx =
+\int_0^2 c \cdot \frac{1}{3} \, dx =
+c \cdot \frac{1}{3} \cdot 2 = \frac{2c}{3}\)</span></p>
+<p><span class="math inline">\(\Rightarrow \frac{2c}{3} = 1 \Rightarrow c = \frac{3}{2}\)</span></p>
+<hr>
+<ol start="2" type="a">
+<li><span class="math inline">\(P(X \leq 1) = \int_0^1 \int_0^1 \frac{3}{2} y^2 \, dy \, dx\)</span></li>
+</ol>
+<p><span class="math inline">\(= \int_0^1 \left( \frac{3}{2} \cdot \int_0^1 y^2 \, dy \right) dx =
+\int_0^1 \left( \frac{3}{2} \cdot \frac{1}{3} \right) dx =
+\int_0^1 \frac{1}{2} \, dx = \frac{1}{2}\)</span></p>
+<hr>
+<ol start="3" type="a">
+<li><span class="math inline">\(P(X + Y &gt; 2)\)</span>, teda oblasť <span class="math inline">\(x \in [1,2],\ y \in [2 - x, 1]\)</span></li>
+</ol>
+<p><span class="math inline">\(\int_1^2 \int_{2 - x}^1 \frac{3}{2} y^2 \, dy \, dx =
+\frac{3}{2} \int_1^2 \left( \int_{2 - x}^1 y^2 \, dy \right) dx\)</span></p>
+<p><span class="math inline">\(\int_{2 - x}^1 y^2 \, dy =
+\left[ \frac{y^3}{3} \right]_{2 - x}^1 =
+\frac{1}{3} - \frac{(2 - x)^3}{3} =
+\frac{1 - (2 - x)^3}{3}\)</span></p>
+<p>Teda integrál: <span class="math inline">\(\frac{3}{2} \cdot \int_1^2 \frac{1 - (2 - x)^3}{3} \, dx =
+\frac{1}{2} \cdot \int_1^2 (1 - (2 - x)^3) \, dx\)</span></p>
+<p>Substitúcia <span class="math inline">\(u = 2 - x \Rightarrow du = -dx\)</span>, keď <span class="math inline">\(x = 1 \Rightarrow u = 1\)</span>, keď <span class="math inline">\(x = 2 \Rightarrow u = 0\)</span></p>
+<p><span class="math inline">\(\int_1^2 (1 - (2 - x)^3) \, dx =
+\int_0^1 (1 - u^3) \, du =
+\left[ u - \frac{u^4}{4} \right]_0^1 =
+1 - \frac{1}{4} = \frac{3}{4}\)</span></p>
+<p>Teda <span class="math inline">\(P(X + Y &gt; 2) = \frac{1}{2} \cdot \frac{3}{4} = \frac{3}{8}\)</span></p>
+<hr>
+<ol start="4" type="a">
+<li><span class="math inline">\(P(X &gt; Y) = \int_0^1 \int_y^2 \frac{3}{2} y^2 \, dx \, dy\)</span></li>
+</ol>
+<p>Vnútorný integrál: <span class="math inline">\(\int_y^2 \frac{3}{2} y^2 \, dx = \frac{3}{2} y^2 (2 - y)\)</span></p>
+<p>Teda: <span class="math inline">\(\int_0^1 \frac{3}{2} y^2 (2 - y) \, dy =
+\frac{3}{2} \int_0^1 (2y^2 - y^3) \, dy =
+\frac{3}{2} \left( \frac{2}{3} - \frac{1}{4} \right) =
+\frac{3}{2} \cdot \frac{5}{12} = \frac{5}{8}\)</span></p>
+<hr>
+<ol start="5" type="a">
+<li><span class="math inline">\(P(X = 3Y) = 0\)</span>, lebo ide o množinu s nulovou mierou.</li>
+</ol>
+<hr>
+<ol start="6" type="a">
+<li><span class="math inline">\(\text{E}[Y] = \int_0^2 \int_0^1 y \cdot \frac{3}{2} y^2 \, dy \, dx =
+\frac{3}{2} \cdot \int_0^2 \left( \int_0^1 y^3 \, dy \right) dx =
+\frac{3}{2} \cdot \int_0^2 \frac{1}{4} \, dx =
+\frac{3}{2} \cdot \frac{1}{4} \cdot 2 = \frac{3}{4}\)</span></li>
+</ol>
+<hr>
+<ol start="7" type="a">
+<li><span class="math display">\[\text{E}[X] = \int_0^2 \int_0^1 x \cdot \frac{3}{2} y^2 \, dy \, dx =
+\frac{3}{2} \cdot \int_0^2 x \left( \int_0^1 y^2 \, dy \right) dx =
+\frac{3}{2} \cdot \int_0^2 x \cdot \frac{1}{3} \, dx = \]</span> <span class="math display">\[\frac{3}{2} \cdot \frac{1}{3} \cdot \left[ \frac{x^2}{2} \right]_0^2 =
+\frac{3}{2} \cdot \frac{1}{3} \cdot 2 = 1\]</span></li>
+</ol>
+<p><span class="math display">\[\text{E}[XY] = \int_0^2 \int_0^1 x y \cdot \frac{3}{2} y^2 \, dy \, dx =
+\frac{3}{2} \cdot \int_0^2 x \left( \int_0^1 y^3 \, dy \right) dx =\]</span> <span class="math display">\[\frac{3}{2} \cdot \int_0^2 x \cdot \frac{1}{4} \, dx =
+\frac{3}{2} \cdot \frac{1}{4} \cdot \left[ \frac{x^2}{2} \right]_0^2 =
+\frac{3}{2} \cdot \frac{1}{4} \cdot 2 = \frac{3}{2}\]</span></p>
+<p><span class="math inline">\(\text{Cov}[X, Y] = \text{E}[XY] - \text{E}[X] \cdot \text{E}[Y] =
+\frac{3}{2} - 1 \cdot \frac{3}{4} = \frac{3}{4}\)</span></p>
+<p><a href="#exr-kov" class="quarto-xref">Cvičenie&nbsp;<span>7.3</span></a></p>
+<p><span class="math display">\[\text{E}[XY] = \text{E}[X^2 W] = \sum_{w \in \{-1,1\}}\int_{-\infty}^{\infty} x^2 w f_X(x)p_W(w) \, dx \]</span> <span class="math display">\[ =\sum_{w \in \{-1,1\}} p_W(w)w  \int_{-\infty}^{\infty} x^2 f_X(x) \, dx = \]</span> <span class="math display">\[\frac{1}{2}\text{E}[X^2 \cdot 1 ]  + \frac{1}{2}\text{E}[X^2 \cdot (-1) ]  = \frac{1}{2}\text{E}[X^2]  - \frac{1}{2}\text{E}[X^2] = 0.\]</span> Nech <span class="math inline">\(c&gt;0\)</span> je nejaká konštanta.</p>
+<p><span class="math display">\[P(X &gt; c, Y &gt; 0) = P(X &gt; c, XW &gt; 0) = P(X &gt; c, W = 1) = P(X &gt; c)P(W = 1) = (1-\Phi(c))\cdot \frac{1}{2}\]</span> <span class="math display">\[P(X &gt; c) = (1-\Phi(c)) \]</span></p>
+<p><span class="math display">\[P(Y &gt; c) = P(XW &gt; c) = P(X &gt; c,W = 1) + P(X &lt; -c,W = -1) = \]</span> <span class="math display">\[P(X &gt; c)P(W = 1) + P(X &lt; -c)P(W = -1) = (1-\Phi(c))\cdot \frac{1}{2} + (1-\Phi(c))\cdot \frac{1}{2} = (1-\Phi(c))\]</span> <span class="math display">\[P(X &gt; c)\cdot P(Y &gt; c) =  (1-\Phi(c))^2 \neq (1-\Phi(c))\cdot \frac{1}{2} = P(X &gt; c, Y &gt; c).\]</span> takže <span class="math inline">\(X\)</span> a <span class="math inline">\(Y\)</span> nie sú nezávislé.</p>
+<p><a href="#exr-kov2" class="quarto-xref">Cvičenie&nbsp;<span>7.4</span></a></p>
+<p><span class="math display">\[\text{Cov}[X,Y] = \text{E}[(X-\text{E}[X])(Y-\text{E}[Y])] = \text{E}[(X-\text{E}[X])(aX+b-\text{E}[aX+b])]=\]</span> <span class="math display">\[\text{E}[(X-\text{E}[X])(aX-a\text{E}[X])] = \text{E}[(X-\text{E}[X])a(X-\text{E}[X])]=\]</span> <span class="math display">\[a\text{E}[(X-\text{E}[X])(X-\text{E}[X])]=a\text{Var}[X]\]</span></p>
+<p><span class="math display">\[\text{Var}[Y]=\text{Var}[aX+b] = a^2 \text{Var}[X]\]</span> a teda</p>
+<p><span class="math display">\[\text{sd}[Y] = |a| \cdot \text{sd}[X].\]</span></p>
+<p><span class="math display">\[\text{Corr}[X,Y] = \frac{\text{Cov}[X,Y]}{\text{sd}[X]\text{sd}[Y]} = \frac{a\text{Var}[X]}{\text{sd}[X]\text{sd}[Y]} = \frac{a}{|a|} = \begin{cases}
+1, &amp; \text{ak } a &gt; 0 \\
+-1, &amp; \text{ak } a &lt; 0
+\end{cases}.\]</span></p>
+<p><a href="#exr-exp1" class="quarto-xref">Cvičenie&nbsp;<span>7.5</span></a></p>
+<p>Nezávislosť znamená <span class="math inline">\(f_{XY}(x,y) = f_{X}(x) f_{Y}(y).\)</span></p>
+<p><span class="math display">\[\text{E}[XY] = \int_{-\infty}^{\infty}\int_{-\infty}^{\infty} xy \, f_{XY}(x,y) \, dx \,dy= \int_{-\infty}^{\infty}\int_{-\infty}^{\infty} xy \, f_{X}(x) f_{Y}(y) \, dx \,dy = \]</span> <span class="math display">\[\int_{-\infty}^{\infty} x \, f_{X}(x)  \, dx \int_{-\infty}^{\infty}y \,f_{Y}(y) \,dy =  \text{E}[X] \cdot \text{E}[Y]. \]</span> pre diskrétne rozdelené náhodné premenné by bol postup analogický.</p>
+<p>Protipríklad, prečo to naopak neplatí:</p>
+<p>Nech <span class="math inline">\(X \sim \text{Unif}[-1,1]\)</span></p>
+<p>Nech <span class="math inline">\(Y=X^2,\)</span> a <span class="math inline">\(Y\)</span> je priamo deterministickou funkciou <span class="math inline">\(X\)</span>, teda sú závislé (overte!).</p>
+<p>Potom <span class="math inline">\(\text{E}[X]=0, \text{E}[Y]=\frac{(1-(-1))^2}{12}=\frac{1}{3}, \text{E}[XY] = \text{E}[X^3] = 0,\)</span> lebo <span class="math inline">\(\text{E}[X^3]\)</span> je intergrálom nepárnej funkcie na symetrickom intervale.)</p>
+<p>Ďalej <span class="math inline">\(\text{E}[X]\text{E}[Y]=0\cdot\frac{1}{3}=0 = \text{E}[XY]\)</span></p>
+<p>Teda <span class="math inline">\(\text{E}[XY]=\text{E}[X]\text{E}[Y]\)</span> nám negarantuje nezávislosť.</p>
+<p><a href="#exr-var1" class="quarto-xref">Cvičenie&nbsp;<span>7.6</span></a></p>
+<p>Vyplýva z predošlého lebo</p>
+<p><span class="math display">\[\text{Var}[X+Y] = \text{Var}[X] + \text{Var}[Y] + 2 \text{Cov}[X,Y] = \text{Var}[X] + \text{Var}[Y] + 2\left(\text{E}[XY]-\text{E}[X]\text{E}[Y]\right).\]</span></p>
+</div>
+</div>
 </div>
 <!-- ## Domáca úloha 6 {-} -->
 <!-- Odovzdať do 17.4.2023 do 19:59. -->
