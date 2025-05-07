@@ -1,0 +1,810 @@
+---
+output:
+  html_document: default
+  pdf_document: default
+---
+
+# Centrálna limitná veta {#clv}
+
+Normálne rozdelenie hrá prekvapivo dôležitú úlohu v teórii pravdepodobnosti a v štatistike. Ukazuje sa, že aritmetický priemer z nezávislých, ale rovnako rozdelených náhodných premenných, pokiaľ je počítaný z dostatočne veľkého množstva premenných, sa správa ako normálne rozdelená náhodná premenná.
+
+## Konvergencia podľa distribúcie
+
+V minulej kapitole sme si predstavili jeden zo spôsobov, ako sa môže postupnosť náhodných premenných blížiť k nejakej náhodnej premennej, konkrétne konvergenciu podľa pravdepodobnosti. Existuje aj iný spôsob. Niekedy chceme uvažovať situáciu, že pravdepodobnostné správnanie prvkov postupnosti náhodných premenných sa stále viacej a viacej podobá na pravdepodobnostné správanie akejsi limitnej náhodnej premennej.
+
+Hovoríme, že postupnosť náhodných premenných $\{X_i\}_{i=1}^{\infty}$ **konverguje podľa distribúcie** k náhodnej premennej $X$, ak platí pre všetky body $x$ spojitosti funkcie $F_X$:
+
+$$\lim_{n \rightarrow \infty}F_{X_n}(x) = F_X(x),$$ Označujeme $X_n \rightarrow_D X.$
+
+::: theorem
+Platí $$X_n \rightarrow_P X \implies X_n \rightarrow_D X.$$
+:::
+
+::: proof
+Nakoľko platí $\{ X_n \leq x\} \subset \{ X \leq x + \epsilon\} \cup \{|X-X_n| > \epsilon\}$ (lebo ak platí $X_n \leq x$ a $X > x + \epsilon$, potom nutne aj $|X-X_n| > \epsilon$), dostávame: \begin{eqnarray*}
+P(X_n \leq x) &\leq&  P(X \leq x + \epsilon) + P(|X_n - X|>\epsilon).
+\end{eqnarray*} Podobnou úvahou dostaneme
+
+```{=tex}
+\begin{eqnarray*}
+P(X \leq x-\epsilon) &\leq&   P(X_n \leq x) + P(|X_n - X|>\epsilon).
+\end{eqnarray*}
+```
+Preto platí
+
+$$P(X \leq x-\epsilon) - P(|X_n - X|>\epsilon) \leq P(X_n \leq x) \leq   P(X \leq x + \epsilon) + P(|X_n - X|>\epsilon).$$
+
+Ak aplikujeme operátor limity na tieto nerovnosti, spolu s využitím definície konvergencie podľa pravdepodobnosti dostávame
+
+$$F_{X}(x-\epsilon) \leq \lim_{n \rightarrow \infty}P(X_n \leq x) \leq   F_{X}(x+\epsilon),$$ a tieto nerovnosti platia pre akékoľvek $\epsilon.$
+
+V bode spojitosti $F_X$ platí $\lim_{\epsilon \rightarrow 0}F_{X}(x-\epsilon) = \lim_{\epsilon \rightarrow 0}F_{X}(x+\epsilon) = F_X(x),$ a preto $\lim_{n \rightarrow \infty}P(X_n \leq x) = F_X(x)$, čo sme chceli ukázať.
+:::
+
+## Centrálna limitná veta
+
+::: theorem
+Majme postupnosť nezávislých a rovnako rozdelených náhodných premenných $X_1, X_2, X_3, \dots$ s konečnou strednou hodnotou $\mu$ a konečnou varianciou $\sigma^2.$ Potom platí
+
+$$\sqrt{n}\frac{\bar{X}_n - \mu}{\sigma} \rightarrow_D Z,$$
+
+kde $Z \sim \text{N}(0,1).$
+:::
+
+Alternatívnym zápisom je, že ak označíme $Y_n = \sqrt{n}\frac{\bar{X}_n - \mu}{\sigma},$ potom
+
+$$\forall x \in \mathbb{R}: \lim_{n \rightarrow \infty}F_{Y_n}(x) = \Phi(x).$$
+
+Dôkaz je nad rámec tohoto kurzu, a preto ho vynechávame.
+
+Tu je ilustrácie pre rovnomerné rozdelenie. Ide o obrázky odhadov funkcie hustoty. Napriek veľkému množstvu simulácií nie sú úplne hladké, viacej o takýchto odhadoch hustôt sa naučíme na druhom kurze regresie.
+
+```{r clv-1,echo=FALSE}
+set.seed(8323)
+
+par(mfrow=c(2,2))
+
+nSim <- 100000
+
+n1 <- 1
+n2 <- 2
+n3 <- 3
+n4 <- 50
+
+X1 <- numeric(nSim)
+X2 <- numeric(nSim)
+X3 <- numeric(nSim)
+X4 <- numeric(nSim)
+
+for (i in 1:nSim){
+  X1[i] <- sqrt(n1)*(sum(runif(n1))/n1 - 0.5)/sqrt((1/12))
+  X2[i] <- sqrt(n2)*(sum(runif(n2))/n2 - 0.5)/sqrt((1/12))
+  X3[i] <- sqrt(n3)*(sum(runif(n3))/n3 - 0.5)/sqrt((1/12))
+  X4[i] <- sqrt(n4)*(sum(runif(n4))/n4 - 0.5)/sqrt((1/12))
+
+}
+
+plot(density(X1),
+     xlab="x",ylab="hustota",
+     main="Unif[0,1] pre n=1")
+
+plot(density(X2),
+     xlab="x",ylab="hustota",
+     main="Unif[0,1] pre n=2")
+
+plot(density(X3),
+     xlab="x",ylab="hustota",
+     main="Unif[0,1] pre n=3")
+
+plot(density(X4),
+     xlab="x",ylab="hustota",
+     main="Unif[0,1] pre n=50")
+```
+
+Tu pre exponenciálne rozdelenie:
+
+```{r clv-2,echo=FALSE}
+set.seed(8323)
+
+par(mfrow=c(2,2))
+
+nSim <- 100000
+
+n1 <- 1
+n2 <- 2
+n3 <- 3
+n3 <- 50
+
+X1 <- numeric(nSim)
+X2 <- numeric(nSim)
+X3 <- numeric(nSim)
+X4 <- numeric(nSim)
+
+for (i in 1:nSim){
+  X1[i] <- sqrt(n1)*(sum(rexp(n1,rate=1))/n1 - 1)/1
+  X2[i] <- sqrt(n2)*(sum(rexp(n2,rate=1))/n2 - 1)/1
+  X3[i] <- sqrt(n3)*(sum(rexp(n3,rate=1))/n3 - 1)/1
+  X4[i] <- sqrt(n4)*(sum(rexp(n4,rate=1))/n4 - 1)/1
+
+}
+
+plot(density(X1),
+     xlab="x",ylab="hustota",
+     main="Exp(1) pre n=1")
+
+plot(density(X2),
+     xlab="x",ylab="hustota",
+     main="Exp(1) pre n=2")
+
+plot(density(X3),
+     xlab="x",ylab="hustota",
+     main="Exp(1) pre n=3")
+
+plot(density(X4),
+     xlab="x",ylab="hustota",
+     main="Exp(1) pre n=50")
+```
+
+A tu pre binomické rozdelenie:
+
+```{r clv-3,echo=FALSE}
+set.seed(8323)
+
+par(mfrow=c(2,2))
+
+nSim <- 100000
+
+n1 <- 1
+n2 <- 2
+n3 <- 3
+n4 <- 50
+
+X1 <- numeric(nSim)
+X2 <- numeric(nSim)
+X3 <- numeric(nSim)
+X4 <- numeric(nSim)
+
+for (i in 1:nSim){
+  X1[i] <- sqrt(n1)*(sum(rbinom(n1,size=5,prob=0.2))/n1 - 1)/sqrt(0.8)
+  X2[i] <- sqrt(n2)*(sum(rbinom(n2,size=5,prob=0.2))/n2 - 1)/sqrt(0.8)
+  X3[i] <- sqrt(n3)*(sum(rbinom(n3,size=5,prob=0.2))/n3 - 1)/sqrt(0.8)
+  X4[i] <- sqrt(n4)*(sum(rbinom(n4,size=5,prob=0.2))/n4 - 1)/sqrt(0.8)
+
+}
+
+hist(X1,
+     xlab="x",freq=TRUE,
+     main="Bin(5,0.2) pre n=1")
+
+hist(X2,
+     xlab="x",freq=TRUE,
+     main="Bin(5,0.2) pre n=2")
+
+hist(X3,
+     xlab="x",freq=TRUE,
+     main="Bin(5,0.2) pre n=3")
+
+hist(X4,
+     xlab="x",freq=TRUE,
+     main="Bin(5,0.2) pre n=50")
+```
+
+Animácia nižšie ilustruje Centrálnu limitnú vetu. Čím väčšia je vzorka, tým bližšie je centrovaný a vyškálovaný aritmetický priemer bližšie normovanému normálnemu ($N(0,1)$) rozdeleniu.
+
+```{r anim2, fig.show='animate', ffmpeg.format='gif', dev='png',echo=FALSE}
+set.seed(8323)
+par(mfrow=c(2,2))
+set.seed(12928)
+nSim <- 10000
+
+n_array <- c(1,2,3,10,50,100,200,300,400,1000,2000,10000)
+for (i in 1:12){
+  nn <- n_array[i]
+  
+  X1 <- numeric(nSim)
+  X2 <- numeric(nSim)
+  X3 <- numeric(nSim)
+  X4 <- numeric(nSim)
+  for (iSim in 1:nSim){
+    X1[iSim] <- sqrt(nn)*(sum(runif(nn))/nn - 0.5)/sqrt((1/12))
+    X2[iSim] <- sqrt(nn)*(sum(rexp(nn,rate=1))/nn - 1)/1
+    X3[iSim] <- sqrt(nn)*(sum(rbinom(nn,size=5,prob=0.2))/nn - 1)/sqrt(0.8)
+    X4[iSim] <- sqrt(nn)*(sum(rpois(nn,lambda=3))/nn - 3)/sqrt(3)
+  }
+  
+  plot(density(X1),
+     xlab="x",ylab="hustota",
+     main=paste0("Unif[0,1] pre n = ",n_array[i]))
+  
+  plot(density(X2),
+     xlab="x",ylab="hustota",
+     main=paste0("Exp(1) pre n = ",n_array[i]))
+  
+  hist(X3,
+     xlab="x",freq=TRUE,
+     main=paste0("Bin(5,0.2) pre n = ",n_array[i]))
+  
+  hist(X4,
+     xlab="x",freq=TRUE,
+     main=paste0("Pois(3) pre n = ",n_array[i]))
+}
+```
+
+
+Toto má dôležité praktické dôsledky. My vôbec nemusíme vedieť, aké má nejaká náhodná pravdepodobnostné rozdelenie. Ale vieme, že priemer nezávislých náhodných premenných sa už bude správať systematicky(!). Toto je veľmi všeobecný výsledok. Na tomto poznatku je založených mnoho štatistických testov.
+
+::: {.Example #exm-}
+Hádžeme férovou mincou 900 krát. Ideme aproximovať pravdepodobnosť, že uvidíme viacej ako 495 hláv. Každý hod mincou $X_i \sim \text{Bern}(0.5)$ a $\text{E}[X_i] = 0.5, \text{Var}[X_i] = 0.25.$
+
+Preto
+
+```{=tex}
+\begin{eqnarray*}
+P\left(\sum_{i=1}^{900} X_i > 495\right)&=& P\left(\frac{\sum_{i=1}^{900} X_i}{900} > \frac{495}{900}\right) \\
+&=& P\left(\bar{X}_n - 0.5 > \frac{495}{900} -0.5\right)\\
+&=& P\left(\frac{\bar{X}_n - 0.5}{0.5} > \frac{\frac{495}{900} -0.5}{0.5}\right)\\
+&=& P\left(\sqrt{900}\frac{\bar{X}_n - 0.5}{0.5} > \sqrt{900}\frac{\frac{495}{900} -0.5}{0.5}\right)\\
+&=& P\left(\sqrt{900}\frac{\bar{X}_n - 0.5}{0.5} > 30\frac{\frac{495}{900} -0.5}{0.5}\right)\\
+&=& P\left(\sqrt{900}\frac{\bar{X}_n - 0.5}{0.5} > 3\right)\\
+&\approx& 1-\Phi(3) = 0.0013
+\end{eqnarray*}
+```
+Princíp výpočtu takýchto aproximácií je vždy rovnaký. Začneme s tým, čo chceme vypočítať a ekvivalentnými úpravami to prevedieme na formuláciu CLV.
+:::
+
+::: {.Example #exm-}
+Majme nezávislé $X_1, X_2, \cdots X_{12}$ kde $X_i \sim \text{Unif}[0,1].$ Pomocou CLV aproximujte $P(|\bar{X}_n - 0.5| \leq 0.1).$ \begin{eqnarray*}
+P(|\bar{X}_n - 0.5| \leq 0.1) &=& P(\sqrt{12}(\bar{X}_n - 0.5)| \leq \sqrt{12}\cdot 0.1)\\
+&=& P\left(\left|\sqrt{12}\frac{\bar{X}_n - 0.5}{\sqrt{\frac{1}{12}}}\right| \leq \sqrt{12}\frac{0.1}{\sqrt{\frac{1}{12}}}\right)\\
+&=& P\left(\left|\sqrt{12}\frac{\bar{X}_n - 0.5}{\sqrt{\frac{1}{12}}}\right| \leq 1.2\right)\\
+&\approx& \Phi(1.2) - \Phi(-1.2) = 0.7698.
+\end{eqnarray*}
+
+Využili sme skutočnosť, že $\sqrt{n}\frac{\bar{X}_n - \mu}{\sigma}$ je približne normovane normálne rozdelená náhodná premenná ($\text{N}(0,1)$).
+:::
+
+&nbsp;
+&nbsp;
+
+Nasledujúci obrázok vizualizuje tri dôležité hodnoty pre normované normálne rozdelenie.
+
+$$
+\color{green} \Phi(1) - \Phi(-1) \approx 0.683, \quad
+\color{red} \Phi(2) - \Phi(-2) \approx 0.954, \quad
+\color{purple} \Phi(3) - \Phi(-3) \approx 0.997.
+$$
+
+
+
+```{r clv-normal, warning = FALSE, echo=FALSE}
+library(ggplot2)
+library(patchwork)
+
+mu <- 0
+sigma <- 1
+x_vals <- seq(mu - 4*sigma, mu + 4*sigma, length.out = 1000)
+df <- data.frame(x = x_vals,
+                 density = dnorm(x_vals, mu, sigma),
+                 cdf = pnorm(x_vals, mu, sigma))
+colors <- c("#1b9e77", "#d95f02", "#7570b3")
+
+density_plot <- function(sd_range, col, y_label = FALSE) {
+  left <- mu - sd_range * sigma
+  right <- mu + sd_range * sigma
+  base_plot <- ggplot(df, aes(x, density)) +
+    geom_area(data = subset(df, x >= left & x <= right),
+              fill = col, alpha = 0.4) +
+    geom_vline(xintercept = c(left, right),
+               color = col, linetype = "dashed", linewidth = 0.5) +
+    geom_line(size = 1.1, color = "black") +
+    theme_minimal(base_size = 14) +
+    theme(plot.title = element_blank(),
+          axis.title.x = element_blank(),
+          axis.title.y = element_text(angle = 90)) +
+    labs(y = if (y_label) "Funkcia hustoty" else NULL)
+  base_plot
+}
+
+cdf_plot <- function(sd_range, col, y_label = FALSE) {
+  x_min <- mu - sd_range * sigma
+  x_max <- mu + sd_range * sigma
+  y_min <- pnorm(x_min, mu, sigma)
+  y_max <- pnorm(x_max, mu, sigma)
+  perc <- round((y_max - y_min) * 100, 1)
+  arrow_x <- x_max + 0.3
+  label_x <- if (sd_range == 3) arrow_x - 0.3 else arrow_x + 0.1
+  label_hjust <- if (sd_range == 3) 1 else 0
+  
+  base_plot <- ggplot(df, aes(x, cdf)) +
+    geom_line(size = 1.1, color = "black") +
+    geom_segment(aes(x = arrow_x, xend = arrow_x,
+                     y = y_min, yend = y_max),
+                 arrow = arrow(length = unit(0.2, "cm"), ends = "both"),
+                 color = col, linewidth = 1.1) +
+    geom_hline(yintercept = c(y_min, y_max),
+               color = col, linetype = "dashed", linewidth = 0.5) +
+    annotate("text", x = label_x,
+             y = (y_min + y_max) / 2,
+             label = paste0(perc, "%"),
+             color = col, size = 4, hjust = label_hjust) +
+    theme_minimal(base_size = 14) +
+    theme(plot.title = element_blank(),
+          axis.title.x = element_blank(),
+          axis.title.y = element_text(angle = 90)) +
+    labs(y = if (y_label) "Kum. distr. funkcia" else NULL)
+  base_plot
+}
+
+
+p1 <- density_plot(1, colors[1], y_label = TRUE)
+p2 <- density_plot(2, colors[2], y_label = FALSE)
+p3 <- density_plot(3, colors[3], y_label = FALSE)
+
+p4 <- cdf_plot(1, colors[1], y_label = TRUE)
+p5 <- cdf_plot(2, colors[2], y_label = FALSE)
+p6 <- cdf_plot(3, colors[3], y_label = FALSE)
+
+(p1 | p2 | p3) /
+  (p4 | p5 | p6)
+
+```
+
+Vo výpočtovom prostredí R môžeme na výpočet $\Phi(1.6)$ môžete použiť funkciu `pnorm(1.6)` a na výpočet $\Phi^{-1}(0.75)$ môžete použiť funkciu `qnorm(0.75)`.
+
+V Exceli by to bolo `NORM.S.DIST(1.6,TRUE)` a `NORM.S.INV(0.75)`.
+
+&nbsp;
+&nbsp;
+
+
+Naozaj skvelá vizualizácia a vysvetlenie CLT je na tomto videu od [3Blue1Brown](https://www.youtube.com/watch?v=zeJD6dqJ5lo).
+
+Tu je zas vysvetelnie, skadiaľ je to číslo $\pi$ v funkcii hustoty normovaného normálneho rozdelenia. [3Blue1Brown](https://www.youtube.com/watch?v=cy8r7WSuT1I)
+
+
+
+## Cvičenia
+
+::: {.Exercise #exr-}
+Majme postupnosť nezávislých a rovnako rozdelených náhodných premenných $X_1,X_2,X_3,\cdots$, kde $X_1 \sim \text{Exp}(1).$
+
+Aké veľké musí byť $n$ aby platilo $P(0.9 \leq \bar{X}_n \leq 1.1)\geq 0.9$ ?
+:::
+
+::: {.Exercise #exr-}
+Výťah unesie 4tony nákladu. Majme 100 krabíc, každá s priemernou váhou 39kg a so smerodajnou odchýlkou 2kg. Aproximujte pravdepodobnosť, že výťah bude preťažený.
+:::
+
+::: {.Exercise #exr-}
+Majme postupnosť nezávislých a rovnako rozdelených náhodných premenných $X_1,X_2,X_3,\cdots$, kde $\text{E}[X_1] = 200, \text{Var}[X_1]=40, n=100.$
+
+Aproximujte pomocou CLV hodnotu $P(190 \leq \bar{X}_n \leq 210)$.
+:::
+
+
+::: {.Exercise #exr-}
+
+Na Deň otvorených dverí príde 100 hostí. Každý hosť si zoberie 0, 1 alebo 2 brožúry o Katedre matematiky s pravdepodobnosťou 1/4, 1/2 a 1/4. Ľudia si brožúry berú nezávisle. Koľko brožúr musíme dať vytlačiť, aby sme si boli na 97\% istí, že nebudú chýbať?
+
+Porovnajte výsledky, ktoré dostanete:
+
+* aplikovaním Markovovej nerovnosti
+* pomocou Centrálnej limitnej vety
+
+:::
+
+
+::: {.Exercise #exr-}
+
+Máme produkt, o ktorého kazivosti vieme, že je 0.1\%. V poslednej objednávke, v ktorej bolo 1200ks týchto produktov sme pozorovali 4 chybné produkty, čo sa nám zdá dosť veľa. Aká je pravdepodobnosť, že by sme pozorovali 4 alebo viacej chybných produktov?
+
+Porovnajte výsledky, ktoré dostanete:
+
+* aplikovaním Markovovej nerovnosti
+* priamym výpočtom pomocou Binomického rozdelenia
+* aproximáciou Binomického rozdelenia pomocou Poissonoveho rozdelenia
+* aproximáciou pomocou Centrálnej limitnej vety
+
+:::
+
+::: {.Exercise #exr-}
+
+Predstavte, že by ste simulačne chceli odhadnúť obsah tohoto útvaru, ktorý je ohraničený krivkami, ktorých predpis teraz *nepoznáme*. Budeme uniformne náhodne vyberať $X$ a $Y$ a pozerať sa, aká proporcia $(X,Y)$ padne medzi tieto krivky.
+
+```{r clv-9,echo=FALSE, fig.width=4, fig.height=4}
+
+set.seed(302)
+x <- seq(0,1,by=0.01)
+y1 <- x^3
+y2 <- sqrt(abs(2+log(x+0.01)))
+
+plot(x,y1,type="l",
+     xlab = "",
+     ylab = "",
+     main = "Ešte divnejší útvar")
+lines(x,y2)
+polygon(c(x,x[101:1]),c(y1,y2[101:1]),col="gray")
+
+```
+Odhadnite koľko *najmenej* simulácií by ste potrebovali, aby ste mali zagarantované, že odhadnete skutočný obsah s presnosťou 0.001 s pravdepodobnosťou aspoň $99.9\%$.
+:::
+
+
+::: {.Exercise #exr-}
+V populácii máme $8.2\%$ farboslepých ľudí. Náhodne vyberieme $n$ ľudí do prieskumu, pýtame sa ich a predpokladáme, že nám hovoria pravdu.
+
+(a) Aká je pravdepodobnosť, že podiel farboslepých ľudí v našej vzorke sa od reality bude líšiť o viac ako $2$ percentuálne body, ak vezmeme vzorku $200$, resp. $5000$ ľudí? Odpovedzte (obidve)
+
+* pomocou Čebyševovej nerovnosti
+* na základe aproximácie pomocou Centrálnej limitnej vety.
+
+(b) Koľkých ľudí sa musíme opýtať, ak chceme, aby sa s $90\%$-tnou istotou podiel farboslepých ľudí v našej vzorke líšil od reality najviac o $1$ percentuálny bod? Odpovedzte (obidve)
+
+* pomocou Čebyševovej nerovnosti
+* na základe aproximácie pomocou Centrálnej limitnej vety.
+:::
+
+
+::: {.Exercise #exr-boris}
+Zvažujete kúpu konkrétneho bicykla, ktorý sa predáva v dvoch rôznych obchodoch. Prvý obchod _Anaconda bicycles_ reportuje, že 19 z 20 ľudí bolo s týmto bicyklom spokojných. U druhého obchodu _Borisove bicykle_ bolo 92 z 100 ľudí spokojných. Nech náhodné premenné $X_A \sim Bin(20,p)$ a $X_B \sim Bin(100,p)$ označujú počty ľudí spokojných s tými bicyklami v daných obchodoch. Predpokladajme, že informácie o spokojnosti zákazníkov, ktoré pozorujeme nie je systematicky oveľa viacej alebo menej kvalitné, čo kvantifikujeme nasledovným spôsobom
+
+$$|P(X_A \geq 19) - P(X_B \geq 92)| < 0.05.$$
+
+Naviac predpokladajme, že $p>0.8.$
+
+Ako veľmi sú ľudia spokojní?
+
+Inými slovami, aké hodnoty pravdepodobnosti $p$ sú v súlade s týmito predpokladmi?
+:::
+
+::: {.Exercise #exr-}
+Zo sčítania obyvateľstva vieme, že v populácii máme $18.4\%$ vysokoškolsky vzdelaných ľudí. Náhodne vyberieme $n$ ľudí do prieskumu.
+
+(a) Pomocou Čebyševovej nerovnosti odhadnite, aká je pravdepodobnosť, že pomer vysokoškolsky vzdelaných ľudí v našej vzorke sa od reality bude líšiť o viac ako $2\%$, ak vezmeme vzorku $100$, resp. $1000$ ľudí?
+
+(b) Pomocou Čebyševovej nerovnosti odhadnite, koľkých ľudí sa musíme opýtať, ak chceme, aby sa s $95\%$-tnou istotou pomer vysokoškolsky vzdelaných ľudí v prieskume líšil od reality najviac o $2\%$, resp. $5\%$?
+:::
+
+::: {.Exercise #exr-listky}
+200 ľudí čaká v rade na lístky na koncert. Každý človek v rade si kúpi v priemere 2.3 lístkov zo smerodajnou odchýlkou 2. V sále je 500 voľných miest. Aproximujte pravdepodobosť, že sa každému ujde toľko lístkov, koľko chce. Explicitne pomenujte zjednodušujúce predpoklady, ktoré urobíte.
+:::
+
+
+::: {.Exercise #exr-breznica}
+Na pumpe v Hronskej Breznici sa týždenne predá v priemere 50000 litrov benzínu so smerodajnou odchýlkou 10000 litrov. Na začiatku je v zásobníku 74000 litrov a každý týžden je naplánovaná dodávka 47000 litrov.
+
+* Aproximujte pravdepodobnosť, že po 11 týždňoch bude v zásobníku menej ako 20000 litrov.
+* Aká by mala byť plánovaná týždenná dodávka, aby bola pravdepodobnosť, že po 11 týždňoch bude v zásobníku menej ako 20000 litrov menšia ako 0.5\%?
+:::
+
+
+::: {.callout-tip collapse="true"}
+## Niektoré riešenia
+
+
+@exr-boris
+
+Vyjadrím {\color{red}$P(X_A \geq 19)$} a {\color{blue}$P(X_B \geq 92)$} a zakreslíme do obrázka. Rozdiel je zaznačený čiernou farbou.
+
+Zadaniu vyhovujú intervaly $[0.904, 0.916]$ a $[0.982, 1].$
+
+```{r clv-boris,echo=FALSE,warning=FALSE,message=FALSE,eval=TRUE}
+library(ggplot2)
+library(tidyr)
+library(dplyr)
+
+set.seed(302)
+
+x <- seq(0.8, 1, by = 0.001)
+y1 <- 1 - pbinom(18, 20, x)
+y2 <- 1 - pbinom(91, 100, x)
+y3 <- abs(y1 - y2)
+
+# Create a tidy data frame
+df <- data.frame(
+  x = x,
+  y1 = y1,
+  y2 = y2,
+  y3 = y3
+) %>%
+  pivot_longer(cols = starts_with("y"), names_to = "Type", values_to = "Probability") %>%
+  mutate(Type = factor(Type,
+                       levels = c("y1", "y2", "y3"),
+                       labels = c("Anaconda bicycles", "Borisove bicykle", "Rozdiel")))
+
+# Define custom colors
+colors <- c("Anaconda bicycles" = "red", 
+            "Borisove bicykle" = "blue", 
+            "Rozdiel" = "black")
+
+# Plot
+ggplot(df, aes(x = x, y = Probability, color = Type)) +
+  geom_line(size = 1) +
+  geom_hline(yintercept = 0.05, linetype = "dashed", color = "grey40") +
+  scale_color_manual(values = colors) +
+  labs(
+    title = "",
+    x = expression("Pravdepodobnosť spokojnosti " * italic(p)),
+    y = expression("Pravdepodobnosť " * (X[A] >= 19) * " alebo " * (X[B] >= 92)),
+    color = ""
+  )+
+  theme_minimal(base_size = 14) +
+  theme(
+    legend.position = "bottom",
+    plot.title = element_text(face = "bold", hjust = 0.5)
+  )
+
+```
+
+@exr-listky
+
+200 ľudí čaká v rade na lístky na koncert. Každý človek v rade si kúpi v priemere 2.3 lístkov zo smerodajnou odchýlkou 2. V sále je 500 voľných miest. Aproximujte pravdepodobosť, že sa každému ujde toľko lístkov, koľko chce. Explicitne pomenujte zjednodušujúce predpoklady, ktoré urobíte.
+
+Nech $X_i$ označuje počet kúpených lístkov pre človek $i$. Teda $\text{E}[X_i] = 2.3$ a $\text{Var}[X_i] = 4.$
+
+Uvažujeme, že počty kúpených lístkov rôznymi ľudmi sú nezávislé náhodné premenné.
+
+Nech $S_n = X_1 + \cdots X_{n}$ a $\bar{X}_n = \frac{X_1 + \cdots X_{n}}{n} = \frac{S_n}{n}.$
+
+Zaujíma nás či
+
+$$P\left(S_{200} \leq 500 \right) = P\left(\bar{X}_{200} \leq \frac{500}{200} \right) = P\left(\sqrt{200}\frac{\bar{X}_{200}-2.3}{2} \leq \sqrt{200}\frac{2.5-2.3}{2} \right)$$
+
+$$ \approx P(Z \leq \sqrt{2}) = \Phi(\sqrt{2}) =  92.13\%.$$
+
+@exr-breznica
+
+Po 11 týždňoch bude v zásobníku
+
+$H = 74000 + X_1 + \cdots + X_{11} - (Y_1 + \cdots + Y_{11}) = 74 000 + S_{11} - T_{11}.$
+
+kde
+
+$X_1 = 47 000$ a $\text{sd}[X_1] = 0.$
+
+$Y_1 = 50 000$ a $\text{sd}[Y_1] = 10 000.$
+
+(a)
+
+$$P\left(H \leq 20 000 \right) = P\left(74 000 + 11 \cdot 47 000 - T_{11} \leq 20 000 \right) = P(T_{11} \geq 571 000)$$
+
+$$P\left(\frac{T_{11}}{11} \geq \frac{571 000}{11}\right) = P\left(\sqrt{11}\frac{\bar{Y}_{11} - 50 000}{10 000} \geq \sqrt{11}\frac{\frac{571 000}{11} - 50 000}{10 000}\right) $$
+
+$$\approx P\left(Z \geq 0.633\right) = 1-\Phi(0.633) = 26.3\%$$
+
+(b)
+
+Musíme nájsť $D$ také, aby
+
+$$P\left(H \leq 20 000 \right) = P\left(74 000 + 11 \cdot D - T_{11} \leq 20 000 \right) \leq 0.005.$$
+$$P\left(\frac{T_{11}}{11} \geq \frac{54 000 + 11D}{11}\right) = P\left(\sqrt{11}\frac{\bar{Y}_{11} - 50 000}{10 000} \geq \sqrt{11}\frac{\frac{54 000 + 11D}{11} - 50 000}{10 000}\right) $$
+$$\approx P\left(Z \geq \sqrt{11}\frac{\frac{54 000 + 11D}{11} - 50 000}{10 000}\right) $$
+Pretože $\Phi(2.575) \approx 0.995,$
+
+potrebujeme aby
+
+$$\sqrt{11}\frac{\frac{54 000 + 11D}{11} - 50 000}{10 000} > 2.575$$
+
+Elementárnymi úprávami dosavame, že $D > 52856.56$.
+
+
+
+
+:::
+
+
+<!-- ## Domáca úloha 8 {-} -->
+
+<!-- Prosím odovzdať do 1.5.2024 do 19:59. -->
+
+<!-- ::: {.exercise name="DÚ 8.1"} -->
+
+<!-- Na Deň otvorených dverí príde 100 hostí. Každý hosť si zoberie 0, 1 alebo 2 brožúry o Katedre matematiky s pravdepodobnosťou 1/4, 1/2 a 1/4. Ľudia si brožúry berú nezávisle. Koľko brožúr musíme dať vytlačiť, aby sme si boli na 97\% istí, že nebudú chýbať? -->
+
+<!-- Porovnajte výsledky, ktoré dostanete: -->
+
+<!-- * aplikovaním Markovovej nerovnosti -->
+
+<!-- * pomocou Centrálnej limitnej vety -->
+
+<!-- ::: -->
+
+<!-- ::: {.exercise name="DÚ 8.2"} -->
+
+<!-- Máme produkt, o ktorého kazivosti vieme, že je 0.1\%. V poslednej objednávke, v ktorej bolo 1200ks týchto produktov sme pozorovali 4 chybné produkty, čo sa nám zdá dosť veľa. Aká je pravdepodobnosť, že by sme pozorovali 4 alebo viacej chybných produktov? -->
+
+<!-- Porovnajte výsledky, ktoré dostanete: -->
+
+<!-- * aplikovaním Markovovej nerovnosti -->
+
+<!-- * priamym výpočtom pomocou Binomického rozdelenia -->
+
+<!-- * aproximáciou Binomického rozdelenia pomocou Poissonoveho rozdelenia -->
+
+<!-- * aproximáciou pomocou Centrálnej limitnej vety -->
+
+<!-- ::: -->
+
+<!-- ::: {.exercise name="DÚ 8.3"} -->
+
+<!-- Predstavte, že by ste simulačne chceli odhadnúť obsah tohoto útvaru, ktorý je ohraničený krivkami, ktorých predpis teraz *nepoznáme*. Budeme uniformne náhodne vyberať $X$ a $Y$ a pozerať sa, aká proporcia $(X,Y)$ padne medzi tieto krivky. -->
+
+<!-- ```{r clv-9,echo=FALSE, fig.width=4, fig.height=4} -->
+
+<!-- set.seed(302) -->
+
+<!-- x <- seq(0,1,by=0.01) -->
+
+<!-- y1 <- x^3 -->
+
+<!-- y2 <- sqrt(abs(2+log(x+0.01))) -->
+
+<!-- plot(x,y1,type="l", -->
+
+<!--      xlab = "", -->
+
+<!--      ylab = "", -->
+
+<!--      main = "Ešte divnejší útvar") -->
+
+<!-- lines(x,y2) -->
+
+<!-- polygon(c(x,x[101:1]),c(y1,y2[101:1]),col="gray") -->
+
+<!-- ``` -->
+
+<!-- Odhadnite koľko *najmenej* simulácií by ste potrebovali, aby ste mali zagarantované, že odhadnete skutočný obsah s presnosťou 0.001 s pravdepodobnosťou aspoň $99.9\%$. -->
+
+<!-- ::: -->
+
+<!-- ::: {.exercise name="DÚ 8.4"} -->
+
+<!-- V populácii máme $8.2\%$ farboslepých ľudí. Náhodne vyberieme $n$ ľudí do prieskumu, pýtame sa ich a predpokladáme, že nám hovoria pravdu. -->
+
+<!-- (a) Aká je pravdepodobnosť, že podiel farboslepých ľudí v našej vzorke sa od reality bude líšiť o viac ako $2$ percentuálne body, ak vezmeme vzorku $200$, resp. $5000$ ľudí? Odpovedzte (obidve) -->
+
+<!-- * pomocou Čebyševovej nerovnosti -->
+
+<!-- * na základe aproximácie pomocou Centrálnej limitnej vety. -->
+
+<!-- (b) Koľkých ľudí sa musíme opýtať, ak chceme, aby sa s $90\%$-tnou istotou podiel farboslepých ľudí v našej vzorke líšil od reality najviac o $1$ percentuálny bod? Odpovedzte (obidve) -->
+
+<!-- * pomocou Čebyševovej nerovnosti -->
+
+<!-- * na základe aproximácie pomocou Centrálnej limitnej vety. -->
+
+<!-- ::: -->
+
+<!-- ::: {.exercise name="DÚ 8.5"} -->
+
+<!-- Ukážte, že platí -->
+
+<!-- $$P(|X-\text{E}[X]|\geq \epsilon) \leq \frac{1}{\epsilon}\text{E}[|X-\text{E}[X]|].$$ -->
+
+<!-- ::: -->
+
+<!-- ::: {.exercise name="DÚ 8.6 BONUS (+30%)"} -->
+
+<!-- Zvažujete kúpu konkrétneho bicykla, ktorý sa predáva v dvoch rôznych obchodoch. Prvý obchod _Anaconda bicycles_ reportuje, že 19 z 20 ľudí bolo s týmto bicyklom spokojných. U druhého obchodu _Borisove bicykle_ bolo 92 z 100 ľudí spokojných. Nech náhodné premenné $X_A \sim Bin(20,p)$ a $X_B \sim Bin(100,p)$ označujú počty ľudí spokojných s tými bicyklami v daných obchodoch. Predpokladajme, že informácie o spokojnosti zákazníkov, ktoré pozorujeme nie je systematicky oveľa viacej alebo menej kvalitné, čo kvantifikujeme nasledovným spôsobom -->
+
+<!-- $$|P(X_A \geq 19) - P(X_B \geq 92)| < 0.05.$$ -->
+
+<!-- Naviac predpokladajme, že $p>0.8.$ -->
+
+<!-- Ako veľmi sú ľudia spokojní? -->
+
+<!-- Inými slovami, aké hodnoty pravdepodobnosti $p$ sú v súlade s týmito predpokladmi? -->
+
+<!-- ```{r clv-10,echo=FALSE,eval=FALSE, fig.width=4, fig.height=4} -->
+
+<!-- set.seed(302) -->
+
+<!-- x <- seq(0.8,1,by=0.001) -->
+
+<!-- y1 <- 1-pbinom(18,20,x) -->
+
+<!-- y2 <- 1-pbinom(91,100,x) -->
+
+<!-- y3 <- abs(y1-y2) -->
+
+<!-- plot(x,y1,type="l",col="red", -->
+
+<!--      xlab = "", -->
+
+<!--      ylab = "", -->
+
+<!--      main = "pp", -->
+
+<!--      ylim = c(0,1)) -->
+
+<!-- lines(x,y2) -->
+
+<!-- lines(x,y3,col="blue") -->
+
+<!-- abline(h=0.05) -->
+
+<!-- ``` -->
+
+<!-- :::  -->
+
+<!-- ## Domáca úloha 11 {-} -->
+
+<!-- Odovzdať do 1.5.2023 do 23:59. -->
+
+<!-- Zvyšok ku kapitole 8 -->
+
+<!-- ::: {.exercise name="DÚ 11.1"} -->
+
+<!-- Majme postupnosť $X_1, X_2, \dots$ náhodných premenných so strednou hodnotou $6.5$ a varianciou $4$. Pomocou Čebyševovej nerovnosti odhadnite, aké veľké $n$ musíme zobrať, aby sme si boli istí, že -->
+
+<!-- $$P(6 < \bar{X}_n < 7) \geq 0.9 \quad?$$ -->
+
+<!-- Výsledok porovnajte s odhadom pomocou Centrálnej limitnej vety. -->
+
+<!-- ::: -->
+
+<!-- ::: {.exercise name="DÚ 11.2"} -->
+
+<!-- Zo sčítania obyvateľstva vieme, že v populácii máme $18.4\%$ vysokoškolsky vzdelaných ľudí. Náhodne vyberieme $n$ ľudí do prieskumu. -->
+
+<!-- (a) Pomocou Čebyševovej nerovnosti odhadnite, aká je pravdepodobnosť, že pomer vysokoškolsky vzdelaných ľudí v našej vzorke sa od reality bude líšiť o viac ako $2\%$, ak vezmeme vzorku $100$, resp. $1000$ ľudí? -->
+
+<!-- (b) Pomocou Čebyševovej nerovnosti odhadnite, koľkých ľudí sa musíme opýtať, ak chceme, aby sa s $95\%$-tnou istotou pomer vysokoškolsky vzdelaných ľudí v prieskume líšil od reality najviac o $2\%$, resp. $5\%$? -->
+
+<!-- ::: -->
+
+<!-- Kapitola 9 -->
+
+<!-- ::: {.exercise name="DÚ 11.3"} -->
+
+<!-- Na krst knihy je pozvaných 100 hostí. Každý hosť si zoberie 0, 1 alebo 2 brožúry o knihe s pravdepodobnosťou 1/4, 1/2 a 1/4. Ľudia si brožúry berú nezávisle. Koľko brožúr musíme dať vytlačiť, aby sme si boli na 95\% istý, že nebudú chýbať? -->
+
+<!-- ::: -->
+
+<!-- ::: {.exercise name="DÚ 11.4"} -->
+
+<!-- 200 ľudí čaká v rade na lístky na koncert. Každý človek v rade si kúpi v priemere 2.3 lístkov zo smerodajnou odchýlkou 2. V sále je 500 voľných miest. Aproximujte pravdepodobosť, že sa každému ujde toľko lístkov, koľko chce. Explicitne pomenujte zjednodušujúce predpoklady, ktoré urobíte. -->
+
+<!-- ::: -->
+
+<!-- ::: {.exercise name="DÚ 11.5"} -->
+
+<!-- V lekárni sa týždenne predá v priemere 25 krabičiek lieku na krvný tlak so smerodajnou odchýlkou 5 krabičiek. Lekáreň má v sklade 40 krabičiek lieku a každý týžden je naplánovaná dodávka 22 krabičiek. -->
+
+<!-- (a) Aproximujte pravdepodobnosť, že po 10 týždňoch bude mať lekáreň na sklade menej ako 15 krabičiek. -->
+
+<!-- (b) Aká by mala byť plánovaná týždenná dodávka, aby bola pravdepodobnosť, že po 10 týždňoch bude mať lekáreň na sklade menej ako 15 krabičiek, menšia ako 0.5\%? -->
+
+<!-- Explicitne pomenujte zjednodušujúce predpoklady, ktoré urobíte. -->
+
+<!-- ::: -->
+
+<!-- ## Domáca úloha 10 {-} -->
+
+<!-- ::: {.exercise name="DÚ 9.1"} -->
+
+<!-- Na svadbu je pozvaných 64 hostí. Každý hosť zje 0, 1 alebo 2 koláče s pravdepodobnosťou 1/4, 1/2 a 1/4. Ľudia jedia koláče nezávisle. Koľko koláčov musíme objednať, aby sme si boli na 95\% istý, že nebudú chýbať? -->
+
+<!-- :::  -->
+
+<!-- ::: {.exercise name="DÚ 9.2"} -->
+
+<!-- Výťah unesie 4tony nákladu. Majme 100 krabíc, každá s priemernou váhou 39kg a so smerodajnou odchýlkou 2kg. Aproximujte pravdepodobnosť, že výťah bude preťažený. -->
+
+<!-- :::  -->
+
+<!-- ::: {.exercise name="DÚ 9.3"} -->
+
+<!-- Zo skúseností vieme, že na matematický ples sa lístky veľmi rýchlo vypredajú: každý človek v rade si kúpi v priemere 2.3 lístkov zo smerodajnou odchýlkou 2. Máme 250 voľných miest a v rade čaká 100 ľudí. Aproximujte pravdepodobosť, že sa každému ujde toľko lístkov, koľko chce. Explicitne pomenujte zjednodušujúce predpoklady, ktoré urobíte.  -->
+
+<!-- :::  -->
+
+<!-- ::: {.exercise name="DÚ 9.4"} -->
+
+<!-- Na pumpe v Hronskej Breznici sa týždenne predá v priemere 50000 litrov benzínu so smerodajnou odchýlkou 10000 litrov. Na začiatku je v zásobníku 74000 litrov a každý týžden je naplánovaná dodávka 47000 litrov. -->
+
+<!-- * Aproximujte pravdepodobnosť, že po 11 týždňoch bude v zásobníku menej ako 20000 litrov. -->
+
+<!-- * Aká by mala byť plánovaná týždenná dodávka, aby bola pravdepodobnosť, že po 11 týždňoch bude v zásobníku menej ako 20000 litrov menšia ako 0.5\%? -->
+
+<!-- :::  -->

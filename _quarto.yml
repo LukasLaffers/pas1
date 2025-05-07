@@ -1,0 +1,32 @@
+project:
+  type: book
+  
+lang: sk
+
+book:
+  title: "Pravdepodobnosť a štatistika 1"
+  author: "Lukáš Lafférs"
+  date: "5.7.2025"
+  chapters:
+    - index.qmd
+    - intro.qmd
+    - set.qmd
+    - cond.qmd
+    - np.qmd
+    - dnp.qmd
+    - snp.qmd
+    - cov.qmd
+    - zvc.qmd
+    - clv.qmd
+    - opa.qmd
+
+bibliography: references.bib
+
+format:
+  html:
+    theme:
+      - cosmo
+      - brand
+  pdf:
+    documentclass: scrreprt
+

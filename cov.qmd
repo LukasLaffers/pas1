@@ -1,0 +1,1595 @@
+# Súvis medzi náhodnými premennými {#cov}
+
+Potrebujeme matematický aparát na to, aby sme vedeli pracovať s viacerými náhodnými premennými naraz. Potrebujeme vedieť, ako rôzne náhodné premenné spolu súvisia. Začneme s dvomi náhodnými premennými $X$ a $Y$. Dve náhodné premenné dokopy tvoria dvojrozmerný **náhodný vektor** $(X,Y)^T$. Skúmať súvis medzi náhodnými premennými sa preto nedá bez toho, že by sme vedeli ako udalosti nastávajú *spolu*.
+
+**Združená kumulatívna distribučná funkcia** $F_{XY}: \mathbb{R}^2 \rightarrow [0,1]$ náhodného vektora $(X,Y)^T$ je definovaná nasledovne:
+
+$$F_{XY}(s,t) = P(X \leq s \cap Y \leq t) = P(X \leq s, Y \leq t).$$ Ide len o dvojrozmerný ekvivalent toho, čo sme už videli predtým.
+
+**Diskrétne náhodné premenné**
+
+Ak sú elementy náhodného vektora diskrétne rozdelené náhodné premenné, potom alternatívne môžeme na popis náhodnosti použiť **združenú pravdepodobnostnú funkciu**
+
+$$p_{XY}(x,y) = P(X=x \cap Y=y) = P(X=x, Y=y).$$
+
+Aby táto bola korektná, tak musí platiť
+
+-   $\forall x \in \mathcal{S}_X, y \in \mathcal{S}_Y: p_{XY}(x,y) \geq 0,$
+-   $\sum_{x \in \mathcal{S}_X}\sum_{y \in \mathcal{S}_Y}p_{XY}(x,y)=1,$
+-   $\forall x \in \mathcal{S}_X: \sum_{y \in \mathcal{S}_Y} p_{XY}(x,y)= p_X(x),$
+-   $\forall y \in \mathcal{S}_Y: \sum_{x \in \mathcal{S}_X} p_{XY}(x,y)= p_Y(y).$
+
+**Spojité náhodné premenné**
+
+Ak sú elementy náhodného vektora spojite rozdelené, tak potrebujeme **združenú funkciu hustoty** $f_{XY}(x,y): \mathbb{R}^2 \rightarrow \mathbb{R}^{+},$ ktorá spĺňa nasledovnú vlastnosť
+
+$$P\left(X \in [a,b] \cap Y \in [c,d] \right)  = P\left(X \in [a,b], Y \in [c,d] \right) = \int_{a}^{b} \int_{c}^{d} f_{XY}(x,y) dy dx.$$
+
+Funkcia hustoty musí spĺňať nasledovné vlastnosti
+
+-   $\forall x \in \mathbb{R}, y \in \mathbb{R}: f_{XY}(x,y) \geq 0,$
+-   $\int_{-\infty}^{\infty} \int_{-\infty}^{\infty} f_{XY}(x,y) dx dy =1,$
+-   $\forall x \in \mathbb{R}: \int_{-\infty}^{\infty} f_{XY}(x,y) dy= f_X(x),$
+-   $\forall y \in \mathbb{R}: \int_{-\infty}^{\infty} f_{XY}(x,y) dx= f_Y(y).$
+
+Vzťah medzi $f_{XY}$ a $F_{XY}$ je nasledovný:
+
+$$F_{XY}(s,t) = \int_{-\infty}^{s} \int_{-\infty}^{t} f_{XY}(x,y) dy dx$$ a
+
+$$ f_{XY}(x,y) = \frac{\partial^2}{\partial x \partial y }F_{XY}(x,y).$$
+
+Tu je vizualizovanú jeden konkrétny príklad pre $f_{XY}$ a $F_{XY}$
+
+```{r cov-1,echo=FALSE}
+par(mfrow=c(1,2))
+library(MASS)
+suppressMessages(library(MASS))
+library(mvtnorm)
+d <- expand.grid(seq(-3, 6, length.out = 50 ), seq(-3, 6, length.out = 50))
+dens1 <- dmvnorm(as.matrix(d), mean=c(1,2), sigma=matrix(c(1, .5, .5, 2), 2))
+dens1 <- matrix(dens1, nrow = 50 )
+
+
+cdf1 <- matrix(apply(as.matrix(d),1, function(x) pmvnorm(lower=-Inf, upper = x, mean=c(1,2), sigma=matrix(c(1, .5, .5, 2), 2))),nrow=50)
+cdf1 <- matrix(cdf1, nrow = 50 )
+persp(dens1, theta = -10, phi = 30, expand = 0.6, shade = 0.2, col = "lightblue", xlab = "x", ylab = "y", zlab = "Funkcia hustoty")
+persp(cdf1, theta = -10, phi = 30, expand = 0.6, shade = 0.2, col = "lightblue", xlab = "s", ylab = "t", zlab = "Kumulatívna dist. funkcia")
+
+```
+
+Tu je vizualizovaná $p_{XY}$ a $F_{XY}$ pre diskrétne rozdelený náhodný vektor $(X,Y)$, kde $X$ a $Y$ sú čísla, ktoré padnú na dvoch nezávislých kockách.
+
+```{r cov-24,echo=FALSE}
+par(mfrow=c(1,2))
+library(MASS)
+suppressMessages(library(MASS))
+library(mvtnorm)
+d <- expand.grid(seq(-2, 10, length.out = 50 ), seq(-2, 10, length.out = 50))
+
+ff <- function(d1,d2) max(min(floor(d1),6),0)*max(min(floor(d2),6),0)/36
+
+dd <- numeric(2500)
+for (i in 1:2500){
+  dd[i] <- ff(d[i,1],d[i,2])
+}
+
+d7 <- expand.grid(-10:50/5, -10:50/5)
+
+fff <- function(d1,d2) (d1>0)*(d1<7)*(d2>0)*(d2<7)*(abs(d1-floor(d1))<0.1)*(abs(d2-floor(d2))<0.1)/36
+ddd <- numeric(61^2)
+for (i in 1:61^2){
+  ddd[i] <- fff(d7[i,1],d7[i,2])
+}
+
+
+
+#cdf1 <- matrix(apply(as.matrix(d),1, dd ),nrow=50)
+cdf1 <- matrix(dd, nrow = 50 )
+dens1 <- matrix(ddd, nrow = 61 )
+persp(dens1, theta = -10, phi = 30, expand = 0.6, shade = 0.2, col = "lightblue", xlab = "x", ylab = "y", zlab = "Pravdepodobnostná funkcia")
+persp(cdf1, theta = -10, phi = 30, expand = 0.6, shade = 0.2, col = "lightblue", xlab = "s", ylab = "t", zlab = "Kumulatívna dist. funkcia")
+
+```
+
+
+
+## Nezávislé náhodné premenné
+
+Hovoríme, že dve náhodné premenné $X$ a $Y$ sú nezávislé ak
+
+$$\forall x \in \mathcal{S}_X, y \in \mathcal{S}_Y:  p_{XY}(x,y) = p_{X}(x) \cdot p_Y(y),$$ ak sú diskrétne rozdelené a
+
+$$\forall x \in \mathbb{R}, y \in \mathbb{R}:  f_{XY}(x,y) = f_{X}(x) \cdot f_Y(y),$$ ak sú spojite rozdelené. Informácia o pravdepodobnostných správaniach $X$ a $Y$ je preto dostatočná na to, aby sme vedeli, ako sa budú správať spolu.
+
+Alternatívna definícia nezávislosti je
+
+$$\forall B_1, B_2 \subseteq \mathbb{R}: P(X \in B_1, Y \in B_2) = P(X \in B_1) \cdot P(Y \in B_2).$$[^cov-1]
+
+[^cov-1]: Tieto množiny $B_1$ a $B_2$ nemôžu byť hocijaké ale musia byť borelovské. O podrobnostiach sa učíme v kurze Teórie pravdepodobnosti.
+
+alebo, taktiež ekvivalentne
+
+$$\forall s,t \in \mathbb{R}: F_{XY}(s,t) = F_{X}(s) \cdot F_{Y}(t).$$ Poľahky si všimneme, že voľbou $B_1 = (-\infty,s]$ a $B_2 = (-\infty,t]$ dostávame vzťah s predošlou definíciou.
+
+Pre nezávislé náhodné premenné platí, že ak $X$ a $Y$ sú nezávislé potom sú aj $h_1(X)$ a $h_2(Y)$ sú nezávislé náhodné premenné, kde $h_1$ a $h_2$ sú nejaké transformácie.[^cov-2] Napríklad, $X^2$ a $Y$, kde $h_1(x)=x^2$ a $h_2(y)=y$.
+
+[^cov-2]: Tieto transformácie nemôžu byť hocijaké ale musia byť borelovsky merateľné. O podrobnostiach sa učíme, neprekvapivo, v kurze Teórie pravdepodobnosti.
+
+::: {.Example #exm-}
+Majme nasledovnú združenú hustotu pravdepodobnosti pre náhodný vektor $(X,Y).$
+
+```{=tex}
+\begin{equation*}
+f_{XY}(x,y)=
+\begin{cases}
+\frac{1}{4}, & \text{ak}\ x,y \in [0,2], \\
+0, & \text{inak}
+\end{cases}
+\end{equation*}
+```
+Sú $X$ a $Y$ nezávislé náhodné premenné?
+:::
+
+## Miera závislosti
+
+Zatiaľčo $p_{XY}, f_{XY}, F_{XY}$ popisujú súvis náhodných premenných *úplne*, niekedy máme potrebu charakterizovať súvis jediným číslom. Podobne ako sme pomocou strednej hodnoty vyjadrovali centrum distribúcie a pomocou variancie to, ako veľmi sa náhodná premenná menila.
+
+**Kovarianciou** dvoch náhodných premenných nazývame
+
+$$\text{Cov}[X,Y] \equiv \text{E}[(X-\text{E}[X])(Y-\text{E}[Y])].$$
+
+Pre kovarianciu platí $\text{Cov}[X,Y] = \text{E}[XY] - \text{E}[X]\text{E}[Y]$ a $\text{Cov}[X,X] = \text{Var}[X].$
+
+Pre nezávislé náhodné premenné platí $\text{E}[XY] =\text{E}[X]\text{E}[Y]$ a preto $\text{Cov}[X,Y]=0$.
+
+Pre varianciu súčtu dvoch náhodných premenných platí: $$\text{Var}[X+Y] = \text{Var}[X] + \text{Var}[Y] + 2\text{Cov}[X,Y].$$ Vysvetlenie je tu a je založené na linearite strednej hodnoty: $$
+\begin{split}
+\text{Var}[X+Y] &= \text{E}\left[ ((X+Y)-\text{E}[X+Y])^2 \right] \\
+&= \text{E}\left[ ([X-\text{E}[X]) + (Y-\text{E}[Y]])^2 \right] \\
+&= \text{E}\left[ (X-\text{E}[X])^2 + (Y-\text{E}[Y])^2 + 2 \, (X-\text{E}[X]) (Y-\text{E}[Y]) \right] \\
+&= \text{E}\left[ (X-\text{E}[X])^2 \right] + \text{E}\left[ (Y-\text{E}[Y])^2 \right] + \text{E}\left[ 2 \, (X-\text{E}[X]) (Y-\text{E}[Y]) \right] \\
+&= \text{Var}[X] + \text{Var}[Y] + 2 \, \text{Cov}[X,Y] \; . \\
+\end{split}
+$$
+
+Takže pre nezávislé náhodné premenné platí $$\text{Var}[X+Y] = \text{Var}[X] + \text{Var}[Y] + 2\underbrace{\text{Cov}[X,Y]}_{=0} = \text{Var}[X] + \text{Var}[Y].$$
+
+**Koreláciou** dvoch náhodných premenných nazývame
+
+$$\text{Corr}[X,Y] \equiv \frac{\text{Cov}[X,Y]}{\text{sd}[X] \cdot \text{sd}[Y] } =  \frac{ \text{E}[(X-\text{E}[X])(Y-\text{E}[Y])]}{\sqrt{\text{E}[(X-\text{E}[X])^2]}\cdot\sqrt{\text{E}[(Y-\text{E}[Y])^2]}}.$$
+
+Pre koreláciu platí:
+
+-   $-1 \leq \text{Corr}[X,Y] \leq 1$, je bezrozmerná, t.j. nemá žiadne jednotky,
+-   $\text{Corr}[X,Y] = \text{Corr}[Y,X]$ takže korelácia je symetrická,
+-   $\text{Corr}[X,Y] = \pm 1 \implies \exists a,b \in \mathbf{R}: Y = aX+b$, nadobúda hodnoty $\pm 1$ práve vtedy, keď je jedna náhodná premenná lineárnou funkciou druhej,\
+-   $X$ a $Y$ sú nezávislé $\implies \text{E}[XY] = \text{E}[X]\text{E}[Y] \implies \text{Cov}[X,Y]=0 \implies \text{Corr}[X,Y]=0$
+
+Skutočnosť, že súvis dvoch náhodných premenných vyjadríme jediným číslom, so sebou nesie aj náklady. Kompaktnejší popis musí nutne nejakú informáciu vynechať, čo môže, ale nemusí byť problematické. Nasledujúci obrázok demonštruje realizácie 12 rôznych dvojích náhodných premenných $(X,Y)$, ktoré majú rovnaké $\text{E}[X],\text{E}[Y],\text{Var}[X],\text{Var}[Y],\text{Corr}[X,Y].$ (Zdroj: https://cran.r-project.org/web/packages/datasauRus/vignettes/Datasaurus.html). V týchto prípadoch sú závislosti medzi týmito premennými veľmi veľmi rôzne. Pozerať sa len na sumárne charakteristiky je preto zavádzajúce.
+
+```{r cov-2,echo=FALSE}
+library(ggplot2)
+library(datasauRus)
+ggplot(datasaurus_dozen[datasaurus_dozen$dataset!="dots",], aes(x=x, y=y, colour=dataset))+
+  geom_point()+
+  theme_void()+
+  theme(legend.position = "none")+
+  facet_wrap(~dataset, ncol=3)
+```
+
+Korelácia je miera *lineárnej* závislosti. Z toho, že $\text{Corr}[X,Y]=0$, **nevyplýva**, že $X$ a $Y$ sú nezávislé. A to jednoducho preto, že medzi nimi môže byť aj iná ako lineárna závislosť, ako demonštruje nasledovný príklad.
+
+::: {.Example #exm-}
+Majme $X \sim \text{Unif}[-1,1]$ a $Y = X^2.$ Tomuto zodpovedajú nasledovné funkcie hustoty
+
+```{=tex}
+\begin{equation*}
+f_X(x)=
+\begin{cases}
+\frac{1}{2}, & \text{ak}\ x \in [-1,1], \\
+0, & \text{inak}
+\end{cases}
+\end{equation*}
+```
+a
+
+```{=tex}
+\begin{equation*}
+f_Y(y)=
+\begin{cases}
+\frac{1}{2\sqrt{y}}, & \text{ak}\ y \in [0,1], \\
+0, & \text{inak}.
+\end{cases}
+\end{equation*}
+```
+Združená hustota $f_{XY}$ je $0$ všade tam, kde $Y>X$, ale $f_X \times f_Y$ tam nie je nutne $0$, preto $X$ a $Y$ nie sú nezávislé. Zároveň však platí (ukážte prečo) $\text{E}[X] = 0,\text{E}[Y] = \frac{1}{3}$ a $\text{Cov[X,Y]} = \text{E}[(X-\text{E}[X])(Y-\text{E}[Y])] = \text{E}\left[\left(X-0\right)\left(X^2-\frac{1}{3}\right)\right] = 0.$
+
+Teda $X$ a $Y$ sú závislé (však $Y$ je priamo funkciou $X$!), ale nekorelované (teda *lineárne* nezávislé).
+:::
+
+::: {.Example #exm-}
+Nech $X \sim N(0,1)$ a nech
+
+```{=tex}
+\begin{equation*}
+Y=
+\begin{cases}
+X, & \text{ak}\ |X| \leq c, \\
+-X, & \text{inak},
+\end{cases}
+\end{equation*}
+```
+Pre hodnotu $c$ veľmi malú je $\text{Corr}[X,Y] \approx -1$, naopak, pre $c$ veľmi veľké je to $\text{Corr}[X,Y] \approx 1.$ Nakoľko sa táto korelácia spojite mení s $c$, podľa Vety o strednej hodnote musí existovať hodnota $c$ taká, že $\text{Corr}[X,Y]=0.$ Na druhej strane, $X$ a $Y$ nemôžu byť nezávislé, nakoľko $Y$ je deterministickou funkciou $X.$
+:::
+
+Takto vyzerá realizácia 100 náhodných vektorov $(X,Y)$ s rôznymi koreláciami.
+
+```{r cov-3,echo=FALSE}
+par(mfrow=c(2,3))
+
+library(mvtnorm)
+set.seed(12923)
+
+rho <- c(-0.9,-0.7,-0.2,0, 0.15, 0.4, 0.6,0.8,0.99)
+x1 <- rmvnorm(100,sigma=matrix(c(1,rho[1],rho[1],1),nrow=2))
+x2 <- rmvnorm(100,sigma=matrix(c(1,rho[2],rho[2],1),nrow=2))
+x3 <- rmvnorm(100,sigma=matrix(c(1,rho[3],rho[3],1),nrow=2))
+x4 <- rmvnorm(100,sigma=matrix(c(1,rho[4],rho[4],1),nrow=2))
+x5 <- rmvnorm(100,sigma=matrix(c(1,rho[5],rho[5],1),nrow=2))
+x6 <- rmvnorm(100,sigma=matrix(c(1,rho[6],rho[6],1),nrow=2))
+x7 <- rmvnorm(100,sigma=matrix(c(1,rho[7],rho[7],1),nrow=2))
+x8 <- rmvnorm(100,sigma=matrix(c(1,rho[8],rho[8],1),nrow=2))
+x9 <- rmvnorm(100,sigma=matrix(c(1,rho[9],rho[9],1),nrow=2))
+
+plot(x1[,1],x1[,2],main="Korelácia = -0.9",xlab="X",ylab="Y")
+plot(x2[,1],x2[,2],main="Korelácia = -0.7",xlab="X",ylab="Y")
+plot(x3[,1],x3[,2],main="Korelácia = -0.2",xlab="X",ylab="Y")
+plot(x4[,1],x4[,2],main="Korelácia = 0",xlab="X",ylab="Y")
+plot(x5[,1],x5[,2],main="Korelácia = 0.15",xlab="X",ylab="Y")
+plot(x6[,1],x6[,2],main="Korelácia = 0.4",xlab="X",ylab="Y")
+plot(x7[,1],x7[,2],main="Korelácia = 0.6",xlab="X",ylab="Y")
+plot(x8[,1],x8[,2],main="Korelácia = 0.8",xlab="X",ylab="Y")
+plot(x9[,1],x9[,2],main="Korelácia = 0.99",xlab="X",ylab="Y")
+```
+```{r anim, fig.show='animate', ffmpeg.format='gif', dev='png',echo=FALSE}
+set.seed(12928)
+rho <- seq(-1,1,by=0.05)
+for (i in 1:41){
+  x1 <- rmvnorm(100,sigma=matrix(c(1,rho[i],rho[i],1),nrow=2))
+  plot(x1[,1],x1[,2],main=paste0("Korelácia = ", round(rho[i],2)),xlab="X",ylab="Y")
+}
+```
+Korelácia hovorí o asociácii, ale pozor, nie o kauzalite. Skutočnosť, že hodnoty $X$ a $Y$ nejakým spôsobom nastávajú naraz neznamená, že $X$ spôsobuje $Y$ alebo naopak. Napríklad predaje zmrzliny ($X$) sú korelované s napadnutiami žralakom ($Y$). Neznamená to ale, že tieto premenné spolu kauzálne súvisia. Ľudia skrátka jedia zmrzlinu ako aj surfujú viacej vtedy, keď je teplo.
+
+Teraz nejaký príklad na počítanie:
+
+::: {.Example #exm-}
+Majme $X,Y$ pre ktoré je $p_{XY}$ vyjadrená nasledovnou tabuľkou.
+
+```{r cov-4,echo=FALSE}
+library(kableExtra)
+df <- data.frame(" " = c("X=1","X=2", "X=3"), 
+                 "1" = c("0.1","0.3","0"), 
+                 "2" = c("0","0","0.2"), 
+                 "3" = c("0.1","0.1","0"), 
+                 "4" = c("0","0.2","0"))
+colnames(df) <- as.character(c(" ","Y=1","Y=2","Y=3","Y=4"))
+
+kbl(df, booktabs = T) %>%
+  kable_classic() %>%
+  add_header_above(c("Pravdedpodobnostná funkcia" = 5))
+```
+
+Vypočítajte $\text{Corr}[X,Y].$
+
+```{=tex}
+\begin{eqnarray*}
+\text{E}[X] &=& 1 \cdot (0.1+0+ 0.1+0) + 2 \cdot (0.3+0+0.1+0.2)+ \\
+&&  3 \cdot (0 + 0.2 + 0 + 0) = 2, \\
+\text{E}[X^2] &=& 1^2 \cdot (0.1+0+ 0.1+0) + 2^2 \cdot (0.3+0+0.1+0.2)+ \\
+&&  3^2 \cdot (0 + 0.2 + 0 + 0) = 4.4, \\
+\text{Var}[X] &=& \text{E}[X^2] - (\text{E}[X])^2 = 4.4-4 =0.4,\\
+\text{sd}[X] &=&\sqrt{\text{Var}[X]} \approx  0.632,\\
+\text{E}[Y] &=& 1 \cdot(0.1+0.3+0) + 2 \cdot(0+0+0.2) +\\
+&&  3 \cdot(0.1+0.1+0) + 4 \cdot(0+0.2+0) = 2.2,\\
+\text{E}[Y^2] &=& 1^2 \cdot(0.1+0.3+0) + 2^2 \cdot(0+0+0.2) +\\
+&&  3^2 \cdot(0.1+0.1+0) + 4^2 \cdot(0+0.2+0) = 6.2,\\
+\text{Var}[Y] &=& \text{E}[Y^2] - (\text{E}[Y])^2 = 6.2-4.84 = 1.36,\\
+\text{sd}[Y] &=&\sqrt{\text{Var}[Y]} \approx  1.166,\\
+\text{E}[XY] &=& 1\cdot 1 \cdot 0.1 + 1 \cdot 2 \cdot 0 + 1 \cdot 3 \cdot 0.1 + 1 \cdot 4 \cdot 0 + \\
+&&  2\cdot 1 \cdot 0.3 + 2 \cdot 2 \cdot 0 + 2 \cdot 3 \cdot 0.1 + 2 \cdot 4 \cdot 0.2 + \\
+&&  3\cdot 1 \cdot 0 + 3 \cdot 2 \cdot 0.2 + 3 \cdot 3 \cdot 0 + 3 \cdot 4 \cdot 0  = 4.4, \\
+\text{Cov}[X,Y] &=& \text{E}[XY] - \text{E}[X]\text{E}[Y] = 4.4 - 2 \cdot 2.2 = 0,\\
+\text{Corr}[X,Y] &=& 0.
+\end{eqnarray*}
+```
+:::
+
+
+
+::: {.Example #exm-}
+Uvažujme náhodný vektor $(X, Y)$, ktorý je rovnomerne rozdelený na trojuholníku
+
+$$
+T = \left\{ (x, y) \in \mathbb{R}^2 : 0 \le y \le x \le 1 \right\}
+$$
+
+Ide o dolný trojuholník pod uhlopriečkou danou vzťahom $y = x$ v jednotkovom štvorci.
+
+Obsah trojuholníka je daný integrovaním jednotky cez relevantnú oblasť:
+
+$$
+\text{Obsah}(T) = \int_0^1 \int_0^x 1 \, dy\, dx = \int_0^1 x\,dx = \frac{1}{2}.
+$$
+Alternatívne (vymenením poradia integrovania):
+$$
+\text{Obsah}(T) = \int_0^1 \int_y^1 1 \, dx\, dy = \int_0^1 (1-y)\,dy = \left[ y - \frac{y^2}{2}\right]_0^1 =\frac{1}{2}.
+$$
+
+
+Preto spoločná hustota je:
+
+$$
+f_{X,Y}(x, y) = 
+\begin{cases}
+2 & \text{ak } 0 \le y \le x \le 1 \\
+0 & \text{inak}
+\end{cases}
+$$
+
+
+
+$$
+f_X(x) = \int_0^x f_{X,Y}(x, y)\,dy = \int_0^x 2\,dy = 2x,\quad x \in [0, 1]
+$$
+
+
+$$
+f_Y(y) = \int_y^1 f_{X,Y}(x, y)\,dx = \int_y^1 2\,dx = 2(1 - y),\quad y \in [0, 1]
+$$
+
+
+Ak by $X$ a $Y$ boli nezávislé, platilo by:
+
+$$
+f_{X,Y}(x, y) = f_X(x) \cdot f_Y(y)
+$$
+
+Skúsme overiť pre $x = 0{,}6$, $y = 0{,}4$:
+
+$$
+\begin{align*}
+f_{X,Y}(0{,}6, 0{,}4) &= 2 \\
+f_X(0{,}6) &= 2 \cdot 0{,}6 = 1{,}2 \\
+f_Y(0{,}4) &= 2 \cdot (1 - 0{,}4) = 1{,}2 \\
+f_X(0{,}6) \cdot f_Y(0{,}4) &= 1{,}2 \cdot 1{,}2 = 1{,}44 \ne 2
+\end{align*}
+$$
+
+
+Napriek tomu, že spoločné rozdelenie je rovnomerné na platnej oblasti, premenné $X$ a $Y$ **nie sú nezávislé**, pretože hodnota jednej obmedzuje rozsah druhej.
+::: 
+
+## Vizualizácie
+
+Nasledujúce animácie vám môžu pomôcť intuitívne uchopiť tieto nové objekty.
+
+Najprv si ukážeme hustotu združene normálneho rozdelenia
+
+$$
+f_{XY}(x,y) = \frac{1}{2\pi \sqrt{|\mathbf{\Sigma}|}} 
+\exp\left[ -\frac{1}{2} \left(\begin{pmatrix} x\\ y \end{pmatrix} - \begin{pmatrix} \mu_X\\ \mu_Y \end{pmatrix}\right)^\top \mathbf{\Sigma}^{-1} \begin{pmatrix} x\\ y \end{pmatrix} - \begin{pmatrix} \mu_X\\ \mu_Y \end{pmatrix} \right]
+$$
+
+kde:
+
+-   $\begin{bmatrix} {\color{blue}x} \\ {\color{redy} \end{bmatrix}$ je dvojrozmerný vektor,
+-   $\mathbf{\mu} = \begin{bmatrix} {\color{blue}\mu_X} \\ {\color{red}\mu_Y} \end{bmatrix}$ je vektor stredných hodnôt,
+-   $\mathbf{\Sigma} = \begin{bmatrix} {\color{blue}\sigma_X}^2 & \rho{\color{blue}\sigma_X}{\color{red}\sigma_Y} \\ \rho{\color{blue}\sigma_X}{\color{red}\sigma_Y} & {\color{red}\sigma_Y}^2 \end{bmatrix}$ je kovariančná matica,
+-   $|\mathbf{\Sigma}|$ je determinant kovariančnej matice.
+
+
+
+Nižšie je táto hustota pre ${\color{blue}\mu_X = 0},{\color{red}\mu_Y = 0},{\color{blue}\sigma_X = 0.5}$ a ${\color{red}\sigma_Y = 1}$: 
+$$\mathbf{\mu} = \begin{bmatrix} {\color{blue}0} \\ {\color{red}0} \end{bmatrix} \ \ \ \ \text{a} \ \ \ \ \mathbf{\Sigma} = \begin{bmatrix} {\color{blue}0.5}^2 & 0.3 \cdot {\color{blue}0.5} \cdot {\color{red}1} \\ 0.3 \cdot {\color{blue}0.5} \cdot {\color{red}1} & {\color{red}1}^2 \end{bmatrix}  = \begin{bmatrix} 0.25 & 0.15 \\ 0.15 & 1 \end{bmatrix},$$ teda korelácia je $0.3$. Vyššie hodnoty prvej koordináty sú asociované s (mierne) vyššími hodnotami druhej koordináty.
+Modrou farbou je označená náhodná premenná $X$, ktorá má pravdepodobnostné rozdelenie ${\color{blue}X \sim N(0,0.5^2)}$ (a teda nižšou varianciou ako $Y$). Červenou farbou je označená náhodná premenná $Y,$ ktorej rozdelenie je štandardné normované normálne rozdelenie ${\color{red}Y \sim N(0,1)}.$ 
+
+```{r anim_mvn_pdf, fig.show='animate', ffmpeg.format='gif', dev='png',echo=FALSE, cache=TRUE}
+library(mvtnorm)
+set.seed(12928)
+theta <- seq(90, 180, by = 5)
+
+x <- seq(-3, 3, length = 25)
+y <- seq(-3, 3, length = 25)
+
+
+for (iTheta in 1:length(theta)) {
+  
+  par(mfrow = c(1, 1), oma = c(0, 0, 0, 0), mar = c(0,0,1.5,0))
+  
+    sigma <- matrix(c(0.5^2, 0.3 * 0.5, 
+                      0.3 * 0.5, 1), 2, 2)
+    
+    z <- outer(x, y, Vectorize(function(x1, y1) {
+      dmvnorm(c(x1, y1), mean = c(0, 0), sigma = sigma)
+    }))
+    
+    zl <- c(0, 1.4)
+    
+    trmat <- persp(x, y, z, theta = theta[iTheta], phi = 30,
+                   zlim = zl, box = FALSE, shade = 0.5,
+                   xlab = "", ylab = "", zlab = "")
+    
+    title(main = "Funkcia hustoty združene normálneho rozdelenia", cex.main = 0.9)
+    
+    # X grid
+    for (i in seq(-3, 3, by = 0.5)) {
+      lines(trans3d(c(i, i), c(-3, -3), zl, trmat), col = 'grey')
+    }
+    for (i in seq(0, zl[2], length = 7)) {
+      lines(trans3d(c(-3, 3), c(-3, -3), c(i, i), trmat), col = 'grey')
+    }
+    
+    # X marginal
+    lines(trans3d(seq(-3, 3, length = 100), -3,
+                  dnorm(seq(-3, 3, length = 100), 0, 0.5), trmat),
+          lwd = 2, col = 'blue')
+    
+    # Y grid
+    for (i in seq(-3, 3, by = 0.5)) {
+      lines(trans3d(c(-3, -3), c(i, i), zl, trmat), col = 'grey')
+    }
+    for (i in seq(0, zl[2], length = 7)) {
+      lines(trans3d(c(-3, -3), c(-3, 3), c(i, i), trmat), col = 'grey')
+    }
+    
+    # Y marginal
+    lines(trans3d(-3, seq(-3, 3, length = 100),
+                  dnorm(seq(-3, 3, length = 100), 0, 1), trmat),
+          lwd = 2, col = 'red')
+
+  
+  #mtext(paste("Funkcia hustoty združene normálneho rozdelenia"), outer = TRUE, cex = 1.2)
+}
+
+```
+
+
+
+Kumulatívna distribučná funkcia je len dvojitým integrálom cez horné medze.
+
+```{r anim_mvn_cdf, fig.show='animate', ffmpeg.format='gif', dev='png',echo=FALSE, cache=TRUE}
+library(mvtnorm)
+set.seed(12928)
+theta <- seq(90, 180, by = 5)
+
+x <- seq(-3, 3, length = 25)
+y <- seq(-3, 3, length = 25)
+
+cor_array <- c(-0.6, 0, 0.3, 0.6)
+
+for (iTheta in 1:length(theta)) {
+  
+  par(mfrow = c(1, 1), oma = c(0, 0, 0, 0), mar = c(0,0,1.5,0))
+  
+    sigma <- matrix(c(0.5^2, 0.3 * 0.5, 
+                      0.3 * 0.5, 1), 2, 2)
+    
+    z <- outer(x, y, Vectorize(function(x1, y1) {
+      pmvnorm(lower=c(x1,y1),upper= c(Inf,Inf), mean = c(0, 0), sigma = sigma)
+    }))
+    
+    zl <- c(0, 1.5)
+    
+    trmat <- persp(x, y, z, theta = theta[iTheta], phi = 30,
+                   zlim = zl, box = FALSE, shade = 0.5,
+                   xlab = "", ylab = "", zlab = "")
+    
+    title(main = "CDF pre združene normálnu hustotu", cex.main = 0.9)
+    
+    # X grid
+    for (i in seq(-3, 3, by = 0.5)) {
+      lines(trans3d(c(i, i), c(-3, -3), zl, trmat), col = 'grey')
+    }
+    for (i in seq(0, zl[2], length = 7)) {
+      lines(trans3d(c(-3, 3), c(-3, -3), c(i, i), trmat), col = 'grey')
+    }
+    
+    
+    # Y grid
+    for (i in seq(-3, 3, by = 0.5)) {
+      lines(trans3d(c(-3, -3), c(i, i), zl, trmat), col = 'grey')
+    }
+    for (i in seq(0, zl[2], length = 7)) {
+      lines(trans3d(c(-3, -3), c(-3, 3), c(i, i), trmat), col = 'grey')
+    }
+    
+
+  
+  #mtext(paste("CDF pre združene normálnu hustotu", theta[iTheta]), outer = TRUE, cex = 1.2)
+}
+
+```
+
+Pre rôzne korelácie majú hustoty (teda "kopčeky") rôzne tvary, napriek tomu, že marginálne distribúcie sú rovnaké.
+
+```{r anim_mvn_pdf_all, fig.show='animate', ffmpeg.format='gif', dev='png',echo=FALSE, cache=TRUE}
+library(mvtnorm)
+set.seed(12928)
+theta <- seq(90, 180, by = 5)
+
+x <- seq(-3, 3, length = 25)
+y <- seq(-3, 3, length = 25)
+
+cor_array <- c(-0.6, 0, 0.3, 0.6)
+
+for (iTheta in 1:length(theta)) {
+  
+  par(mfrow = c(2, 2), oma = c(0, 0, 0, 0), mar = c(0,0,1.5,0))
+  
+  for (iCor in 1:4) {
+    
+    sigma <- matrix(c(0.5^2, cor_array[iCor] * 0.5, 
+                      cor_array[iCor] * 0.5, 1), 2, 2)
+    
+    z <- outer(x, y, Vectorize(function(x1, y1) {
+      dmvnorm(c(x1, y1), mean = c(0, 0), sigma = sigma)
+    }))
+    
+    zl <- c(0, 1.4)
+    
+    trmat <- persp(x, y, z, theta = theta[iTheta], phi = 30,
+                   zlim = zl, box = FALSE, shade = 0.5,
+                   xlab = "", ylab = "", zlab = "")
+    
+    title(main = paste("Korelácia =", cor_array[iCor]), cex.main = 0.9)
+    
+    # X grid
+    for (i in seq(-3, 3, by = 0.5)) {
+      lines(trans3d(c(i, i), c(-3, -3), zl, trmat), col = 'grey')
+    }
+    for (i in seq(0, zl[2], length = 7)) {
+      lines(trans3d(c(-3, 3), c(-3, -3), c(i, i), trmat), col = 'grey')
+    }
+    
+    # X marginal
+    lines(trans3d(seq(-3, 3, length = 100), -3,
+                  dnorm(seq(-3, 3, length = 100), 0, 0.5), trmat),
+          lwd = 2, col = 'blue')
+    
+    # Y grid
+    for (i in seq(-3, 3, by = 0.5)) {
+      lines(trans3d(c(-3, -3), c(i, i), zl, trmat), col = 'grey')
+    }
+    for (i in seq(0, zl[2], length = 7)) {
+      lines(trans3d(c(-3, -3), c(-3, 3), c(i, i), trmat), col = 'grey')
+    }
+    
+    # Y marginal
+    lines(trans3d(-3, seq(-3, 3, length = 100),
+                  dnorm(seq(-3, 3, length = 100), 0, 1), trmat),
+          lwd = 2, col = 'red')
+  }
+  
+  #mtext(paste("Združene normálna hustota", theta[iTheta]), outer = TRUE, cex = 1.2)
+}
+
+```
+
+```{r anim_mvn_cdf_all, fig.show='animate', ffmpeg.format='gif', dev='png',echo=FALSE, cache=TRUE}
+library(mvtnorm)
+set.seed(12928)
+theta <- seq(90, 180, by = 5)
+
+x <- seq(-3, 3, length = 25)
+y <- seq(-3, 3, length = 25)
+
+cor_array <- c(-0.6, 0, 0.3, 0.6)
+
+for (iTheta in 1:length(theta)) {
+  
+  par(mfrow = c(2, 2), oma = c(0, 0, 0, 0), mar = c(0,0,1.5,0))
+  
+  for (iCor in 1:4) {
+    
+    sigma <- matrix(c(0.5^2, cor_array[iCor] * 0.5, 
+                      cor_array[iCor] * 0.5, 1), 2, 2)
+    
+    z <- outer(x, y, Vectorize(function(x1, y1) {
+      pmvnorm(lower=c(x1,y1),upper= c(Inf,Inf), mean = c(0, 0), sigma = sigma)
+    }))
+    
+    zl <- c(0, 1.4)
+    
+    trmat <- persp(x, y, z, theta = theta[iTheta], phi = 30,
+                   zlim = zl, box = FALSE, shade = 0.5,
+                   xlab = "", ylab = "", zlab = "")
+    
+    title(main = paste("Korelácia =", cor_array[iCor]), cex.main = 0.9)
+    
+    # X grid
+    for (i in seq(-3, 3, by = 0.5)) {
+      lines(trans3d(c(i, i), c(-3, -3), zl, trmat), col = 'grey')
+    }
+    for (i in seq(0, zl[2], length = 7)) {
+      lines(trans3d(c(-3, 3), c(-3, -3), c(i, i), trmat), col = 'grey')
+    }
+    
+    
+    # Y grid
+    for (i in seq(-3, 3, by = 0.5)) {
+      lines(trans3d(c(-3, -3), c(i, i), zl, trmat), col = 'grey')
+    }
+    for (i in seq(0, zl[2], length = 7)) {
+      lines(trans3d(c(-3, -3), c(-3, 3), c(i, i), trmat), col = 'grey')
+    }
+    
+  }
+  
+}
+
+```
+
+Pre dvojrozmerné rovnomerné (uniformné) rozdelenie je funkcia hustoty nasledovná
+
+$$f_{XY}(x,y) = \begin{cases}
+1 & \text{ak } x \in [0,1], y \in [0,1] \\
+0 & \text{inak } 
+\end{cases}$$
+
+
+a vyzerá takto:
+ 
+
+```{r anim_unif_pdf, fig.show='animate', ffmpeg.format='gif', dev='png',echo=FALSE, cache=TRUE}
+library(mvtnorm)
+set.seed(12928)
+theta <- seq(90, 180, by = 5)
+
+x <- seq(-1, 2, length = 25)
+y <- seq(-1, 2, length = 25)
+
+
+for (iTheta in 1:length(theta)) {
+  
+  par(mfrow = c(1, 1), oma = c(0, 0, 0, 0), mar = c(0,0,1.5,0))
+  
+  z <- outer(x, y, function(x1, y1) {
+    dunif(x1)*dunif(y1)
+  })
+  
+  zl <- c(0, 1.4)
+  
+  trmat <- persp(x, y, z, theta = theta[iTheta], phi = 30,
+                 zlim = zl, box = FALSE, shade = 0.5,
+                 xlab = "", ylab = "", zlab = "")
+  
+  title(main = "Funkcia hustoty uniformného rozdelenia", cex.main = 0.9)
+  
+  # X grid
+  for (i in seq(-1, 2, by = 0.25)) {
+    lines(trans3d(c(i, i), c(-1, -1), zl, trmat), col = 'grey')
+  }
+  for (i in seq(0, zl[2], length = 7)) {
+    lines(trans3d(c(-1, 2), c(-1, -1), c(i, i), trmat), col = 'grey')
+  }
+  
+  
+  # X marginal
+  lines(trans3d(seq(-1, 2, length = 100), -1,
+                dunif(seq(-1, 2, length = 100),0, 1), trmat),
+  lwd = 2, col = 'blue')
+
+  # Y grid
+  for (i in seq(-1, 2, by = 0.5)) {
+    lines(trans3d(c(-1, -1), c(i, i), zl, trmat), col = 'grey')
+  }
+  for (i in seq(0, zl[2], length = 7)) {
+    lines(trans3d(c(-1, -1), c(-1, 2), c(i, i), trmat), col = 'grey')
+  }
+  
+  
+  
+  # Y marginal
+  lines(trans3d(-1, seq(-1, 2, length = 100),
+                dunif(seq(-1, 2, length = 100), 0, 1), trmat),
+  lwd = 2, col = 'red')
+}
+
+
+```
+
+Kumulatívna distribučná funkcia má takýto tvar:
+
+$$
+F_{XY}(s, t) = \int_{-\infty}^{s} \int_{-\infty}^{t} f_{XY}(x,y) dy dx = 
+\begin{cases}
+0 & \text{ak } s < 0 \text{ alebo } t < 0 \\
+xy & \text{ak } 0 \leq s \leq 1,\, 0 \leq t \leq 1 \\
+1 & \text{ak } s > 1 \text{ a } t > 1 \\
+y & \text{ak } 0 \leq t \leq 1 \text{ a } s > 1 \\
+x & \text{ak } 0 \leq s \leq 1 \text{ a } t > 1
+\end{cases}
+$$
+a vyzerá takto:
+
+
+```{r anim_unif_cdf, fig.show='animate', ffmpeg.format='gif', dev='png',echo=FALSE, cache=TRUE}
+library(mvtnorm)
+set.seed(12928)
+theta <- seq(90, 180, by = 5)
+
+x <- seq(-1, 2, length = 25)
+y <- seq(-1, 2, length = 25)
+
+
+for (iTheta in 1:length(theta)) {
+  
+  par(mfrow = c(1, 1), oma = c(0, 0, 0, 0), mar = c(0,0,1.5,0))
+  
+  z <- outer(x, y, function(x1, y1) {
+    (1-punif(x1))*(1-punif(y1))
+  })
+  
+  zl <- c(0, 1.4)
+  
+  trmat <- persp(x, y, z, theta = theta[iTheta], phi = 30,
+                 zlim = zl, box = FALSE, shade = 0.5,
+                 xlab = "", ylab = "", zlab = "")
+  
+  title(main = "CDF uniformného rozdelenia", cex.main = 0.9)
+  
+  # X grid
+  for (i in seq(-1, 2, by = 0.25)) {
+    lines(trans3d(c(i, i), c(-1, -1), zl, trmat), col = 'grey')
+  }
+  for (i in seq(0, zl[2], length = 7)) {
+    lines(trans3d(c(-1, 2), c(-1, -1), c(i, i), trmat), col = 'grey')
+  }
+
+  # Y grid
+  for (i in seq(-1, 2, by = 0.5)) {
+    lines(trans3d(c(-1, -1), c(i, i), zl, trmat), col = 'grey')
+  }
+  for (i in seq(0, zl[2], length = 7)) {
+    lines(trans3d(c(-1, -1), c(-1, 2), c(i, i), trmat), col = 'grey')
+  }
+  
+}
+
+
+```
+
+Zaujímavé zdroje (cudzie, nie moje):
+
+-   [Interaktívne kreslítko](https://socr.umich.edu/HTML5/BivariateNormal/BVN2/) Bobrovnikov, Mark, Jared Tianyi Chai, and Ivo D. Dinov. "Interactive visualization and computation of 2D and 3D probability distributions." SN computer science 3.4 (2022): 327.
+-   [V GeoGebre](https://www.geogebra.org/m/pO4JcWPz) [Peter Sassman](https://www.geogebra.org/u/psassman)
+
+
+
+## Cvičenia
+
+::: {.Exercise #exr-zostrojte}
+Zostrojte združenú pravdepodobnostnú funkciu pre $X,Y$ tak, aby súčasne platilo:
+
+-   $\text{E}[X] = 2,$
+-   $\text{E}[Y] = 2,$
+-   $\text{Cov}[X,Y] = 0,$
+-   $P(X\geq Y) = 0.5.$
+
+Ak sa to nedá dokážte prečo.
+:::
+
+::: {.Exercise #exr-hustota}
+Majme náhodné premenné $X,Y$ s nasledovnou združenou funkciou hustoty
+
+```{=tex}
+\begin{equation*}
+f_{XY}(x,y)=
+\begin{cases}
+cy^2, & \text{ak}\ x \in [0,2], \ y \in [0,1],\\
+0, & \text{inak}.
+\end{cases}
+\end{equation*}
+```
+Vypočítajte
+
+(a) hodnotu konštanty $c,$
+(b) $P(X \leq 1),$
+(c) $P(X+Y > 2),$
+(d) $P(X > Y),$
+(e) $P(X = 3Y),$
+(f) $\text{E}[Y],$
+(g) $\text{Cov}[X,Y].$
+:::
+
+
+
+::: {.Exercise #exr-kov}
+Nech $X \sim N(0,1)$ a nech $W$ má nasledovnú pravdepodobnostnú funkciu
+
+```{=tex}
+\begin{equation*}
+p_W(w)= P(W=w) =
+\begin{cases}
+\frac{1}{2}, & \text{ak}\ w = 1 , \\
+\frac{1}{2}, & \text{ak}\ w = -1 , \\
+0, & \text{inak}.
+\end{cases}
+\end{equation*}
+```
+Nech naviac $X$ a $W$ sú nezávislé náhodné premenné. Zadefinujme $Y = X W.$ Ukážte, že $\text{Cov}[X,Y]=0$ a že náhodné premenné $X$ a $Y$ nie sú nezávislé.
+:::
+
+::: {.Exercise #exr-kov2}
+
+Ukážte, že pre náhodné premenné, pre ktoré platí $Y = aX + b,$ je $\text{Cov}[X,Y] = 1$ alebo $\text{Cov}[X,Y] = -1.$
+
+:::
+
+::: {.Exercise #exr-exp1}
+
+Ukážte, že pre nezávislé náhodné premenné platí $\text{E}[X \cdot Y] = \text{E}[X] \text{E}[Y].$ Ukážte tiež, že opačná implikácia neplatí.
+
+:::
+
+::: {.Exercise #exr-}
+
+Ukážte, že pre nezávislé náhodné premenné platí $\text{Var}[X + Y] = \text{Var}[X] \text{Var}[Y].$ Ukážte tiež, že opačná implikácia neplatí.
+
+:::
+
+::: {.Exercise #exr-}
+Nech $X$ je počet obedov objednaných na stôl počas obeda. Nech $Y$ je počet nápojov objednaných na ten istý stôl počas obeda.
+
+Nech  $p_{XY}$ je vyjadrená nasledovnou tabuľkou.
+
+```{r,echo=FALSE}
+
+library(kableExtra)
+
+df <- data.frame(" " = c("X=0","X=1","X=2", "X=3", "X=4"),
+
+                 "0" = c("0","0.05","0.01","0", "0"),
+
+                 "1" = c("0.01","0.05","0.05","0","0"),
+
+                 "2" = c("0.05","0.05","0.3","0.01","0"),
+
+                 "3" = c("0","0","0.01","0.1","0.01"),
+
+                 "2" = c("0","0","0","0","0.3"))
+
+colnames(df) <- as.character(c(" ","Y=0","Y=1","Y=2","Y=3", "Y=4"))
+
+kbl(df, booktabs = T) %>%
+
+  kable_classic() %>%
+
+  add_header_above(c("Pravdedpodobnostná funkcia" = 6))
+
+```
+
+Vypočítajte
+
+(a) pravdepodobnosť, že na stôl sú objednané viac ako 2 obedy
+
+(b) pravdepodobnosť, že na stôl sú objednané viac ako 2 obedy a viac ako 2 nápoje
+
+(c) pravdepodobnosť, že na stôl je objednaných viac nápojov ako obedov
+
+(d) priemerný počet objednaných obedov
+
+(e) priemerný počet objednaných nápojov
+
+(f) koreláciu medzi počtom obedov a počtom nápojov objednaných na stôl
+
+:::
+
+
+::: {.Exercise #exr-}
+Majme náhodné premenné $X,Y$ s nasledovnou združenou pravdepodobnostnou funkciou
+
+\begin{equation*}
+
+p_{XY}(x,y)=
+
+\begin{cases}
+
+c|x+y|, & \text{ak}\ x \in \{-1,0,1 \},\\
+
+&  \ y \in \{-2,0,2 \},\\
+
+0, & \text{inak}.
+
+\end{cases}
+
+\end{equation*}
+
+Vypočítajte
+
+(a) hodnotu konštanty $c,$
+
+(b) $P(X = 1),$
+
+(c) $P(Y = 2X),$
+
+(d) $P(Y < 1)$
+
+(e) $\text{E}[X],\text{E}[Y]$
+
+(f) $\text{Cov}[X,Y], \text{Corr}[X,Y].$
+:::
+
+::: {.Exercise #exr-}
+Majme náhodné premenné $X,Y$ s nasledovnou združenou funkciou hustoty.
+
+\begin{equation*}
+
+f_{XY}(x,y) =
+
+\begin{cases}
+
+\frac{1}{6}(xy+\frac{1}{2}), & \text{ak}\ 0 \leq x \leq 2, \ 0 \leq y \leq 2,\\
+
+0, & \text{inak},
+
+\end{cases}
+
+\end{equation*}
+
+Vypočítajte
+
+(a) kumulatívnu distribučnú funkciu náhodného vektora $(X,Y)$,
+
+(b) $\text{E}[X],$
+
+(c) $\text{Var}[X],$
+
+(d) $\text{Cov}[X, Y],$
+
+(e) $\text{Corr}[X, Y],$
+
+(f) $P(X+Y \leq 1).$
+:::
+
+::: {.Exercise #exr-}
+Dokážte, že pre náhodné premenné $X,Y,Z$ a $a,b \in \mathbb{R}$ platí
+
+$$\text{Cov}[aX+bY,Z] = a\text{Cov}[X,Z] + b\text{Cov}[Y,Z].$$
+:::
+
+
+::: {.Exercise #exr-}
+Majme náhodné premenné $X,Y$ s nasledovnou združenou pravdepodobnostnou funkciou
+
+\begin{equation*}
+
+p_{XY}(x,y)=
+
+\begin{cases}
+
+c|x+y|, & \text{ak}\ x \in \{-2,-1,0,1,2 \},\\
+
+&  \ y \in \{-2,-1,0,1,2 \},\\
+
+0, & \text{inak}.
+
+\end{cases}
+
+\end{equation*}
+
+Vypočítajte
+
+* hodnotu konštanty $c,$
+
+* $P(X = 1),$
+
+* $P(X = 3Y),$
+
+* $\text{E}[X],$
+
+* $\text{Corr}[X,Y].$
+
+
+:::
+
+::: {.Exercise #exr-}
+
+Zostrojte združenú pravdepodobnostnú funkciu pre $X,Y$ tak, aby súčasne platilo:
+
+* $\mathcal{S}_X = \{1,2,3\}$
+
+* $\mathcal{S}_Y = \{0,1,2\}$
+
+* $\text{E}[XY] = \text{E}[X]\text{E}[Y]$
+
+* Existuje nejaké $x \in \mathcal{S}_X$ a $y \in \mathcal{S}_Y,$ že platí $p_X(x)p_Y(y) > p_{XY}(x,y)$.
+
+:::
+
+::: {.Exercise #exr-}
+Majme náhodné premenné $X,Y$ s nasledovnou združenou funkciou hustoty
+
+```{=tex}
+\begin{equation*}
+f_{XY}(x,y)=
+\begin{cases}
+c(x^2+y), & \text{ak}\ 0 \leq y \leq 1-x^2,\\
+0, & \text{inak}.
+\end{cases}
+\end{equation*}
+```
+Vypočítajte
+
+(a) hodnotu konštanty $c,$
+(b) $P(0 \leq X \leq \frac{1}{2}),$
+(c) $P(Y \leq X+1).$
+:::
+
+::: {.Exercise #exr-}
+Majme náhodné premenné $X,Y$ s nasledovnou združenou funkciou hustoty
+
+```{=tex}
+\begin{equation*}
+f_{XY}(x,y)=
+\begin{cases}
+\frac{15}{4}x^2, & \text{ak}\ 0 \leq y \leq 1-x^2,\\
+0, & \text{inak}.
+\end{cases}
+\end{equation*}
+```
+(a) Určte hustotu náhodnej premennej $X$.
+(b) Určte hustotu náhodnej premennej $Y$.
+(c) Zistite, či $X$ a $Y$ sú nezávislé.
+:::
+
+
+::: {.callout-tip collapse="true"}
+## Niektoré riešenia
+
+@exr-zostrojte
+
+Pre jednoduchosť si zvoľme diskrétne náhodné premenné. Našou úlohou je zostrojiť nejakú združenú pravdepodobnostnú funkciu $p_{XY}(x,y)$, tak aby platili tieto 4 rovnosti.
+
+ V tomto prípade bude teda pravdepodobnostná funkcia tabuľka čísel. To aké hodnoty budú náhodné premenné $X$ a $Y$ nadobúdať (teda $\mathcal{S}_X$ a $\mathcal{S}_Y$) si môžeme zvoliť. Zvoľme si $\mathcal{S}_X = \{0,2,4\}$ a $\mathcal{S}_Y = \{0,2,4\}$ a uvidíme, či budeme mať pri voľbe tabuľky $p_{XY}(x,y)$ dostatok flexibility na to, aby sme splinili to, čo máme.
+
+```{r cov-prikl,echo=FALSE}
+library(kableExtra)
+df <- data.frame(" " = c("X=0","X=2", "X=4"), 
+                 "0" = c("*","*","*"), 
+                 "2" = c("*","*","*"), 
+                 "4" = c("*","*","*"))
+colnames(df) <- as.character(c(" ","Y=0","Y=2","Y=4"))
+
+kbl(df, booktabs = T) %>%
+  kable_classic() %>%
+  add_header_above(c("Pravdedpodobnostná funkcia" = 4))
+```
+ 
+&nbsp;
+ 
+Podmienky $\text{E}[X]=2$ a $\text{E}[Y]=2$ znamenajú, že súčet v prvom a v treťom stĺpci musia byť rovnaké ($\text{E}[Y]=2$), taktiež súčet v prvom a v treťom riadku musia byť rovnaké ($\text{E}[X]=2$).
+
+Podmienka $\text{Cov}[X,Y] = \text{E}[XY] - \text{E}[X]\text{E}[Y] = \text{E}[XY] - 2\cdot 2 = 0.$ Takže musíme mať $\text{E}[XY] = 4.$
+Môžeme si tiež uvedomiť, ze $\text{Cov}[X,Y] = 0$ by bolo zabezpečené aj ak by boli $X$ a $Y$ nezávislé.
+
+Podmienka $P(X\geq Y) = 0.5$ implikuje $P(X < Y) = 0.5$ a teda súčet $p_{X,Y}(0,2) + p_{X,Y}(0,4) + p_{X,Y}(2,4) = 0.5.$
+
+Môžeme si navoliť tabuľku tak, aby sa nám komplikovaná podmienka $\text{E}[XY] = 4$ splnila poľahky. Nakoľko $XY$ je veľakrát rovné nula, dostávame
+$\text{E}[XY] = 2 \cdot 2 \cdot p_{X,Y}(2,2) + 2 \cdot 4 \cdot p_{X,Y}(2,4) + 4 \cdot 2 \cdot p_{X,Y}(4,2) + 4 \cdot 4 \cdot p_{X,Y}(4,4).$
+Ak zvolíme napríklad $p_{X,Y}(2,2)=0, p_{X,Y}(2,4)=0, p_{X,Y}(4,2)=0, p_{X,Y}(4,4)=0.25,$ podmienka $\text{E}[XY] = 2$ bude splnená.
+
+```{r cov-prikl2,echo=FALSE}
+library(kableExtra)
+df <- data.frame(" " = c("X=0","X=2", "X=4"), 
+                 "0" = c("*","*","*"), 
+                 "2" = c("*","0","0"), 
+                 "4" = c("*","0","0.25"))
+colnames(df) <- as.character(c(" ","Y=0","Y=2","Y=4"))
+
+kbl(df, booktabs = T) %>%
+  kable_classic() %>%
+  add_header_above(c("Pravdedpodobnostná funkcia" = 4))
+```
+
+&nbsp;
+
+Podmienku  $P(X\geq Y) = 0.5$ teraz zaručíme tým, že $p_{X,Y}(0,2)=0.5, p_{X,Y}(0,4)=0.$
+
+```{r cov-prikl3,echo=FALSE}
+library(kableExtra)
+df <- data.frame(" " = c("X=0","X=2", "X=4"), 
+                 "0" = c("*","*","*"), 
+                 "2" = c("0.5","0","0"), 
+                 "4" = c("0","0","0.25"))
+colnames(df) <- as.character(c(" ","Y=0","Y=2","Y=4"))
+
+kbl(df, booktabs = T) %>%
+  kable_classic() %>%
+  add_header_above(c("Pravdedpodobnostná funkcia" = 4))
+```
+
+&nbsp;
+
+Teraz podmienky  $\text{E}[X]=2$ a $\text{E}[Y]=2$  nás prinútia k tomu, aby sme tabuľku doplnili nasledovne
+
+```{r cov-prikl4,echo=FALSE}
+library(kableExtra)
+df <- data.frame(" " = c("X=0","X=2", "X=4"), 
+                 "0" = c("0","0","0.25"), 
+                 "2" = c("0.5","0","0"), 
+                 "4" = c("0","0","0.25"))
+colnames(df) <- as.character(c(" ","Y=0","Y=2","Y=4"))
+
+kbl(df, booktabs = T) %>%
+  kable_classic() %>%
+  add_header_above(c("Pravdedpodobnostná funkcia" = 4))
+```
+
+&nbsp;
+
+Toto je len jeden z mnohých spôsobov ako sa to dá riešiť. Možno trochu kostrbatý ale demonštruje ako môžeme o takomto príklade rozmýšľať.
+
+Systematický prístup je sformulovať tie podmienky ako sadu lineárnych restrikcií a tie potom vyriešiť s tým, že pravdepodobnostná tabuľka sa musí nasčítať na jedna.
+
+@exr-hustota
+(a) Podmienka: $\int_0^2 \int_0^1 c y^2 \, dy \, dx = 1$
+
+$\int_0^2 \int_0^1 c y^2 \, dy \, dx =
+\int_0^2 c \left( \int_0^1 y^2 \, dy \right) dx =
+\int_0^2 c \cdot \frac{1}{3} \, dx =
+c \cdot \frac{1}{3} \cdot 2 = \frac{2c}{3}$
+
+$\Rightarrow \frac{2c}{3} = 1 \Rightarrow c = \frac{3}{2}$
+
+---
+
+(b) $P(X \leq 1) = \int_0^1 \int_0^1 \frac{3}{2} y^2 \, dy \, dx$
+
+$= \int_0^1 \left( \frac{3}{2} \cdot \int_0^1 y^2 \, dy \right) dx =
+\int_0^1 \left( \frac{3}{2} \cdot \frac{1}{3} \right) dx =
+\int_0^1 \frac{1}{2} \, dx = \frac{1}{2}$
+
+---
+
+(c) $P(X + Y > 2)$, teda oblasť $x \in [1,2],\ y \in [2 - x, 1]$
+
+$\int_1^2 \int_{2 - x}^1 \frac{3}{2} y^2 \, dy \, dx =
+\frac{3}{2} \int_1^2 \left( \int_{2 - x}^1 y^2 \, dy \right) dx$
+
+$\int_{2 - x}^1 y^2 \, dy =
+\left[ \frac{y^3}{3} \right]_{2 - x}^1 =
+\frac{1}{3} - \frac{(2 - x)^3}{3} =
+\frac{1 - (2 - x)^3}{3}$
+
+Teda integrál:
+$\frac{3}{2} \cdot \int_1^2 \frac{1 - (2 - x)^3}{3} \, dx =
+\frac{1}{2} \cdot \int_1^2 (1 - (2 - x)^3) \, dx$
+
+Substitúcia $u = 2 - x \Rightarrow du = -dx$,
+keď $x = 1 \Rightarrow u = 1$, keď $x = 2 \Rightarrow u = 0$
+
+$\int_1^2 (1 - (2 - x)^3) \, dx =
+\int_0^1 (1 - u^3) \, du =
+\left[ u - \frac{u^4}{4} \right]_0^1 =
+1 - \frac{1}{4} = \frac{3}{4}$
+
+Teda $P(X + Y > 2) = \frac{1}{2} \cdot \frac{3}{4} = \frac{3}{8}$
+
+---
+
+(d) $P(X > Y) = \int_0^1 \int_y^2 \frac{3}{2} y^2 \, dx \, dy$
+
+Vnútorný integrál:
+$\int_y^2 \frac{3}{2} y^2 \, dx = \frac{3}{2} y^2 (2 - y)$
+
+Teda:
+$\int_0^1 \frac{3}{2} y^2 (2 - y) \, dy =
+\frac{3}{2} \int_0^1 (2y^2 - y^3) \, dy =
+\frac{3}{2} \left( \frac{2}{3} - \frac{1}{4} \right) =
+\frac{3}{2} \cdot \frac{5}{12} = \frac{5}{8}$
+
+---
+
+(e) $P(X = 3Y) = 0$, lebo ide o množinu s nulovou mierou.
+
+---
+
+(f) $\text{E}[Y] = \int_0^2 \int_0^1 y \cdot \frac{3}{2} y^2 \, dy \, dx =
+\frac{3}{2} \cdot \int_0^2 \left( \int_0^1 y^3 \, dy \right) dx =
+\frac{3}{2} \cdot \int_0^2 \frac{1}{4} \, dx =
+\frac{3}{2} \cdot \frac{1}{4} \cdot 2 = \frac{3}{4}$
+
+---
+
+(g) $$\text{E}[X] = \int_0^2 \int_0^1 x \cdot \frac{3}{2} y^2 \, dy \, dx =
+\frac{3}{2} \cdot \int_0^2 x \left( \int_0^1 y^2 \, dy \right) dx =
+\frac{3}{2} \cdot \int_0^2 x \cdot \frac{1}{3} \, dx = $$
+ $$\frac{3}{2} \cdot \frac{1}{3} \cdot \left[ \frac{x^2}{2} \right]_0^2 =
+\frac{3}{2} \cdot \frac{1}{3} \cdot 2 = 1$$
+
+$$\text{E}[XY] = \int_0^2 \int_0^1 x y \cdot \frac{3}{2} y^2 \, dy \, dx =
+\frac{3}{2} \cdot \int_0^2 x \left( \int_0^1 y^3 \, dy \right) dx =$$
+$$\frac{3}{2} \cdot \int_0^2 x \cdot \frac{1}{4} \, dx =
+ \frac{3}{2} \cdot \frac{1}{4} \cdot \left[ \frac{x^2}{2} \right]_0^2 =
+\frac{3}{2} \cdot \frac{1}{4} \cdot 2 = \frac{3}{2}$$
+
+$\text{Cov}[X, Y] = \text{E}[XY] - \text{E}[X] \cdot \text{E}[Y] =
+\frac{3}{2} - 1 \cdot \frac{3}{4} = \frac{3}{4}$
+
+@exr-kov
+
+$$\text{E}[XY] = \text{E}[X^2 W] = \sum_{w \in \{-1,1\}}\int_{-\infty}^{\infty} x^2 w f_X(x)p_W(w) \, dx $$
+ $$ =\sum_{w \in \{-1,1\}} p_W(w)w  \int_{-\infty}^{\infty} x^2 f_X(x) \, dx = $$
+$$\frac{1}{2}\text{E}[X^2 \cdot 1 ]  + \frac{1}{2}\text{E}[X^2 \cdot (-1) ]  = \frac{1}{2}\text{E}[X^2]  - \frac{1}{2}\text{E}[X^2] = 0.$$
+Nech $c>0$ je nejaká konštanta.
+
+$$P(X > c, Y > 0) = P(X > c, XW > 0) = P(X > c, W = 1) = P(X > c)P(W = 1) = (1-\Phi(c))\cdot \frac{1}{2}$$
+$$P(X > c) = (1-\Phi(c)) $$
+
+$$P(Y > c) = P(XW > c) = P(X > c,W = 1) + P(X < -c,W = -1) = $$
+$$P(X > c)P(W = 1) + P(X < -c)P(W = -1) = (1-\Phi(c))\cdot \frac{1}{2} + (1-\Phi(c))\cdot \frac{1}{2} = (1-\Phi(c))$$
+$$P(X > c)\cdot P(Y > c) =  (1-\Phi(c))^2 \neq (1-\Phi(c))\cdot \frac{1}{2} = P(X > c, Y > c).$$
+takže $X$ a $Y$ nie sú nezávislé.
+
+@exr-kov2
+
+
+@exr-exp1
+
+:::
+
+<!-- ## Domáca úloha 6 {-} -->
+
+<!-- Odovzdať do 17.4.2023 do 19:59. -->
+
+<!-- ::: {.exercise name="DÚ 6.1"} -->
+
+<!-- Nech $X$ je počet obedov objednaných na stôl počas obeda. Nech $Y$ je počet nápojov objednaných na ten istý stôl počas obeda. -->
+
+<!-- Nech  $p_{XY}$ je vyjadrená nasledovnou tabuľkou. -->
+
+<!-- ```{r,echo=FALSE} -->
+
+<!-- library(kableExtra) -->
+
+<!-- df <- data.frame(" " = c("X=0","X=1","X=2", "X=3", "X=4"), -->
+
+<!--                  "0" = c("0","0.05","0.01","0", "0"), -->
+
+<!--                  "1" = c("0.01","0.05","0.05","0","0"), -->
+
+<!--                  "2" = c("0.05","0.05","0.3","0.01","0"), -->
+
+<!--                  "3" = c("0","0","0.01","0.1","0.01"), -->
+
+<!--                  "2" = c("0","0","0","0","0.3")) -->
+
+<!-- colnames(df) <- as.character(c(" ","Y=0","Y=1","Y=2","Y=3", "Y=4")) -->
+
+<!-- kbl(df, booktabs = T) %>% -->
+
+<!--   kable_classic() %>% -->
+
+<!--   add_header_above(c("Pravdedpodobnostná funkcia" = 6)) -->
+
+<!-- ``` -->
+
+<!-- Vypočítajte -->
+
+<!-- (a) pravdepodobnosť, že na stôl sú objednané viac ako 2 obedy -->
+
+<!-- (b) pravdepodobnosť, že na stôl sú objednané viac ako 2 obedy a viac ako 2 nápoje -->
+
+<!-- (c) pravdepodobnosť, že na stôl je objednaných viac nápojov ako obedov -->
+
+<!-- (d) priemerný počet objednaných obedov -->
+
+<!-- (e) priemerný počet objednaných nápojov -->
+
+<!-- (f) koreláciu medzi počtom obedov a počtom nápojov objednaných na stôl -->
+
+<!-- ::: -->
+
+<!-- ::: {.exercise name="DÚ 6.2"} -->
+
+<!-- Majme náhodné premenné $X,Y$ s nasledovnou združenou pravdepodobnostnou funkciou -->
+
+<!-- \begin{equation*} -->
+
+<!-- p_{XY}(x,y)= -->
+
+<!-- \begin{cases} -->
+
+<!-- c|x+y|, & \text{ak}\ x \in \{-1,0,1 \},\\ -->
+
+<!-- &  \ y \in \{-2,0,2 \},\\ -->
+
+<!-- 0, & \text{inak}. -->
+
+<!-- \end{cases} -->
+
+<!-- \end{equation*} -->
+
+<!-- Vypočítajte -->
+
+<!-- (a) hodnotu konštanty $c,$ -->
+
+<!-- (b) $P(X = 1),$ -->
+
+<!-- (c) $P(Y = 2X),$ -->
+
+<!-- (d) $P(Y < 1)$ -->
+
+<!-- (e) $\text{E}[X],\text{E}[Y]$ -->
+
+<!-- (f) $\text{Cov}[X,Y], \text{Corr}[X,Y].$ -->
+
+<!-- ::: -->
+
+<!-- ::: {.exercise name="DÚ 6.3"} -->
+
+<!-- Majme náhodné premenné $X,Y$ s nasledovnou združenou funkciou hustoty. -->
+
+<!-- \begin{equation*} -->
+
+<!-- f_{XY}(x,y) = -->
+
+<!-- \begin{cases} -->
+
+<!-- \frac{1}{6}(xy+\frac{1}{2}), & \text{ak}\ 0 \leq x \leq 2, \ 0 \leq y \leq 2,\\ -->
+
+<!-- 0, & \text{inak}, -->
+
+<!-- \end{cases} -->
+
+<!-- \end{equation*} -->
+
+<!-- Vypočítajte -->
+
+<!-- (a) hustotu náhodnej premennej $X$, -->
+
+<!-- (b) $\text{E}[X],$ -->
+
+<!-- (c) $\text{Var}[X],$ -->
+
+<!-- (d) $\text{Cov}[X, Y],$ -->
+
+<!-- (e) $\text{Corr}[X, Y],$ -->
+
+<!-- (f) $P(X+Y \leq 1).$ -->
+
+<!-- ::: -->
+
+<!-- ::: {.exercise name="DÚ 6.4"} -->
+
+<!-- Majme náhodné premenné $X,Y$ s nasledovnou združenou funkciou hustoty. -->
+
+<!-- \begin{equation*} -->
+
+<!-- f_{XY}(x,y) = -->
+
+<!-- \begin{cases} -->
+
+<!-- c x y, & \text{ak}\ x^2 \leq y \leq 1 \  \text{a} \ x \geq 0 \\ -->
+
+<!-- 0, & \text{inak}, -->
+
+<!-- \end{cases} -->
+
+<!-- \end{equation*} -->
+
+<!-- Vypočítajte -->
+
+<!-- (a) hodnotu konštanty $c,$ -->
+
+<!-- (b) $P(X \geq Y).$ -->
+
+<!-- (c) Určite hustotu náhodnej premennej $X$. -->
+
+<!-- (d) Určite hustotu náhodnej premennej $Y$. -->
+
+<!-- ::: -->
+
+<!-- ::: {.exercise name="DÚ 6.5"} -->
+
+<!-- Dokážte, že pre náhodné premenné $X,Y,Z$ a $a,b \in \mathbb{R}$ platí -->
+
+<!-- $$\text{Cov}[aX+bY,Z] = a\text{Cov}[X,Z] + b\text{Cov}[Y,Z].$$ -->
+
+<!-- ::: -->
+
+<!-- ::: {.exercise name="DÚ 9.4 (nepovinná a nehodnotená)"} -->
+
+<!-- Vyfarbite nasledujúci obrázok veľkonočnými farbami. -->
+
+<!-- ```{r, fig.cap='Zdroj: vectorstock.com/1816075.', out.width='60%', fig.asp=.75, fig.align='center', echo=FALSE} -->
+
+<!-- knitr::include_graphics("fig_easter.png") -->
+
+<!-- ``` -->
+
+<!-- ::: -->
+
+<!-- ## Domáca úloha 8 {-} -->
+
+<!-- ::: {.exercise name="DÚ 8.1"} -->
+
+<!-- Majme $X,Y$ pre ktoré je $p_{XY}$ vyjadrená nasledovnou tabuľkou. -->
+
+<!-- ```{r,echo=FALSE} -->
+
+<!-- library(kableExtra) -->
+
+<!-- df <- data.frame(" " = c("X=0","X=1","X=2", "X=3"),  -->
+
+<!--                  "1" = c("0.1","0.05","0.05","0.05"),  -->
+
+<!--                  "2" = c("0.2","0.1","0.05","0.05"),  -->
+
+<!--                  "3" = c("0.1","0.15","0.05","0.05")) -->
+
+<!-- colnames(df) <- as.character(c(" ","Y=0","Y=1","Y=2")) -->
+
+<!-- kbl(df, booktabs = T) %>% -->
+
+<!--   kable_classic() %>% -->
+
+<!--   add_header_above(c("Pravdedpodobnostná funkcia" = 4)) -->
+
+<!-- ``` -->
+
+<!-- Vypočítajte  -->
+
+<!-- * $P(X=2),$ -->
+
+<!-- * $P(X\leq 2 \cap Y \leq 2),$ -->
+
+<!-- * $P(X > Y),$ -->
+
+<!-- * $P(X = Y),$ -->
+
+<!-- * $\text{Corr}[X,Y].$ -->
+
+<!-- :::  -->
+
+<!-- ::: {.exercise name="DÚ 8.2"} -->
+
+<!-- Majme náhodné premenné $X,Y$ s nasledovnou združenou kumulatívnou distribučnou funkciou -->
+
+<!-- \begin{equation*} -->
+
+<!-- F_{XY}(s,t) = P(X\leq s, Y \leq t)= -->
+
+<!-- \begin{cases} -->
+
+<!-- \frac{1}{156}st(s^2+t), & \text{ak}\ s \in [0,3], \ t \in [0,4],\\ -->
+
+<!-- 1, & \text{ak}\ s>3, \ t>4, \\ -->
+
+<!-- 0, & \text{ak}\ s<0, \\ -->
+
+<!-- 0, & \text{ak}\ t<0, \\ -->
+
+<!-- \end{cases} -->
+
+<!-- \end{equation*} -->
+
+<!-- Overte, že $F_{XY}$ je korektná združená kumulatívna distribučná funkcia. -->
+
+<!-- Vypočítajte  -->
+
+<!-- * $f_X(x)$ a $f_Y(y),$ -->
+
+<!-- * $\text{E}[X],$ -->
+
+<!-- * $\text{sd}[Y],$ -->
+
+<!-- * $\text{Cov}[X,Y],$ -->
+
+<!-- * $P(Y \leq X).$ -->
+
+<!-- ::: -->
+
+<!-- ::: {.exercise name="DÚ 8.3"} -->
+
+<!-- Majme náhodné premenné $X,Y$ s nasledovnou združenou pravdepodobnostnou funkciou -->
+
+<!-- \begin{equation*} -->
+
+<!-- p_{XY}(x,y)= -->
+
+<!-- \begin{cases} -->
+
+<!-- c|x+y|, & \text{ak}\ x \in \{-2,-1,0,1,2 \},\\ -->
+
+<!-- &  \ y \in \{-2,-1,0,1,2 \},\\ -->
+
+<!-- 0, & \text{inak}. -->
+
+<!-- \end{cases} -->
+
+<!-- \end{equation*} -->
+
+<!-- Vypočítajte  -->
+
+<!-- * hodnotu konštanty $c,$ -->
+
+<!-- * $P(X = 1),$ -->
+
+<!-- * $P(X = 3Y),$ -->
+
+<!-- * $\text{E}[X],$ -->
+
+<!-- * $\text{Corr}[X,Y].$ -->
+
+<!-- ::: -->
+
+<!-- ::: {.exercise name="DÚ 8.4"} -->
+
+<!-- Zostrojte združenú pravdepodobnostnú funkciu pre $X,Y$ tak, aby súčasne platilo: -->
+
+<!-- * $\mathcal{S}_X = \{1,2,3\}$ -->
+
+<!-- * $\mathcal{S}_Y = \{0,1,2\}$ -->
+
+<!-- * $\text{E}[XY] = \text{E}[X]\text{E}[Y]$ -->
+
+<!-- * Existuje nejaké $x \in \mathcal{S}_X$ a $y \in \mathcal{S}_Y,$ že platí $p_X(x)p_Y(y) > p_{XY}(x,y)$. -->
+
+<!-- ::: -->
+
+<!-- ::: {.exercise name="DÚ 8.5"} -->
+
+<!-- Zostrojte združenú pravdepodobnostnú funkciu pre $X,Y$ tak, aby súčasne platilo: -->
+
+<!-- * $\text{E}[X] = 3,$ -->
+
+<!-- * $\text{Corr}[X,Y] = 0,$ -->
+
+<!-- * $P(X\geq 2Y) = 0.1.$ -->
+
+<!-- Ak sa to nedá dokážte prečo. -->
+
+<!-- ::: -->
+
+<!-- ::: {.exercise name="DÚ 8.6"} -->
+
+<!-- Majme náhodné premenné $X,Y$ s nasledovnou združenou funkciou hustoty. -->
+
+<!-- \begin{equation*} -->
+
+<!-- f_{XY}(x,y) = -->
+
+<!-- \begin{cases} -->
+
+<!-- cx, & \text{ak}\ x,y > 0, \ x+y < 2,\\ -->
+
+<!-- 0, & \text{inak}, -->
+
+<!-- \end{cases} -->
+
+<!-- \end{equation*} -->
+
+<!-- Vypočítajte -->
+
+<!-- * konštantu $c$ tak, aby bola $f_{XY}$ korektná združená funkcia hustoty. -->
+
+<!-- * $\text{E}[X],$ -->
+
+<!-- * $P(Y \leq 3X^2).$ -->
+
+<!-- ::: -->
+
+<!-- ::: {.exercise name="DÚ 8.7 (nepovinná a nehodnotená)"} -->
+
+<!-- Vyfarbite nasledujúci obrázok veľkonočnými farbami. -->
+
+<!-- ```{r, fig.cap='Zdroj: vectorstock.com/1816075.', out.width='60%', fig.asp=.75, fig.align='center', echo=FALSE} -->
+
+<!-- knitr::include_graphics("fig_easter.png") -->
+
+<!-- ``` -->
+
+<!-- ::: -->
