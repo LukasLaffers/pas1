@@ -820,7 +820,7 @@ a,b,c,d &amp;\geq&amp; 0
 <p><span class="math inline">\(P(A) = \frac{|A|}{|\Omega|} = \frac{|A|}{12}\)</span></p>
 <p>kde <span class="math inline">\(|A|\)</span> označuje počet prvkov množiny <span class="math inline">\(A,\)</span> teda <span class="math inline">\(|\Omega| = 12.\)</span></p>
 <ol start="2" type="a">
-<li><span class="math inline">\(B = \{(H,2),(H,4),(H,6) \}\)</span> a preto $P(B) = = . $</li>
+<li><span class="math inline">\(B = \{(H,2),(H,4),(H,6) \}\)</span> a preto <span class="math inline">\(P(B) = \frac{3}{12} = \frac{1}{4}.\)</span></li>
 </ol>
 <p><a href="#exr-3koc" class="quarto-xref">Cvičenie&nbsp;<span>2.11</span></a></p>
 <ol type="a">
@@ -828,13 +828,13 @@ a,b,c,d &amp;\geq&amp; 0
 </ol>
 <p><span class="math inline">\(\Omega = \{(1,1,1),(1,1,2),...,(6,6,6)\}\)</span></p>
 <p><span class="math inline">\(\mathcal{F} = 2^{\Omega}.\)</span></p>
-<p><span class="math inline">\(P(A) = \frac{|A|}{|\Omega|} = \frac{|A|}{3^6}= \frac{|A|}{729}\)</span></p>
-<p>kde <span class="math inline">\(|A|\)</span> označuje počet prvkov množiny <span class="math inline">\(A,\)</span> teda <span class="math inline">\(|\Omega| = 3^6 = 729.\)</span></p>
+<p><span class="math inline">\(P(A) = \frac{|A|}{|\Omega|} = \frac{|A|}{6^3}= \frac{|A|}{216}\)</span></p>
+<p>kde <span class="math inline">\(|A|\)</span> označuje počet prvkov množiny <span class="math inline">\(A,\)</span> teda <span class="math inline">\(|\Omega| = 6^3 = 216.\)</span></p>
 <ol start="2" type="a">
 <li><span class="math inline">\(B_3 = \{(1,1,1)\}\)</span>,</li>
 </ol>
 <p><span class="math inline">\(B_4 = \{(1,1,2),(1,2,1),(2,1,1)\}\)</span>,</p>
-<p><span class="math inline">\(B_5 = \{(1,1,3),(1,3,1),(3,1,1),(1,2,2),(2,1,2),(2,2,1)\}\)</span>, nech <span class="math inline">\(B = B_3 \cup B_4 \cup B_5\)</span>, potom máme <span class="math display">\[P(B^C) = 1 - P(B) = 1 - \left( \frac{1}{729} + \frac{3}{729} + \frac{6}{729}\right) = 1 - \frac{10}{729} = \frac{719}{729} \approx 98.6\% \]</span></p>
+<p><span class="math inline">\(B_5 = \{(1,1,3),(1,3,1),(3,1,1),(1,2,2),(2,1,2),(2,2,1)\}\)</span>, nech <span class="math inline">\(B = B_3 \cup B_4 \cup B_5\)</span>, potom máme <span class="math display">\[P(B^C) = 1 - P(B) = 1 - \left( \frac{1}{216} + \frac{3}{216} + \frac{6}{216}\right) = 1 - \frac{10}{216} = \frac{206}{216} \approx 95.4\% \]</span></p>
 <p><a href="#exr-20ka" class="quarto-xref">Cvičenie&nbsp;<span>2.12</span></a></p>
 <p>Pravdepodobnostný priestor vieme reprezentovať napríklad takto: <span class="math inline">\((\Omega, \mathcal{F},P),\)</span> kde</p>
 <p><span class="math inline">\(\Omega = \{(M,1),(M,2),...,(Č,10)\}\)</span></p>
@@ -857,15 +857,17 @@ a,b,c,d &amp;\geq&amp; 0
 </ol>
 <p><a href="#exr-20ci" class="quarto-xref">Cvičenie&nbsp;<span>2.14</span></a></p>
 <ol type="a">
-<li><span class="math inline">\(A\)</span> - nech označuje, že všetky tri čísla budú nepárne <span class="math inline">\(B\)</span> - nech označuje, že dve čísla budú nepárne a jedno párne</li>
+<li><span class="math inline">\(A\)</span> - nech označuje, že všetky tri čísla budú párne <span class="math inline">\(B\)</span> - nech označuje, že dve čísla budú nepárne a jedno párne</li>
 </ol>
 <p><span class="math inline">\(P(A) = \frac{{10 \choose{0}}{10 \choose{3}}}{{20 \choose{3}}} = \frac{2}{19}\)</span></p>
-<p><span class="math inline">\(P(B) = \frac{{10 \choose{1}}{10 \choose{2}}}{{20 \choose{3}}} = \frac{5}{19}\)</span></p>
-<p><span class="math inline">\(P(A \cup B)  = P(A) + P(B) = \frac{7}{19}\)</span>, nakoľko ide o disjunktné udalosti (nemôžu nastať naraz).</p>
+<p><span class="math inline">\(P(B) = \frac{{10 \choose{1}}{10 \choose{2}}}{{20 \choose{3}}} = \frac{15}{38}\)</span></p>
+<p><span class="math inline">\(P(A \cup B)  = P(A) + P(B) = \frac{4+15}{19} =\frac{1}{2}\)</span>, nakoľko ide o disjunktné udalosti (nemôžu nastať naraz).</p>
 <ol start="2" type="a">
 <li></li>
 </ol>
-<p><span class="math inline">\(P(A^C) =  1 - P(A) = \frac{17}{19}\)</span></p>
+<p><span class="math inline">\(C\)</span> - nech označuje, že všetky tri čísla budú nepárne</p>
+<p>Analogicky k <span class="math inline">\(P(A)\)</span>, dostávame, že <span class="math inline">\(P(C) = \frac{2}{19}.\)</span></p>
+<p><span class="math inline">\(P(C^C) =  1 - P(C) = \frac{17}{19}\)</span></p>
 <p><a href="#exr-50su" class="quarto-xref">Cvičenie&nbsp;<span>2.15</span></a></p>
 <ol type="a">
 <li><p><span class="math inline">\(A\)</span> - nech označuje, že všetkých 5 súčiastok bude OK. <span class="math inline">\(P(A^C) = 1 - P(A) = 1-\frac{{2 \choose{0}}{48 \choose{5}}}{{50 \choose{5}}}\)</span></p></li>
