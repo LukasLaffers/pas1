@@ -342,16 +342,16 @@ window.Quarto = {
 </div>
 <p>Pre strednú hodnotu platí, že je <em>lineárna</em>. Uvažujme dve náhodné premenné <span class="math inline">\(X\)</span> a <span class="math inline">\(Y\)</span> a tretiu náhodnú premennú <span class="math inline">\(Z\)</span>, pre ktorú platí <span class="math inline">\(Z = aX +bY.\)</span> Náhodná premenná <span class="math inline">\(Z\)</span> nadobúda hodnoty v <span class="math inline">\(\mathcal{S}_Z = \{ax+by: x \in \mathcal{S}_X, y \in \mathcal{S}_Y \}.\)</span></p>
 <span class="math display">\[\begin{eqnarray*}
-E[Z] &amp;=&amp; \sum_{z \in \mathcal{S}_Z} z \cdot p_Z(z) = \sum_{x \in \mathcal{S}_X,y \in \mathcal{S}_Y} (ax+by) \cdot P(aX=ax \cap bY = by)\\
+\text{E}[Z] &amp;=&amp; \sum_{z \in \mathcal{S}_Z} z \cdot p_Z(z) = \sum_{x \in \mathcal{S}_X,y \in \mathcal{S}_Y} (ax+by) \cdot P(aX=ax \cap bY = by)\\
 &amp;=&amp; \sum_{x \in \mathcal{S}_X,y \in \mathcal{S}_Y} ax \cdot P(X=x \cap Y = y) + \sum_{x \in \mathcal{S}_X,y \in \mathcal{S}_Y}by \cdot P(X=x \cap Y = y)\\
 &amp;=&amp; \sum_{x \in \mathcal{S}_X} ax \cdot P(X=x) + \sum_{y \in \mathcal{S}_Y} by \cdot P(Y=y) \\
 &amp;=&amp; a\sum_{x \in \mathcal{S}_X} x \cdot p_X(x) + b\sum_{y \in \mathcal{S}_Y} y \cdot p_Y(y) \\
-&amp;=&amp; a E(X) + b E(Y).
+&amp;=&amp; a \text{E}[X] + b \text{E}[Y].
 \end{eqnarray*}\]</span>
 <p>Využili sme, že platí <span class="math display">\[\sum_{x \in \mathcal{S}_X,y \in \mathcal{S}_Y} P(X=x \cap Y = y) = \sum_{x \in \mathcal{S}_X}  P(X=x) = \sum_{y \in \mathcal{S}_Y} P(Y=y),\]</span> lebo množiny <span class="math inline">\(\{X=x\}\)</span> pre <span class="math inline">\(x \in \mathcal{S}_X\)</span> a <span class="math inline">\(\{Y=y\}\)</span> pre <span class="math inline">\(y \in \mathcal{S}_Y\)</span> tvoria rozklad množiny <span class="math inline">\(\Omega.\)</span></p>
 <p><span class="math display">\[\Omega = \cup_{x \in \mathcal{S}_X} \{X=x \} = \cup_{y \in \mathcal{S}_Y} \{Y=y \}.\]</span> Pripomeňme, že <span class="math inline">\(\{X=x \}\)</span> je len skrátený zápis pre množinu <span class="math inline">\(\{\omega \in \Omega: X(\omega) = x \}.\)</span></p>
 <p>Z tohoto priamo vyplýva aj</p>
-<p><span class="math display">\[E[aX+b] = a\text{E}[X]+b,\]</span></p>
+<p><span class="math display">\[\text{E}[aX+b] = a\text{E}[X]+b,\]</span></p>
 <p>nakoľko môžeme uvažovať náhodnú premennú <span class="math inline">\(Y=1\)</span> ako konštantnú jednotku.</p>
 <div class="cell" data-layout-align="center">
 <div class="cell-output-display">
@@ -367,7 +367,7 @@ E[Z] &amp;=&amp; \sum_{z \in \mathcal{S}_Z} z \cdot p_Z(z) = \sum_{x \in \mathca
 <section id="variancia-rozptyl" class="level3" data-number="5.2.2">
 <h3 data-number="5.2.2" class="anchored" data-anchor-id="variancia-rozptyl"><span class="header-section-number">5.2.2</span> Variancia (rozptyl)</h3>
 <p><strong>Variancia</strong> diskrétnej náhodnej premennej je zadefinovaná ako</p>
-<p><span class="math display">\[\text{Var}[X] = E\left[(X-\text{E}[X])^2\right].\]</span> Takže variancia nie je nič iné ako stredná hodnota kvadratických odchýlok od strednej hodnoty, teda <span class="math inline">\(\text{E}[Y]\)</span>, kde <span class="math inline">\(Y = (X-\text{E}[X])^2\)</span>.</p>
+<p><span class="math display">\[\text{Var}[X] = \text{E}\left[(X-\text{E}[X])^2\right].\]</span> Takže variancia nie je nič iné ako stredná hodnota kvadratických odchýlok od strednej hodnoty, teda <span class="math inline">\(\text{E}[Y]\)</span>, kde <span class="math inline">\(Y = (X-\text{E}[X])^2\)</span>.</p>
 <p>Z definície variancie máme priamo:</p>
 <p><span class="math display">\[\text{Var}[X] =  \sum_{x \in \mathcal{S}_X} (x - \text{E}[X])^2 \cdot p_X(x).\]</span> Naviac platí</p>
 <span class="math display">\[\begin{eqnarray*}
@@ -950,7 +950,7 @@ Niektoré riešenia
 <div class="callout-body-container callout-body">
 <p><a href="snp.html#exr-nemoze" class="quarto-xref">Cvičenie&nbsp;<span>6.11</span></a></p>
 <p>Nakoľko musí platiť <span class="math inline">\(\sum_{k \in \mathcal{S}_X} p_X(k) = 1\)</span> a zároveň <span class="math inline">\(p_X(k) \geq 0,\)</span> daná konštanta <span class="math inline">\(c\)</span> neexistuje, lebo <span class="math inline">\(\sum_{k \in \mathcal{S}_X} \frac{1}{k} \rightarrow \infty.\)</span></p>
-<p><a href="#exr-var1" class="quarto-xref">Cvičenie&nbsp;<span>5.2</span></a></p>
+<p><a href="cov.html#exr-var1" class="quarto-xref">Cvičenie&nbsp;<span>7.6</span></a></p>
 <p><span class="math inline">\(X \sim \text{Unif}(\{1,2,...,m\})\)</span></p>
 <p>Pre varianciu máme vzťah:</p>
 <p><span class="math display">\[\text{Var}[X] = \text{E}[X^2] - (\text{E}[X])^2.\]</span></p>

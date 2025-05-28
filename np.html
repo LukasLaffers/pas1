@@ -251,7 +251,7 @@ window.Quarto = {
 <li>Aká bude koncom roka cena ropy?</li>
 <li>Aký padne súčet čísiel na dvoch kockách?</li>
 </ul>
-<p>Aj na tieto otázky je férová a úprimná odpoveď: <em>“Neviem.”</em> Tieto otázky totiž so sebou nesú nejakú neistotu. Odpoveď <em>“Neviem.”</em> je pravdivá ale neužitočná. Chceli by sme nejakým spôsobom kvantifikovať náhodnosť, teda reprezentovať to, čo vieme o týchto otázkach povedať. Lebo nie je “náhodne” ako “náhodne”, sú rôzne typy náhodnosti. Keď hodím 10 krát mincou, tak zhruba v polovici prípadov padne hlava, ale je to neisté. Keď hodím mincou 1000 krát, proporcia padnutých hláv bude tiež okolo jednej polovice. Každopádne tej neistoty v tom bude ovela menej. Kým pri desiatich hodoch padne 7 hláv hocikedy, tak pri tisíc hodoch je 700 hláv extrémne prekvapivá udalosť.</p>
+<p>Aj na tieto otázky je férová a úprimná odpoveď: <em>“Neviem.”</em> Tieto otázky totiž so sebou nesú nejakú neistotu. Odpoveď <em>“Neviem.”</em> je pravdivá ale neužitočná. Chceli by sme nejakým spôsobom kvantifikovať náhodnosť, teda reprezentovať to, čo vieme o týchto otázkach povedať. Lebo nie je “náhodne” ako “náhodne”, sú rôzne typy náhodnosti. Keď hodím 10 krát mincou, tak zhruba v polovici prípadov padne hlava, ale je to neisté. Keď hodím mincou 1000 krát, proporcia padnutých hláv bude tiež okolo jednej polovice. Každopádne tej neistoty v tom bude oveľa menej. Kým pri desiatich hodoch padne 7 hláv hocikedy, tak pri tisíc hodoch je 700 hláv extrémne prekvapivá udalosť.</p>
 <p>Na to aby sme s ňou vedeli pracovať, musíme zaviesť nový pojem - náhodná premenná. Náhodná premenná premietne tú našu veľmi abstraktnú množinu udalostí <span class="math inline">\(\Omega\)</span> na číselnú os. Toto je ohromne užitočné. S číslami totiž vieme veľmi šikovne narábať. Vieme sa pýtať, či je niečo väčšie alebo menšie, čísla vieme sčítavať, násobiť, deliť, transformovať (aplikovať na ne funkcie). Celý matematický aparát, všetko, čo vieme o funkciách, limitách, deriváciách, zrazu všetko toto budeme vedieť používať na to, aby sme spresňovali vyjadrenie náhodnosti. Aby sme vedeli kvalitnejšie odpovedať na otázky, na ktoré je odpoveď <em>“Neviem.”</em> síce pravdivá ale neužitočná.</p>
 <section id="čo-je-to-náhodná-premenná." class="level2" data-number="4.1">
 <h2 data-number="4.1" class="anchored" data-anchor-id="čo-je-to-náhodná-premenná."><span class="header-section-number">4.1</span> Čo je to náhodná premenná.</h2>
@@ -290,7 +290,7 @@ window.Quarto = {
 </ul>
 <p>Takže aj v tomto prípade je menšia <span class="math inline">\(\mathcal{F^*}\)</span> stále dostatočne bohatá na to, aby na nej bola táto funkcia <span class="math inline">\(Y\)</span> náhodnou premennou. Je však funkcia <span class="math inline">\(X\)</span> z predošlého príkladu náhodnou premennou aj na <span class="math inline">\((\Omega,\mathcal{F^*})\)</span> ?</p>
 <p>Nie je. Množina <span class="math inline">\(\{X \leq 2.3\} = \{1,2\} \notin \mathcal{F^*}\)</span> a preto nespĺňa definíciu náhodnej premennej. V definícii sme zvolili <span class="math inline">\(x=2.3.\)</span></p>
-<p>Poučenie: kým množina udalostí <span class="math inline">\(\mathcal{F}\)</span> bola dosť veľká, pri <span class="math inline">\(\mathcal{F^*}\)</span> už nevieme priraďovať pravdepodobnosti hocijakým otázkam. Napriklad na to, aby sme vedeli priradiť pravdepodobnosť udalosti “Padne na kocke číslo menšie ako 2.3?” potrebujem, aby množina <span class="math inline">\(\{1,2\}\)</span> bola tiež udalosťou. Ale to pri <span class="math inline">\(\mathcal{F^*}\)</span> nie je. Množina udalostí <span class="math inline">\(\mathcal{F^*}\)</span> totiž vie jedine rozlišovať, či pádne párne <span class="math inline">\(\{2,4,6\} \in \mathcal{F^*}\)</span> alebo nepárne číslo <span class="math inline">\(\{1,3,5 \} \in \mathcal{F^*}\)</span>. Náhodnej premennej <span class="math inline">\(Y\)</span> to ale nevadí, lebo ona “zlepí” hodnoty <span class="math inline">\(1\)</span>, <span class="math inline">\(3\)</span> aj <span class="math inline">\(5\)</span> do hodnoty <span class="math inline">\(0\)</span>, lebo všetky tieto hodnoty sú pre ňu rovnako nepárne. <!-- MP: do hodnoty 0 nezlepi len 1, 3, 5?? --></p>
+<p>Poučenie: kým množina udalostí <span class="math inline">\(\mathcal{F}\)</span> bola dosť veľká, pri <span class="math inline">\(\mathcal{F^*}\)</span> už nevieme priraďovať pravdepodobnosti hocijakým otázkam. Napríklad na to, aby sme vedeli priradiť pravdepodobnosť udalosti “Padne na kocke číslo menšie ako 2.3?” potrebujem, aby množina <span class="math inline">\(\{1,2\}\)</span> bola tiež udalosťou. Ale to pri <span class="math inline">\(\mathcal{F^*}\)</span> nie je. Množina udalostí <span class="math inline">\(\mathcal{F^*}\)</span> totiž vie jedine rozlišovať, či pádne párne <span class="math inline">\(\{2,4,6\} \in \mathcal{F^*}\)</span> alebo nepárne číslo <span class="math inline">\(\{1,3,5 \} \in \mathcal{F^*}\)</span>. Náhodnej premennej <span class="math inline">\(Y\)</span> to ale nevadí, lebo ona “zlepí” hodnoty <span class="math inline">\(1\)</span>, <span class="math inline">\(3\)</span> aj <span class="math inline">\(5\)</span> do hodnoty <span class="math inline">\(0\)</span>, lebo všetky tieto hodnoty sú pre ňu rovnako nepárne. <!-- MP: do hodnoty 0 nezlepi len 1, 3, 5?? --></p>
 </div>
 <div id="exm-dvekocky" class="theorem example">
 <p><span class="theorem-title"><strong>Príklad 4.3</strong></span> Hádžeme dvoma férovými kockami. Označme <span class="math inline">\(\Omega = \{(1,1),(1,2),(1,3),(1,4),(1,5),(1,6),(2,1),(2,2),(2,3),\cdots, (6,5),(6,6)\},\)</span> kde napr. <span class="math inline">\((3,2)\)</span> značí, že na prvej kocke padlo číslo <span class="math inline">\(3\)</span> a na druhej kocke padlo číslo <span class="math inline">\(2\)</span>. Nech <span class="math inline">\(\mathcal{F} = 2^{\Omega}\)</span> a nech <span class="math inline">\(P(A) = \frac{|A|}{36}.\)</span> Označme písmenom <span class="math inline">\(X\)</span> náhodnú premennú, ktorá bude označovať súčet dvoch čísiel, ktoré padnú na kockách. Náhodná premenná <span class="math inline">\(X\)</span> priradí každému elementu <span class="math inline">\((k_1,k_2)\)</span> z <span class="math inline">\(\Omega\)</span> reálne číslo nasledovne: <span class="math inline">\(X((k_1,k_2)) = k_1 + k_2.\)</span></p>
@@ -330,9 +330,9 @@ Rovnosti
 <p>Zamyslite sa, či viete dané rovnosti formálne odvodiť s využitím vlastností pravdepodobnosti.</p>
 </div>
 </div>
-<p>Kumulatívna distribučná funkcia poskytuje kompletnú informáciu o pravdepodobnostnom správaní náhodnej premenej. Inými slovami, úplne popisuje typ náhodnosti.</p>
+<p>Kumulatívna distribučná funkcia poskytuje kompletnú informáciu o pravdepodobnostnom správaní náhodnej premennej. Inými slovami, úplne popisuje typ náhodnosti.</p>
 <div id="exm-" class="Example theorem example">
-<p><span class="theorem-title"><strong>Príklad 4.4</strong></span> Hádžeme férovou kockou a máme náhodnu premennú číslo, ktoré padlo na kocke <span class="math inline">\(X\)</span> a identifikátorovú premennú <span class="math inline">\(Y\)</span> čí padlo párne číslo ako v <a href="#exm-jednakocka" class="quarto-xref">Príklad&nbsp;<span>4.1</span></a> a <a href="#exm-jednakocka2" class="quarto-xref">Príklad&nbsp;<span>4.2</span></a>.</p>
+<p><span class="theorem-title"><strong>Príklad 4.4</strong></span> Hádžeme férovou kockou a máme náhodnú premennú číslo, ktoré padlo na kocke <span class="math inline">\(X\)</span> a identifikátorovú premennú <span class="math inline">\(Y\)</span> čí padlo párne číslo ako v <a href="#exm-jednakocka" class="quarto-xref">Príklad&nbsp;<span>4.1</span></a> a <a href="#exm-jednakocka2" class="quarto-xref">Príklad&nbsp;<span>4.2</span></a>.</p>
 </div>
 <div class="cell">
 <div class="cell-output-display">
@@ -391,7 +391,7 @@ Rovnosti
 </div>
 <!-- main = "Kumulatívna distribučná funkcia: hod dvomi kockou" :) :) -->
 <div id="exm-" class="Example theorem example">
-<p><span class="theorem-title"><strong>Príklad 4.8</strong></span> Vyška mužov (modrou) a žien (červenou), v populácii kde je 60% žien. Celková kumulatívna distribučná funkcia pre mužov a ženy spolu je čiernou.</p>
+<p><span class="theorem-title"><strong>Príklad 4.8</strong></span> Výška mužov (modrou) a žien (červenou), v populácii kde je 60% žien. Celková kumulatívna distribučná funkcia pre mužov a ženy spolu je čiernou.</p>
 </div>
 <div class="cell">
 <div class="cell-output-display">
@@ -417,7 +417,7 @@ Rovnosti
 </section>
 <section id="zhrnutie" class="level2" data-number="4.3">
 <h2 data-number="4.3" class="anchored" data-anchor-id="zhrnutie"><span class="header-section-number">4.3</span> Zhrnutie</h2>
-<p><strong>Náhodná premenná</strong> je nástroj, ktorý nám umožnuje dostať abstraktný pravdepodobnostný priestor na reálnu os a počítať s náhodnosťou. Jedným zo spôsobov ako ju úplne popísať je <strong>kumulatívna distribučná funkcia</strong>.</p>
+<p><strong>Náhodná premenná</strong> je nástroj, ktorý nám umožňuje dostať abstraktný pravdepodobnostný priestor na reálnu os a počítať s náhodnosťou. Jedným zo spôsobov ako ju úplne popísať je <strong>kumulatívna distribučná funkcia</strong>.</p>
 </section>
 <section id="čo-bude-nasledovať" class="level2" data-number="4.4">
 <h2 data-number="4.4" class="anchored" data-anchor-id="čo-bude-nasledovať"><span class="header-section-number">4.4</span> Čo bude nasledovať</h2>
