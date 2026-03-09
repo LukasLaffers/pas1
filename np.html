@@ -500,9 +500,9 @@ Rovnosti
 <li><span class="math inline">\(F(x) = \begin{array}{ll} 1 - 4^{-x}, &amp; \text{ak } x \geq 0, \\0, &amp; \text{ak } x &lt; 0. \end{array}\)</span></li>
 <li><span class="math inline">\(F(x) = \begin{cases} 0&amp;\text{pre $x&lt;a$},\\ \frac{x-a}{b-a}&amp;\text{pre $x\in[a,b)$},\\ 1&amp;\text{pre $x\ge b$},\\ \end{cases}\)</span></li>
 <li><span class="math inline">\(F(x) = \frac{e^x}{1+e^x},\)</span></li>
-<li><span class="math inline">\(F(k) = \sum_{i=1}^k \frac{1}{2^k},\)</span></li>
-<li><span class="math inline">\(F(k) = \sum_{i=1}^k \exp\left({ \frac{(-1)^{k+1}}{k}}\right),\)</span></li>
-<li><span class="math inline">\(F(k) = \frac{3}{\pi}\sum_{i=1}^k { \frac{1}{k^2}}.\)</span></li>
+<li><span class="math inline">\(F(k) = \sum_{i=1}^{\lfloor k \rfloor} \frac{1}{2^i},\)</span></li>
+<li><span class="math inline">\(F(k) = \sum_{i=1}^{\lfloor k \rfloor} \exp\left({ \frac{(-1)^{i+1}}{i}}\right),\)</span></li>
+<li><span class="math inline">\(F(k) = \frac{3}{\pi}\sum_{i=1}^{\lfloor k \rfloor} { \frac{1}{i^2}}.\)</span></li>
 </ul>
 </div>
 <div id="exr-nieje" class="theorem exercise">
