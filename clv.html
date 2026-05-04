@@ -360,18 +360,18 @@ P(|\bar{X}_n - 0.5| \leq 0.1) &amp;=&amp; P(\sqrt{12}(\bar{X}_n - 0.5)| \leq \sq
 </section>
 <section id="cvičenia" class="level2" data-number="9.3">
 <h2 data-number="9.3" class="anchored" data-anchor-id="cvičenia"><span class="header-section-number">9.3</span> Cvičenia</h2>
-<div id="exr-" class="Exercise theorem exercise">
+<div id="exr-1" class="Exercise theorem exercise">
 <p><span class="theorem-title"><strong>Cvičenie 9.1</strong></span> Majme postupnosť nezávislých a rovnako rozdelených náhodných premenných <span class="math inline">\(X_1,X_2,X_3,\cdots\)</span>, kde <span class="math inline">\(X_1 \sim \text{Exp}(1).\)</span></p>
 <p>Aké veľké musí byť <span class="math inline">\(n\)</span> aby platilo <span class="math inline">\(P(0.9 \leq \bar{X}_n \leq 1.1)\geq 0.9\)</span> ?</p>
 </div>
-<div id="exr-" class="Exercise theorem exercise">
+<div id="exr-2" class="Exercise theorem exercise">
 <p><span class="theorem-title"><strong>Cvičenie 9.2</strong></span> Výťah unesie 4tony nákladu. Majme 100 krabíc, každá s priemernou váhou 39kg a so smerodajnou odchýlkou 2kg. Aproximujte pravdepodobnosť, že výťah bude preťažený.</p>
 </div>
-<div id="exr-" class="Exercise theorem exercise">
+<div id="exr-3" class="Exercise theorem exercise">
 <p><span class="theorem-title"><strong>Cvičenie 9.3</strong></span> Majme postupnosť nezávislých a rovnako rozdelených náhodných premenných <span class="math inline">\(X_1,X_2,X_3,\cdots\)</span>, kde <span class="math inline">\(\text{E}[X_1] = 200, \text{Var}[X_1]=40, n=100.\)</span></p>
 <p>Aproximujte pomocou CLV hodnotu <span class="math inline">\(P(190 \leq \bar{X}_n \leq 210)\)</span>.</p>
 </div>
-<div id="exr-" class="Exercise theorem exercise">
+<div id="exr-4" class="Exercise theorem exercise">
 <p><span class="theorem-title"><strong>Cvičenie 9.4</strong></span> Na Deň otvorených dverí príde 100 hostí. Každý hosť si zoberie 0, 1 alebo 2 brožúry o Katedre matematiky s pravdepodobnosťou 1/4, 1/2 a 1/4. Ľudia si brožúry berú nezávisle. Koľko brožúr musíme dať vytlačiť, aby sme si boli na 97% istí, že nebudú chýbať?</p>
 <p>Porovnajte výsledky, ktoré dostanete:</p>
 <ul>
@@ -455,6 +455,102 @@ Niektoré riešenia
 </div>
 <div id="callout-1" class="callout-1-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
+<p><a href="#exr-1" class="quarto-xref">Cvičenie&nbsp;<span>9.1</span></a></p>
+<p>Pre exponenciálne rozdelenie <span class="math inline">\(X_1 \sim \text{Exp}(1)\)</span> platí: <span class="math display">\[
+\mu = \mathrm{E}[X_1] = 1, \qquad \sigma^2 = \mathrm{Var}[X_1] = 1.
+\]</span></p>
+<p>Podľa Centrálnej limitnej vety (CLV): <span class="math display">\[
+\sqrt{n}\frac{\bar{X}_n - \mu}{\sigma} = \sqrt{n}\,(\bar{X}_n - 1) \xrightarrow{d} N(0,1).
+\]</span></p>
+<p>Upravíme požadovanú pravdepodobnosť: <span class="math display">\[
+P(0.9 \leq \bar{X}_n \leq 1.1) = P\!\left(-0.1\sqrt{n} \leq Z \leq 0.1\sqrt{n}\right) \approx 2\Phi(0.1\sqrt{n}) - 1,
+\]</span> kde <span class="math inline">\(Z \sim N(0,1)\)</span> a <span class="math inline">\(\Phi\)</span> je distribučná funkcia štandardného normálneho rozdelenia.</p>
+<p>Požadujeme: <span class="math display">\[
+2\Phi(0.1\sqrt{n}) - 1 \geq 0.9 \implies \Phi(0.1\sqrt{n}) \geq 0.95.
+\]</span></p>
+<p>Z tabuľky normálneho rozdelenia: <span class="math inline">\(\Phi(1.645) \approx 0.95\)</span>, teda: <span class="math display">\[
+0.1\sqrt{n} \geq 1.645 \implies \sqrt{n} \geq 16.45 \implies n \geq 270.6.
+\]</span></p>
+<p>Musíme mať <span class="math inline">\(n \geq 271\)</span>.</p>
+<p><a href="#exr-2" class="quarto-xref">Cvičenie&nbsp;<span>9.2</span></a></p>
+<p>Označme <span class="math inline">\(X_i\)</span> váhu <span class="math inline">\(i\)</span>-tej krabice. Sú to i.i.d. náhodné premenné s: <span class="math display">\[
+\mu = \mathrm{E}[X_i] = 39\,\text{kg}, \qquad \sigma = 2\,\text{kg}.
+\]</span></p>
+<p>Celková váha nákladu je <span class="math inline">\(S_{100} = \sum_{i=1}^{100} X_i\)</span>. Výťah je preťažený, ak <span class="math inline">\(S_{100} &gt; 4000\,\text{kg}\)</span>.</p>
+<p>Podľa CLV: <span class="math display">\[
+S_{100} \approx N(n\mu,\, n\sigma^2) = N(3900,\, 400).
+\]</span></p>
+<p>Teda smerodajná odchýlka <span class="math inline">\(S_{100}\)</span> je <span class="math inline">\(\sqrt{400} = 20\,\text{kg}\)</span>.</p>
+<p><span class="math display">\[
+P(S_{100} &gt; 4000) = P\!\left(Z &gt; \frac{4000 - 3900}{20}\right) = P(Z &gt; 5) = 1 - \Phi(5).
+\]</span></p>
+<p>Z tabuľky: <span class="math inline">\(\Phi(5) \approx 0.9999997\)</span>, teda:</p>
+<p><span class="math display">\[
+P(S_{100} &gt; 4000) \approx 1 - \Phi(5) \approx 0.0000003.
+\]</span></p>
+<p>Pravdepodobnosť preťaženia výťahu je približne <span class="math inline">\(3 \times 10^{-7}\)</span>. Teda malá.</p>
+<p><a href="#exr-3" class="quarto-xref">Cvičenie&nbsp;<span>9.3</span></a></p>
+<p>Máme <span class="math inline">\(\mu = 200\)</span>, <span class="math inline">\(\sigma^2 = 40\)</span>, <span class="math inline">\(n = 100\)</span>. Smerodajná odchýlka priemeru: <span class="math display">\[
+\frac{\sigma}{\sqrt{n}} = \frac{\sqrt{40}}{\sqrt{100}} = \frac{\sqrt{40}}{10} = \frac{2\sqrt{10}}{10} = \frac{\sqrt{10}}{5} \approx 0.6325.
+\]</span></p>
+<p>Podľa CLV: <span class="math display">\[
+P(190 \leq \bar{X}_{100} \leq 210) = P\!\left(\frac{190 - 200}{\sqrt{40}/10} \leq Z \leq \frac{210 - 200}{\sqrt{40}/10}\right).
+\]</span></p>
+<p>Vypočítame medze: <span class="math display">\[
+\frac{190-200}{\sqrt{40}/10} = \frac{-10}{\sqrt{40}/10} = \frac{-100}{\sqrt{40}} = \frac{-100}{2\sqrt{10}} = \frac{-50}{\sqrt{10}} \approx -15.81.
+\]</span></p>
+<p>Symetricky, horná medza je <span class="math inline">\(\approx 15.81\)</span>.</p>
+<p><span class="math display">\[
+P(190 \leq \bar{X}_{100} \leq 210) \approx 2\Phi(15.81) - 1 \approx 1.
+\]</span></p>
+<p>Pravdepodobnosť je veľmi blízka <span class="math inline">\(1\)</span>.</p>
+<p><a href="#exr-4" class="quarto-xref">Cvičenie&nbsp;<span>9.4</span></a></p>
+<p>Označme <span class="math inline">\(X_i\)</span> počet brožúr, ktoré si vezme <span class="math inline">\(i\)</span>-ty hosť. Ide o i.i.d. náhodné premenné s rozdelením:</p>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th><span class="math inline">\(k\)</span></th>
+<th>0</th>
+<th>1</th>
+<th>2</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><span class="math inline">\(P(X_i = k)\)</span></td>
+<td>1/4</td>
+<td>1/2</td>
+<td>1/4</td>
+</tr>
+</tbody>
+</table>
+<p>Stredná hodnota a rozptyl: <span class="math display">\[
+\mu = \mathrm{E}[X_i] = 0 \cdot \tfrac{1}{4} + 1 \cdot \tfrac{1}{2} + 2 \cdot \tfrac{1}{4} = 1,
+\]</span> <span class="math display">\[
+\mathrm{E}[X_i^2] = 0 \cdot \tfrac{1}{4} + 1 \cdot \tfrac{1}{2} + 4 \cdot \tfrac{1}{4} = \tfrac{3}{2},
+\]</span> <span class="math display">\[
+\sigma^2 = \mathrm{Var}[X_i] = \tfrac{3}{2} - 1^2 = \tfrac{1}{2}.
+\]</span></p>
+<p>Celkový počet brožúr: <span class="math inline">\(S_{100} = \sum_{i=1}^{100} X_i\)</span>, pričom <span class="math inline">\(\mathrm{E}[S_{100}] = 100\)</span> a <span class="math inline">\(\mathrm{Var}[S_{100}] = 50\)</span>.</p>
+<p>Chceme nájsť <span class="math inline">\(m\)</span> také, aby <span class="math inline">\(P(S_{100} \leq m) \geq 0.97\)</span>, teda <span class="math inline">\(P(S_{100} &gt; m) \leq 0.03\)</span>.</p>
+<p>Markovova nerovnosť dáva: <span class="math display">\[
+P(S_{100} &gt; m) \leq \frac{\mathrm{E}[S_{100}]}{m} = \frac{100}{m}.
+\]</span></p>
+<p>Požadujeme <span class="math inline">\(\frac{100}{m} \leq 0.03\)</span>, teda: <span class="math display">\[
+m \geq \frac{100}{0.03} \approx 3333.
+\]</span></p>
+<p>Musíme vytlačiť aspoň <strong>3334 brožúr</strong> — čo je zjavne veľmi konzervatívny odhad.</p>
+<p>Podľa CLV: <span class="math inline">\(S_{100} \approx N(100, 50)\)</span>, teda <span class="math inline">\(\text{sd}(S_{100}) = \sqrt{50} \approx 7.07\)</span>.</p>
+<p><span class="math display">\[
+P(S_{100} &gt; m) \approx 1 - \Phi\!\left(\frac{m - 100}{\sqrt{50}}\right) \leq 0.03.
+\]</span></p>
+<p>Požadujeme: <span class="math display">\[
+\Phi\!\left(\frac{m-100}{\sqrt{50}}\right) \geq 0.97.
+\]</span></p>
+<p>Z tabuľky: <span class="math inline">\(\Phi(1.88) \approx 0.97\)</span>, teda: <span class="math display">\[
+\frac{m - 100}{\sqrt{50}} \geq 1.88 \implies m \geq 100 + 1.88\sqrt{50} \approx 100 + 13.29 = 113.29.
+\]</span></p>
+<p>Musíme vytlačiť aspoň <strong>114 brožúr</strong>.</p>
 <p><a href="#exr-boris" class="quarto-xref">Cvičenie&nbsp;<span>9.8</span></a></p>
 <p>Vyjadrím {<span class="math inline">\(P(X_A \geq 19)\)</span>} a {<span class="math inline">\(P(X_B \geq 92)\)</span>} a zakreslíme do obrázka. Rozdiel je zaznačený čiernou farbou.</p>
 <p>Zadaniu vyhovujú intervaly <span class="math inline">\([0.904, 0.916]\)</span> a <span class="math inline">\([0.982, 1].\)</span></p>
