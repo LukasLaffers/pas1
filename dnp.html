@@ -1054,8 +1054,10 @@ Q  &amp;=&amp; \sum_{j=2}^{n} j(j-1) {n \choose j} p^j (1-p)^{n-j} \\
         &amp; &amp; - \sum_{j=0}^{n} j {n \choose j} p^j (1-p)^{n-j} \\
         &amp;=&amp; \text{E}[X^2] - \text{E}[X] \\
         &amp;=&amp; \text{Var}[X] + (\text{E}[X])^2 - \text{E}[X] \\
-        &amp;=&amp; n p (1-p) + p^2 - p \\
-        &amp;=&amp; n p (1-p) + p^2 - p \\
+        &amp;=&amp; n p (1-p) + p^2 - n p \\
+        &amp;=&amp; n p - n p^2 + p^2 - n p \\
+        &amp;=&amp; (n - 1) p - (n - 1) p^2 \\
+        &amp;=&amp; (p - p^2) (n - 1) \\
         &amp;=&amp; p (1-p)(n-1).
 \end{eqnarray*}
 \]</span></p>
