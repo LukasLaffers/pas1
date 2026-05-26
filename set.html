@@ -215,9 +215,12 @@ window.Quarto = {
   <li><a href="#pravdepodobnostný-priestor" id="toc-pravdepodobnostný-priestor" class="nav-link" data-scroll-target="#pravdepodobnostný-priestor"><span class="header-section-number">2.2</span> Pravdepodobnostný priestor</a></li>
   <li><a href="#sec-vlastnostipravdepodobnosti" id="toc-sec-vlastnostipravdepodobnosti" class="nav-link" data-scroll-target="#sec-vlastnostipravdepodobnosti"><span class="header-section-number">2.3</span> Vlastnosti pravdepodobnosti</a></li>
   <li><a href="#kombinatorika" id="toc-kombinatorika" class="nav-link" data-scroll-target="#kombinatorika"><span class="header-section-number">2.4</span> Kombinatorika</a></li>
-  <li><a href="#zhrnutie" id="toc-zhrnutie" class="nav-link" data-scroll-target="#zhrnutie"><span class="header-section-number">2.5</span> Zhrnutie</a></li>
-  <li><a href="#cvičenia" id="toc-cvičenia" class="nav-link" data-scroll-target="#cvičenia"><span class="header-section-number">2.6</span> Cvičenia</a></li>
-  <li><a href="#ďalšie-cvičenia" id="toc-ďalšie-cvičenia" class="nav-link" data-scroll-target="#ďalšie-cvičenia"><span class="header-section-number">2.7</span> Ďalšie cvičenia</a></li>
+  <li><a href="#challenger" id="toc-challenger" class="nav-link" data-scroll-target="#challenger"><span class="header-section-number">2.5</span> Challenger</a></li>
+  <li><a href="#veľa-rôznych-príkladov" id="toc-veľa-rôznych-príkladov" class="nav-link" data-scroll-target="#veľa-rôznych-príkladov"><span class="header-section-number">2.6</span> Veľa rôznych príkladov</a></li>
+  <li><a href="#zhrnutie" id="toc-zhrnutie" class="nav-link" data-scroll-target="#zhrnutie"><span class="header-section-number">2.7</span> Zhrnutie</a></li>
+  <li><a href="#cvičenia" id="toc-cvičenia" class="nav-link" data-scroll-target="#cvičenia"><span class="header-section-number">2.8</span> Cvičenia</a></li>
+  <li><a href="#ďalšie-cvičenia" id="toc-ďalšie-cvičenia" class="nav-link" data-scroll-target="#ďalšie-cvičenia"><span class="header-section-number">2.9</span> Ďalšie cvičenia</a></li>
+  <li><a href="#súčet-multinomických-koeficientov" id="toc-súčet-multinomických-koeficientov" class="nav-link" data-scroll-target="#súčet-multinomických-koeficientov"><span class="header-section-number">2.10</span> Súčet multinomických koeficientov</a></li>
   </ul>
 </nav>
     </div>
@@ -243,7 +246,7 @@ window.Quarto = {
 </header>
 
 
-<p>Na začiatku si potrebujeme zopakovať množinovú symboliku. Táto predstavuje absolútny základ, bez ktorého sa nedá zmysluplne pokračovať. Plynulosť v používaní matematických symbolov uľahčuje dôvodenie a argumentáciu. Zápis je potom kompaktný a univerzálny, nezávislý od nuáns špecifického jazyka.</p>
+<p>Na začiatku si potrebujeme zopakovať množinovú symboliku. Táto predstavuje absolútny základ, bez ktorého sa nedá zmysluplne pokračovať. Plynulosť v používaní matematických symbolov uľahčuje odvodenie a argumentáciu. Zápis je potom kompaktný a univerzálny, nezávislý od nuáns špecifického jazyka.</p>
 <section id="množinové-značenie" class="level2" data-number="2.1">
 <h2 data-number="2.1" class="anchored" data-anchor-id="množinové-značenie"><span class="header-section-number">2.1</span> Množinové značenie</h2>
 <p><strong>Množinou</strong> budeme nazývať súhrn objektov/prvkov.</p>
@@ -322,7 +325,7 @@ Upozornenie
 <p><span class="math display">\[(\Omega, \mathcal{F}, P)\]</span> s týmito vlastnosťami:</p>
 <ul>
 <li><span class="math inline">\(\Omega\)</span> je <strong>priestor</strong>, teda nejaká neprázdna množina. Bude to množina všetkých možných prípadov, ako môže dopadnúť experiment.</li>
-<li><span class="math inline">\(\mathcal{F}\)</span> je množina podmnožín <span class="math inline">\(\Omega\)</span>. Teda prvky nachádzajúce sa v <span class="math inline">\(\mathcal{F}\)</span> sú množiny. <span class="math inline">\(\mathcal{F}\)</span> bude označovať množinu <strong>udalostí</strong>. No a udalostiam budeme chciet priraďovať pravdepodobnosť. <a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a></li>
+<li><span class="math inline">\(\mathcal{F}\)</span> je množina podmnožín <span class="math inline">\(\Omega\)</span>. Teda prvky nachádzajúce sa v <span class="math inline">\(\mathcal{F}\)</span> sú množiny. <span class="math inline">\(\mathcal{F}\)</span> bude označovať množinu <strong>udalostí</strong>. No a udalostiam budeme chcieť priraďovať pravdepodobnosť. <a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a></li>
 </ul>
 <!-- -->
 <ul>
@@ -346,8 +349,8 @@ Dôležité
 <p>Túto trojicu <span class="math inline">\((\Omega, \mathcal{F}, P)\)</span> nazývame <strong>pravdepodobnostný priestor</strong>.</p>
 </div>
 </div>
-<div id="exm-" class="theorem example">
-<p><span class="theorem-title"><strong>Príklad 2.1</strong></span> Ako prvý príklad hádžme férovou kockou.</p>
+<div class="Example">
+<p>Ako prvý príklad hádžme férovou kockou.</p>
 <ul>
 <li><span class="math inline">\(\Omega = \{1,2,3,4,5,6\}\)</span>,</li>
 <li><span class="math inline">\(\mathcal{F} = 2^{\Omega},\)</span> teda všetky možné podmnožiny <span class="math inline">\(\Omega\)</span>,</li>
@@ -359,14 +362,14 @@ Dôležité
 <li>Aká je pravdepodobnosť, že párne číslo? <span class="math inline">\(P(\{2,4,6\}) = \frac{|\{2,4,6\}|}{6} = \frac{3}{6} = \frac{1}{2}\)</span></li>
 </ul>
 </div>
-<div id="exm-" class="theorem example">
-<p><span class="theorem-title"><strong>Príklad 2.2</strong></span> Teraz poďme hádzať pre zmenu neférovou kockou.</p>
+<div class="Example">
+<p>Teraz poďme hádzať pre zmenu neférovou kockou.</p>
 <ul>
 <li><span class="math inline">\(\Omega = \{1,2,3,4,5,6\}\)</span>,</li>
 <li><span class="math inline">\(\mathcal{F} = 2^{\Omega},\)</span> teda všetky možné podmnožiny <span class="math inline">\(\Omega\)</span>,</li>
 <li><span class="math inline">\(P(\{1\})=P(\{2\})=P(\{3\})=P(\{4\})=P(\{5\})= \frac{1}{7},\)</span> a <span class="math inline">\(P(\{6\})=\frac{2}{7}\)</span>.</li>
 </ul>
-<p>Všimnime si, že teraz nám netreba zadefinovať pravdepodobnosť <span class="math inline">\(P\)</span> pre úplne všetky možné udalosti. Využítím vlastnosti funkcie <span class="math inline">\(P\)</span> vieme napríklad, že <span class="math inline">\(P(\{1,2\}) = P(\{1\} \cup \{2\}) = P(\{1\}) + P(\{2\}) = \frac{1}{7} + \frac{1}{7} = \frac{2}{7},\)</span> kvôli tomu, že udalosti <span class="math inline">\(\{1\}\)</span> a <span class="math inline">\(\{2\}\)</span> sú <em>disjunktné</em>. Preto sme nepotrebovali zadefinovať samotnú <span class="math inline">\(P(\{1,2\}).\)</span> Poľahky sme si ju dopočítali.</p>
+<p>Všimnime si, že teraz nám netreba zadefinovať pravdepodobnosť <span class="math inline">\(P\)</span> pre úplne všetky možné udalosti. Využitím vlastnosti funkcie <span class="math inline">\(P\)</span> vieme napríklad, že <span class="math inline">\(P(\{1,2\}) = P(\{1\} \cup \{2\}) = P(\{1\}) + P(\{2\}) = \frac{1}{7} + \frac{1}{7} = \frac{2}{7},\)</span> kvôli tomu, že udalosti <span class="math inline">\(\{1\}\)</span> a <span class="math inline">\(\{2\}\)</span> sú <em>disjunktné</em>. Preto sme nepotrebovali zadefinovať samotnú <span class="math inline">\(P(\{1,2\}).\)</span> Poľahky sme si ju dopočítali.</p>
 <p>Ďalej si môžeme všimnúť, že</p>
 <span class="math display">\[\begin{eqnarray*}
 P(\Omega) &amp;=&amp; P(\{1\} \cup \{2\} \cup \{3\} \cup \{4\} \cup \{5\} \cup \{6\}) \\
@@ -400,7 +403,7 @@ P(\Omega) &amp;=&amp; P(\{1\} \cup \{2\} \cup \{3\} \cup \{4\} \cup \{5\} \cup \
 </section>
 <section id="kombinatorika" class="level2" data-number="2.4">
 <h2 data-number="2.4" class="anchored" data-anchor-id="kombinatorika"><span class="header-section-number">2.4</span> Kombinatorika</h2>
-<p>V mnohých stredoškolských príkladoch týkajúcich sa pravdepodobnosti sa spomínajú pojmy ako permutácie, kombinácie, s opakovaním/bez opakovania a podobne. Toto je častokrát zdrojom nepochopenia a chýb, lebo si študent/ka pre daný príklad <em>nejaký</em> z týchto pojmov vyberie a potom použije naučenú formulku. Nečudo, že mnohokrát nesprávne. Toto je nebezpečné, lebo si potom napríklad v praxi nebudú vedieť zrátať šancu, že budú mať čistú postupku alebo že si vytiahnu 3 modré guličky. Každopádne zlých riešení je typicky oveľa viacej ako tých správnych, takže tipovanie je riskantné.</p>
+<p>V mnohých stredoškolských príkladoch týkajúcich sa pravdepodobnosti sa spomínajú pojmy ako permutácie, kombinácie, s opakovaním/bez opakovania a podobne. Toto je častokrát zdrojom nepochopenia a chýb, lebo si študent/ka pre daný príklad <em>nejaký</em> z týchto pojmov vyberie a potom použije naučenú formulku. Nečudo, že mnohokrát nesprávne. Toto je nebezpečné, lebo si potom napríklad v praxi nebudú vedieť zrátať šancu, že budú mať čistú postupku alebo že si vytiahnu 3 modré guličky. Každopádne zlých riešení je typicky oveľa viac ako tých správnych, takže tipovanie je riskantné.</p>
 <p>Vo väčšine prípadov ide len o aplikáciu nasledujúceho vzťahu:</p>
 <p><span class="math display">\[P(A) = \frac{\text{počet úspešných pokusov (teda udalosť $A$ nastane)}}{\text{počet všetkých možných pokusov}}.\]</span> Takže stačí nám ak budeme vedieť efektívne počítať počet možností. Potom ich dáme do pomeru a máme pravdepodobnosť.</p>
 <p>Využívajú sa nasledovné zákonistosti:</p>
@@ -408,10 +411,10 @@ P(\Omega) &amp;=&amp; P(\{1\} \cup \{2\} \cup \{3\} \cup \{4\} \cup \{5\} \cup \
 <li><div class="line-block">Koľkými možnými spôsobmi môžeme usporiadať všetky objekty množiny <span class="math inline">\(\{a_1, a_2, a_3, \dots a_n\}\)</span> do postupnosti <em>keď záleží</em> na poradí?<br>
 &nbsp;Na prvé miesto môžeme dať <span class="math inline">\(n\)</span> rôznych objektov, na druhé miesto už len <span class="math inline">\(n-1\)</span> rôznych objektov (lebo sme si už jeden objekt minuli) a tak ďalej a na posledné miesto nám už zostal len <span class="math inline">\(1\)</span> objekt. Dokopy je teda možností <span class="math inline">\(n \cdot (n-1) \cdot \ \dots \ \cdot 1 = n!.\)</span></div></li>
 <li><div class="line-block">Koľkými možnými spôsobmi môžeme usporiadať <span class="math inline">\(k\)</span> rôznych objektov z množiny <span class="math inline">\(\{a_1, a_2, a_3, \dots a_n\}\)</span> do postupnosti <em>keď záleží</em> na poradí?<br>
-&nbsp;Na prvé miesto môžeme dať <span class="math inline">\(n\)</span> rôznych objektov, na druhé miesto už len <span class="math inline">\(n-1\)</span> rôznych objektov (lebo sme si už jeden objekt minule) a tak ďalej a na <span class="math inline">\(k\)</span>-te miesto nám už zostalo len <span class="math inline">\(n-k+1\)</span> rôznych objektov. Dokopy je teda možností <span class="math inline">\(n \cdot (n-1) \cdot \ \dots \ \cdot (n-k+1) = \frac{n!}{(n-k)!}.\)</span></div></li>
+&nbsp;Na prvé miesto môžeme dať <span class="math inline">\(n\)</span> rôznych objektov, na druhé miesto už len <span class="math inline">\(n-1\)</span> rôznych objektov (lebo sme si už jeden objekt minuli) a tak ďalej a na <span class="math inline">\(k\)</span>-te miesto nám už zostalo len <span class="math inline">\(n-k+1\)</span> rôznych objektov. Dokopy je teda možností <span class="math inline">\(n \cdot (n-1) \cdot \ \dots \ \cdot (n-k+1) = \frac{n!}{(n-k)!}.\)</span></div></li>
 <li><div class="line-block">Koľkými možnými spôsobmi môžeme vybrať <span class="math inline">\(k\)</span> rôznych objektov z množiny <span class="math inline">\(\{a_1, a_2, a_3, \dots a_n\}\)</span> <em>keď nezáleží</em> na poradí?<br>
-&nbsp;Ak by bolo záležalo na poradí, bolo by ich <span class="math inline">\(\frac{n!}{(n-k)!}\)</span>. Tu sme len použili predošlú úvahu. Ale v našom prípade nezáleží na poradí. A preto sú tam niektoré výbery viackrát. Konkrétne: rôznych usporiadaní <span class="math inline">\(k\)</span> objektov je <span class="math inline">\(k!\)</span>, teda toľkokrát ich je tam viacej. Odpoveď na našu otázku je preto <span class="math inline">\(\frac{\frac{n!}{(n-k)!}}{k!} = \frac{n!}{(n-k)!k!} = {{n}\choose{k}}.\)</span> Zaujimavým dôsledkom je</div>
-<p><span class="math display">\[(a+b)^n = (a+b)\cdot(a+b)\cdots(a+b) = \sum_{k=0}^{n} {{n}\choose{k}} a^k b^{n-k},\]</span> nakoľko <span class="math inline">\({{n}\choose{k}}\)</span> je počet možností ako možno vybrať <span class="math inline">\(k\)</span> objektov z množiny <span class="math inline">\(n\)</span> objektov. Iný pohľad na tento istý problém je takýto: Vieme, že <span class="math inline">\(n!\)</span> je počet všetkých usporiadaní <span class="math inline">\(n\)</span> prvkovej množiny. Množinu tých, ktoré vyberieme (týchto je <span class="math inline">\(k\)</span>) a tých, ktoré nevyberieme (týchto je <span class="math inline">\(n-k\)</span>) ale môžeme preusporiadať <span class="math inline">\(n!\)</span> alebo <span class="math inline">\((n-k)!\)</span> rôznymi spôsobmi. Preto relevantných možností je <span class="math inline">\(k!(n-k)!\)</span> násobne viacej ako v tých <span class="math inline">\(n!\)</span> možnostiach.</p></li>
+&nbsp;Ak by bolo záležalo na poradí, bolo by ich <span class="math inline">\(\frac{n!}{(n-k)!}\)</span>. Tu sme len použili predošlú úvahu. Ale v našom prípade nezáleží na poradí. A preto sú tam niektoré výbery viackrát. Konkrétne: rôznych usporiadaní <span class="math inline">\(k\)</span> objektov je <span class="math inline">\(k!\)</span>, teda toľkokrát ich je tam viac. Odpoveď na našu otázku je preto <span class="math inline">\(\frac{\frac{n!}{(n-k)!}}{k!} = \frac{n!}{(n-k)!k!} = {{n}\choose{k}}.\)</span> Zaujímavým dôsledkom je</div>
+<p><span class="math display">\[(a+b)^n = (a+b)\cdot(a+b)\cdots(a+b) = \sum_{k=0}^{n} {{n}\choose{k}} a^k b^{n-k},\]</span> nakoľko <span class="math inline">\({{n}\choose{k}}\)</span> je počet možností ako možno vybrať <span class="math inline">\(k\)</span> objektov z množiny <span class="math inline">\(n\)</span> objektov. Iný pohľad na tento istý problém je takýto: Vieme, že <span class="math inline">\(n!\)</span> je počet všetkých usporiadaní <span class="math inline">\(n\)</span> prvkovej množiny. Množinu tých, ktoré vyberieme (týchto je <span class="math inline">\(k\)</span>) a tých, ktoré nevyberieme (týchto je <span class="math inline">\(n-k\)</span>) ale môžeme preusporiadať <span class="math inline">\(k!\)</span> a <span class="math inline">\((n-k)!\)</span> rôznymi spôsobmi. Preto relevantných možností je <span class="math inline">\(k!(n-k)!\)</span> násobne viac ako v tých <span class="math inline">\(n!\)</span> možnostiach.</p></li>
 <li><div class="line-block">Koľkými možnými spôsobmi môžeme vybrať z množiny <span class="math inline">\(\{a_1, a_2, a_3, \dots a_n\}\)</span>: <span class="math inline">\(k_1\)</span> rôznych objektov do skupiny <span class="math inline">\(1\)</span>, <span class="math inline">\(k_2\)</span> rôznych objektov do skupiny <span class="math inline">\(2\)</span>, … <span class="math inline">\(k_m\)</span> rôznych objektov do skupiny <span class="math inline">\(m\)</span> <em>keď nezáleží</em> na poradí (každý prvok je v nejakej skupine, takže <span class="math inline">\(k_1+k_2 +...+k_m = n\)</span>)?<br>
 Toto je zovšeobecnenie predošlého prípadu, kedy sme mali len dve skupiny. Rovnakým dôvodením prídeme k výsledku: <span class="math inline">\({{n}\choose{k_1,k_2,...,k_m}} \equiv \frac{n!}{k_1!k_2!...k_m!}.\)</span> Analogickým dôsledkom je</div>
 <p><span class="math display">\[
@@ -448,8 +451,10 @@ Poznámka (koncentrované múdro)
 <p>Zjednodušenia pri kockách sú prirodzené a nekontroverzné. Pri reálnych príkladoch je však potreba explicitne vymenovať sadu predpokladov výrazne dôležitejšia. Matematický model, teda sada predpokladov, je totiž len teoretický rámec úplne uzavretého systému, v ktorom sa veľmi dobre pracuje. Adekvátnosť modelu, teda to, ako dobre mapujú zjednodušenia realitu je aspekt, ktorý sa nedá charakterizovať matematickými prostriedkami.</p>
 </div>
 </div>
-<div id="exm-" class="theorem example">
-<p><span class="theorem-title"><strong>Príklad 2.3 (Challenger)</strong></span> Raketoplán Challenger mal 2 raketové moduly, ktoré ho mali dostať na obežnú dráhu. Každý modul mal 3 gumové tesnenia, ktorých pravdepodobnosť zlyhania pri určitej teplote bola <span class="math inline">\(0.1\)</span>. Vypočítajte pravdepodobnosť úspešného letu.</p>
+</section>
+<section id="challenger" class="level2 Example" data-number="2.5">
+<h2 data-number="2.5" class="anchored" data-anchor-id="challenger"><span class="header-section-number">2.5</span> Challenger</h2>
+<p>Raketoplán Challenger mal 2 raketové moduly, ktoré ho mali dostať na obežnú dráhu. Každý modul mal 3 gumové tesnenia, ktorých pravdepodobnosť zlyhania pri určitej teplote bola <span class="math inline">\(0.1\)</span>. Vypočítajte pravdepodobnosť úspešného letu.</p>
 <p>Asi by ste hneď vypočítali: <span class="math inline">\((1-0.1)^6 \approx 0.531.\)</span> Je toto správne riešenie?</p>
 <p>Samotné zadanie príkladu robí nejaké zjednodušenia, ktoré môžu byť neadekvátne.</p>
 <ul>
@@ -457,24 +462,24 @@ Poznámka (koncentrované múdro)
 </ul>
 <p>Zároveň na to, aby sme vypočítali tento príklad, musíme urobiť veľmi vážne zjednodušenia.</p>
 <ul>
-<li>“Úspešný let je vtedy ked nezlyhá žiadne tesnenie.” - Let však môže zlyhať kvôli mnohým iným dôvodom.</li>
+<li>“Úspešný let je vtedy, keď nezlyhá žiadne tesnenie.” - Let však môže zlyhať kvôli mnohým iným dôvodom.</li>
 <li>“Zlyhania jednotlivých tesnení sú nezávislé.” - Možno zlyhanie jedného tesnenia ovplyvní zlyhanie iného. Napríklad ak sú blízko seba.</li>
 </ul>
 <p>To či sú alebo nie sú tieto predpoklady rozumné matematik sám nevie posúdiť, treba na to pohľad experta na raketové motory.</p>
-</div>
-<div id="exm-" class="theorem example">
-<p><span class="theorem-title"><strong>Príklad 2.4 (Veľa rôznych príkladov)</strong></span> &nbsp;</p>
+</section>
+<section id="veľa-rôznych-príkladov" class="level2 Example" data-number="2.6">
+<h2 data-number="2.6" class="anchored" data-anchor-id="veľa-rôznych-príkladov"><span class="header-section-number">2.6</span> Veľa rôznych príkladov</h2>
 <ul>
 <li><p>Organizačný výbor plesu pozostával z 12 žiakov/čiek. Koľkými spôsobmi sa dá z nich vybrať moderátor, DJ, výzdobca a účtovník?</p></li>
 <li><p>Na plese pri stole s 10 stoličkami si štrngol pohárom jablčného muštu každý s každým. Koľko štrngov bolo počuť?</p></li>
 <li><p>Na tombole bolo predaných 350 lístkov. Kúpil som si 10, aká je pravdepodobnosť, že vyhrám aspoň jednu z 40 rôznych cien?</p></li>
 <li><p>Na šachovom turnaji s 12 účastníkmi hrá každý s každým 2 zápasy. Koľko zápasov sa odohrá?</p></li>
-<li><p>Hádžeme dvomi kockami - modrou a zelenou. Podrobne popíšte pravdepodobnostný priestor. Čo je väčšia šanca: že padne súčet 7 alebo že padne súčet jedno z čísel 2,3,11,12?</p></li>
+<li><p>Hádžeme dvomi kockami - modrou a zelenou. Podrobne popíšte pravdepodobnostný priestor. Čo je väčšia šanca: že padne súčet 7 alebo že padne súčet rovný jednému z čísel 2,3,11,12?</p></li>
 <li><p>Koľkými spôsobmi je možné hodiť troma kockami súčet 12?</p></li>
 <li><p>Aká je šanca, že pri dvoch nezávislých hodoch férovou mincou padne najprv hlava a potom znak?</p></li>
 <li><p>Dvanásť študentov/iek sa má rozdeliť na 4 skupiny po 3. Koľkými možnými spôsobmi to ide?</p></li>
 <li><p>Majme náhodne umiestnených 8 rôznych bodov v rovine. Koľko rôznych úsečiek (ktorých krajné body patria do množiny pôvodných 8 bodov) existuje, ktoré získame pospájaním týchto bodov? (Explicitne formulujte akékoľvek predpoklady navyše, ktoré robíte.)</p></li>
-<li><p>Koľko uhlopriečok má pravidelný 17 uholník?</p></li>
+<li><p>Koľko uhlopriečok má pravidelný 17-uholník?</p></li>
 <li><p>Koľko rôznych prirodzených čísel vieme reprezentovať práve piatimi ciframi?</p></li>
 <li><p>Majme vo vrecúšku písmenká <span class="math inline">\(\{A,H,P,P,Y\}\)</span>. Aká je pravdepodobnosť, že si ich vytiahnem v poradí HAPPY?</p></li>
 <li><p>Majme vo vrecúšku písmenká <span class="math inline">\(\{C,C,E,S,S,S,U\}\)</span>. Aká je pravdepodobnosť, že si ich vytiahnem v poradí SUCCESS?</p></li>
@@ -484,8 +489,8 @@ Poznámka (koncentrované múdro)
 <li><p>Koľkými spôsobmi (čo sa týka len samotného počtu kariet) je možné rozdať 54 hracích kariet 5 hráčom?</p></li>
 <li><p>Aká je šanca, že z perfektne zamiešaného balíčka kariet vyberieme 2 karty a sú to 2 esá?</p></li>
 </ul>
-</div>
-<p>V rôznych učebniciach pravdepodobnosti sa môžete stretnúť s tým, že rôzne typy prípadov sú systematizované. Hovorí sa o permutáciách, kombináciách (s opakovaním alebo bez opakovanie), variáciách a podobne. Môj názor je, že s využívaním tohoto názvoslovia je spojené riziko, že študenti prestanú rozmýšľať a budú sa len snažiť kategorizovať daný príklad do schémy v ktorej už potom mechanicky poznajú vzťah/vzorec, ktorý treba použiť. Názor na to, ako aj spôsob implementácie pri praktickej výučbe nechám na Vašom posúdení.</p>
+</section>
+<p>V rôznych učebniciach pravdepodobnosti sa môžete stretnúť s tým, že rôzne typy prípadov sú systematizované. Hovorí sa o permutáciách, kombináciách (s opakovaním alebo bez opakovania), variáciách a podobne. Môj názor je, že s využívaním tohto názvoslovia je spojené riziko, že študenti prestanú rozmýšľať a budú sa len snažiť kategorizovať daný príklad do schémy, v ktorej už potom mechanicky poznajú vzťah/vzorec, ktorý treba použiť. Názor na to, ako aj spôsob implementácie pri praktickej výučbe nechám na Vašom posúdení.</p>
 <div class="callout callout-style-default callout-tip callout-titled" title="Zopár (možno užitočných) poznámok:">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -498,21 +503,20 @@ Zopár (možno užitočných) poznámok:
 <div class="callout-body-container callout-body">
 <ul>
 <li><p>Ak neviete pohnúť s riešením, skúste začať mechanicky vypisovať to ako môže dopadnúť experiment. Len málokedy toto nie je užitočné.</p></li>
-<li><p>Pravdepodobnosti sčítavame len vtedy keď počítame pravdepodobnosť, že nastane jedna alebo druhá udalosť, ktoré sú vzájomne sa vylučujúce (mutually exclusive), teda keď nemôžu nastať naraz. Vo všetkých ostatných prípadoch sa pri sčitavaní pravdepodobností dopustíme chyby, že zarátame tú istú možnosť viacejkrát. (napr. Aká je šanca, že padne na kocke číslo 1 alebo číslo 2 ?) Toto je len aplikácia spočitateľnej aditivity pravdepodobnosti, teda vlastnosti (3).</p></li>
-<li><p>Pravdepodobnosti násobíme vtedy, keď ide o nezávislé udalosti. Teda keď jedna udalosť nijakovsky neovplyvní nastatie inej. Viď ďalšia kapitola. (napr. Aká je pravdepodobnosť, že pri prvom hode padne 6ka a pri druhom (nezávislom) hode padne 6ka?)</p></li>
+<li><p>Pravdepodobnosti sčítavame len vtedy keď počítame pravdepodobnosť, že nastane jedna alebo druhá udalosť, ktoré sú vzájomne sa vylučujúce (mutually exclusive), teda keď nemôžu nastať naraz. Vo všetkých ostatných prípadoch sa pri sčítavaní pravdepodobností dopustíme chyby, že zarátame tú istú možnosť viackrát. (napr. Aká je šanca, že padne na kocke číslo 1 alebo číslo 2 ?) Toto je len aplikácia spočitateľnej aditivity pravdepodobnosti, teda vlastnosti (3).</p></li>
+<li><p>Pravdepodobnosti násobíme vtedy, keď ide o nezávislé udalosti. Teda keď jedna udalosť nijakovsky neovplyvní nastatie inej. Pozri ďalšiu kapitolu. (napr. Aká je pravdepodobnosť, že pri prvom hode padne 6ka a pri druhom (nezávislom) hode padne 6ka?)</p></li>
 <li><p>Náhodné násobenie a sčítavanie pravdepodobností vedia k správnemu výsledku len s malou pravdepodobnosťou (áno, toto je vtip). Tipovaním sa ďaleko nedostaneme.</p></li>
 <li><p>Niekedy je ľahšie počítanie pravdepodobnosti, že udalosť nenastane, ako že nastane. Vtedy použijeme <span class="math inline">\(P(A) = 1 - P(A^C).\)</span></p></li>
 <li><p>Vennove diagramy sú užitočné. Pri počítaní pravdepodobnosti pre viac ako dve udalosti veľmi.</p></li>
 </ul>
 </div>
 </div>
+<section id="zhrnutie" class="level2" data-number="2.7">
+<h2 data-number="2.7" class="anchored" data-anchor-id="zhrnutie"><span class="header-section-number">2.7</span> Zhrnutie</h2>
+<p>Základným objektom s ktorým budeme pracovať je <strong>pravdepodobnostný priestor</strong>. Je to trojica: <span class="math inline">\(\Omega\)</span> hovorí ako môže dopadnúť experiment, <span class="math inline">\(\mathcal{F}\)</span> je množina všetkých podmnožín, ktorým priraďujeme pravdepodobnosť a <span class="math inline">\(P\)</span> je samotná pravdepodobnostná funkcia, ktorá musí byť spočitateľne aditívna. Keď máme konkrétny príklad, je dobré si uvedomiť, čo vlastne príslušný pravdepodobnostný priestor je. Vnesie to do nášho rozmýšľania poriadok. Toto je dôležité, aby sme vedeli správne zrátať počet “úspešných” a počet “všetkých” spôsobov ako môže dopadnúť experiment a tým pádom aj pravdepodobnosť. Rovnaký problém môže byť uchopený cez rôznu formuláciu pravdepodobnostného priestoru.</p>
 </section>
-<section id="zhrnutie" class="level2" data-number="2.5">
-<h2 data-number="2.5" class="anchored" data-anchor-id="zhrnutie"><span class="header-section-number">2.5</span> Zhrnutie</h2>
-<p>Základným objektom s ktorým budeme pracovať je <strong>pravdepodobnostný priestor</strong>. Je to trojica: <span class="math inline">\(\Omega\)</span> hovorí ako môže dopadnúť experiment, <span class="math inline">\(\mathcal{F}\)</span> je množina všetkých podmnožín, ktorým priraďujeme pravdepodobnosť a <span class="math inline">\(P\)</span> je samotná pravdepodobnostná funkcia, ktorá musí byť spočitateľne aditívna. Keď máme konkrétny príklad, je dobré si uvedomiť, čo vlastne príslušný pravdepodobnostný priestor je. Vnesie to do nášho rozmýšlania poriadok. Toto je dôležité, aby sme vedeli správne zrátať počet “úspešných” a počet “všetkých” spôsobov ako môže dopadnúť experiment a tým pádom aj pravdepodobnosť. Rovnaký problém môže byť uchopený cez rôznu formuláciu pravdepodobnostného priestoru.</p>
-</section>
-<section id="cvičenia" class="level2" data-number="2.6">
-<h2 data-number="2.6" class="anchored" data-anchor-id="cvičenia"><span class="header-section-number">2.6</span> Cvičenia</h2>
+<section id="cvičenia" class="level2" data-number="2.8">
+<h2 data-number="2.8" class="anchored" data-anchor-id="cvičenia"><span class="header-section-number">2.8</span> Cvičenia</h2>
 <div id="exr-ab" class="theorem exercise">
 <p><span class="theorem-title"><strong>Cvičenie 2.1</strong></span> Aký je rozdiel medzi <span class="math inline">\(\{a,b\}\)</span> a <span class="math inline">\((a,b)\)</span>?</p>
 </div>
@@ -576,7 +580,7 @@ Zopár (možno užitočných) poznámok:
 </ol>
 </div>
 <div id="exr-infe" class="theorem exercise">
-<p><span class="theorem-title"><strong>Cvičenie 2.8</strong></span> Nech je silne zamorenom prostredí pravdepodobnosť bakteriálnej infekcie <span class="math inline">\(0.4\)</span> a pravdepodobnosť nákazy spôsobej vírusom nech je <span class="math inline">\(0.8\)</span>. Aká je najväčšia a najmenšia pravdepodobnosť, že človek sa nakazí aj baktériou aj vírusom?</p>
+<p><span class="theorem-title"><strong>Cvičenie 2.8</strong></span> Nech je v silne zamorenom prostredí pravdepodobnosť bakteriálnej infekcie <span class="math inline">\(0.4\)</span> a pravdepodobnosť nákazy spôsobej vírusom nech je <span class="math inline">\(0.8\)</span>. Aká je najväčšia a najmenšia pravdepodobnosť, že človek sa nakazí aj baktériou aj vírusom?</p>
 </div>
 <div id="exr-kock" class="theorem exercise">
 <p><span class="theorem-title"><strong>Cvičenie 2.9</strong></span> Hodíme kocku 6 krát. Balíček kariet perfektne zamiešame.</p>
@@ -646,37 +650,27 @@ Zopár (možno užitočných) poznámok:
 <li>Aká je pravdepodobnosť, že aspoň jedna z nich bude chybná?</li>
 <li>Koľko súčiastok musíme vybrať aby šanca, že nájdeme aspoň jednu chybnú súčiastku bola väčšia ako 50% ?</li>
 </ol>
-<div class="cell" data-layout-align="center">
-<div class="cell-output-display">
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="fig_ruka.png" class="img-fluid figure-img" style="width:40.0%"></p>
-<figcaption>Ilustrácia načierania rukou do vreca s 50 súčiastkami.</figcaption>
-</figure>
 </div>
+<div class="Exercise">
+<p>Ukážte, že zo <em>spočitateľnej aditivity</em> (vlastnosť (3) pravdepodobnosti) vyplýva <em>konečná aditivita</em>, teda, že platí <span class="math inline">\(P\left(\cup_{i=1}^n A_i\right) = \sum_{i=1}^{n} P(A_i)\)</span> pre akékoľvek disjunktné udalosti <span class="math inline">\(A_1, A_2, A_3,\dots,A_n\)</span></p>
 </div>
+<div class="Exercise">
+<p>Formálne ukážte vlastnosti pravdepodobnosti z časti <a href="#sec-vlastnostipravdepodobnosti" class="quarto-xref"><span>Sekcia 2.3</span></a>.</p>
 </div>
+<div class="Exercise">
+<p>Ukážte, že pre hocijaké dve udalosti <span class="math inline">\(A\)</span> a <span class="math inline">\(B\)</span> je pravdepodobnosť, že nastane práve jedna z udalostí <span class="math inline">\(A\)</span> a <span class="math inline">\(B\)</span> je daná nasledovným výrazom <span class="math display">\[P(A) + P(B) - 2P(A \cap B).\]</span></p>
 </div>
-<div id="exr-" class="theorem exercise">
-<p><span class="theorem-title"><strong>Cvičenie 2.16</strong></span> Ukážte, že zo <em>spočitateľnej aditivity</em> (vlastnosť (3) pravdepodobnosti) vyplýva <em>konečná aditivita</em>, teda, že platí <span class="math inline">\(P\left(\cup_{i=1}^n A_i\right) = \sum_{i=1}^{n} P(A_i)\)</span> pre akékoľvek disjunktné udalosti <span class="math inline">\(A_1, A_2, A_3,\dots,A_n\)</span></p>
+<div class="Exercise">
+<p>Nech je <span class="math inline">\(A_1, A_2, \dots\)</span> akákoľvek postupnosť udalostí a nech <span class="math inline">\(B_1, B_2, \dots\)</span> je postupnosť definovaná nasledovne: <span class="math inline">\(B_1 = A_1\)</span>, <span class="math inline">\(B_2 = A_1^C \cap A_2\)</span>, <span class="math inline">\(B_3 = A_1^C \cap A_2^C \cap A_3\)</span>, <span class="math inline">\(B_4 = A_1^C \cap A_2^C \cap A_3^C \cap A_4\)</span> a tak ďalej. Ukážte, že pre všetky <span class="math inline">\(n=1,2,3,\dots\)</span> platí <span class="math display">\[P\left( \cup_{i=1}^{n} A_i \right) = \sum_{i=1}^{n} P(B_i).\]</span></p>
 </div>
-<div id="exr-" class="theorem exercise">
-<p><span class="theorem-title"><strong>Cvičenie 2.17</strong></span> Formálne ukážte vlastnosti pravdepodobnosti z časti <a href="#sec-vlastnostipravdepodobnosti" class="quarto-xref"><span>Sekcia 2.3</span></a>.</p>
+<div class="Exercise">
+<p>Nech <span class="math inline">\(A\)</span>, <span class="math inline">\(B\)</span> a <span class="math inline">\(D\)</span> sú nejaké udalosti, také, že <span class="math inline">\(P(A \cup B \cup D ) = 0.3.\)</span> Aká je hodnota <span class="math inline">\(P(A^C \cap B^C \cap D^C)\)</span>?</p>
 </div>
-<div id="exr-" class="theorem exercise">
-<p><span class="theorem-title"><strong>Cvičenie 2.18</strong></span> Ukážte, že pre hocijaké dve udalosti <span class="math inline">\(A\)</span> a <span class="math inline">\(B\)</span> je pravdepodobnosť, že nastane práve jedna z udalostí <span class="math inline">\(A\)</span> a <span class="math inline">\(B\)</span> je daná nasledovným výrazom <span class="math display">\[P(A) + P(B) - 2P(A \cap B).\]</span></p>
+<div class="Exercise">
+<p>Ukážte, že pre udalosti <span class="math inline">\(A_1, A_2, \dots, A_n\)</span> platí <span class="math display">\[P\left( \cup_{i=1}^{n} A_i \right) \leq \sum_{i=1}^{n} P(A_i)\]</span> a <span class="math display">\[P\left( \cap_{i=1}^{n} A_i \right) \geq 1 - \sum_{i=1}^{n} P(A_i^C).\]</span></p>
 </div>
-<div id="exr-" class="theorem exercise">
-<p><span class="theorem-title"><strong>Cvičenie 2.19</strong></span> Nech je <span class="math inline">\(A_1, A_2, \dots\)</span> akákoľvek postupnosť udalostí a nech <span class="math inline">\(B_1, B_2, \dots\)</span> je postupnosť definovaná nasledovne: <span class="math inline">\(B_1 = A_1\)</span>, <span class="math inline">\(B_2 = A_1^C \cap A_2\)</span>, <span class="math inline">\(B_3 = A_1^C \cap A_2^C \cap A_3\)</span>, <span class="math inline">\(B_4 = A_1^C \cap A_2^C \cap A_3^C \cap A_4\)</span> a tak ďalej. Ukážte, že pre všetky <span class="math inline">\(n=1,2,3,\dots\)</span> platí <span class="math display">\[P\left( \cup_{i=1}^{n} A_i \right) = \sum_{i=1}^{n} P(B_i).\]</span></p>
-</div>
-<div id="exr-" class="theorem exercise">
-<p><span class="theorem-title"><strong>Cvičenie 2.20</strong></span> Nech <span class="math inline">\(A\)</span>, <span class="math inline">\(B\)</span> a <span class="math inline">\(D\)</span> sú nejaké udalosti, také, že <span class="math inline">\(P(A \cup B \cup D ) = 0.3.\)</span> Aká je hodnota <span class="math inline">\(P(A^C \cap B^C \cap D^C)\)</span>?</p>
-</div>
-<div id="exr-" class="theorem exercise">
-<p><span class="theorem-title"><strong>Cvičenie 2.21</strong></span> Ukážte, že pre udalosti <span class="math inline">\(A_1, A_2, \dots, A_n\)</span> platí <span class="math display">\[P\left( \cup_{i=1}^{n} A_i \right) \leq \sum_{i=1}^{n} P(A_i)\]</span> a <span class="math display">\[P\left( \cap_{i=1}^{n} A_i \right) \geq 1 - \sum_{i=1}^{n} P(A_i^C).\]</span></p>
-</div>
-<div id="exr-" class="theorem exercise">
-<p><span class="theorem-title"><strong>Cvičenie 2.22</strong></span> Nech <span class="math inline">\(A\)</span>, <span class="math inline">\(B\)</span> a <span class="math inline">\(C\)</span> sú nejaké udalosti. Použitím Vennoveho diagramu ukážte, že</p>
+<div class="Exercise">
+<p>Nech <span class="math inline">\(A\)</span>, <span class="math inline">\(B\)</span> a <span class="math inline">\(C\)</span> sú nejaké udalosti. Použitím Vennovho diagramu ukážte, že</p>
 <span class="math display">\[\begin{eqnarray*}
 P(A \cup B \cup C) &amp;=&amp; P(A) + P(B) + P(C) \\
 &amp;&amp; - P(A \cap B) - P(B \cap C) - P(A \cap C) \\
@@ -684,12 +678,12 @@ P(A \cup B \cup C) &amp;=&amp; P(A) + P(B) + P(C) \\
 \end{eqnarray*}\]</span>
 </div>
 <div id="exr-vrec" class="theorem exercise">
-<p><span class="theorem-title"><strong>Cvičenie 2.23 (*Zasa guličky)</strong></span> Majme vrecúško s farebnymi guličkami. Konkrétne sa v ňom nachádza <span class="math inline">\(č\)</span> červených guličiek, <span class="math inline">\(b\)</span> bielych guličiek a <span class="math inline">\(m\)</span> modrých guličiek. Postupne vyberáme po jednej guličke z vrecúška tak, že ich nedávame naspäť. Aká je pravdepodobnosť, že vytiahneme všetky červené guličky ešte predtým, než vytiahneme nejakú bielu?</p>
+<p><span class="theorem-title"><strong>Cvičenie 2.16 (Zasa guličky)</strong></span> Majme vrecúško s farebnými guličkami. Konkrétne sa v ňom nachádza <span class="math inline">\(č\)</span> červených guličiek, <span class="math inline">\(b\)</span> bielych guličiek a <span class="math inline">\(m\)</span> modrých guličiek. Postupne vyberáme po jednej guličke z vrecúška tak, že ich nedávame naspäť. Aká je pravdepodobnosť, že vytiahneme všetky červené guličky ešte predtým, než vytiahneme nejakú bielu?</p>
 </div>
 <div id="exr-zapo" class="theorem exercise">
-<p><span class="theorem-title"><strong>Cvičenie 2.24 (*Princíp zapojenia a vypojenia)</strong></span> Nech <span class="math inline">\(A_1, A_2,\dots,A_n\)</span> sú nejaké udalosti. Ukážte, že platí <span class="math display">\[\begin{eqnarray*}
+<p><span class="theorem-title"><strong>Cvičenie 2.17 (Princíp zapojenia a vypojenia)</strong></span> Nech <span class="math inline">\(A_1, A_2,\dots,A_n\)</span> sú nejaké udalosti. Ukážte, že platí <span class="math display">\[\begin{eqnarray*}
 P\left(\cup_{i=1}^n A_i\right) &amp;=&amp; \sum_{i=1}^n P(A_i) - \sum_{i&lt;j} P(A_i\cap A_j)  \\
-&amp;&amp; + \sum_{i&lt;j&lt;k} P(A_i\cap A_j \cap A_k) - \sum_{i&lt;j&lt;k&lt;l} P(A_i\cap A_j \cup A_k \cap A_l)+ \dots\\
+&amp;&amp; + \sum_{i&lt;j&lt;k} P(A_i\cap A_j \cap A_k) - \sum_{i&lt;j&lt;k&lt;l} P(A_i\cap A_j \cap A_k \cap A_l)+ \dots\\
 &amp;&amp; + (-1)^{n+1}P(A_1 \cap A_2 \cap A_3 \cap \dots \cap A_n).
 \end{eqnarray*}\]</span></p>
 </div>
@@ -706,7 +700,7 @@ Niektoré riešenia
 <div id="callout-6" class="callout-6-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <p><a href="#exr-ab" class="quarto-xref">Cvičenie&nbsp;<span>2.1</span></a> Ide o rôzne objekty. Kým <span class="math inline">\((a,b)\)</span> označuje usporiadanú dvojicu. Pomocou <span class="math inline">\(\{a,b\}\)</span> označujeme množinu, ktorá obsahuje dva prvky: prvok <span class="math inline">\(a\)</span> a prvok <span class="math inline">\(b\)</span>.</p>
-<p><a href="#exr-sub" class="quarto-xref">Cvičenie&nbsp;<span>2.2</span></a> <span class="math inline">\(A \in \mathcal{M}\)</span> znamená, že <span class="math inline">\(A\)</span> je prvkom množiny <span class="math inline">\(\mathcal{M}\)</span>. Na druhej strane <span class="math inline">\(A \subseteq \mathcal{M}\)</span> znamená, že <span class="math inline">\(A\)</span> je podmnožinou množiny <span class="math inline">\(\mathcal{M}\)</span>, takže majú rovnaké tipy prvkov.</p>
+<p><a href="#exr-sub" class="quarto-xref">Cvičenie&nbsp;<span>2.2</span></a> <span class="math inline">\(A \in \mathcal{M}\)</span> znamená, že <span class="math inline">\(A\)</span> je prvkom množiny <span class="math inline">\(\mathcal{M}\)</span>. Na druhej strane <span class="math inline">\(A \subseteq \mathcal{M}\)</span> znamená, že <span class="math inline">\(A\)</span> je podmnožinou množiny <span class="math inline">\(\mathcal{M}\)</span>, takže majú rovnaké typy prvkov.</p>
 <p><a href="#exr-komp" class="quarto-xref">Cvičenie&nbsp;<span>2.3</span></a></p>
 <ol type="a">
 <li><p><span class="math inline">\(M^C = \{5,6\}\)</span></p></li>
@@ -762,7 +756,7 @@ a,b,c,d &amp;\geq&amp; 0
 <p>Tomuto vyhovuje <span class="math inline">\(a=0.6\)</span> a tomu prislúchajú hodnoty <span class="math inline">\(b=0.1, c=0, d=0.3.\)</span></p>
 <p><a href="#exr-minc" class="quarto-xref">Cvičenie&nbsp;<span>2.7</span></a></p>
 <ol start="3" type="a">
-<li>Kedže hody mincou sú nezávislé, obidve tieto udalosti sú rovnako pravdepodobné.</li>
+<li>Keďže hody mincou sú nezávislé, obidve tieto udalosti sú rovnako pravdepodobné.</li>
 </ol>
 <p><a href="#exr-infe" class="quarto-xref">Cvičenie&nbsp;<span>2.8</span></a></p>
 <table class="caption-top table">
@@ -820,7 +814,7 @@ a,b,c,d &amp;\geq&amp; 0
 <p><span class="math inline">\(P(A) = \frac{|A|}{|\Omega|} = \frac{|A|}{12}\)</span></p>
 <p>kde <span class="math inline">\(|A|\)</span> označuje počet prvkov množiny <span class="math inline">\(A,\)</span> teda <span class="math inline">\(|\Omega| = 12.\)</span></p>
 <ol start="2" type="a">
-<li><span class="math inline">\(B = \{(H,2),(H,4),(H,6) \}\)</span> a preto <span class="math inline">\(P(B) = \frac{3}{12} = \frac{1}{4}.\)</span></li>
+<li><span class="math inline">\(B = \{(H,1),(H,3),(H,5) \}\)</span> a preto <span class="math inline">\(P(B) = \frac{3}{12} = \frac{1}{4}.\)</span></li>
 </ol>
 <p><a href="#exr-3koc" class="quarto-xref">Cvičenie&nbsp;<span>2.11</span></a></p>
 <ol type="a">
@@ -844,15 +838,15 @@ a,b,c,d &amp;\geq&amp; 0
 <ol type="a">
 <li>Padne modrá karta s párnym číslom menším ako 5, takže tomu zodpovedá množina <span class="math inline">\(\{(M,2),(M,4) \}.\)</span></li>
 <li>Padne modrá karta s číslom väčším alebo rovným ako 5, takže <span class="math inline">\(\{(M,5),...,(M,10) \}.\)</span></li>
-<li>Padne karta s párnym číslom alebo modrá alebo s číslom menším ako 5, takže <span class="math inline">\(\{(M,1),...,(M,10),(Č,1),(Č,2),(Č,3),(Č,4),(Č,5),(Č,6),(Č,8),(Č,10) \}.\)</span></li>
+<li>Padne karta s párnym číslom alebo modrá alebo s číslom menším ako 5, takže <span class="math inline">\(\{(M,1),...,(M,10),(Č,1),(Č,2),(Č,3),(Č,4),(Č,6),(Č,8),(Č,10) \}.\)</span></li>
 <li>Padne karta s párnym číslom a zároveň je modrá alebo bude mať číslo menšie ako 5, takže <span class="math inline">\(\{(M,2),(M,4),(M,6),(M,8),(M,10),(Č,2),(Č,4) \}.\)</span></li>
-<li><span class="math inline">\(A^C \cap B^C \cap C^C = (A \cup B \cup C)^C\)</span> takže <span class="math inline">\(\{(Č,7),(Č,9)\}\)</span></li>
+<li><span class="math inline">\(A^C \cap B^C \cap C^C = (A \cup B \cup C)^C\)</span> takže <span class="math inline">\(\{(Č,5),(Č,7),(Č,9)\}\)</span></li>
 </ol>
 <p><a href="#exr-3koc2" class="quarto-xref">Cvičenie&nbsp;<span>2.13</span></a></p>
 <ol type="a">
 <li><span class="math inline">\(A \cap B \cap C\)</span></li>
 <li><span class="math inline">\(A^C \cap B^C \cap C^C\)</span></li>
-<li><span class="math inline">\(A^C \cup B^C \cup C^C \cup\)</span></li>
+<li><span class="math inline">\(A^C \cup B^C \cup C^C\)</span></li>
 <li><span class="math inline">\((A^C \cap B^C \cap C^C )^C = A \cup B \cup C\)</span></li>
 </ol>
 <p><a href="#exr-20ci" class="quarto-xref">Cvičenie&nbsp;<span>2.14</span></a></p>
@@ -861,7 +855,7 @@ a,b,c,d &amp;\geq&amp; 0
 </ol>
 <p><span class="math inline">\(P(A) = \frac{{10 \choose{0}}{10 \choose{3}}}{{20 \choose{3}}} = \frac{2}{19}\)</span></p>
 <p><span class="math inline">\(P(B) = \frac{{10 \choose{1}}{10 \choose{2}}}{{20 \choose{3}}} = \frac{15}{38}\)</span></p>
-<p><span class="math inline">\(P(A \cup B)  = P(A) + P(B) = \frac{4+15}{19} =\frac{1}{2}\)</span>, nakoľko ide o disjunktné udalosti (nemôžu nastať naraz).</p>
+<p><span class="math inline">\(P(A \cup B)  = P(A) + P(B) = \frac{4+15}{38} =\frac{1}{2}\)</span>, nakoľko ide o disjunktné udalosti (nemôžu nastať naraz).</p>
 <ol start="2" type="a">
 <li></li>
 </ol>
@@ -874,21 +868,21 @@ a,b,c,d &amp;\geq&amp; 0
 <li><p>Musíme nájsť <span class="math inline">\(k\)</span> tak, aby <span class="math inline">\(1-\frac{{2 \choose{0}}{48 \choose{k}}}{{50 \choose{k}}} &gt; 0.5\)</span></p></li>
 </ol>
 <p>Dosadením dostávame, že pre <span class="math inline">\(k=14\)</span> je to 48.57%, pre <span class="math inline">\(k=15\)</span> je to 51.43%.</p>
-<p><a href="#exr-vrec" class="quarto-xref">Cvičenie&nbsp;<span>2.23</span></a></p>
+<p><a href="#exr-vrec" class="quarto-xref">Cvičenie&nbsp;<span>2.16</span></a></p>
 <p>Kľúčové pri tejto úlohe je uvedomiť si, že na modrých guličkách vôbec nezáleží. Pôsobia tam len ako šum. Ak je ich veľmi veľa, tak ich budeme veľa ťahať kým sa nebude meniť to, čo nás zaujíma, a to je pomer medzi bielymi a červenými guličkami.</p>
 <p>Preformulujeme to na nasledovný problém. Máme vo vrecku <span class="math inline">\(č\)</span> červených a <span class="math inline">\(b\)</span> bielych guličiek. Aká je pravdepodobnosť, že prvých <span class="math inline">\(č\)</span> guličiek bude červených? Z vrecúška, kde sú čísla <span class="math inline">\(\{1,2,3,...,č+b\}\)</span> musím vytiahnuť <span class="math inline">\(č\)</span> guličiek a musím vytiahnuť konkrétne čísla <span class="math inline">\(\{1,2,...,č\}\)</span>. To je práve jedna možnosť spomedzi všetkých možných <span class="math inline">\(č\)</span> čísel, ktoré môžem vytiahnuť. Týchto možností je <span class="math inline">\({č+b \choose č}.\)</span> Takže pravdepodobnosť je</p>
 <p><span class="math inline">\(P(A) = \frac{1}{{č+b \choose č}} = \frac{č!b!}{(č+b)!}.\)</span></p>
-<p>Skutočnosť, že na počte modrých guličiek nezáleží sa môže zdať na začiatku proti intuitívna. Simuláciou však môžeme poľahky overiť, že je to skutočne tak. Tieto simulácie sa budeme učiť robiť budúci semester v rámci pokračovania tohoto kurzu <a href="https://lukaslaffers.github.io/pas2/" class="uri">https://lukaslaffers.github.io/pas2/</a>.</p>
-<p>Uvedomme si tiež, že <span class="math inline">\(P(A) = \frac{č!b!}{(č+b)!} =\frac{č!}{(č+b)(č+b-1)...(b+1)} = \frac{č}{č+b}\cdot \frac{č-1}{č+b-1} \cdots\frac{1}{b+1},\)</span> čo zodpovedá postupnému ťahaniu červených guličiek. Znovu vidíme, že záleží len na tom, či bude červená vytiahutá skôr ako biela, koľko je tam modrých nám môže byť jedno.</p>
-<p><a href="#exr-zapo" class="quarto-xref">Cvičenie&nbsp;<span>2.24</span></a></p>
+<p>Skutočnosť, že na počte modrých guličiek nezáleží sa môže zdať na začiatku protiintuitívna. Simuláciou však môžeme poľahky overiť, že je to skutočne tak. Tieto simulácie sa budeme učiť robiť budúci semester v rámci pokračovania tohto kurzu <a href="https://lukaslaffers.github.io/pas2/" class="uri">https://lukaslaffers.github.io/pas2/</a>.</p>
+<p>Uvedomme si tiež, že <span class="math inline">\(P(A) = \frac{č!b!}{(č+b)!} =\frac{č!}{(č+b)(č+b-1)...(b+1)} = \frac{č}{č+b}\cdot \frac{č-1}{č+b-1} \cdots\frac{1}{b+1},\)</span> čo zodpovedá postupnému ťahaniu červených guličiek. Znovu vidíme, že záleží len na tom, či bude červená vytiahnutá skôr ako biela, koľko je tam modrých nám môže byť jedno.</p>
+<p><a href="#exr-zapo" class="quarto-xref">Cvičenie&nbsp;<span>2.17</span></a></p>
 <p>Dôkaz matematickou indukciou cez <span class="math inline">\(n.\)</span></p>
 </div>
 </div>
 </div>
 <p>&nbsp; &nbsp; &nbsp; &nbsp;</p>
 </section>
-<section id="ďalšie-cvičenia" class="level2" data-number="2.7">
-<h2 data-number="2.7" class="anchored" data-anchor-id="ďalšie-cvičenia"><span class="header-section-number">2.7</span> Ďalšie cvičenia</h2>
+<section id="ďalšie-cvičenia" class="level2" data-number="2.9">
+<h2 data-number="2.9" class="anchored" data-anchor-id="ďalšie-cvičenia"><span class="header-section-number">2.9</span> Ďalšie cvičenia</h2>
 <div class="callout callout-style-default callout-note callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -902,10 +896,10 @@ Pozrieť si to?
 <p>Nasledujúce príklady boli v minulých rokoch súčasťou povinných a hodnotených domácich úloh. Domáce úlohy sú však tento rok nepovinné. Tieto však budú stále užitočné pre porozumenie učiva a pomôžu Vám nakalibrovať sa, aká úroveň porozumenia sa od Vás približne očakáva.</p>
 </div>
 </div>
-<div id="exr-" class="theorem exercise">
-<p><span class="theorem-title"><strong>Cvičenie 2.25</strong></span> Označme</p>
+<div class="Exercise">
+<p>Označme</p>
 <p><span class="math inline">\(A=\{x \in \mathbb{R}: 2 \leq x \leq 5\}\)</span>, <span class="math inline">\(B=\{x \in \mathbb{R}: 4 &lt; x \leq 10\}\)</span> a <span class="math inline">\(C=\{x \in \mathbb{R}: x \leq 0 \}\)</span>.</p>
-<p>vyjdarite:</p>
+<p>vyjadrite:</p>
 <ol type="a">
 <li><span class="math inline">\(A^C\)</span></li>
 <li><span class="math inline">\(A \cup B\)</span></li>
@@ -914,8 +908,8 @@ Pozrieť si to?
 <li><span class="math inline">\((A \cup B) \cap C\)</span></li>
 </ol>
 </div>
-<div id="exr-" class="theorem exercise">
-<p><span class="theorem-title"><strong>Cvičenie 2.26</strong></span> Máme študentov prvého, druhého a tretieho ročníka matematiky. Nech udalosť <span class="math inline">\(A\)</span> znamená, že študent je z prvého ročníka, udalosť <span class="math inline">\(B\)</span>, že študent je z druhého ročníka a udalosť <span class="math inline">\(C\)</span>, že študent je z tretieho ročníka. Určte význam nasledovných udalostí:</p>
+<div class="Exercise">
+<p>Máme študentov prvého, druhého a tretieho ročníka matematiky. Nech udalosť <span class="math inline">\(A\)</span> znamená, že študent je z prvého ročníka, udalosť <span class="math inline">\(B\)</span>, že študent je z druhého ročníka a udalosť <span class="math inline">\(C\)</span>, že študent je z tretieho ročníka. Určte význam nasledovných udalostí:</p>
 <ol type="a">
 <li><span class="math inline">\(A \cup B\)</span></li>
 <li><span class="math inline">\((A \cup C)^C\)</span></li>
@@ -924,100 +918,101 @@ Pozrieť si to?
 <li><span class="math inline">\(A \cup B \cup C\)</span></li>
 </ol>
 </div>
-<div id="exr-" class="theorem exercise">
-<p><span class="theorem-title"><strong>Cvičenie 2.27</strong></span> Máme 4 rovnaké nepriehľadné obálky s darčekom. V jednej poukaz do kníhkupectva, v druhej sú listky do divadla, v tretej sú letenky a vo štvrtej sú nálepky. Náhodne si môžeme vybrať 2 obálky.</p>
+<div class="Exercise">
+<p>Máme 4 rovnaké nepriehľadné obálky s darčekom. V jednej poukaz do kníhkupectva, v druhej sú lístky do divadla, v tretej sú letenky a vo štvrtej sú nálepky. Náhodne si môžeme vybrať 2 obálky.</p>
 <ol type="a">
 <li>Zostrojte pravdepodobnostný priestor, ktorý zodpovedá tejto situácii. Podrobne popíšte jeho elementy.</li>
 <li>Aká je pravdepodobnosť, že nebudeme letieť lietadlom?</li>
 </ol>
 </div>
-<div id="exr-" class="theorem exercise">
-<p><span class="theorem-title"><strong>Cvičenie 2.28</strong></span> Gymnázium vyberá študentov z tretieho ročníka do žiackej rady. Študentov v 3.A je 25, študentov v 3.B je 28 a študentov v 3.C je 20. Z každej triedy vyberú jedného študenta. Koľko rôznych zložení študentskej rady existuje?</p>
+<div class="Exercise">
+<p>Gymnázium vyberá študentov z tretieho ročníka do žiackej rady. Študentov v 3.A je 25, študentov v 3.B je 28 a študentov v 3.C je 20. Z každej triedy vyberú jedného študenta. Koľko rôznych zložení študentskej rady existuje?</p>
 </div>
-<div id="exr-" class="theorem exercise">
-<p><span class="theorem-title"><strong>Cvičenie 2.29</strong></span> 30 študentov z triedy náhodne rozdelíme do dvoch projektov. 10 študentov vyberieme do projektu A a 20 študentov vyberieme do projektu B. Aká je pravdepodobnosť, že kamaráti Pankrác a Servác budú spolu v tom istom projekte?</p>
+<div class="Exercise">
+<p>30 študentov z triedy náhodne rozdelíme do dvoch projektov. 10 študentov vyberieme do projektu A a 20 študentov vyberieme do projektu B. Aká je pravdepodobnosť, že kamaráti Pankrác a Servác budú spolu v tom istom projekte?</p>
 </div>
-<div id="exr-" class="theorem exercise">
-<p><span class="theorem-title"><strong>Cvičenie 2.30</strong></span> V dvoch nádobách sú guličky, ktoré sa od seba líšia len farbou. V prvej nádobe je 5 bielych, 11 modrých a 8 zelených guličiek. V druhej nádobe je 10 bielych, 8 modrých a 6 zelených guličiek. Z nádob sa náhodne ťahá po jednej guličke. Aká je pravdepodobnosť toho, že obe guličky sú rovnakej farby?</p>
+<div class="Exercise">
+<p>V dvoch nádobách sú guličky, ktoré sa od seba líšia len farbou. V prvej nádobe je 5 bielych, 11 modrých a 8 zelených guličiek. V druhej nádobe je 10 bielych, 8 modrých a 6 zelených guličiek. Z nádob sa náhodne ťahá po jednej guličke. Aká je pravdepodobnosť toho, že obe guličky sú rovnakej farby?</p>
 </div>
-<div id="exr-" class="theorem exercise">
-<p><span class="theorem-title"><strong>Cvičenie 2.31</strong></span> Medzi 100 výrobkami v sérii sa nachádza 5 nepodarkov. Náhodne sa vyberie polovica výrobkov a preskúša sa. Určte pravdepodobnosť, že výrobky zo série budú prijaté, ak podmienky pre prijatie série dovoľujú nanajvýš jeden nepodarok z 50 výrobkov.</p>
+<div class="Exercise">
+<p>Medzi 100 výrobkami v sérii sa nachádza 5 nepodarkov. Náhodne sa vyberie polovica výrobkov a preskúša sa. Určte pravdepodobnosť, že výrobky zo série budú prijaté, ak podmienky pre prijatie série dovoľujú nanajvýš jeden nepodarok z 50 výrobkov.</p>
 </div>
-<div id="exr-" class="theorem exercise">
-<p><span class="theorem-title"><strong>Cvičenie 2.32</strong></span> Na katedre máme 50 študentov. Na predmet Matematická analýza (A) chodí 30 študentov, na Pravdepodobnosť a štatistiku (P) chodí 20 študentov a na Rovnice a nerovnice (R) chodí 15 študentov. Na A aj P chodí 10 študentov, na A aj R chodí 5 študentov a na P aj R chodí 10 študentov. Na všetky 3 predmety chodia 2 študenti.</p>
+<div class="Exercise">
+<p>Na katedre máme 50 študentov. Na predmet Matematická analýza (A) chodí 30 študentov, na Pravdepodobnosť a štatistiku (P) chodí 20 študentov a na Rovnice a nerovnice (R) chodí 15 študentov. Na A aj P chodí 10 študentov, na A aj R chodí 5 študentov a na P aj R chodí 10 študentov. Na všetky 3 predmety chodia 2 študenti.</p>
 <ol type="a">
 <li>Koľko percent študentov katedry chodí aspoň na jeden z uvedených predmetov?</li>
 <li>Koľko percent študentov katedry chodí presne na jeden z uvedených predmetov? (HINT: pomôžte si obrázkom)</li>
 </ol>
 </div>
-<div id="exr-" class="theorem exercise">
-<p><span class="theorem-title"><strong>Cvičenie 2.33</strong></span> Použitím vlastností funkcie pravdepodobnosti formálne ukážte (Vennov diagram nestačí), že platí <span class="math display">\[P(A\cup B)= P(A) + P(B)- P(A \cap B).\]</span></p>
+<div class="Exercise">
+<p>Použitím vlastností funkcie pravdepodobnosti formálne ukážte (Vennov diagram nestačí), že platí <span class="math display">\[P(A\cup B)= P(A) + P(B)- P(A \cap B).\]</span></p>
 </div>
-<div id="exr-" class="theorem exercise">
-<p><span class="theorem-title"><strong>Cvičenie 2.34</strong></span> Označme <span class="math inline">\(A=\{(x,y) \in \mathbb{R}^2: x^2 + y^2 \leq 3, x &gt; 1\}\)</span> a <span class="math inline">\(B=\{(x,y) \in \mathbb{R}^2: |x| + |y| &lt; 1\}.\)</span> Zobrazte množiny <span class="math inline">\(A \cap B^C\)</span> a <span class="math inline">\(A \cup B^C.\)</span></p>
+<div class="Exercise">
+<p>Označme <span class="math inline">\(A=\{(x,y) \in \mathbb{R}^2: x^2 + y^2 \leq 3, x &gt; 1\}\)</span> a <span class="math inline">\(B=\{(x,y) \in \mathbb{R}^2: |x| + |y| &lt; 1\}.\)</span> Zobrazte množiny <span class="math inline">\(A \cap B^C\)</span> a <span class="math inline">\(A \cup B^C.\)</span></p>
 </div>
-<div id="exr-" class="theorem exercise">
-<p><span class="theorem-title"><strong>Cvičenie 2.35</strong></span> Uvažujme nasledovnú situáciu: trikrát hodíme férovou mincou.</p>
+<div class="Exercise">
+<p>Uvažujme nasledovnú situáciu: trikrát hodíme férovou mincou.</p>
 <ol type="a">
 <li>Zostrojte pravdepodobnostný priestor, ktorý zodpovedá tejto situácii. Podrobne popíšte jeho elementy.</li>
 <li>Aká je pravdepodobnosť, že padne hlava aspoň 2 krát?</li>
 </ol>
 </div>
-<div id="exr-" class="theorem exercise">
-<p><span class="theorem-title"><strong>Cvičenie 2.36</strong></span> Test pozostáva z 10 otázok, každá má možnosti (a), (b), (c), (d), (e) a práve jedna odpoveď je správna. Aká je pravdepodobnosť, že študent, ktorý sa nič neučil zodpovie aspoň 3 otázky správne?</p>
+<div class="Exercise">
+<p>Test pozostáva z 10 otázok, každá má možnosti (a), (b), (c), (d), (e) a práve jedna odpoveď je správna. Aká je pravdepodobnosť, že študent, ktorý sa nič neučil zodpovie aspoň 3 otázky správne?</p>
 </div>
-<div id="exr-" class="theorem exercise">
-<p><span class="theorem-title"><strong>Cvičenie 2.37</strong></span> Máme 5 rovnakých nepriehľadných obálok s darčekom. V jednej je poukaz do kníhkupectva, v druhej sú listky do divadla, v tretej sú letenky, vo štvrtej sú nálepky a v piatej sú vstupenky do múzea vo Svätom Antone. Náhodne si vyberieme 3 obálky.</p>
+<div class="Exercise">
+<p>Máme 5 rovnakých nepriehľadných obálok s darčekom. V jednej je poukaz do kníhkupectva, v druhej sú lístky do divadla, v tretej sú letenky, vo štvrtej sú nálepky a v piatej sú vstupenky do múzea vo Svätom Antone. Náhodne si vyberieme 3 obálky.</p>
 <ol type="a">
 <li>Zostrojte pravdepodobnostný priestor, ktorý zodpovedá tejto situácii. Podrobne popíšte jeho elementy.</li>
 <li>Aká je pravdepodobnosť, že nepôjdeme do múzea vo Svätom Antone?</li>
 <li>Aká je pravdepodobnosť, že pôjdeme do kníhkupectva ale nedostaneme nálepky?</li>
 </ol>
 </div>
-<div id="exr-" class="theorem exercise">
-<p><span class="theorem-title"><strong>Cvičenie 2.38</strong></span> Na plese bolo fantasticky. Tombola je každoročným highlightom tohoto tradičného podujatia a tento rok sa predalo 722 lístkov, bolo udelených 38 cien. Simona si kúpila 40 lístkov, Lukáš si kúpil 20 lístkov. (Lístky stáli 50 centov ale to nie je dôležité.)</p>
+<div class="Exercise">
+<p>Na plese bolo fantasticky. Tombola je každoročným vrcholom tohto tradičného podujatia a tento rok sa predalo 722 lístkov, bolo udelených 38 cien. Simona si kúpila 40 lístkov, Lukáš si kúpil 20 lístkov. (Lístky stáli 50 centov ale to nie je dôležité.)</p>
 <ol type="a">
-<li>Aká je pravepodobnosť, že Simona vyhrá 6 cien?</li>
-<li>Aká je pravepodobnosť, že Lukáš nevyhrá žiadnu cenu?</li>
+<li>Aká je pravdepodobnosť, že Simona vyhrá 6 cien?</li>
+<li>Aká je pravdepodobnosť, že Lukáš nevyhrá žiadnu cenu?</li>
 <li>*Aká je pravdepodobnosť, že Simona vyhrá 6 cien a súčasne Lukáš nevyhrá žiadnu cenu?</li>
 </ol>
 </div>
-<div id="exr-" class="theorem exercise">
-<p><span class="theorem-title"><strong>Cvičenie 2.39</strong></span> Máme 3 bežcov v tíme A a 3 bežcov v tíme B. Všetci sa zúčastnia preteku a výkonnosť všetkých je rovnaká. Aká je pravdodobnosť, že všetci z tímu A budú rýchlejší ako všetci z tímu B a zároveň Jozef Kopelka z tímu A bude druhý?</p>
+<div class="Exercise">
+<p>Máme 3 bežcov v tíme A a 3 bežcov v tíme B. Všetci sa zúčastnia preteku a výkonnosť všetkých je rovnaká. Aká je pravdepodobnosť, že všetci z tímu A budú rýchlejší ako všetci z tímu B a zároveň Jozef Kopelka z tímu A bude druhý?</p>
 </div>
-<div id="exr-" class="theorem exercise">
-<p><span class="theorem-title"><strong>Cvičenie 2.40</strong></span> Balíček 52 kariet je náhodne rozdelený medzi 4 hráčov a každý dostane 13 kariet. Aká je pravdepodobnosť, že všetky 4 esá skončia u (nejakého) jedného hráča?</p>
+<div class="Exercise">
+<p>Balíček 52 kariet je náhodne rozdelený medzi 4 hráčov a každý dostane 13 kariet. Aká je pravdepodobnosť, že všetky 4 esá skončia u (nejakého) jedného hráča?</p>
 </div>
-<div id="exr-" class="theorem exercise">
-<p><span class="theorem-title"><strong>Cvičenie 2.41 (*Súčet multinomických koeficientov)</strong></span> <span class="math display">\[\sum_{\{k_1,...,k_m:k_1+...+k_m=n\}}{{n}\choose{k_1,...,k_m}} = \ ?\]</span></p>
-</div>
-<div id="exr-" class="theorem exercise">
-<p><span class="theorem-title"><strong>Cvičenie 2.42</strong></span> 5 % prípadov, ktoré boli označené lekárskym testom ako pozitívne, je falošne pozitívnych. Ak preskúmame prípady desiatich ľudí, ktorí boli testovaní s pozitívnym výsledkom, aká je pravdepodobnosť, že aspoň deväť je skutočne pozitívnych?<br>
+</section>
+<section id="súčet-multinomických-koeficientov" class="level2 Exercise" data-number="2.10">
+<h2 data-number="2.10" class="anchored" data-anchor-id="súčet-multinomických-koeficientov"><span class="header-section-number">2.10</span> Súčet multinomických koeficientov</h2>
+<p><span class="math display">\[\sum_{\{k_1,...,k_m:k_1+...+k_m=n\}}{{n}\choose{k_1,...,k_m}} = \ ?\]</span></p>
+</section>
+<div class="Exercise">
+<p>5 % prípadov, ktoré boli označené lekárskym testom ako pozitívne, je falošne pozitívnych. Ak preskúmame prípady desiatich ľudí, ktorí boli testovaní s pozitívnym výsledkom, aká je pravdepodobnosť, že aspoň deväť je skutočne pozitívnych?<br>
 <em>(Zdroj: <a href="https://esc2023.statistics.sk/files/test1katA.PDF">ESC 2023 Skúšobný test 1, Úloha 2, kat. A</a>)</em></p>
 </div>
-<div id="exr-" class="theorem exercise">
-<p><span class="theorem-title"><strong>Cvičenie 2.43</strong></span> V štúdii sa analyzuje určitý počet spoločností, z ktorých 30% majú za vrcholového manažéra ženu. Aká je pravdepodobnosť, že v 20 náhodne vybraných spoločnostiach je aspoň 10 top manažérok?<br>
+<div class="Exercise">
+<p>V štúdii sa analyzuje určitý počet spoločností, z ktorých 30% majú za vrcholového manažéra ženu. Aká je pravdepodobnosť, že v 20 náhodne vybraných spoločnostiach je aspoň 10 top manažérok?<br>
 <em>(Zdroj: <a href="https://esc2025.statistics.sk/files/priklady-testov/esc2025-nk1-kat_a-ukazka_testu_1.pdf">ESC 2025 Skúšobný test 1, Úloha 8, kat. A</a>)</em></p>
 </div>
-<div id="exr-" class="theorem exercise">
-<p><span class="theorem-title"><strong>Cvičenie 2.44</strong></span> Koľko rôznych štvorciferných čísel možno vytvoriť tak, aby na konci bolo párne číslo, pričom sa použijú iba čísla 1, 2, 3, 4, 5 (bez opakovania)?<br>
+<div class="Exercise">
+<p>Koľko rôznych štvorciferných čísel možno vytvoriť tak, aby na konci bolo párne číslo, pričom sa použijú iba čísla 1, 2, 3, 4, 5 (bez opakovania)?<br>
 <em>(Zdroj: <a href="https://esc2024.statistics.sk/files/priklady-sutaznych-testov/Test1_kat.B_ver.1.pdf">ESC 2024 Skúšobný test 1, Úloha 10, kat. B</a>)</em></p>
 </div>
-<div id="exr-" class="theorem exercise">
-<p><span class="theorem-title"><strong>Cvičenie 2.45</strong></span> V kartotéke máme 10 dokumentov, 5 z nich je účtovných, 3 organizačné a 2 finančné. Ak vieme, že prvý dokument je účtovný a ostatné sú uložené náhodne, aká je pravdepodobnosť, že dokumenty rovnakého typu sú spolu?<br>
+<div class="Exercise">
+<p>V kartotéke máme 10 dokumentov, 5 z nich je účtovných, 3 organizačné a 2 finančné. Ak vieme, že prvý dokument je účtovný a ostatné sú uložené náhodne, aká je pravdepodobnosť, že dokumenty rovnakého typu sú spolu?<br>
 <em>(Zdroj: <a href="https://esc2024.statistics.sk/files/priklady-sutaznych-testov/Test1_kat.A_ver.1.pdf">ESC 2024 Skúšobný test 1, Úloha 1, kat. A</a>)</em></p>
 </div>
-<div id="exr-" class="theorem exercise">
-<p><span class="theorem-title"><strong>Cvičenie 2.46</strong></span> Poznávacie značky áut v istej krajine pozostávajú zo štyroch číslic a troch písmen. Používajú sa nasledujúce písmená: B, C, D, F, G, H, J, K, L, M, N, P, R, S, T, V, W, X, Y a Z a všetky číslice od 0 do 9. Pravdepodobnosť, že poznávacia značka má všetky číslice a písmená rozdielne, je:<br>
+<div class="Exercise">
+<p>Poznávacie značky áut v istej krajine pozostávajú zo štyroch číslic a troch písmen. Používajú sa nasledujúce písmená: B, C, D, F, G, H, J, K, L, M, N, P, R, S, T, V, W, X, Y a Z a všetky číslice od 0 do 9. Pravdepodobnosť, že poznávacia značka má všetky číslice a písmená rozdielne, je:<br>
 <em>(Zdroj: <a href="https://esc2026.statistics.sk/files/priklady-testov/esc2026-nk1-kat_b-ukazka_testu_2.pdf">ESC 2026 Skúšobný test 1, Úloha 1, kat. A</a>)</em></p>
 </div>
 
 
-</section>
 <section id="footnotes" class="footnotes footnotes-end-of-document" role="doc-endnotes">
 <hr>
 <ol>
-<li id="fn1"><p>Z formálneho hľadiska <span class="math inline">\(\mathcal{F}\)</span> musí byť <span class="math inline">\(\sigma-\)</span>algebra podmnožín <span class="math inline">\(\Omega\)</span>. To znamená, že priraďovanie pravdepodobnosti musí byť vnútorne konzistentné. Technicky musia byť splnené tieto tri podmienky: (1) Ak <span class="math inline">\(A \in \mathcal{F}\)</span>, teda ak viem priradiť udalosti <span class="math inline">\(A\)</span> nejakú pravdepodobnosť, tak budem musieť vedieť priradiť pravdepodobosť aj udalosti <span class="math inline">\(A^C,\)</span> teda, že <span class="math inline">\(A\)</span> <em>nenastala</em>. (2) Ak <span class="math inline">\(A_1,A_2, A_3, \dots \in \mathcal{F}\)</span>, potom aj <span class="math inline">\(\cup_{i=1}^{\infty} A_i \in \mathcal{F}\)</span>. Vysvetlíme si to na príklade dvoch množín: ak <span class="math inline">\(A,B \in \mathcal{F}\)</span>, potom aj <span class="math inline">\(A \cup B \in \mathcal{F}\)</span>, teda ak viem priradiť pravdepodobnosť udalostiam <span class="math inline">\(A\)</span> a <span class="math inline">\(B\)</span>, potom musím vedieť priradiť pravdepodobnosť aj udalosti <span class="math inline">\(A \cup B\)</span>, teda že nastala udalosť <span class="math inline">\(A\)</span> <em>alebo</em> udalosť <span class="math inline">\(B\)</span>. (3) <span class="math inline">\(\Omega \in \mathcal{F},\)</span> teda viem priradiť pravdepodobnosť udalosti, že <em>niečo</em> nastalo. V rámci tohoto kurzu sa nebudeme podrobne venovať <span class="math inline">\(\mathcal{F}\)</span>. Budeme predpokladať, že ide o korektnú <span class="math inline">\(\sigma-\)</span>algebru. Do väčších podrobností sa zahĺbite v rámci kurzov <em>Teória miery a integrálu</em> a <em>Teória pravdepodobnosti</em>.<a href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn1"><p>Z formálneho hľadiska <span class="math inline">\(\mathcal{F}\)</span> musí byť <span class="math inline">\(\sigma-\)</span>algebra podmnožín <span class="math inline">\(\Omega\)</span>. To znamená, že priraďovanie pravdepodobnosti musí byť vnútorne konzistentné. Technicky musia byť splnené tieto tri podmienky: (1) Ak <span class="math inline">\(A \in \mathcal{F}\)</span>, teda ak viem priradiť udalosti <span class="math inline">\(A\)</span> nejakú pravdepodobnosť, tak budem musieť vedieť priradiť pravdepodobnosť aj udalosti <span class="math inline">\(A^C,\)</span> teda, že <span class="math inline">\(A\)</span> <em>nenastala</em>. (2) Ak <span class="math inline">\(A_1,A_2, A_3, \dots \in \mathcal{F}\)</span>, potom aj <span class="math inline">\(\cup_{i=1}^{\infty} A_i \in \mathcal{F}\)</span>. Vysvetlíme si to na príklade dvoch množín: ak <span class="math inline">\(A,B \in \mathcal{F}\)</span>, potom aj <span class="math inline">\(A \cup B \in \mathcal{F}\)</span>, teda ak viem priradiť pravdepodobnosť udalostiam <span class="math inline">\(A\)</span> a <span class="math inline">\(B\)</span>, potom musím vedieť priradiť pravdepodobnosť aj udalosti <span class="math inline">\(A \cup B\)</span>, teda že nastala udalosť <span class="math inline">\(A\)</span> <em>alebo</em> udalosť <span class="math inline">\(B\)</span>. (3) <span class="math inline">\(\Omega \in \mathcal{F},\)</span> teda viem priradiť pravdepodobnosť udalosti, že <em>niečo</em> nastalo. V rámci tohto kurzu sa nebudeme podrobne venovať <span class="math inline">\(\mathcal{F}\)</span>. Budeme predpokladať, že ide o korektnú <span class="math inline">\(\sigma-\)</span>algebru. Do väčších podrobností sa zahĺbite v rámci kurzov <em>Teória miery a integrálu</em> a <em>Teória pravdepodobnosti</em>.<a href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
 <li id="fn2"><p>Každý jeden krát sa nájde mnoho ľudí, ktorí nesprávne označujú, že pravdepodobnosť je funkcia z <span class="math inline">\(\Omega\)</span> do <span class="math inline">\([0,1]\)</span>. Nie. Nie je. Je to funkcia <span class="math inline">\(\mathcal{F} \rightarrow [0,1].\)</span><a href="#fnref2" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
 <li id="fn3"><p>V matematike je dobrým zvykom pracovať s objektami o ktorých existencii niet pochýb.<a href="#fnref3" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
 <li id="fn4"><p>Najmä pri komplikovanejších prípadoch toto nie je vždy priamočiare. Pre potreby nášho kurzu to však bude postačujúce. Ak napríklad budeme uvažovať o pravdepodobnostnom priestore, ktorý zodpovedá tomu, že rovnomerne náhodne vyberieme nejaké číslo z intervalu <span class="math inline">\([0,1],\)</span> <em>nebudeme môcť uvažovať</em> <span class="math inline">\(\mathcal{F} = 2^{[0,1]}.\)</span> Takáto voľba <span class="math inline">\(\mathcal{F}\)</span> by spôsobila, že nemôže existovať žiadna funkcia <span class="math inline">\(P\)</span>, ktorá by spĺňala všetky 3 vlastnosti funkcie pravdepodobnosti a zároveň by každému intervalu priradila jeho dĺžku, akoby sme intuitívne očakávali. Konštrukcia vhodnej <span class="math inline">\(\mathcal{F}\)</span> je v tomto prípade veľmi prácna (8 krokový dôkaz) a pravdepodobnosť zadefinovaná na takomto pravdepodobnostnom priestore sa nazýva <em>Lebesgueova miera</em> na <span class="math inline">\([0,1]\)</span>.<a href="#fnref4" class="footnote-back" role="doc-backlink">↩︎</a></p></li>

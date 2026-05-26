@@ -242,12 +242,12 @@ window.Quarto = {
 </header>
 
 
-<p>Zákon veľkých čisel je jedným z najdôležitejších výsledkov v pravdepodobnosti a štatistike. Hovorí o tom, že aritmetický priemer vypočítaný zo stále väčšieho a väčšíeho počtu nezávislých a rovnako rozdelených náhodných premenných sa blíži k skutočnej strednej hodnote.<a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a> Zároveň je to aj výsledok, ktorý sme potichu používali len sme o tom nehovorili explicitne. Vždy, keď používame počítačovú simuláciu na ukázanie akýchsi vlastností náhodnej premennej, využívame fakt, že pri dostatočne veľkom množstve simulácií sú tieto odsimulované vlastnosti výpovedné o skutočných vlastnostiach.</p>
-<div id="exm-" class="Example theorem example">
-<p><span class="theorem-title"><strong>Príklad 8.1</strong></span> Majme mincu o ktorej nevieme, či je férová alebo nie. Chceli by sme vedieť aká je pravdepodobnosť toho, že padne hlava (<span class="math inline">\(X=1\)</span>) alebo znak (<span class="math inline">\(X=0\)</span>). Teda uvažujeme <span class="math inline">\(X \sim \text{Bern}(p)\)</span>. Hádžeme mincou, napríklad 8 krát a dostávame realizáciu siedmych náhodných premenných <span class="math inline">\(X_1, X_2, X_3, X_4, X_5, X_6, X_7, X_8.\)</span> Hádžeme tak, že výsledok každého hodu nesúvisí s tým predošlým, takže <span class="math inline">\(\{X_i\}_{i=1}^8\)</span> sú nezávislé. Každé <span class="math inline">\(X_i\)</span> je hod mincou, takže <span class="math inline">\(X_i \sim \text{Bern}(p)\)</span> Nevieme aké je <span class="math inline">\(p\)</span> ale intuícia nám hovorí, že to bude blízke <span class="math inline">\(\sum_{i=1}^{8}X_i/8.\)</span> Vskutku, <span class="math inline">\(Y = \sum_{i=1}^{8}X_i \sim \text{Bin}(8,p)\)</span> a <span class="math inline">\(\text{E}[Y] = 8p\)</span> preto <span class="math inline">\(\text{E}[Y/8] = p.\)</span> Osem realizácií je dosť málo, čím viacej by sme ich mali, tým bližšie by bol aritmetický priemer skutočnému priemeru.</p>
-<p>Zákon veľkých čisel upresňuje túto intuíciu.</p>
+<p>Zákon veľkých čísel je jedným z najdôležitejších výsledkov v pravdepodobnosti a štatistike. Hovorí o tom, že aritmetický priemer vypočítaný zo stále väčšieho a väčšieho počtu nezávislých a rovnako rozdelených náhodných premenných sa blíži k skutočnej strednej hodnote.<a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a> Zároveň je to aj výsledok, ktorý sme potichu používali len sme o tom nehovorili explicitne. Vždy, keď používame počítačovú simuláciu na ukázanie akýchsi vlastností náhodnej premennej, využívame fakt, že pri dostatočne veľkom množstve simulácií sú tieto odsimulované vlastnosti výpovedné o skutočných vlastnostiach.</p>
+<div class="Example">
+<p>Majme mincu o ktorej nevieme, či je férová alebo nie. Chceli by sme vedieť aká je pravdepodobnosť toho, že padne hlava (<span class="math inline">\(X=1\)</span>) alebo znak (<span class="math inline">\(X=0\)</span>). Teda uvažujeme <span class="math inline">\(X \sim \text{Bern}(p)\)</span>. Hádžeme mincou, napríklad 8 krát a dostávame realizáciu ôsmich náhodných premenných <span class="math inline">\(X_1, X_2, X_3, X_4, X_5, X_6, X_7, X_8.\)</span> Hádžeme tak, že výsledok každého hodu nesúvisí s tým predošlým, takže <span class="math inline">\(\{X_i\}_{i=1}^8\)</span> sú nezávislé. Každé <span class="math inline">\(X_i\)</span> je hod mincou, takže <span class="math inline">\(X_i \sim \text{Bern}(p)\)</span>. Nevieme aké je <span class="math inline">\(p\)</span> ale intuícia nám hovorí, že to bude blízke <span class="math inline">\(\sum_{i=1}^{8}X_i/8.\)</span> Vskutku, <span class="math inline">\(Y = \sum_{i=1}^{8}X_i \sim \text{Bin}(8,p)\)</span> a <span class="math inline">\(\text{E}[Y] = 8p\)</span> preto <span class="math inline">\(\text{E}[Y/8] = p.\)</span> Osem realizácií je dosť málo, čím viac by sme ich mali, tým bližšie by bol aritmetický priemer skutočnému priemeru.</p>
+<p>Zákon veľkých čísel upresňuje túto intuíciu.</p>
 </div>
-<p>V prvom rade treba zadefinovať, čo znamenená <em>blízke</em> alebo <em>blížiť sa</em>. Cudzím slovom <em>konvergovať</em>. Ešte predtým, čo znamená nezávislosť náhodných premenných pre viac ako len dve náhodné premenné.</p>
+<p>V prvom rade treba zadefinovať, čo znamená <em>blízke</em> alebo <em>blížiť sa</em>. Cudzím slovom <em>konvergovať</em>. Ešte predtým, čo znamená nezávislosť náhodných premenných pre viac ako len dve náhodné premenné.</p>
 <p>Hovoríme, že náhodné premenné <span class="math inline">\(X_1, X_2, \dots, X_n\)</span> sú <strong>nezávislé</strong> ak platí,</p>
 <p><span class="math display">\[P(X_1 \leq x_1, X_2 \leq x_2, \dots, X_n \leq x_n) = P(X_1 \leq x_1) \cdot P(X_2 \leq x_2) \cdots P(X_n \leq x_n)\]</span></p>
 <p>pre všetky <span class="math inline">\(x_1, x_2, \dots, x_n \in \mathbb{R}.\)</span></p>
@@ -261,7 +261,7 @@ window.Quarto = {
 <p>Hovoríme, že postupnosť náhodných premenných <span class="math inline">\(\{X_i\}_{i=1}^{\infty}\)</span> <strong>konverguje podľa pravdepodobnosti</strong> k náhodnej premennej <span class="math inline">\(X\)</span> ak platí:</p>
 <p><span class="math display">\[\forall \epsilon &gt; 0: \lim_{n \rightarrow \infty}P(|X_n - X| &lt; \epsilon) = 1.\]</span> Toto označujeme <span class="math inline">\(X_n \rightarrow_P X.\)</span></p>
 <p>Pripomeňme si, čo je vlastne tento objekt <span class="math inline">\(P(|X_n - X| &lt; \epsilon):\)</span></p>
-<p><span class="math display">\[P(|X_n - X| &lt; \epsilon) = P \left( \{\omega \in \Omega: |X_n(\omega) - X(\omega)|&lt; \epsilon \} \right).\]</span> To znamená, že pre akékoľvek malé <span class="math inline">\(\epsilon\)</span> existuje nejaké dostatočne veľké <span class="math inline">\(n_0\)</span> také, že pre všetky <span class="math inline">\(n \geq n_0\)</span> bude pravdepodobnosť toho, že <span class="math inline">\(X_n\)</span> bude <span class="math inline">\(\epsilon\)</span>-blízko <span class="math inline">\(X\)</span> ľubovoľne blízka nule.<a href="#fn2" class="footnote-ref" id="fnref2" role="doc-noteref"><sup>2</sup></a> Pri fixnom <span class="math inline">\(\epsilon\)</span> sa pozeráme na čísla <span class="math inline">\(a_n \equiv P(|X_n - X| &lt; \epsilon)\)</span> len ako na nejakú postupnosť <span class="math inline">\(a_n\)</span>, ktorá sa mení s <span class="math inline">\(n\)</span>.</p>
+<p><span class="math display">\[P(|X_n - X| &lt; \epsilon) = P \left( \{\omega \in \Omega: |X_n(\omega) - X(\omega)|&lt; \epsilon \} \right).\]</span> To znamená, že pre akékoľvek malé <span class="math inline">\(\epsilon\)</span> existuje nejaké dostatočne veľké <span class="math inline">\(n_0\)</span> také, že pre všetky <span class="math inline">\(n \geq n_0\)</span> bude pravdepodobnosť toho, že <span class="math inline">\(X_n\)</span> bude <span class="math inline">\(\epsilon\)</span>-blízko <span class="math inline">\(X\)</span> ľubovoľne blízka jednotke.<a href="#fn2" class="footnote-ref" id="fnref2" role="doc-noteref"><sup>2</sup></a> Pri fixnom <span class="math inline">\(\epsilon\)</span> sa pozeráme na čísla <span class="math inline">\(a_n \equiv P(|X_n - X| &lt; \epsilon)\)</span> len ako na nejakú postupnosť <span class="math inline">\(a_n\)</span>, ktorá sa mení s <span class="math inline">\(n\)</span>.</p>
 <p>Špeciálnym prípadom je, ak je limitná náhodná premenná <span class="math inline">\(X\)</span> rovná nejakej konštante, teda ak <span class="math inline">\(X_n \rightarrow_P c.\)</span></p>
 </section>
 <section id="markovova-nerovnosť" class="level2" data-number="8.2">
@@ -292,7 +292,7 @@ c, &amp; \text{ak}\ X \geq c.
 <p>Alternatívnou formuláciou, ak zvolíme <span class="math inline">\(k=\frac{c}{\sigma}\)</span> je</p>
 <p><span class="math display">\[P(|X-\mu|\geq c) \leq \frac{\sigma^2}{c^2}.\]</span></p>
 <div class="proof">
-<p><span class="proof-title"><em>Dôkaz</em>. </span>Označme <span class="math inline">\(Y = (X-\mu)^2,\)</span> ktorá je nezáporná náhodná premenná a zároveň platí <span class="math inline">\(\text{E}[Y] = \sigma^2.\)</span> Naviac platí <span class="math display">\[P(|X-\mu|\geq k \sigma) = P((X-\mu)^2\geq k^2 \sigma^2) \leq \frac{\sigma^2}{k^2 \sigma^2} = \frac{1}{k^2},\]</span> kde nerovnosť vyplýva z Markovovej nerovnosti.</p>
+<p><span class="proof-title"><em>Dôkaz</em>. </span>Označme <span class="math inline">\(Y = (X-\mu)^2,\)</span> ktorá je nezáporná náhodná premenná a zároveň platí <span class="math inline">\(\text{E}[Y] = \sigma^2.\)</span> Navyše platí <span class="math display">\[P(|X-\mu|\geq k \sigma) = P((X-\mu)^2\geq k^2 \sigma^2) \leq \frac{\sigma^2}{k^2 \sigma^2} = \frac{1}{k^2},\]</span> kde nerovnosť vyplýva z Markovovej nerovnosti.</p>
 </div>
 <p>Nezávisle od typu rozdelenia:</p>
 <ul>
@@ -308,17 +308,17 @@ c, &amp; \text{ak}\ X \geq c.
 <p>Pripomeňme, že pre nezávislé náhodné premenné <span class="math inline">\(X,Y\)</span> platí <span class="math inline">\(\text{Var}[X+Y] = \text{Var}[X] + \text{Var}[Y].\)</span></p>
 <p>Pre <span class="math inline">\(n\)</span> nezávislých náhodných premenných <span class="math inline">\(X_1,...,X_n\)</span> analogicky platí <span class="math inline">\(\text{Var}[X_1+...+X_n] = \text{Var}[X_1] +...+ \text{Var}[X_n].\)</span></p>
 <p>&nbsp;</p>
-<p>Pripomeňme tiež, že <span class="math inline">\(\text{Var}[aX+b] = a^2\text{Var}[X].\)</span><a href="#fn3" class="footnote-ref" id="fnref3" role="doc-noteref"><sup>3</sup></a> Ide o použitie tohoto výsledku, ak <span class="math inline">\(Y\)</span> je konštantná 1 a teda <span class="math inline">\(\text{Var}(Y)=0\)</span> a <span class="math inline">\(\text{Cov}(X,Y)=0\)</span>. <span class="math display">\[
+<p>Pripomeňme tiež, že <span class="math inline">\(\text{Var}[aX+b] = a^2\text{Var}[X].\)</span><a href="#fn3" class="footnote-ref" id="fnref3" role="doc-noteref"><sup>3</sup></a> Ide o použitie tohto výsledku, ak <span class="math inline">\(Y\)</span> je konštantná 1 a teda <span class="math inline">\(\text{Var}(Y)=0\)</span> a <span class="math inline">\(\text{Cov}(X,Y)=0\)</span>. <span class="math display">\[
 \begin{split}
 \text{Var}[aX+bY] &amp;= \text{E}\left[ [(aX+bY]-\text{E}[aX+bY)]^2 \right] \\
-&amp;= \text{E}\left[ (a (X-\text{E}[X]) + b (Y-\text{E}[Y])^2 \right] \\
+&amp;= \text{E}\left[ (a (X-\text{E}[X]) + b (Y-\text{E}[Y]))^2 \right] \\
 &amp;= \text{E}\left[ a^2 \, (X-\text{E}[X])^2 + b^2 \, (Y-\text{E}[Y])^2 + 2ab \, (X-\text{E}[X]) (Y-\text{E}[Y]) \right] \\
 &amp;= \text{E}\left[ a^2 \, (X-\text{E}[X])^2 \right] + \text{E}\left[ b^2 \, (Y-\text{E}[Y])^2 \right] + \text{E}\left[ 2ab \, (X-\text{E}[X]) (Y-\text{E}[Y]) \right] \\
 &amp;= a^2 \, \text{Var}[X] + b^2 \, \text{Var}[Y] + 2ab \, \text{Cov}[X,Y] \; . \\
 \end{split}
 \]</span></p>
 <p>&nbsp;</p>
-<p>Teraz príde jeden z najdôležitejších výsledkov prezentovaných v rámci tohoto kurzu.</p>
+<p>Teraz príde jeden z najdôležitejších výsledkov prezentovaných v rámci tohto kurzu.</p>
 <p>&nbsp; &nbsp;</p>
 <p>[Dramatická pauza.]</p>
 <p>&nbsp; &nbsp;</p>
@@ -327,63 +327,15 @@ c, &amp; \text{ak}\ X \geq c.
 </div>
 <div class="proof">
 <p><span class="proof-title"><em>Dôkaz</em>. </span>Nakoľko <span class="math inline">\(X_1,X_2,X_3,\cdots\)</span> sú nezávislé platí <span class="math display">\[\text{Var}\left[\sum_{i=1}^{n}X_i\right] = \sum_{i=1}^{n}\text{Var}[X_i] = n\sigma^2,\]</span> preto <span class="math display">\[\text{Var}\left[\bar X_n \right]  = \text{Var}\left[\sum_{i=1}^{n}X_i/n\right] = \frac{1}{n^2}\text{Var}\left[\sum_{i=1}^{n}X_i\right] = \frac{n\sigma^2}{n^2} = \frac{\sigma^2}{n}.\]</span></p>
-<p>Naviac <span class="math display">\[\text{E}\left[\bar X_n\right] = \text{E}\left[\sum_{i=1}^{n}X_i/n\right] = \sum_{i=1}^{n}\text{E}[X_i]/n = \frac{n\mu}{n} = \mu.\]</span></p>
+<p>Navyše <span class="math display">\[\text{E}\left[\bar X_n\right] = \text{E}\left[\sum_{i=1}^{n}X_i/n\right] = \sum_{i=1}^{n}\text{E}[X_i]/n = \frac{n\mu}{n} = \mu.\]</span></p>
 <p>Použitím Čebyševovej nerovnosti dostávame</p>
 <p><span class="math display">\[ P(|\bar X_n-\mu|\geq \epsilon ) \leq \frac{\sigma^2}{\epsilon^2n},\]</span> a preto <span class="math inline">\(\lim_{n \rightarrow \infty }P(|\bar X_n-\mu|\geq \epsilon ) = 0\)</span>, teda <span class="math inline">\(\lim_{n \rightarrow \infty }P(|\bar X_n-\mu| &lt; \epsilon ) = 1,\)</span> pre akékoľvek <span class="math inline">\(\epsilon &gt; 0,\)</span> čo sme chceli ukázať.</p>
 </div>
 <p>Tu je ilustrácia kde sa aritmetický priemer pre výrazne iné typy náhodných premenných blíži ku svojej skutočnej hodnote.</p>
-<div class="cell">
-<div class="cell-output-display">
-<div>
-<figure class="figure">
-<p><img src="zvc_files/figure-html/zvc-1-1.png" class="img-fluid figure-img" width="672"></p>
-</figure>
-</div>
-</div>
-<div class="cell-output-display">
-<div>
-<figure class="figure">
-<p><img src="zvc_files/figure-html/zvc-1-2.png" class="img-fluid figure-img" width="672"></p>
-</figure>
-</div>
-</div>
-<div class="cell-output-display">
-<div>
-<figure class="figure">
-<p><img src="zvc_files/figure-html/zvc-1-3.png" class="img-fluid figure-img" width="672"></p>
-</figure>
-</div>
-</div>
-<div class="cell-output-display">
-<div>
-<figure class="figure">
-<p><img src="zvc_files/figure-html/zvc-1-4.png" class="img-fluid figure-img" width="672"></p>
-</figure>
-</div>
-</div>
-</div>
-<div class="cell">
-<div class="cell-output-display">
-<div>
-<figure class="figure">
-<p><img src="zvc_files/figure-html/animzvc-.gif" class="img-fluid figure-img" width="672"></p>
-</figure>
-</div>
-</div>
-</div>
 <p>Ak však vyskúšame Cauchyho rozdelenie, ktoré nemá strednú hodnotu, dostaneme nasledujúci obrázok.</p>
-<div class="cell">
-<div class="cell-output-display">
-<div>
-<figure class="figure">
-<p><img src="zvc_files/figure-html/zvc-2-1.png" class="img-fluid figure-img" width="672"></p>
-</figure>
-</div>
-</div>
-</div>
 <p>Zákon veľkých čísel o tomto prípade nehovorí nič.</p>
-<div id="exm-" class="Example theorem example">
-<p><span class="theorem-title"><strong>Príklad 8.2</strong></span> Nech <span class="math inline">\(A\)</span> je nejaká udalosť a nech <span class="math display">\[\begin{equation*}
+<div class="Example">
+<p>Nech <span class="math inline">\(A\)</span> je nejaká udalosť a nech <span class="math display">\[\begin{equation*}
 1_A(\omega) =
 \begin{cases}
 1, &amp; \text{ak}\ \omega \in A, \\
@@ -393,18 +345,18 @@ c, &amp; \text{ak}\ X \geq c.
 <p>Potom platí <span class="math inline">\(\text{E}[1_A] = 1\cdot P(A) + 0\cdot P(A^C) = P(A).\)</span></p>
 <p>Preto ak odsimulujeme na počítači 10000 simulácií a v nich <span class="math inline">\(A\)</span> nastala 13 krát, odhadujeme, že <span class="math inline">\(P(A)\)</span> je rovné <span class="math inline">\(0.0013.\)</span> Tento odhad sa bude blížiť ku skutočnej hodnote pre stále väčšie množstvo simulácií. Je to kvôli ZVČ, lebo <span class="math inline">\(\bar{X}_n = \frac{0+ 0+ 1+ \cdots + 0}{10000} = 0.0013,\)</span> kde <span class="math inline">\(X_i\)</span> majú rovnaké pravdepodobnostné rozdelenie ako <span class="math inline">\(1_A\)</span> a sú nezávislé.</p>
 </div>
-<div id="exm-" class="Example theorem example">
-<p><span class="theorem-title"><strong>Príklad 8.3</strong></span> Chceli by sme simulačne vypočítať číslo <span class="math inline">\(\pi.\)</span> Obsah štvrťkruhu so stredom v <span class="math inline">\([0,0]\)</span> s polomerom 1 vo štvorci <span class="math inline">\([0,1] \times [0,1]\)</span> je rovný <span class="math inline">\(\pi/4.\)</span> Vygenerujeme mnoho čísel z <span class="math inline">\([0,1] \times [0,1]\)</span> a pozrieme sa na proporciu tých, ktoré skončia vo štvrťkruhu. Nech <span class="math inline">\(X_i=1\)</span> vtedy ak dané číslo patrí štvrťkruhu. Potom</p>
+<div class="Example">
+<p>Chceli by sme simulačne vypočítať číslo <span class="math inline">\(\pi.\)</span> Obsah štvrťkruhu so stredom v <span class="math inline">\([0,0]\)</span> s polomerom 1 vo štvorci <span class="math inline">\([0,1] \times [0,1]\)</span> je rovný <span class="math inline">\(\pi/4.\)</span> Vygenerujeme mnoho čísel z <span class="math inline">\([0,1] \times [0,1]\)</span> a pozrieme sa na proporciu tých, ktoré skončia vo štvrťkruhu. Nech <span class="math inline">\(X_i=1\)</span> vtedy ak dané číslo patrí štvrťkruhu. Potom</p>
 <p><span class="math display">\[P \left(\left| \frac{X_1 + X_2 + \cdots X_n}{n} - \frac{\pi}{4}\right|\geq \epsilon \right) \leq \frac{\text{Var}[X_i]}{n \epsilon^2} = \frac{\frac{\pi}{4}(1-\frac{\pi}{4})}{n \epsilon^2}.\]</span></p>
 <p>Nevieme však koľko je <span class="math inline">\(\frac{\pi}{4}(1-\frac{\pi}{4})\)</span> (toto číslo chceme aproximovať) ale funkcia <span class="math inline">\(p(1-p)\)</span> nadobúda svoje maximum v <span class="math inline">\(1/4.\)</span> Preto</p>
 <p><span class="math display">\[P \left(\left| \frac{X_1 + X_2 + \cdots X_n}{n} - \frac{\pi}{4}\right|\geq \epsilon \right) \leq  \frac{1}{4 n \epsilon^2}.\]</span></p>
-<p>Ak napríklad chceme dostať simulačný odhad na 3 desatinné miesta, teda s presnosťou <span class="math inline">\(1/1000,\)</span> musíme zvoliť <span class="math inline">\(\epsilon = 1/4000.\)</span><a href="#fn4" class="footnote-ref" id="fnref4" role="doc-noteref"><sup>4</sup></a>: Ak si chceme byť istý, že náš odhad bude v tomto rozmedzí s pravdepodobnosťou <span class="math inline">\(1\%,\)</span> potrebujeme aby <span class="math display">\[\frac{4000^2}{4 n} = \frac{4,000,000}{n} \leq 0.01 \implies n \geq 400,000,000.\]</span> Takže potrebujeme aspoň 400 miliónov simulácií.<a href="#fn5" class="footnote-ref" id="fnref5" role="doc-noteref"><sup>5</sup></a></p>
+<p>Ak napríklad chceme dostať simulačný odhad na 3 desatinné miesta, teda s presnosťou <span class="math inline">\(1/1000,\)</span> musíme zvoliť <span class="math inline">\(\epsilon = 1/4000.\)</span><a href="#fn4" class="footnote-ref" id="fnref4" role="doc-noteref"><sup>4</sup></a> Ak si chceme byť istí, že náš odhad bude v tomto rozmedzí s pravdepodobnosťou <span class="math inline">\(99\%,\)</span> potrebujeme aby <span class="math display">\[\frac{4000^2}{4 n} = \frac{4,000,000}{n} \leq 0.01 \implies n \geq 400,000,000.\]</span> Takže potrebujeme aspoň 400 miliónov simulácií.<a href="#fn5" class="footnote-ref" id="fnref5" role="doc-noteref"><sup>5</sup></a></p>
 </div>
 </section>
 <section id="čo-zákon-o-veľkých-číslach-nehovorí" class="level2" data-number="8.5">
 <h2 data-number="8.5" class="anchored" data-anchor-id="čo-zákon-o-veľkých-číslach-nehovorí"><span class="header-section-number">8.5</span> Čo zákon o veľkých číslach nehovorí</h2>
-<p>Hádžeme férovou mincou. Za posledných 20 hodov nám nepadla ani raz hlava. Ale vieme, že platí ZVČ, preto by teraz malo padať viacej hláv, nie?</p>
-<p>Veru nie. ZVČ hovorí o <em>limitnom prípade</em> (a nekonečno je o dosť viacej ako 20). Skutočnosť, že sa nám teraz nedarilo hádzať hlavy (alebo hádzať 6ku v doskovej hre) nijakovsky nesúví s tým, čo sa bude diať neskôr. Tie hody sú stále nezávislé a šanca uvidieť hlavu je rovnako veľká ako na začiatku hádzania.</p>
+<p>Hádžeme férovou mincou. Za posledných 20 hodov nám nepadla ani raz hlava. Ale vieme, že platí ZVČ, preto by teraz malo padať viac hláv, nie?</p>
+<p>Veru nie. ZVČ hovorí o <em>limitnom prípade</em> (a nekonečno je o dosť viac ako 20). Skutočnosť, že sa nám teraz nedarilo hádzať hlavy (alebo hádzať 6ku v doskovej hre) nijakovsky nesúvisí s tým, čo sa bude diať neskôr. Tie hody sú stále nezávislé a šanca uvidieť hlavu je rovnako veľká ako na začiatku hádzania.</p>
 </section>
 <section id="cvičenia" class="level2" data-number="8.6">
 <h2 data-number="8.6" class="anchored" data-anchor-id="cvičenia"><span class="header-section-number">8.6</span> Cvičenia</h2>
@@ -423,32 +375,32 @@ c, &amp; \text{ak}\ X \geq c.
 <div id="exr-nezav" class="Exercise theorem exercise">
 <p><span class="theorem-title"><strong>Cvičenie 8.5</strong></span> Majme postupnosť <span class="math inline">\(X_1, X_2,\dots\)</span> nezávislých náhodných premenných so strednou hodnotou <span class="math inline">\(3.5\)</span> a varianciou <span class="math inline">\(35/12\)</span>. Akú veľkú musíme nastaviť hodnotu <span class="math inline">\(n\)</span>, aby sme si boli istí, že <span class="math display">\[P(3 &lt; \bar{X}_n &lt; 4) \geq 0.8.\]</span></p>
 </div>
-<div id="exr-" class="Exercise theorem exercise">
-<p><span class="theorem-title"><strong>Cvičenie 8.6</strong></span> Majme postupnosť <span class="math inline">\(X_1, X_2,\dots\)</span> náhodných premenných nezávislých hodov férovou kockou. Koľkokrát musíme hodiť hockou, aby sme si boli istí, že <span class="math display">\[P(3 &lt; \bar{X}_n &lt; 4) \geq 0.8.\]</span> Porovnajte s predošlým výsledkom.</p>
+<div class="Exercise">
+<p>Majme postupnosť <span class="math inline">\(X_1, X_2,\dots\)</span> náhodných premenných nezávislých hodov férovou kockou. Koľkokrát musíme hodiť kockou, aby sme si boli istí, že <span class="math display">\[P(3 &lt; \bar{X}_n &lt; 4) \geq 0.8.\]</span> Porovnajte s predošlým výsledkom.</p>
 </div>
 <div id="exr-konv" class="Exercise theorem exercise">
-<p><span class="theorem-title"><strong>Cvičenie 8.7</strong></span> Majme postupnosť <span class="math inline">\(X_1, X_2,\dots\)</span> náhodných premenných, pre ktoré platí <span class="math inline">\(P(X_n = n^2) = 1/n\)</span> a <span class="math inline">\(P(X_n=0)=1-1/n.\)</span> Ukážte, že <span class="math inline">\(X_n \rightarrow_P 0\)</span> a zároveň <span class="math inline">\(\lim_{n \rightarrow \infty} \text{E}[X_n] = \infty.\)</span></p>
+<p><span class="theorem-title"><strong>Cvičenie 8.6</strong></span> Majme postupnosť <span class="math inline">\(X_1, X_2,\dots\)</span> náhodných premenných, pre ktoré platí <span class="math inline">\(P(X_n = n^2) = 1/n\)</span> a <span class="math inline">\(P(X_n=0)=1-1/n.\)</span> Ukážte, že <span class="math inline">\(X_n \rightarrow_P 0\)</span> a zároveň <span class="math inline">\(\lim_{n \rightarrow \infty} \text{E}[X_n] = \infty.\)</span></p>
 </div>
 <div id="exr-kockceb" class="Exercise theorem exercise">
-<p><span class="theorem-title"><strong>Cvičenie 8.8</strong></span> Férovou mincou hádžete nezávisle 100 krát. Odhadnite pravdepodobnosť pomocou Čebyševovej nerovnosti, že hlavou hodíte viac ako 30, ale menej ako 70 krát. Porovnajte so skutočnou pravdepodobnosťou.</p>
+<p><span class="theorem-title"><strong>Cvičenie 8.7</strong></span> Férovou mincou hádžete nezávisle 100 krát. Odhadnite pravdepodobnosť pomocou Čebyševovej nerovnosti, že hlavou hodíte viac ako 30, ale menej ako 70 krát. Porovnajte so skutočnou pravdepodobnosťou.</p>
 </div>
-<div id="exr-" class="Exercise theorem exercise">
-<p><span class="theorem-title"><strong>Cvičenie 8.9</strong></span> Porovnajte Čebyševovu nerovnosť pre <span class="math inline">\(P(|X| \geq 2)\)</span> s jej skutočnou hodnotou, ak <span class="math inline">\(X \sim N(0,1).\)</span> V ktorých prípadoch je Čebyševova nerovnosť neinformatívna?</p>
+<div class="Exercise">
+<p>Porovnajte Čebyševovu nerovnosť pre <span class="math inline">\(P(|X| \geq 2)\)</span> s jej skutočnou hodnotou, ak <span class="math inline">\(X \sim N(0,1).\)</span> V ktorých prípadoch je Čebyševova nerovnosť neinformatívna?</p>
 </div>
-<div id="exr-" class="Exercise theorem exercise">
-<p><span class="theorem-title"><strong>Cvičenie 8.10</strong></span> Odvoďte variant Markovovskej nerovnosti pre náhodnú premennú <span class="math inline">\(X\)</span> pre ktorú platí <span class="math inline">\(X &gt; a,\)</span> kde <span class="math inline">\(a&gt;0.\)</span> Ukážte, že táto nerovnosť je tesná.</p>
+<div class="Exercise">
+<p>Odvoďte variant Markovovskej nerovnosti pre náhodnú premennú <span class="math inline">\(X\)</span> pre ktorú platí <span class="math inline">\(X &gt; a,\)</span> kde <span class="math inline">\(a&gt;0.\)</span> Ukážte, že táto nerovnosť je tesná.</p>
 </div>
-<div id="exr-" class="Exercise theorem exercise">
-<p><span class="theorem-title"><strong>Cvičenie 8.11</strong></span> V prieskume sme sa opýtali 1500 ľuďí, či majú radšej zelené žuvačky alebo modré. Ak by bolo práve 27% ľudí, ktorí majú radi zelené žuvačky, o koľko najviac percent sa takýto prieskum môže vzďaľovať od 27% aby bola pravdepodobnosť toho, že bude prieskum dosť presný aspoň 90%?</p>
+<div class="Exercise">
+<p>V prieskume sme sa opýtali 1500 ľudí, či majú radšej zelené žuvačky alebo modré. Ak by bolo práve 27% ľudí, ktorí majú radi zelené žuvačky, o koľko najviac percent sa takýto prieskum môže vzďaľovať od 27% aby bola pravdepodobnosť toho, že bude prieskum dosť presný aspoň 90%?</p>
 </div>
-<div id="exr-" class="Exercise theorem exercise">
-<p><span class="theorem-title"><strong>Cvičenie 8.12</strong></span> V tomto fascinujúcom <a href="https://www.youtube.com/watch?v=rjYT3WUWq0s">livestreame</a> sa hádzalo kockou 1024 krát (nemusíte ho pozerať úplne celý).</p>
+<div class="Exercise">
+<p>V tomto fascinujúcom <a href="https://www.youtube.com/watch?v=rjYT3WUWq0s">livestreame</a> sa hádzalo kockou 1024 krát (nemusíte ho pozerať úplne celý).</p>
 <p>Číslo 5 padlo len 157krát. Ak bola kocka férová aká je pravdepodobnosť, že by padlo 157 krát alebo menej? Na základe Čebyševovej nerovnosti zostavte hornú hranicu pre pravdepodobnosť udalosti, že by pomer padnutí čísla 5 bol ešte vzdialenejší od <span class="math inline">\(\frac{1}{6}\)</span> ako je <span class="math inline">\(\frac{157}{1024}\)</span>. Porovnajte túto hornú hranicu so skutočnou pravdepodobnosťou (uvažujte nezávislé hody a fixnú pravdepodobnosť <span class="math inline">\(\frac{1}{6}\)</span>).</p>
 <p>Aké čísla padli v posledných dvoch hodoch? Ako to súvisí so zákonom veľkých čísel?</p>
 </div>
-<div id="exr-" class="exercise theorem">
-<p><span class="theorem-title"><strong>Cvičenie 8.13</strong></span> <em>Ťažšia úloha:</em> Existujú aj iné typy konvergencie náhodných premenných okrem tej, ktorú sme si zaviedli.</p>
-<p>Jednou takou je <em>konvergencia s pravdpodobnosťou 1</em>. Hovoríme, že postupnosť náhodných premenných <span class="math inline">\(X_1, X_2, X_3, \dots\)</span> konverguje s pravdpodobnosťou 1 ku náhodnej premennej <span class="math inline">\(X\)</span> ak platí:</p>
+<div class="exercise">
+<p><em>Ťažšia úloha:</em> Existujú aj iné typy konvergencie náhodných premenných okrem tej, ktorú sme si zaviedli.</p>
+<p>Jednou takou je <em>konvergencia s pravdepodobnosťou 1</em>. Hovoríme, že postupnosť náhodných premenných <span class="math inline">\(X_1, X_2, X_3, \dots\)</span> konverguje s pravdepodobnosťou 1 ku náhodnej premennej <span class="math inline">\(X\)</span> ak platí:</p>
 <p><span class="math display">\[P(\lim_{n \rightarrow \infty} X_n(\omega) = X(\omega)) = 1.\]</span></p>
 <p>Zapisujeme to <span class="math inline">\(X_n \rightarrow_{a.s} X\)</span>.<a href="#fn6" class="footnote-ref" id="fnref6" role="doc-noteref"><sup>6</sup></a></p>
 <p>Nájdite príklad postupnosti náhodných premenných pre ktorú platí</p>
@@ -468,14 +420,14 @@ Niektoré riešenia
 <div class="callout-body-container callout-body">
 <p><a href="#exr-mark" class="quarto-xref">Cvičenie&nbsp;<span>8.1</span></a></p>
 <p><span class="math display">\[P(X \geq 4) \leq \frac{\text{E}[X]}{4} = \frac{2}{4} = \frac{1}{2}\]</span></p>
-<p><span class="math display">\[P(X \geq 4) = 1 - P(X &lt; 3) = 1 - (1- e^{-\frac{1}{2}\cdot 4}) = e^{-2} \approx 13.53\%\]</span></p>
-<p>Neinformatívna je pre <span class="math inline">\(c \geq \text{E}[X]\)</span> lebo potom je horná medza pravdepodobnosti väčšia ako 1.</p>
+<p><span class="math display">\[P(X \geq 4) = 1 - P(X &lt; 4) = 1 - (1- e^{-\frac{1}{2}\cdot 4}) = e^{-2} \approx 13.53\%\]</span></p>
+<p>Neinformatívna je pre <span class="math inline">\(c \leq \text{E}[X]\)</span>, lebo potom je horná medza pravdepodobnosti aspoň 1.</p>
 <p><a href="#exr-ceb" class="quarto-xref">Cvičenie&nbsp;<span>8.2</span></a></p>
 <p><span class="math display">\[P(X \geq 10) \leq \frac{\text{E}[X]}{10} \implies \frac{1}{5} \leq \frac{\text{E}[X]}{10} \]</span></p>
 <p>a preto</p>
 <p><span class="math display">\[\text{E}[X] \geq 2.\]</span></p>
 <p><a href="#exr-ceb2" class="quarto-xref">Cvičenie&nbsp;<span>8.3</span></a></p>
-<p><span class="math display">\[P(X \leq 7) = 0.2, \ P(X \geq 10)=0.3 \ \ \implies P(|X-10| \geq 3) = 0.5\]</span> a</p>
+<p><span class="math display">\[P(X \leq 7) = 0.2, \ P(X \geq 13)=0.3 \ \ \implies P(|X-10| \geq 3) = 0.5\]</span> a</p>
 <p>Podľa Čebyševovej nerovnosti: <span class="math inline">\(P(|X-10| \geq 3) \leq \frac{\text{Var}[X]}{3^2}\)</span></p>
 <p><span class="math display">\[\frac{1}{2} \leq \frac{\text{Var}[X]}{9} \implies \text{Var}[X] \geq \frac{9}{2}.\]</span></p>
 <p><a href="#exr-ceb3" class="quarto-xref">Cvičenie&nbsp;<span>8.4</span></a></p>
@@ -491,16 +443,16 @@ Niektoré riešenia
 <p>a teda</p>
 <p><span class="math display">\[n \geq \text{Var}[X] 20 = \frac{175}{3} \approx 58.33.\]</span></p>
 <p>Stačí nám <span class="math inline">\(n\)</span> aspoň 59 alebo väčšie.</p>
-<p><a href="#exr-konv" class="quarto-xref">Cvičenie&nbsp;<span>8.7</span></a></p>
+<p><a href="#exr-konv" class="quarto-xref">Cvičenie&nbsp;<span>8.6</span></a></p>
 <p>Pre <span class="math inline">\(\epsilon &lt; 1:\)</span></p>
-<p><span class="math display">\[P(|X_n - 0| &lt; \epsilon) = P(X_n = n^2) = \frac{1}{n} \rightarrow 0 \text{ pre } n \rightarrow \infty.\]</span> Ale <span class="math inline">\(E[X_n] = 0 \cdot (1-\frac{1}{n}) + n^2 \cdot \frac{1}{n} = n \rightarrow \infty.\)</span></p>
-<p><a href="#exr-kockceb" class="quarto-xref">Cvičenie&nbsp;<span>8.8</span></a></p>
+<p><span class="math display">\[P(|X_n - 0| &lt; \epsilon) = P(X_n = 0) = 1-\frac{1}{n} \rightarrow 1 \text{ pre } n \rightarrow \infty.\]</span> Ale <span class="math inline">\(E[X_n] = 0 \cdot (1-\frac{1}{n}) + n^2 \cdot \frac{1}{n} = n \rightarrow \infty.\)</span></p>
+<p><a href="#exr-kockceb" class="quarto-xref">Cvičenie&nbsp;<span>8.7</span></a></p>
 <p>Nech <span class="math inline">\(Y=\sum_{i=1}^n X_i.\)</span></p>
 <p>Kvôli nezávislosti platí:</p>
 <p><span class="math display">\[\text{Var}[Y] = \text{Var}\left[\sum_{i=1}^n X_i\right] = \sum_{i=1}^n \text{Var}[X_i]\]</span></p>
 <p><span class="math display">\[ = 100 \cdot \text{Var}[X_1] = 100 \cdot \frac{1}{2} \left(1- \frac{1}{2}\right) = 25.\]</span></p>
 <p>Podľa ČN máme</p>
-<p><span class="math display">\[P(|Y - 50| &lt; 20) = 1 - \frac{\text{Var}[Y]}{20^2} = 93.75\%.\]</span></p>
+<p><span class="math display">\[P(|Y - 50| &lt; 20) \geq 1 - \frac{\text{Var}[Y]}{20^2} = 93.75\%.\]</span></p>
 <p>Pre <span class="math inline">\(Y \sim \text{Bin}(100,0.5)\)</span> s využitím počítača dostávame:</p>
 <p><span class="math display">\[P(Y \in (30,70)) = P(Y \in [31,69])  = \sum_{k=31}^{69} P(Y = k) \]</span></p>
 <p><span class="math display">\[= \sum_{k=31}^{69} {100 \choose k} 0.5^{k} 0.5^{100-k} = \dots = 0.9999215.\]</span></p>
@@ -548,7 +500,7 @@ Niektoré riešenia
 <!-- Odvoďte variant Markovovskej nerovnosti pre náhodnú premennú $X$ pre ktorú platí $X > a,$ kde $a>0.$ Ukážte, že táto nerovnosť je tesná. -->
 <!-- :::  -->
 <!-- ::: {.exercise name="DÚ 9.3"} -->
-<!-- V prieskume sme sa opýtali 1500 ľuďí, či majú radšej zelené žuvačky alebo modré.  Ak by bolo práve 27\% ľudí, ktorí majú radi zelené žuvačky, o koľko najviac percent sa takýto prieskum môže vzďaľovať od 27\% aby bola pravdepodobnosť toho, že bude prieskum dosť presný aspoň 90\%? -->
+<!-- V prieskume sme sa opýtali 1500 ľudí, či majú radšej zelené žuvačky alebo modré.  Ak by bolo práve 27\% ľudí, ktorí majú radi zelené žuvačky, o koľko najviac percent sa takýto prieskum môže vzďaľovať od 27\% aby bola pravdepodobnosť toho, že bude prieskum dosť presný aspoň 90\%? -->
 <!-- :::  -->
 <!-- ::: {.exercise name="DÚ 9.4"} -->
 <!-- V tomto fascinujúcom livestreame (https://www.youtube.com/watch?v=rjYT3WUWq0s) sa hádzalo kockou 1024 krát (nemusíte ho pozerať úplne celý). -->
@@ -578,7 +530,7 @@ Niektoré riešenia
 <!-- Podrobne vysvetlite. -->
 <!-- :::  -->
 <!-- ::: {.exercise name="DÚ 7.5"} -->
-<!-- Predstavte, že by ste simulačne chceli odhadnúť obsah tohoto útvaru, ktorý je ohraničený krivkami $y = x^2$ a $y= \sqrt{x}$. Budeme uniformne náhodne vyberať $X$ a $Y$ a pozerať sa, aká proporcia $(X,Y)$ padne medzi tieto krivky. -->
+<!-- Predstavte, že by ste simulačne chceli odhadnúť obsah tohto útvaru, ktorý je ohraničený krivkami $y = x^2$ a $y= \sqrt{x}$. Budeme uniformne náhodne vyberať $X$ a $Y$ a pozerať sa, aká proporcia $(X,Y)$ padne medzi tieto krivky. -->
 <!-- ```{r zvc-9,echo=FALSE, fig.width=4, fig.height=4} -->
 <!-- set.seed(302) -->
 <!-- x <- seq(0,1,by=0.01) -->
@@ -595,7 +547,7 @@ Niektoré riešenia
 <!-- :::  -->
 <!-- ::: {.exercise name="DÚ 7.6 BONUS"} -->
 <!-- Existujú aj iné typy konvergencie náhodných premenných okrem tej, ktorú sme si zaviedli. -->
-<!-- Jednou takou je *konvergencia s pravdpodobnosťou 1*. Hovoríme, že postupnosť náhodných premenných $X_1, X_2, X_3, \dots$ konverguje s pravdpodobnosťou 1 ku náhodnej premennej $X$ ak platí: -->
+<!-- Jednou takou je *konvergencia s pravdepodobnosťou 1*. Hovoríme, že postupnosť náhodných premenných $X_1, X_2, X_3, \dots$ konverguje s pravdepodobnosťou 1 ku náhodnej premennej $X$ ak platí: -->
 <!-- $$P(\lim_{n \rightarrow \infty} X_n(\omega) = X(\omega)) = 1.$$ -->
 <!-- Zapisujeme to $X_n \rightarrow_{a.s} X$.[^as] -->
 <!-- [^as]: Skratka "a.s." je z anglického "almost surely", po slovensky "skoro furt". Pravdepodobnosť všetkých $\omega$, pre ktoré $P(\lim_{n \rightarrow \infty} X_n(\omega) = X(\omega)) = 1$ neplatí musí byť nula, teda ich musí byť dosť málo. Kompletný neskrátený zápis vyzerá nasledovne: $$P\left(\{\omega \in \Omega: \lim_{n \rightarrow \infty} X_n(\omega) = X(\omega)\}\right) = 1.$$ -->
@@ -609,7 +561,7 @@ Niektoré riešenia
 <hr>
 <ol>
 <li id="fn1"><p>Ak táto existuje.<a href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
-<li id="fn2"><p>Tých idenfikátorov je naozaj veľa. Plný zápis je nasledovný: <span class="math display">\[\forall \epsilon &gt;0: \forall \epsilon_1 &gt;0: \exists n_0 \in \mathbb{N}: \forall n \geq n_0: |P \left( \{\omega \in \Omega: |X_n(\omega) - X(\omega)|&lt; \epsilon \} \right) - 1| \leq \epsilon_1.\]</span> Všimnite si, že rola týchto dvoch malých <span class="math inline">\(\epsilon\)</span> a <span class="math inline">\(\epsilon_1\)</span> je rôzna. Kým <span class="math inline">\(\epsilon\)</span> kontroluje ako blízko je <span class="math inline">\(X_n\)</span> of <span class="math inline">\(X\)</span>, <span class="math inline">\(\epsilon_1\)</span> kontroluje ako blízko je hodnota <span class="math inline">\(P(|X_n - X| &lt; \epsilon)\)</span> od nuly.<a href="#fnref2" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn2"><p>Tých identifikátorov je naozaj veľa. Plný zápis je nasledovný: <span class="math display">\[\forall \epsilon &gt;0: \forall \epsilon_1 &gt;0: \exists n_0 \in \mathbb{N}: \forall n \geq n_0: |P \left( \{\omega \in \Omega: |X_n(\omega) - X(\omega)|&lt; \epsilon \} \right) - 1| \leq \epsilon_1.\]</span> Všimnite si, že rola týchto dvoch malých <span class="math inline">\(\epsilon\)</span> a <span class="math inline">\(\epsilon_1\)</span> je rôzna. Kým <span class="math inline">\(\epsilon\)</span> kontroluje ako blízko je <span class="math inline">\(X_n\)</span> od <span class="math inline">\(X\)</span>, <span class="math inline">\(\epsilon_1\)</span> kontroluje ako blízko je hodnota <span class="math inline">\(P(|X_n - X| &lt; \epsilon)\)</span> od jednotky.<a href="#fnref2" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
 <li id="fn3"><p>Ak <span class="math inline">\(\text{Var}[X]&lt;\infty.\)</span><a href="#fnref3" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
 <li id="fn4"><p>Je tam <span class="math inline">\(\epsilon = 1/4000\)</span> a nie <span class="math inline">\(\epsilon = 1/1000\)</span> kvôli tomu, že chceme mať hodnotu <span class="math inline">\(\pi\)</span> dostatočne presnú. Ale v rovnici je <span class="math inline">\(\frac{\pi}{4}.\)</span><a href="#fnref4" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
 <li id="fn5"><p>Čo je mimochodom dosť veľa.<a href="#fnref5" class="footnote-back" role="doc-backlink">↩︎</a></p></li>

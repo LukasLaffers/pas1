@@ -244,7 +244,7 @@ window.Quarto = {
 </header>
 
 
-<p>Doteraz sme hovorili o náhodných premenných, pre ktoré bola množina hodnôt, ktoré nadobúdali, konečná alebo nanajvýš spočitateľná. Existuje veľká skupina situácií, kedy je lepšie uvažovať o náhodnej premennej, ktorá nadobúda nespočitateľne veľa hodnôt, napríklad akékoľvek reálne čislo.</p>
+<p>Doteraz sme hovorili o náhodných premenných, pre ktoré bola množina hodnôt, ktoré nadobúdali, konečná alebo nanajvýš spočitateľná. Existuje veľká skupina situácií, kedy je lepšie uvažovať o náhodnej premennej, ktorá nadobúda nespočitateľne veľa hodnôt, napríklad akékoľvek reálne číslo.</p>
 <p>Existujú rôzne špecifické typy spojite rozdelených náhodných premenných</p>
 <ul>
 <li>rovnomerné rozdelenie na intervale <span class="math inline">\((a,b),\)</span></li>
@@ -260,103 +260,40 @@ window.Quarto = {
 <p>Na popis náhodnosti môžeme stále používať kumulatívnu distribučnú funkciu, ale namiesto pravdepodobnostnej funkcie budeme používať <strong>funkciu hustoty</strong> (alternatívne <strong>funkciu hustoty spojite rozdelenej náhodnej premennej</strong>.)</p>
 <p>Hovoríme, že spojite rozdelená náhodná premenná <span class="math inline">\(X\)</span> má funkciu hustoty <span class="math inline">\(f_X(x),\)</span> kde <span class="math inline">\(f_X: \mathbb{R} \rightarrow \mathbb{R},\)</span> ak platí:</p>
 <p><span class="math display">\[P(a \leq X \leq b) = P(X \in [a,b]) = \int_{a}^b f_X(x) dx\]</span> Nižšie je príklad, ako môže vyzerať funkcia hustoty spojite rozdelenej náhodnej premennej a jej príslušná kumulatívna distribučná funkcia.</p>
-<div class="cell">
-<div class="cell-output-display">
-<div>
-<figure class="figure">
-<p><img src="snp_files/figure-html/snp-1-1.png" class="img-fluid figure-img" width="672"></p>
-</figure>
-</div>
-</div>
-</div>
 <p>Funkcia hustoty <span class="math inline">\(f_X\)</span> má rôzne vlastnosti:</p>
 <ul>
 <li><p><span class="math display">\[P(X=a) = P(a \leq X \leq a) = \int_{a}^a f_X(x) dx = 0,\]</span> teda pravdepodobnosť udalosti, že náhodná premenná nadobúda konkrétnu hodnotu <span class="math inline">\(a\)</span> je nula, a to dokonca pre úplne hocijakú hodnotu <span class="math inline">\(a \in \mathbb{R}.\)</span></p></li>
 <li><p><span class="math inline">\(f_X(x) \geq 0\)</span> pre všetky <span class="math inline">\(x \in \mathbb{R}\)</span> - hustota pravdepodobnosti musí byť všade nezáporná.</p></li>
 <li><p><span class="math inline">\(F_X(t) = \int_{-\infty}^{t} f_X(x) dx\)</span> - hovorí o vzťahu medzi kumulatívnou distribučnou funkciou a funkciou hustoty. Pri spojite rozdelenej náhodnej premennej nemáme problém s derivovaním funkcie <span class="math inline">\(F_X.\)</span> Pripomeňme, že pri diskrétne rozdelenej náhodnej premennej má funkcia <span class="math inline">\(F_X\)</span> “skoky” v bodoch <span class="math inline">\(x\)</span>, kde <span class="math inline">\(p_X(x) &gt; 0\)</span>, a teda v týchto bodoch nie je funkcia <span class="math inline">\(F_X\)</span> spojitá, takže ani diferencovateľná.</p></li>
 <li><p><span class="math inline">\(P(X \in \mathbb{R}) = \int_{-\infty}^{\infty} f_X(x) dx = 1\)</span> - tu ide o analógiu k <span class="math inline">\(\sum_{x \in \mathcal{S}_X} p_X(x) = 1\)</span> v diskrétnom prípade. Pravdepodobnosť, že náhodná premenná nadobúda <em>nejakú</em> hodnotu, je 1.</p></li>
-<li><p><span class="math inline">\(f_X(x) = \frac{d}{dx} F_X(x)\)</span> - toto vyplýva zo vzťahu medzi deriváciou a integrálom, nazýva sa <em>základná (fundalmentálna) veta integrálneho počtu</em>. Kumulatívna distribučná funkcia <span class="math inline">\(F_X\)</span> je primitívnou funkciou funkcie hustoty <span class="math inline">\(f_X.\)</span></p></li>
+<li><p><span class="math inline">\(f_X(x) = \frac{d}{dx} F_X(x)\)</span> - toto vyplýva zo vzťahu medzi deriváciou a integrálom, nazýva sa <em>základná (fundamentálna) veta integrálneho počtu</em>. Kumulatívna distribučná funkcia <span class="math inline">\(F_X\)</span> je primitívnou funkciou funkcie hustoty <span class="math inline">\(f_X.\)</span></p></li>
 </ul>
 <p>O funkcii hustoty môžeme uvažovať tak, že</p>
 <p><span class="math inline">\(f(x) \Delta \approx \int_{x}^{x+\Delta}f(s)ds = P(x \leq X \leq x + \Delta) = F_X(x+\Delta) - F_X(x),\)</span> pre nejaké malé číslo <span class="math inline">\(\Delta.\)</span></p>
 <p>Vo všeobecnosti máme</p>
 <p><span class="math display">\[P(X \in A) = \int_{A} f_X(x)dx,\]</span> kde symbol <span class="math inline">\(\int_{A}\)</span> značí integrovanie cez oblasť <span class="math inline">\(A.\)</span></p>
 <p>Nasledujúci obrázok ilustruje ako sa vypočíta pravdepodobnosť udalosti, že náhodná premenná padne do intervalu <span class="math inline">\((0,3),\)</span> teda <span class="math inline">\(P(X \in [0,3]) = P(0\leq X \leq 3) = \int_{0}^3 f_X(x) dx = F_X(3) - F_X(0)\)</span></p>
-<div class="cell">
-<div class="cell-output-display">
-<div>
-<figure class="figure">
-<p><img src="snp_files/figure-html/snp-2-1.png" class="img-fluid figure-img" width="672"></p>
-</figure>
-</div>
-</div>
-</div>
 <p>Ďalší obrázok ukazuje <span class="math inline">\(P(X \in [4,6]) = P(4\leq X \leq 6) = \int_{4}^6 f_X(x) dx = F_X(6) - F_X(4)\)</span> pre inú funkciu hustoty:</p>
-<div class="cell">
-<div class="cell-output-display">
-<div>
-<figure class="figure">
-<p><img src="snp_files/figure-html/snp-3-1.png" class="img-fluid figure-img" width="672"></p>
-</figure>
-</div>
-</div>
-</div>
 <p>Plocha pod grafom funkcie hustoty, teda integrál funkcie <span class="math inline">\(f_X\)</span> cez nejaký interval, určuje pravdepodobnosť, že náhodná premenná nadobudne hodnotu v tomto intervale.</p>
 <p>Tu je ilustrácia pre nejakú inú funkciu hustoty a <span class="math inline">\(P(X \in [-1,4]) = P(-1\leq X \leq 4) = \int_{-1}^{4} f_X(x) dx = F_X(4) - F_X(-1)\)</span></p>
-<div class="cell">
-<div class="cell-output-display">
-<div>
-<figure class="figure">
-<p><img src="snp_files/figure-html/snp-4-1.png" class="img-fluid figure-img" width="672"></p>
-</figure>
-</div>
-</div>
-</div>
 <p>A ďalší obrázok ukazuje inú funkciu hustoty a <span class="math inline">\(P(X \in [3,9]) = P(3\leq X \leq 9) = \int_{3}^{9} f_X(x) dx = F_X(9) - F_X(3)\)</span></p>
-<div class="cell">
-<div class="cell-output-display">
-<div>
-<figure class="figure">
-<p><img src="snp_files/figure-html/snp-5-1.png" class="img-fluid figure-img" width="672"></p>
-</figure>
-</div>
-</div>
-</div>
-<div id="exm-" class="Example theorem example">
-<p><span class="theorem-title"><strong>Príklad 6.1</strong></span> Majme náhodnú premennú <span class="math inline">\(X\)</span>, ktorá má nasledovnú funkciu hustoty: <span class="math inline">\(f_X(x) = \frac{1}{2}e^{-x/2}\)</span> pre <span class="math inline">\(x &gt; 0\)</span>, inak <span class="math inline">\(f_X(x)=0\)</span>. Vypočítajte <span class="math inline">\(P(1 \leq X \leq 2).\)</span></p>
+<div class="Example">
+<p>Majme náhodnú premennú <span class="math inline">\(X\)</span>, ktorá má nasledovnú funkciu hustoty: <span class="math inline">\(f_X(x) = \frac{1}{2}e^{-x/2}\)</span> pre <span class="math inline">\(x &gt; 0\)</span>, inak <span class="math inline">\(f_X(x)=0\)</span>. Vypočítajte <span class="math inline">\(P(1 \leq X \leq 2).\)</span></p>
 <span class="math display">\[\begin{eqnarray*}
 P(1 \leq X \leq 2) &amp;=&amp; \int_{1}^{2} f_X(x)dx = \int_{1}^{2} \frac{1}{2}e^{-x/2} dx \\
 &amp;=&amp; [-e^{-x/2}]_{1}^{2} = [-e^{-2/2}] - [-e^{-1/2}]\\
 &amp;=&amp; e^{-1/2} - e^{-1} \approx 23.87\%.
 \end{eqnarray*}\]</span>
 <p>Situácia je ilustrovaná nižšie:</p>
-<div class="cell">
-<div class="cell-output-display">
-<div>
-<figure class="figure">
-<p><img src="snp_files/figure-html/snp-6-1.png" class="img-fluid figure-img" width="672"></p>
-</figure>
 </div>
-</div>
-</div>
-</div>
-<div id="exm-" class="Example theorem example">
-<p><span class="theorem-title"><strong>Príklad 6.2</strong></span> Uvažujme náhodnú premennú <span class="math inline">\(X\)</span>, ktorá modeluje IQ náhodne vybraného človeka z danej populácie. Táto náhodná premenná má nasledovnú funkciu hustoty <span class="math inline">\(f_X(x) = \frac{1}{15\sqrt{2 \pi}} e^{-\frac{1}{2}\frac{(x-100)^2}{15^2}}\)</span>. Vypočítajte pravdepodobnosť, že náhodne vybraný človek z tejto populácie bude mať IQ väčšie ako 130.</p>
+<div class="Example">
+<p>Uvažujme náhodnú premennú <span class="math inline">\(X\)</span>, ktorá modeluje IQ náhodne vybraného človeka z danej populácie. Táto náhodná premenná má nasledovnú funkciu hustoty <span class="math inline">\(f_X(x) = \frac{1}{15\sqrt{2 \pi}} e^{-\frac{1}{2}\frac{(x-100)^2}{15^2}}\)</span>. Vypočítajte pravdepodobnosť, že náhodne vybraný človek z tejto populácie bude mať IQ väčšie ako 130.</p>
 <span class="math display">\[\begin{eqnarray*}
 P(X &gt; 130) &amp;=&amp; 1-P(X \leq 130) =  1 - \int_{-\infty}^{130} f_X(x)dx =  1 - \int_{-\infty}^{130} \frac{1}{15\sqrt{2 \pi}} e^{-\frac{1}{2}\frac{(x-100)^2}{15^2}} dx \\
 &amp;=&amp; \cdots \approx  1 -  0.9772 = 2.28\%.
 \end{eqnarray*}\]</span>
 <p>Tento integrál nemá analytické (“pekné”) riešenie a treba ho zrátať numericky pomocou počítačového programu.</p>
 <p>Nasledujúci obrázok túto situáciu ilustruje</p>
-<div class="cell">
-<div class="cell-output-display">
-<div>
-<figure class="figure">
-<p><img src="snp_files/figure-html/snp-7-1.png" class="img-fluid figure-img" width="672"></p>
-</figure>
-</div>
-</div>
-</div>
 </div>
 <p>Prechod od diskrétnej náhodnej premennej ku spojite je názorne vysvetlený vo videu od <a href="https://www.youtube.com/watch?v=ZA4JkHKZM50">3Blue1Brown</a>.</p>
 </section>
@@ -365,15 +302,6 @@ P(X &gt; 130) &amp;=&amp; 1-P(X \leq 130) =  1 - \int_{-\infty}^{130} f_X(x)dx =
 <p><strong>Stredná hodnota spojite rozdelenej náhodnej premennej</strong> je</p>
 <p><span class="math display">\[\text{E}[X] = \int_{-\infty}^{\infty} x f_X(x) dx,\]</span> ak <span class="math inline">\(\int_{-\infty}^{\infty} |x| f_X(x) dx &lt; \infty.\)</span> Teda ide o hodnoty <span class="math inline">\(x\)</span> váhované hustotou pravdepodobnosti <span class="math inline">\(f_X(x).\)</span></p>
 <p>Nasledujúci obrázok ukazuje stredné hodnoty pre náhodné premenné s rôznymi funkciami hustoty:</p>
-<div class="cell">
-<div class="cell-output-display">
-<div>
-<figure class="figure">
-<p><img src="snp_files/figure-html/snp-8-1.png" class="img-fluid figure-img" width="672"></p>
-</figure>
-</div>
-</div>
-</div>
 <p>Stredná hodnota má aj pre spojite rozdelenú náhodnú premennú interpretáciu ťažiska. Ak by sme si predstavili funkciu hustoty ako tenký kovový plát, tak stredná hodnota je miesto, v ktorom by sme museli tento plát podoprieť tak, aby bol v rovnováhe.</p>
 <p>Pri počítaní stredných hodnôt ale aj pri počítaní pravdepodobností si budeme musieť spomenúť ako sa <em>integruje</em>. Existuje konečný počet trikov, ktoré sú postačujúce na vypočítanie veľkej väčšiny intergrálov, s ktorými sa stretnete v rámci pravdepodobnosti a štatistiky:</p>
 <ul>
@@ -382,29 +310,20 @@ P(X &gt; 130) &amp;=&amp; 1-P(X \leq 130) =  1 - \int_{-\infty}^{130} f_X(x)dx =
 <li>substitúcia</li>
 </ul>
 <p>Iné techniky, ako napríklad využitie trigonimetrických identít alebo rozklad na čiastočné zlomky, sa pre naše potreby budú využívať len zriedka, až vôbec.</p>
-<div id="exm-" class="Example theorem example">
-<p><span class="theorem-title"><strong>Príklad 6.3</strong></span> Majme náhodnú premennú <span class="math inline">\(X\)</span>, ktorá má nasledovnú funkciu hustoty <span class="math inline">\(f_X(x) = \frac{1}{2}e^{-x/2}\)</span> pre <span class="math inline">\(x &gt; 0\)</span> inak <span class="math inline">\(f_X(x)=0\)</span>. Vypočítajte <span class="math inline">\(\text{E}[X].\)</span></p>
+<div class="Example">
+<p>Majme náhodnú premennú <span class="math inline">\(X\)</span>, ktorá má nasledovnú funkciu hustoty <span class="math inline">\(f_X(x) = \frac{1}{2}e^{-x/2}\)</span> pre <span class="math inline">\(x &gt; 0\)</span> inak <span class="math inline">\(f_X(x)=0\)</span>. Vypočítajte <span class="math inline">\(\text{E}[X].\)</span></p>
 <span class="math display">\[\begin{eqnarray*}
 \text{E}[X] &amp;=&amp;\int_{-\infty}^{\infty} x f_X(x) dx = \int_{0}^{\infty} x \frac{1}{2}e^{-x/2} dx \\
 &amp;=&amp; \left[x . \left(-e^{-\frac{x}{2}} \right)\right]^{\infty}_0  - \int_{0}^{\infty} 1 . \left(-e^{-\frac{x}{2}} \right) dx\\
 &amp;=&amp; 0 - 0 - \left[2 e^{-\frac{x}{2}} \right]^{\infty}_{0} = 0 - \left(-2\right) = 2.
 \end{eqnarray*}\]</span>
-<div class="cell">
-<div class="cell-output-display">
-<div>
-<figure class="figure">
-<p><img src="snp_files/figure-html/snp-9-1.png" class="img-fluid figure-img" width="672"></p>
-</figure>
-</div>
-</div>
-</div>
 </div>
 <p>Stredná hodnota stransformovanej náhodnej premennej <span class="math inline">\(g(X),\)</span> kde <span class="math inline">\(g: \mathbb{R} \rightarrow \mathbb{R}\)</span>, je</p>
 <p><span class="math display">\[\text{E}[g(X)] = \int_{-\infty}^{\infty} g(x) f_X(x) dx.\]</span> Poznamenajme, že aj pre spojitú náhodnú premennú platí <span class="math inline">\(\text{E}[aX + bY] = a\text{E}[X]+ b\text{E}[Y],\)</span> teda stredná hodnota je lineárny operátor.</p>
-<p><strong>Variancia hodnota spojite rozdelenej náhodnej premennej</strong> je</p>
+<p><strong>Variancia spojite rozdelenej náhodnej premennej</strong> je</p>
 <p><span class="math display">\[\text{Var}[X] = \text{E}[(X-\text{E}[X])^2] = \int_{-\infty}^{\infty} (x - \text{E}(X))^2 f_X(x) dx,\]</span> ak <span class="math inline">\(\int_{-\infty}^{\infty} |x^2| f_X(x) dx &lt; \infty.\)</span> Aj pre spojite rozdelenú náhodnú premennú platí <span class="math inline">\(\text{Var}[X] = \text{E}[X^2] - (\text{E}[X])^2.\)</span></p>
-<div id="exm-" class="Example theorem example">
-<p><span class="theorem-title"><strong>Príklad 6.4</strong></span> Majme náhodnú premennú <span class="math inline">\(X\)</span>, ktorá má nasledovnú funkciu hustoty <span class="math inline">\(f_X(x) = \frac{1}{2}e^{-x/2}\)</span> pre <span class="math inline">\(x &gt; 0\)</span>, inak <span class="math inline">\(f_X(x)=0\)</span>. Vypočítajte <span class="math inline">\(\text{Var}[X].\)</span></p>
+<div class="Example">
+<p>Majme náhodnú premennú <span class="math inline">\(X\)</span>, ktorá má nasledovnú funkciu hustoty <span class="math inline">\(f_X(x) = \frac{1}{2}e^{-x/2}\)</span> pre <span class="math inline">\(x &gt; 0\)</span>, inak <span class="math inline">\(f_X(x)=0\)</span>. Vypočítajte <span class="math inline">\(\text{Var}[X].\)</span></p>
 <span class="math display">\[\begin{eqnarray*}
 \text{E}[X] &amp;=&amp; \dots [\text{ukázali sme vyššie}] \dots = 2 \\
 \text{E}[X^2] &amp;=&amp; \dots [\text{dva krát per partes}] \dots = 8 \\
@@ -412,18 +331,9 @@ P(X &gt; 130) &amp;=&amp; 1-P(X \leq 130) =  1 - \int_{-\infty}^{130} f_X(x)dx =
 \end{eqnarray*}\]</span>
 </div>
 <p><a href="https://bookdown.org/lukas_laffers/pas1/snp.html#charakteristiky-spojitých-náhodných-premenných"><strong>Medián</strong></a> spojite rozdelenej náhodnej premennej <span class="math inline">\(X\)</span> je taká hodnota <span class="math inline">\(M\)</span>, pre ktorú platí</p>
-<p><span class="math display">\[P(X \leq M)= P(X \geq M) = 0.5.\]</span> Medián je taká hodnota, že napravo aj naľavo od nej je 50% pravdepodobnostnej masy. Ľudia sa často čudujú, keď v médiách zaznie informácia o priemernej mzde v hospodárstve. Zdá sa im priveľká. Mnoho ľudí totiž intuitívne stotožňuje priemer s mediánom, tieto hodnoty však môžu byť výrazne iné, najmä pri rozdeleniach, ktoré sú typické pre mzdy. Na nasledujúcom obrázku je taká naklonená funkcia hustoty (nech sú to mesačné mzdy v tisísoch eur). Kým medián (prerušovaná čiara) je <span class="math inline">\(1\)</span>, tak stredná hodnota (plná čiara) je približne <span class="math inline">\(1.65\)</span>. Takže priemerná mzda v tomto hospodárstve je 1650eur ale len polovica ľudí má plat aspoň 1000eur. Preto informácia v televíznych správach o priemernej mzde sa môže zdať mnohým ľuďom privysoká.</p>
-<div class="cell">
-<div class="cell-output-display">
-<div>
-<figure class="figure">
-<p><img src="snp_files/figure-html/snp-10-1.png" class="img-fluid figure-img" width="672"></p>
-</figure>
-</div>
-</div>
-</div>
-<div id="exm-" class="Example theorem example">
-<p><span class="theorem-title"><strong>Príklad 6.5</strong></span> Majme náhodnú premennú <span class="math inline">\(X\)</span>, ktorá má nasledovnú funkciu hustoty <span class="math inline">\(f_X(x) = \frac{1}{2}e^{-x/2}\)</span> pre <span class="math inline">\(x &gt; 0\)</span>, inak <span class="math inline">\(f_X(x)=0\)</span>. Vypočítajte jej medián.</p>
+<p><span class="math display">\[P(X \leq M)= P(X \geq M) = 0.5.\]</span> Medián je taká hodnota, že napravo aj naľavo od nej je 50 % pravdepodobnostnej masy. Ľudia sa často čudujú, keď v médiách zaznie informácia o priemernej mzde v hospodárstve. Zdá sa im priveľká. Mnoho ľudí totiž intuitívne stotožňuje priemer s mediánom, tieto hodnoty však môžu byť výrazne iné, najmä pri rozdeleniach, ktoré sú typické pre mzdy. Na nasledujúcom obrázku je taká naklonená funkcia hustoty (nech sú to mesačné mzdy v tisícoch eur). Kým medián (prerušovaná čiara) je <span class="math inline">\(1\)</span>, tak stredná hodnota (plná čiara) je približne <span class="math inline">\(1.65\)</span>. Takže priemerná mzda v tomto hospodárstve je 1650 eur, ale len polovica ľudí má plat aspoň 1000 eur. Preto informácia v televíznych správach o priemernej mzde sa môže zdať mnohým ľuďom privysoká.</p>
+<div class="Example">
+<p>Majme náhodnú premennú <span class="math inline">\(X\)</span>, ktorá má nasledovnú funkciu hustoty <span class="math inline">\(f_X(x) = \frac{1}{2}e^{-x/2}\)</span> pre <span class="math inline">\(x &gt; 0\)</span>, inak <span class="math inline">\(f_X(x)=0\)</span>. Vypočítajte jej medián.</p>
 <p>Vieme, že kumulatívna distribučná funkcia vyzerá nasledovne <span class="math display">\[\begin{equation*}
 F_X(t)=
 \begin{cases}
@@ -458,30 +368,12 @@ F_X(t)=
 \end{equation*}\]</span>
 <p>Takúto náhodnú premennú označujeme ako <span class="math inline">\(X \sim \text{Unif}[a,b],\)</span></p>
 <p>Toto rozdelenie je vhodné, keď vyberáme rovnomerne náhodne číslo z intervalu. <em>Rovnomerne</em> znamená, že pravdepodobnosť, že náhodná premenná nadobudne hodnotu v dvoch intervaloch rovnakej dĺžky, je rovnaká. Teda nijakým spôsobom neuprednostňujeme žiadne hodnoty pred inými.</p>
-<div class="cell">
-<div class="cell-output-display">
-<div>
-<figure class="figure">
-<p><img src="snp_files/figure-html/snp-11-1.png" class="img-fluid figure-img" width="672"></p>
-</figure>
-</div>
-</div>
-</div>
 <p>Stredná hodnota a variancia pre takúto náhodnú premennú sú <span class="math display">\[\begin{eqnarray*}
 \text{E}[X] &amp;=&amp; \int_{-\infty}^{\infty}x f_X(x) dx = \int_{a}^{b}x \frac{1}{b-a} dx\\
 &amp;=&amp; \left[\frac{x^2}{2(b-a)}\right]_a^b = \frac{b+a}{2},\\
 \text{Var}[X] &amp;=&amp; \cdots  = \frac{1}{12}(b-a)^2.
 \end{eqnarray*}\]</span></p>
 <p>Nasledujúci obrázok porovnáva rovnomerne rozdelené náhodné premenné pre rôzne intervaly.</p>
-<div class="cell">
-<div class="cell-output-display">
-<div>
-<figure class="figure">
-<p><img src="snp_files/figure-html/snp-12-1.png" class="img-fluid figure-img" width="672"></p>
-</figure>
-</div>
-</div>
-</div>
 </section>
 <section id="normálne-rozdelenie" class="level2" data-number="6.4">
 <h2 data-number="6.4" class="anchored" data-anchor-id="normálne-rozdelenie"><span class="header-section-number">6.4</span> Normálne rozdelenie</h2>
@@ -494,7 +386,7 @@ f_X(x)=\frac{1}{\sigma \sqrt{2\pi}}e^{-\frac{1}{2}\frac{(x-\mu)^2}{\sigma^2}}
 F_X(t)= \int_{-\infty}^{t}\frac{1}{\sigma \sqrt{2\pi}}e^{-\frac{1}{2}\frac{(x-\mu)^2}{\sigma^2}}dx.
 \end{equation*}\]</span>
 <p>Takúto náhodnú premennú označujeme ako <span class="math inline">\(X \sim \text{N}(\mu,\sigma^2).\)</span></p>
-<p>Kumulatívna distribučná funkcia normálneho rozdelnia nemá pekné analytické riešenie. Pre špeciálny prípad, keď <span class="math inline">\(\mu=0\)</span> a <span class="math inline">\(\sigma=1,\)</span> teda pre <span class="math inline">\(\text{N}(0,1)\)</span>, rezervujeme pre funkciu hustoty aj pre kumulatívnu distribučnú funkciu špeciálne symboly:</p>
+<p>Kumulatívna distribučná funkcia normálneho rozdelenia nemá pekné analytické riešenie. Pre špeciálny prípad, keď <span class="math inline">\(\mu=0\)</span> a <span class="math inline">\(\sigma=1,\)</span> teda pre <span class="math inline">\(\text{N}(0,1)\)</span>, rezervujeme pre funkciu hustoty aj pre kumulatívnu distribučnú funkciu špeciálne symboly:</p>
 <p><span class="math display">\[\phi(x) \equiv \frac{1}{\sqrt{2\pi}}e^{-\frac{x^2}{2}},\]</span> <span class="math display">\[\Phi(t) \equiv \int_{-\infty}^{t}\phi(x)dx = \int_{-\infty}^{t}\frac{1}{ \sqrt{2\pi}}e^{-\frac{x^2}{2}}dx = \int_{-\infty}^{t}\frac{1}{1 \sqrt{2\pi}}e^{-\frac{1}{2}\frac{(x-0)^2}{1^2}}dx. \]</span> Rozdelenie <span class="math inline">\(\text{N}(0,1)\)</span> nazývame <strong>normované normálne rozdelenie</strong> alebo aj <strong>štandardizované normálne rozdelenie</strong>.</p>
 <p>Normálne (Gaussovské) rozdelenie je jedno z najdôležitejších pravdepodobnostných rozdelení v štatistike. Tvar jeho hustoty pravdepodobnosti je známy Gaussovský zvon. Jeho dôležitosť plynie najmä z toho, že je to limitné rozdelenie pre aritmetický priemer pre nezávislé a rovnako rozdelené pozorovania zo (skoro) <em>hocijakej</em> distribúcie. O tomto výsledku sa budeme rozprávať ešte veľa, nazýva sa Centrálna limitná veta, ale o tomto až neskôr. Prekvapivo rôzne veci v prírode alebo v spoločnosti sa správajú ako normálne rozdelenie, alebo aspoň podobne ako normálne rozdelenie.</p>
 <ul>
@@ -507,29 +399,11 @@ F_X(t)= \int_{-\infty}^{t}\frac{1}{\sigma \sqrt{2\pi}}e^{-\frac{1}{2}\frac{(x-\m
 <li>Ak zahrievate tyč v jednom bode, tak teplota v nejakom čase bude vyzerať ako toto rozdelenie. Toto je riešenie diferenciálnej rovnice, ktorá sa nazýva <em>rovnica vedenia tepla</em>,</li>
 <li>čokoľvek sa správa ako <em>difúzia</em>, napríklad pohyb plynu v priestore - ako ďaleko môže antilopa zacítiť šelmu (viacrozmerné normálne rozdelenie).</li>
 </ul>
-<div class="cell">
-<div class="cell-output-display">
-<div>
-<figure class="figure">
-<p><img src="snp_files/figure-html/snp-13-1.png" class="img-fluid figure-img" width="672"></p>
-</figure>
-</div>
-</div>
-</div>
 <p>Stredná hodnota a variancia pre takúto náhodnú premennú sú <span class="math display">\[\begin{eqnarray*}
 \text{E}[X] &amp;=&amp; \cdots = \mu,\\
 \text{Var}[X] &amp;=&amp; \cdots  = \sigma^2.
 \end{eqnarray*}\]</span></p>
 <p>Nasledujúci obrázok porovnáva Normálne rozdelené náhodné premenné pre rôzne parametre.</p>
-<div class="cell">
-<div class="cell-output-display">
-<div>
-<figure class="figure">
-<p><img src="snp_files/figure-html/snp-14-1.png" class="img-fluid figure-img" width="672"></p>
-</figure>
-</div>
-</div>
-</div>
 <p>Normálne rozdelenie má rôzne vlastnosti, vďaka ktorým sa s ním dobre pracuje, napríklad:</p>
 <ul>
 <li>Ak je <span class="math inline">\(X \sim \text{N}(\mu,\sigma^2)\)</span>, potom platí, že <span class="math inline">\(aX + b \sim N(a\mu + b, a^2 \sigma^2).\)</span> Teda lineárna transformácia normálne rozdelenej náhodnej premennej je stále normálne rozdelená,</li>
@@ -562,108 +436,54 @@ F_X(t)=
 <li>doba obslúženia zákazníka,</li>
 <li>čas medzi udalosťami, ktorých počet je modelovaný Poissonovým rozdelením.</li>
 </ul>
-<div class="cell">
-<div class="cell-output-display">
-<div>
-<figure class="figure">
-<p><img src="snp_files/figure-html/snp-15-1.png" class="img-fluid figure-img" width="672"></p>
-</figure>
-</div>
-</div>
-</div>
 <p>Stredná hodnota a variancia pre takúto náhodnú premennú sú <span class="math display">\[\begin{eqnarray*}
 \text{E}[X] &amp;=&amp;\int_{-\infty}^{\infty} x f_X(x) dx = \int_{0}^{\infty} x \lambda e^{-\lambda x} dx \\
 &amp;=&amp; \left[x . \left(-e^{-\lambda x} \right)\right]^{\infty}_0  - \int_{0}^{\infty} 1 . \left(-e^{-\lambda x} \right) dx\\
 &amp;=&amp; 0 - 0 - \left[\frac{1}{\lambda} e^{-\lambda x} \right]^{\infty}_{0} = 0 - \left(-\frac{1}{\lambda}\right) = \frac{1}{\lambda},\\
 \text{Var}[X] &amp;=&amp; \cdots  = \frac{1}{\lambda^2}.
 \end{eqnarray*}\]</span></p>
-<p>Tu je porovnanie exponenciálne rozdelených náhodných premenných pre rôzne parametre <span class="math inline">\(\lambda = 3\)</span> (modrou farbou) a <span class="math inline">\(\lambda = 6\)</span> (červenou farbou).</p>
-<div class="cell">
-<div class="cell-output-display">
-<div>
-<figure class="figure">
-<p><img src="snp_files/figure-html/snp-16-1.png" class="img-fluid figure-img" width="672"></p>
-</figure>
-</div>
-</div>
-</div>
+<p>Tu je porovnanie exponenciálne rozdelených náhodných premenných pre rôzne parametre <span class="math inline">\(\lambda = 1/3\)</span> (modrou farbou) a <span class="math inline">\(\lambda = 1/6\)</span> (červenou farbou).</p>
 <p>Exponenciálne rozdelenie má jednu dôležitú vlastnosť a to, že si <em>nepamätá</em>. Majme žiarovku, ktorej životnosť (označená ako <span class="math inline">\(W\)</span>) je modelovaná exponenciálnym rozdelením s parametrom <span class="math inline">\(\lambda\)</span>. Napríklad ak priemerná životnosť je 1000 hodín, tak <span class="math inline">\(\lambda = 1/1000.\)</span> Vieme, že žiarovka už funguje 500 hodín (nech je toto <span class="math inline">\(a\)</span>). Aké je pravdepodobnostné rozdelenie jej ďalšej životnosti?</p>
 <span class="math display">\[\begin{eqnarray*}
 P(W &gt; t + a | W &gt; a) &amp;=&amp; \frac{P(W &gt; t + a  \cap W &gt; a)}{P(W &gt; a)} = \frac{P(W &gt; t + a)}{P(W &gt; a)} \\
 &amp;=&amp; \frac{e^{-\lambda (t+a)}}{ e^{-\lambda a}} \\
 &amp;=&amp; e^{-\lambda t} = P(W &gt; t).
 \end{eqnarray*}\]</span>
-<p>Používaná žiarovka je rovnako dobrá ako nová (!). A je úplne jedno, ako dlho už funguje. Exponenciálne rozdelenie preto dobre modeluje čas medzi udalosťami, ktoré nastanú <em>zrazu</em> , alebo životnosť objektov, ktoré <em>nestarnú</em>. Dá sa dokonca ukázať, že toto je jediné rozdelenie, ktoré má takúto vlastnosť. Pre modelovanie životnosti vecí, ktorých šanca zlyhania v čase rastie alebo klesá, sa používa nejaké bohatšie rozdelenie, napríklad Weibullovo.</p>
+<p>Používaná žiarovka je rovnako dobrá ako nová (!). A je úplne jedno, ako dlho už funguje. Exponenciálne rozdelenie preto dobre modeluje čas medzi udalosťami, ktoré nastanú <em>zrazu</em>, alebo životnosť objektov, ktoré <em>nestarnú</em>. Dá sa dokonca ukázať, že toto je jediné rozdelenie, ktoré má takúto vlastnosť. Pre modelovanie životnosti vecí, ktorých šanca zlyhania v čase rastie alebo klesá, sa používa nejaké bohatšie rozdelenie, napríklad Weibullovo.</p>
 </section>
 <section id="chí-kvadrát-rozdelenie" class="level2" data-number="6.6">
 <h2 data-number="6.6" class="anchored" data-anchor-id="chí-kvadrát-rozdelenie"><span class="header-section-number">6.6</span> Chí-kvadrát rozdelenie</h2>
 <p>Hovoríme, že spojitá náhodná premenná <span class="math inline">\(X\)</span> má <strong>chí-kvadrát rozdelenie</strong> s <span class="math inline">\(k\)</span> stupňami voľnosti, ak má nasledovnú funkciu hustoty:</p>
-<p><span class="math display">\[f_X(x) = \frac{1}{2^{k/2}\Gamma(k/2)}x^{k/2-1}e^{-x/2}.\]</span> Distribučná funkcia, podobne ako pre normálne rozdelenie, nemá peknú analytickú formulu. Pri práci s ňou sa spoliehame na softvér.</p>
-<p>Takúto náhodnú premennú označujeme ako <span class="math inline">\(X \sim \chi^2_n\)</span> a toto rozdelenie popisuje pravdepodobnostné správanie</p>
+<p><span class="math display">\[f_X(x) = \frac{1}{2^{k/2}\Gamma(k/2)}x^{k/2-1}e^{-x/2}, \quad x&gt;0,\]</span> a <span class="math inline">\(f_X(x)=0\)</span> inak. Distribučná funkcia, podobne ako pre normálne rozdelenie, nemá peknú analytickú formulu. Pri práci s ňou sa spoliehame na softvér.</p>
+<p>Takúto náhodnú premennú označujeme ako <span class="math inline">\(X \sim \chi^2_k\)</span> a toto rozdelenie popisuje pravdepodobnostné správanie</p>
 <p><span class="math display">\[X_1^2 + X_2^2 + \dots + X_k^2\]</span> kde <span class="math inline">\(X_i \sim \text{N}(0,1)\)</span> a zároveň sú <span class="math inline">\(\{X_i\}_{i=1}^{k}\)</span> nezávislé náhodné premenné.</p>
 <p>Rozdelenie <span class="math inline">\(\chi^2_k\)</span> je užitočné pri štatistickom testovaní hypotéz. Konkrétne odhad variancie bude viesť na štatistiku, ktorá bude po vhodnej transformácii rozdelená ako <span class="math inline">\(\chi^2_k.\)</span></p>
 <p>Stredná hodnota a variancia pre takúto náhodnú premennú sú <span class="math display">\[\begin{eqnarray*}
 \text{E}[X] &amp;=&amp; \text{E}[X_1^2] + \text{E}[X_2^2] + \dots + \text{E}[X_k^2] = 1 + 1 + \cdots + 1 =  k,\\
 \text{Var}[X] &amp;=&amp; \cdots  = 2k.
 \end{eqnarray*}\]</span></p>
-<div class="cell">
-<div class="cell-output-display">
-<div>
-<figure class="figure">
-<p><img src="snp_files/figure-html/snp-17-1.png" class="img-fluid figure-img" width="672"></p>
-</figure>
-</div>
-</div>
-</div>
 <p>Tu je porovnanie <span class="math inline">\(\chi^2\)</span> rozdelení náhodných premenných pre rôzne parametre <span class="math inline">\(k=3,6\)</span>:</p>
-<div class="cell">
-<div class="cell-output-display">
-<div>
-<figure class="figure">
-<p><img src="snp_files/figure-html/snp-18-1.png" class="img-fluid figure-img" width="672"></p>
-</figure>
-</div>
-</div>
-</div>
 </section>
 <section id="studentovo-rozdelenie-t-rozdelenie" class="level2" data-number="6.7">
 <h2 data-number="6.7" class="anchored" data-anchor-id="studentovo-rozdelenie-t-rozdelenie"><span class="header-section-number">6.7</span> Studentovo rozdelenie (t-rozdelenie)</h2>
 <p>Hovoríme, že spojitá náhodná premenná <span class="math inline">\(X\)</span> má <strong>Studentovo rozdelenie</strong> s <span class="math inline">\(k\)</span> stupňami voľnosti, ak má nasledovnú funkciu hustoty:</p>
-<p><span class="math display">\[f_X(x) = \frac{\Gamma\left(\frac{k+1}{2} \right)}{\sqrt{k \pi} \ \Gamma\left(\frac{k}{2} \right)} \left(1 + \frac{x^2}{k} \right)^{\frac{k+1}{2}}.\]</span> Predpis kumulatívnej distribučnej funkcie je tiež komplikovaný a nie je užitočné si ho pamätať.</p>
+<p><span class="math display">\[f_X(x) = \frac{\Gamma\left(\frac{k+1}{2} \right)}{\sqrt{k \pi} \ \Gamma\left(\frac{k}{2} \right)} \left(1 + \frac{x^2}{k} \right)^{-\frac{k+1}{2}}.\]</span> Predpis kumulatívnej distribučnej funkcie je tiež komplikovaný a nie je užitočné si ho pamätať.</p>
 <p>Takúto náhodnú premennú označujeme ako <span class="math inline">\(X \sim T_k.\)</span></p>
 <p>Studentove t-rozdelenie bude užitočné pri testovaní štatistických hypotéz, napríklad keď chceme porovnať, či majú dva súbory pozorovaní z nejakých náhodných premenných rovnakú strednú hodnotu. Uvažujme <span class="math inline">\(Z \sim N(0,1)\)</span> a <span class="math inline">\(V \sim \chi^2_k\)</span>, ktoré sú nezávislé. Potom <span class="math inline">\(T\)</span></p>
 <p><span class="math display">\[T = \frac{Z}{\sqrt{\frac{V}{k}}}\]</span> má Studentovo t-rozdelenie s <span class="math inline">\(k\)</span> stupňami voľnosti.</p>
-<div class="cell">
-<div class="cell-output-display">
-<div>
-<figure class="figure">
-<p><img src="snp_files/figure-html/snp-19-1.png" class="img-fluid figure-img" width="672"></p>
-</figure>
-</div>
-</div>
-</div>
 <p>Stredná hodnota (pre <span class="math inline">\(k&gt;1\)</span>) a variancia (pre <span class="math inline">\(k&gt;2\)</span>) pre takúto náhodnú premennú sú <span class="math display">\[\begin{eqnarray*}
 \text{E}[X] &amp;=&amp; 0,\\
 \text{Var}[X] &amp;=&amp;  \cdots  = \frac{k}{k-2}.
 \end{eqnarray*}\]</span></p>
 <p>Nasledujúci obrázok porovnáva t-rozdelené náhodné premenné pre rôzne parametre <span class="math inline">\(k=1,2,6,12\)</span> a limitné rozdelenie pre <span class="math inline">\(k \rightarrow \infty\)</span>, teda <span class="math inline">\(\text{N}(0,1)\)</span>.</p>
-<div class="cell">
-<div class="cell-output-display">
-<div>
-<figure class="figure">
-<p><img src="snp_files/figure-html/snp-20-1.png" class="img-fluid figure-img" width="672"></p>
-</figure>
-</div>
-</div>
-</div>
 <p>Rozdelenie <span class="math inline">\(t_1\)</span> má špeciálne meno. Nazýva sa <strong>Cauchyho rozdelenie</strong> a je zaujímavé tým, že <span class="math inline">\(\text{E}[X]\)</span> neexistuje, lebo nie je splnená podmienka <span class="math inline">\(\int_{-\infty}^{\infty}|x|f_X(x)dx &lt; \infty\)</span>. O takomto rozdelení hovoríme, že má <strong>ťažké chvosty</strong>, lebo pravdepodobnosť veľkej alebo malej hodnoty x síce ide k nule, ale príliš pomaly na to, aby bol integrál hodnôt váhovaných pravdepodobnosťami konečný.</p>
 <p>&nbsp; &nbsp;</p>
 <p>Znovu si dovolím pripomenúť tento vizualizačný projekt: <a href="https://seeing-theory.brown.edu">Seeing Theory</a>.</p>
 </section>
 <section id="cvičenia" class="level2" data-number="6.8">
 <h2 data-number="6.8" class="anchored" data-anchor-id="cvičenia"><span class="header-section-number">6.8</span> Cvičenia</h2>
-<div id="exr-" class="Exercise theorem exercise">
-<p><span class="theorem-title"><strong>Cvičenie 6.1</strong></span> Majme náhodnú premennú s nasledovnou kumulatívnou distribučnou funkciou:</p>
+<div class="Exercise">
+<p>Majme náhodnú premennú s nasledovnou kumulatívnou distribučnou funkciou:</p>
 <span class="math display">\[\begin{equation*}
 F_X(x)=
 \begin{cases}
@@ -675,8 +495,8 @@ F_X(x)=
 <p>Nájdite a načrtnite jej funkciu hustoty pravdepodobnosti.</p>
 <p>Vypočítajte jej strednú hodnotu a medián.</p>
 </div>
-<div id="exr-" class="Exercise theorem exercise">
-<p><span class="theorem-title"><strong>Cvičenie 6.2</strong></span> Majme náhodnú premennú s nasledovnou kumulatívnou distribučnou funkciou:</p>
+<div class="Exercise">
+<p>Majme náhodnú premennú s nasledovnou kumulatívnou distribučnou funkciou:</p>
 <span class="math display">\[\begin{equation*}
 F_X(x)=
 \begin{cases}
@@ -688,8 +508,8 @@ F_X(x)=
 <p>Nájdite a načrtnite jej funkciu hustoty pravdepodobnosti.</p>
 <p>Vypočítajte jej strednú hodnotu a medián.</p>
 </div>
-<div id="exr-" class="Exercise theorem exercise">
-<p><span class="theorem-title"><strong>Cvičenie 6.3</strong></span> Majme náhodnú premennú s nasledovnou funkciu hustoty pravdepodobnosti:</p>
+<div class="Exercise">
+<p>Majme náhodnú premennú s nasledovnou funkciou hustoty pravdepodobnosti:</p>
 <span class="math display">\[\begin{equation*}
 f_X(x)=
 \begin{cases}
@@ -700,8 +520,8 @@ f_X(x)=
 <p>Skontrolujte, že táto <span class="math inline">\(f_X\)</span> je korektná funkcia hustoty.</p>
 <p>Nájdite a načrtnite jej kumulatívnu distribučnú funkciu.</p>
 </div>
-<div id="exr-" class="Exercise theorem exercise">
-<p><span class="theorem-title"><strong>Cvičenie 6.4</strong></span> Majme náhodnú premennú s nasledovnou funkciu hustoty pravdepodobnosti:</p>
+<div class="Exercise">
+<p>Majme náhodnú premennú s nasledovnou funkciou hustoty pravdepodobnosti:</p>
 <span class="math display">\[\begin{equation*}
 f_X(x)=
 \begin{cases}
@@ -714,8 +534,8 @@ f_X(x)=
 <p>Nájdite a načrtnite jej kumulatívnu distribučnú funkciu.</p>
 <p>Vypočítajte jej strednú hodnotu, varianciu a medián.</p>
 </div>
-<div id="exr-" class="Exercise theorem exercise">
-<p><span class="theorem-title"><strong>Cvičenie 6.5</strong></span> Majme náhodnú premennú s nasledovnou funkciu hustoty pravdepodobnosti:</p>
+<div class="Exercise">
+<p>Majme náhodnú premennú s nasledovnou funkciou hustoty pravdepodobnosti:</p>
 <span class="math display">\[\begin{equation*}
 f_X(x)=
 \begin{cases}
@@ -728,15 +548,15 @@ a \sin x, &amp; \text{ak}\ x  \in (0,\pi], \\
 <p>Nájdite a načrtnite jej kumulatívnu distribučnú funkciu.</p>
 <p>Vypočítajte jej strednú hodnotu, varianciu a <span class="math inline">\(P(X \geq \pi/4)\)</span></p>
 </div>
-<div id="exr-" class="Exercise theorem exercise">
-<p><span class="theorem-title"><strong>Cvičenie 6.6</strong></span> Majme náhodnú premennú s nasledovnou funkciu hustoty pravdepodobnosti:</p>
+<div class="Exercise">
+<p>Majme náhodnú premennú s nasledovnou funkciou hustoty pravdepodobnosti:</p>
 <p><span class="math display">\[f_X(x) = \frac{4c}{e^x + e^{-x}}\]</span></p>
 <p>Vypočítajte <span class="math inline">\(c\)</span> tak, aby <span class="math inline">\(f_X\)</span> bola korektná funkcia hustoty.</p>
 <p>Nájdite a načrtnite jej kumulatívnu distribučnú funkciu.</p>
 <p>Vypočítajte jej strednú hodnotu, varianciu, medián a <span class="math inline">\(P(X \geq 1).\)</span></p>
 </div>
 <div id="exr-polyn" class="Exercise theorem exercise">
-<p><span class="theorem-title"><strong>Cvičenie 6.7</strong></span> Majme náhodnú premennú s nasledovnou funkciu hustoty pravdepodobnosti:</p>
+<p><span class="theorem-title"><strong>Cvičenie 6.1</strong></span> Majme náhodnú premennú s nasledovnou funkciou hustoty pravdepodobnosti:</p>
 <span class="math display">\[\begin{equation*}
 f_X(x)=
 \begin{cases}
@@ -748,34 +568,34 @@ x - \frac{x^3}{4}, &amp; \text{ak}\ x \in (0,2), \\
 <p>Vypočítajte jej strednú hodnotu, varianciu, medián a <span class="math inline">\(P(|X-1| \leq 0.5)\)</span></p>
 </div>
 <div id="exr-unif" class="Exercise theorem exercise">
-<p><span class="theorem-title"><strong>Cvičenie 6.8</strong></span> Nech <span class="math inline">\(X \sim \text{Unif}[4,6]\)</span></p>
+<p><span class="theorem-title"><strong>Cvičenie 6.2</strong></span> Nech <span class="math inline">\(X \sim \text{Unif}[4,6]\)</span></p>
 <p>Nájdite kumulatívnu distribučnú funkciu náhodnej premennej <span class="math inline">\(X\)</span>.</p>
 <p>Nájdite kumulatívnu distribučnú funkciu náhodnej premennej <span class="math inline">\(X^2\)</span>.</p>
 </div>
 <div id="exr-linearita" class="Exercise theorem exercise">
-<p><span class="theorem-title"><strong>Cvičenie 6.9</strong></span> Využitím linearity strednej hodnoty ukážte, že platí</p>
+<p><span class="theorem-title"><strong>Cvičenie 6.3</strong></span> Využitím linearity strednej hodnoty ukážte, že platí</p>
 <p><span class="math display">\[\text{Var}[aX+b] = a^2 \text{Var}[X].\]</span></p>
 </div>
-<div id="exr-" class="Exercise theorem exercise">
-<p><span class="theorem-title"><strong>Cvičenie 6.10</strong></span> Majme náhodnú premennú s nasledovnou funkciu hustoty pravdepodobnosti:</p>
+<div class="Exercise">
+<p>Majme náhodnú premennú s nasledovnou funkciou hustoty pravdepodobnosti:</p>
 <span class="math display">\[\begin{equation*}
 f_X(x)=
 \begin{cases}
-c.e^{-x}, &amp; \text{ak}\ x  &gt; 0, \\
+c e^{-x}, &amp; \text{ak}\ x  &gt; 0, \\
 0, &amp; \text{inak}.
 \end{cases}
 \end{equation*}\]</span>
 <p>Určite konštantu <span class="math inline">\(c\)</span>.</p>
 </div>
 <div id="exr-nemoze" class="Exercise theorem exercise">
-<p><span class="theorem-title"><strong>Cvičenie 6.11</strong></span> Ukážte, že neexistuje žiadna náhodná premenná, pre ktorú platí <span class="math inline">\(\text{E}[X] = 4\)</span> a súčasne <span class="math inline">\(\text{E}[X^2]=15.\)</span></p>
+<p><span class="theorem-title"><strong>Cvičenie 6.4</strong></span> Ukážte, že neexistuje žiadna náhodná premenná, pre ktorú platí <span class="math inline">\(\text{E}[X] = 4\)</span> a súčasne <span class="math inline">\(\text{E}[X^2]=15.\)</span></p>
 </div>
-<div id="exr-normal" class="Exercise theorem exercise">
-<p><span class="theorem-title"><strong>Cvičenie 6.12</strong></span> Nech <span class="math inline">\(X \sim \text{N}(0,1)\)</span> a <span class="math inline">\(Y \sim \text{N}(1,1)\)</span></p>
+<div id="exr-normal-porovnanie" class="Exercise theorem exercise">
+<p><span class="theorem-title"><strong>Cvičenie 6.5</strong></span> Nech <span class="math inline">\(X \sim \text{N}(0,1)\)</span> a <span class="math inline">\(Y \sim \text{N}(1,1)\)</span></p>
 <p>Ukážte, že <span class="math inline">\(P(X&lt;3) &gt; P(Y&lt;3).\)</span></p>
 </div>
 <div id="exr-korektne" class="Exercise theorem exercise">
-<p><span class="theorem-title"><strong>Cvičenie 6.13</strong></span> Ukážte, že nasledujúce funkcie hustoty sú korektné</p>
+<p><span class="theorem-title"><strong>Cvičenie 6.6</strong></span> Ukážte, že nasledujúce funkcie hustoty sú korektné</p>
 <ul>
 <li>(Weibullovo rozdelenie)</li>
 </ul>
@@ -810,7 +630,7 @@ f_X(x)=
 <p><span class="math display">\[f_X(x) =e^{-x}\text{exp}\{-e^{-x}\}.\]</span></p>
 </div>
 <div id="exr-nudny" class="Exercise theorem exercise">
-<p><span class="theorem-title"><strong>Cvičenie 6.14</strong></span> Majme náhodnú premennú s takouto funkciou hustoty</p>
+<p><span class="theorem-title"><strong>Cvičenie 6.7</strong></span> Majme náhodnú premennú s takouto funkciou hustoty</p>
 <span class="math display">\[\begin{equation*}
 f_X(x)=
 \begin{cases}
@@ -825,11 +645,11 @@ c x^2, &amp; \text{ak}\ |x| &lt; 1, \\
 </ul>
 </div>
 <div id="exr-x2" class="Exercise theorem exercise">
-<p><span class="theorem-title"><strong>Cvičenie 6.15</strong></span> Majme náhodnú premennú s takouto funkciou hustoty</p>
+<p><span class="theorem-title"><strong>Cvičenie 6.8</strong></span> Majme náhodnú premennú s takouto funkciou hustoty</p>
 <p><span class="math display">\[ f_X(x)=\frac{1}{2} e^{-|x|}.\]</span> Vypočítajte kumulatívnu distribučnú funkciu pre <span class="math inline">\(Y = X^2.\)</span></p>
 </div>
 <div id="exr-poly2" class="Exercise theorem exercise">
-<p><span class="theorem-title"><strong>Cvičenie 6.16</strong></span> Majme náhodnú premennú s takouto funkciou hustoty</p>
+<p><span class="theorem-title"><strong>Cvičenie 6.9</strong></span> Majme náhodnú premennú s takouto funkciou hustoty</p>
 <span class="math display">\[\begin{equation*}
 f_X(x)=
 \begin{cases}
@@ -841,8 +661,8 @@ f_X(x)=
 <li>Vypočítajte <span class="math inline">\(P\left(X \geq \frac{2}{3}| X &gt; \frac{1}{3}\right).\)</span></li>
 </ul>
 </div>
-<div id="exr-" class="Exercise theorem exercise">
-<p><span class="theorem-title"><strong>Cvičenie 6.17</strong></span> Majme náhodnú premennú s takouto funkciou hustoty</p>
+<div class="Exercise">
+<p>Majme náhodnú premennú s takouto funkciou hustoty</p>
 <span class="math display">\[\begin{equation*}
 f_X(x)=
 \begin{cases}
@@ -855,29 +675,29 @@ x^2 \left( 2x + \frac{3}{2}\right), &amp; \text{ak}\ 0 &lt; x \leq 1, \\
 </ul>
 </div>
 <div id="exr-suma" class="Exercise theorem exercise">
-<p><span class="theorem-title"><strong>Cvičenie 6.18</strong></span> Majme kladnú spojitú náhodnú premennú. Ukážte, že platí</p>
+<p><span class="theorem-title"><strong>Cvičenie 6.10</strong></span> Majme kladnú spojitú náhodnú premennú. Ukážte, že platí</p>
 <p><span class="math display">\[\text{E}[X] = \int_{0}^{\infty}P(X \geq x) dx.\]</span></p>
 </div>
 <div id="exr-hust" class="Exercise theorem exercise">
-<p><span class="theorem-title"><strong>Cvičenie 6.19</strong></span> Nech <span class="math inline">\(f_{X_1}\)</span> a <span class="math inline">\(f_{X_2}\)</span> sú hustoty pravdepodobnosti náhodných premenných <span class="math inline">\(X_1\)</span> a <span class="math inline">\(X_2.\)</span> Rozhodnite, či môže platiť <span class="math inline">\(f_{X_1}(x) &gt; f_{X_2}(x)\)</span> pre všetky <span class="math inline">\(x \in \mathbb{R}.\)</span></p>
+<p><span class="theorem-title"><strong>Cvičenie 6.11</strong></span> Nech <span class="math inline">\(f_{X_1}\)</span> a <span class="math inline">\(f_{X_2}\)</span> sú hustoty pravdepodobnosti náhodných premenných <span class="math inline">\(X_1\)</span> a <span class="math inline">\(X_2.\)</span> Rozhodnite, či môže platiť <span class="math inline">\(f_{X_1}(x) &gt; f_{X_2}(x)\)</span> pre všetky <span class="math inline">\(x \in \mathbb{R}.\)</span></p>
 </div>
 <div id="exr-ziarovka" class="Exercise theorem exercise">
-<p><span class="theorem-title"><strong>Cvičenie 6.20</strong></span> Životnosť súčiastky je exponenciálne rozdelená so strednou hodnotou 1 rok. Aká je pravdepodobnosť, že ak funguje už 2 roky, že bude fungovať dalšie 3 roky?</p>
+<p><span class="theorem-title"><strong>Cvičenie 6.12</strong></span> Životnosť súčiastky je exponenciálne rozdelená so strednou hodnotou 1 rok. Aká je pravdepodobnosť, že ak funguje už 2 roky, že bude fungovať ďalšie 3 roky?</p>
 </div>
 <div id="exr-web" class="Exercise theorem exercise">
-<p><span class="theorem-title"><strong>Cvičenie 6.21</strong></span> Na náš web príde človek približne každých 10min. Aká je šanca, ze počas polhodinového výpadku nikto nechcel navštíviť náš web? (Použite exponenciálne rozdelenie.)</p>
+<p><span class="theorem-title"><strong>Cvičenie 6.13</strong></span> Na náš web príde človek približne každých 10 min. Aká je šanca, že počas polhodinového výpadku nikto nechcel navštíviť náš web? (Použite exponenciálne rozdelenie.)</p>
 </div>
 <div id="exr-normal" class="Exercise theorem exercise">
-<p><span class="theorem-title"><strong>Cvičenie 6.22</strong></span> Nech <span class="math inline">\(X \sim N(\mu,\sigma^2).\)</span></p>
+<p><span class="theorem-title"><strong>Cvičenie 6.14</strong></span> Nech <span class="math inline">\(X \sim N(\mu,\sigma^2).\)</span></p>
 <p>Ukážte, že funkcia hustoty je unimodálna (“jednohrbá”) a jej stredná hodnota a medián sú rovné <span class="math inline">\(\mu.\)</span></p>
 </div>
-<div id="exr-" class="Exercise theorem exercise">
-<p><span class="theorem-title"><strong>Cvičenie 6.23</strong></span> Majme <span class="math inline">\(X \sim N(3,4^2)\)</span>. Nech <span class="math inline">\(Y = \frac{X}{2} - 3\)</span>.</p>
+<div class="Exercise">
+<p>Majme <span class="math inline">\(X \sim N(3,4^2)\)</span>. Nech <span class="math inline">\(Y = \frac{X}{2} - 3\)</span>.</p>
 <p>Vypočítajte</p>
 <p><span class="math display">\[\text{E}[Y], \text{Var}[Y], P(Y \leq 3), P(Y \in (2,5]).\]</span></p>
 </div>
-<div id="exr-" class="Exercise theorem exercise">
-<p><span class="theorem-title"><strong>Cvičenie 6.24</strong></span> Majme náhodnú premennú s nasledovnou kumulatívnou distribučnou funkciou:</p>
+<div class="Exercise">
+<p>Majme náhodnú premennú s nasledovnou kumulatívnou distribučnou funkciou:</p>
 <p><span class="math display">\[\begin{equation*}
 
 F_X(t)=
@@ -894,13 +714,13 @@ e^{t-3}, &amp; \text{ak} \ t \leq 3, \\
 <p>Nájdite a načrtnite jej funkciu hustoty pravdepodobnosti.</p>
 <p>Vypočítajte</p>
 <ul>
-<li><p><span class="math inline">\(P(X \in [2,3) ),\)</span></p></li>
+<li><p><span class="math inline">\(P(X \in [2,3)),\)</span></p></li>
 <li><p><span class="math inline">\(P(|X| &gt; 2).\)</span></p></li>
 </ul>
 <p>Vypočítajte strednú hodnotu a varianciu <span class="math inline">\(X\)</span>.</p>
 </div>
-<div id="exr-" class="Exercise theorem exercise">
-<p><span class="theorem-title"><strong>Cvičenie 6.25</strong></span> Zadefinujme si funkciu <span class="math inline">\(\Gamma(\alpha) = \int_{0}^{\infty}t^{\alpha-1}e^{-t} dt,\)</span> pre <span class="math inline">\(\alpha&gt;0.\)</span></p>
+<div class="Exercise">
+<p>Zadefinujme si funkciu <span class="math inline">\(\Gamma(\alpha) = \int_{0}^{\infty}t^{\alpha-1}e^{-t} dt,\)</span> pre <span class="math inline">\(\alpha&gt;0.\)</span></p>
 <ul>
 <li><p>Pomocou techniky integrácie per-partes ukážte, že <span class="math inline">\(\Gamma(\alpha+1)=\alpha\Gamma(\alpha),\)</span></p></li>
 <li><p>Ukážte, že <span class="math inline">\(\Gamma(1)=1\)</span>,</p></li>
@@ -908,31 +728,8 @@ e^{t-3}, &amp; \text{ak} \ t \leq 3, \\
 <li><p>Využite to, že platí <span class="math inline">\(\Gamma(0.5) = \sqrt{\pi},\)</span> aby ste ukázali, že <span class="math inline">\(\int_{-\infty}^{\infty}\phi(x)dx=1,\)</span> kde <span class="math inline">\(\phi(x)\)</span> je hustota pravdepodobnosti normovaného normálneho rozdelenia. Využite substitúciu <span class="math inline">\(t=x^2/2.\)</span></p></li>
 </ul>
 </div>
-<div id="exr-" class="Exercise theorem exercise">
-<p><span class="theorem-title"><strong>Cvičenie 6.26</strong></span> Majme náhodnú premennú s nasledovnou kumulatívnou distribučnou funkciou:</p>
-<p><span class="math display">\[\begin{equation*}
-
-F_X(t)=
-
-\begin{cases}
-
-e^{t-3}, &amp; \text{ak} \ t \leq 3, \\
-
-1, &amp; \text{ak} \ t &gt; 3.
-
-\end{cases}
-
-\end{equation*}\]</span></p>
-<p>Nájdite a načrtnite jej funkciu hustoty pravdepodobnosti.</p>
-<p>Vypočítajte</p>
-<ul>
-<li><p><span class="math inline">\(P(X \in [2,3) ),\)</span></p></li>
-<li><p><span class="math inline">\(P(|X| &gt; 2).\)</span></p></li>
-</ul>
-<p>Vypočítajte strednú hodnotu a varianciu <span class="math inline">\(X\)</span>.</p>
-</div>
-<div id="exr-" class="Exercise theorem exercise">
-<p><span class="theorem-title"><strong>Cvičenie 6.27</strong></span> Majme náhodnú premennú s nasledovnou funkciou hustoty:</p>
+<div class="Exercise">
+<p>Majme náhodnú premennú s nasledovnou funkciou hustoty:</p>
 <p><span class="math display">\[\begin{equation*}
 
 f_X(x)=
@@ -948,21 +745,11 @@ f_X(x)=
 \end{equation*}\]</span></p>
 <p>Vypočítajte jej strednú hodnotu, varianciu a medián. (Tieto sú funkcie parametrov <span class="math inline">\(\alpha\)</span> a <span class="math inline">\(\beta\)</span>.)</p>
 </div>
-<div id="exr-" class="Exercise theorem exercise">
-<p><span class="theorem-title"><strong>Cvičenie 6.28</strong></span> Nech je doba do ďalšieho výbuchu sopky modelovaná exponenciálnym rozdelením. Vieme, že priemerne čakáme na výbuch sopky 100 rokov. Aká je pravdepodobnosť výbuchu sopky počas najbližších 10 rokov ak vieme, že za posledných 500 rokov sopka nevybuchla?</p>
+<div class="Exercise">
+<p>Nech je doba do ďalšieho výbuchu sopky modelovaná exponenciálnym rozdelením. Vieme, že priemerne čakáme na výbuch sopky 100 rokov. Aká je pravdepodobnosť výbuchu sopky počas najbližších 10 rokov ak vieme, že za posledných 500 rokov sopka nevybuchla?</p>
 </div>
 <div id="exr-zajo" class="Exercise theorem exercise">
-<p><span class="theorem-title"><strong>Cvičenie 6.29</strong></span> Vyfarbite Vašimi obľúbenými Veľkonočnými farbami.</p>
-<div class="cell" data-layout-align="center">
-<div class="cell-output-display">
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="fig_zajo.png" class="img-fluid figure-img" style="width:80.0%"></p>
-<figcaption>Zdroj: https://miramuseai.net</figcaption>
-</figure>
-</div>
-</div>
-</div>
+<p><span class="theorem-title"><strong>Cvičenie 6.15</strong></span> Vyfarbite Vašimi obľúbenými Veľkonočnými farbami.</p>
 </div>
 <div class="callout callout-style-default callout-tip callout-titled">
 <div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-1-contents" aria-controls="callout-1" aria-expanded="false" aria-label="Toggle callout">
@@ -976,7 +763,7 @@ Niektoré riešenia
 </div>
 <div id="callout-1" class="callout-1-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
-<p><a href="#exr-polyn" class="quarto-xref">Cvičenie&nbsp;<span>6.7</span></a></p>
+<p><a href="#exr-polyn" class="quarto-xref">Cvičenie&nbsp;<span>6.1</span></a></p>
 <p>Pre <span class="math inline">\(x \leq 0\)</span>:</p>
 <p><span class="math display">\[
 F_X(x) = 0
@@ -1038,7 +825,7 @@ F_X(0.5) = \frac{(0.5)^2}{2} - \frac{(0.5)^4}{16} = 0.125 - 0.0039 = 0.1211
 <p><span class="math display">\[
 P(|X - 1| \leq 0.5) = 0.8086 - 0.1211 = 0.6875
 \]</span></p>
-<p><a href="#exr-unif" class="quarto-xref">Cvičenie&nbsp;<span>6.8</span></a></p>
+<p><a href="#exr-unif" class="quarto-xref">Cvičenie&nbsp;<span>6.2</span></a></p>
 <p>Pre <span class="math inline">\(X \sim \text{Unif}[a,b] = \text{Unif}[4,6]\)</span> hustota pravdepodobnosti:</p>
 <p><span class="math display">\[
 f_X(x) =
@@ -1073,7 +860,7 @@ F_X(\sqrt{y}) = \frac{\sqrt{y} - 4}{2}, &amp; 16 \leq y \leq 36, \\
 1, &amp; y &gt; 36
 \end{cases}
 \]</span></p>
-<p><a href="#exr-linearita" class="quarto-xref">Cvičenie&nbsp;<span>6.9</span></a></p>
+<p><a href="#exr-linearita" class="quarto-xref">Cvičenie&nbsp;<span>6.3</span></a></p>
 <p>Využijeme linearitu strednej hodnoty:</p>
 <p><span class="math display">\[
 \text{E}[aX + b] = a \text{E}[X] + b
@@ -1096,7 +883,7 @@ F_X(\sqrt{y}) = \frac{\sqrt{y} - 4}{2}, &amp; 16 \leq y \leq 36, \\
 &amp;= a^2 \, \text{Var}[X]
 \end{align*}
 \]</span></p>
-<p><a href="#exr-nemoze" class="quarto-xref">Cvičenie&nbsp;<span>6.11</span></a></p>
+<p><a href="#exr-nemoze" class="quarto-xref">Cvičenie&nbsp;<span>6.4</span></a></p>
 <p>Pre každú náhodnú premennú (pre ktorú existuje stredná hodnota a variancia) platí:</p>
 <p><span class="math display">\[
 \text{Var}(X) = \text{E}[X^2] - \left( \text{E}[X] \right)^2
@@ -1110,7 +897,7 @@ F_X(\sqrt{y}) = \frac{\sqrt{y} - 4}{2}, &amp; 16 \leq y \leq 36, \\
 <p><span class="math display">\[
 \text{Var}(X) = 15 - (4)^2 = 15 - 16 = -1
 \]</span> Dostávame, že variancia je záporná, čo je však v spore s tým, že variancia je stredná hodnota nezápornej náhodnej premennej.</p>
-<p><a href="#exr-normal" class="quarto-xref">Cvičenie&nbsp;<span>6.22</span></a></p>
+<p><a href="#exr-normal-porovnanie" class="quarto-xref">Cvičenie&nbsp;<span>6.5</span></a></p>
 <p>Náhodná premenná <span class="math inline">\(X\)</span> má už štandardné normálne rozdelenie:</p>
 <p><span class="math display">\[
 P(X &lt; 3) = \Phi(3)
@@ -1131,7 +918,7 @@ P(Y &lt; 3) = \Phi(2)
 <p><span class="math display">\[
 P(X &lt; 3) &gt; P(Y &lt; 3)
 \]</span></p>
-<p><a href="#exr-korektne" class="quarto-xref">Cvičenie&nbsp;<span>6.13</span></a></p>
+<p><a href="#exr-korektne" class="quarto-xref">Cvičenie&nbsp;<span>6.6</span></a></p>
 <p>Weibull:</p>
 <p><span class="math display">\[
 f_X(x) =
@@ -1186,7 +973,7 @@ f_X(x) = e^{-x} \cdot \exp\{-e^{-x}\}
 = \int_{\infty}^{0} t \cdot e^{-t} \cdot \left(-\frac{1}{t}\right) dt
 = \int_0^\infty e^{-t} dt = 1
 \]</span></p>
-<p><a href="#exr-nudny" class="quarto-xref">Cvičenie&nbsp;<span>6.14</span></a></p>
+<p><a href="#exr-nudny" class="quarto-xref">Cvičenie&nbsp;<span>6.7</span></a></p>
 <p>Hustota musí spĺňať:</p>
 <p><span class="math display">\[
 \int_{-\infty}^{\infty} f_X(x)\,dx = 1
@@ -1227,7 +1014,7 @@ P\left(X \geq \frac{1}{2}\right) = \int_{1/2}^1 f_X(x)\,dx = \int_{1/2}^{1} \fra
 = \frac{3}{2} \cdot \left( \frac{1}{3} - \frac{1}{24} \right)
 = \frac{3}{2} \cdot \frac{7}{24} = \frac{7}{16}
 \]</span></p>
-<p><a href="#exr-x2" class="quarto-xref">Cvičenie&nbsp;<span>6.15</span></a></p>
+<p><a href="#exr-x2" class="quarto-xref">Cvičenie&nbsp;<span>6.8</span></a></p>
 <p>Kumulatívna distribučná funkcia pre <span class="math inline">\(X\)</span> je:</p>
 <p>Pre <span class="math inline">\(x \geq 0\)</span>: <span class="math display">\[
 F_X(x) = \int_{-\infty}^{x} \frac{1}{2} e^{-|t|} dt = \frac{1}{2} + \frac{1}{2}(1 - e^{-x}) = 1 - \frac{1}{2} e^{-x}
@@ -1259,7 +1046,7 @@ F_Y(y) =
 1 - e^{-\sqrt{y}}, &amp; y \geq 0
 \end{cases}
 \]</span></p>
-<p><a href="#exr-poly2" class="quarto-xref">Cvičenie&nbsp;<span>6.16</span></a></p>
+<p><a href="#exr-poly2" class="quarto-xref">Cvičenie&nbsp;<span>6.9</span></a></p>
 <p>Podmienenú pravdepodobnosť môžeme vyjadriť ako:</p>
 <p><span class="math display">\[
 P\left( X \geq \frac{2}{3} \mid X &gt; \frac{1}{3} \right) = \frac{P\left( X \geq \frac{2}{3}, X &gt; \frac{1}{3} \right)}{P(X &gt; \frac{1}{3})}
@@ -1287,18 +1074,18 @@ P\left( X \geq \frac{2}{3} \right) = \left[ x^4 \right]_{\frac{2}{3}}^1 = 1^4 - 
 <p><span class="math display">\[
 P\left( X \geq \frac{2}{3} \mid X &gt; \frac{1}{3} \right) = \frac{P\left( X \geq \frac{2}{3} \right)}{P(X &gt; \frac{1}{3})} = \frac{\frac{65}{81}}{\frac{80}{81}} = \frac{65}{80} = \frac{13}{16}
 \]</span></p>
-<p><a href="#exr-hust" class="quarto-xref">Cvičenie&nbsp;<span>6.19</span></a></p>
+<p><a href="#exr-hust" class="quarto-xref">Cvičenie&nbsp;<span>6.11</span></a></p>
 <p>Integrál rozdielu dvoch funkcií musí byť kladný</p>
 <p><span class="math display">\[\int_{-\infty}^{\infty} f_{X_1}(x) - f_{X_2}(x) dx &gt; 0\]</span></p>
 <p>a to je v spore s tým, že obe hustoty majú integrál 1:</p>
 <p><span class="math display">\[\int_{-\infty}^{\infty} f_{X_1}(x) dx - \int_{-\infty}^{\infty} f_{X_2}(x) dx = 1 - 1 = 0. \]</span></p>
-<p><a href="#exr-ziarovka" class="quarto-xref">Cvičenie&nbsp;<span>6.20</span></a></p>
+<p><a href="#exr-ziarovka" class="quarto-xref">Cvičenie&nbsp;<span>6.12</span></a></p>
 <p>Pre exponenciálne rozdelenú súčiastku so strednou hodnotou 1 rok (<span class="math inline">\(\lambda = 1\)</span>) je pravdepodobnosť, že bude fungovať ďalšie 3 roky, ak už funguje 2 roky, daná vzťahom:</p>
 <p><span class="math display">\[
 P(T \geq 2+3 \mid T \geq 2) = P(T \geq 3) = e^{-3\cdot 1} \approx 0.0498.
 \]</span></p>
 <p>Teda pravdepodobnosť je približne 4.98%.</p>
-<p><a href="#exr-web" class="quarto-xref">Cvičenie&nbsp;<span>6.21</span></a></p>
+<p><a href="#exr-web" class="quarto-xref">Cvičenie&nbsp;<span>6.13</span></a></p>
 <p>Naš web je navštevovaný v priemere každých 10 minút, čo znamená, že parameter rýchlosti je <span class="math display">\[
 \lambda = \frac{1}{10} \quad \text{(na minútu)}.
 \]</span> Za polhodinový interval (30 minút) je stredný počet návštev <span class="math display">\[
@@ -1306,20 +1093,10 @@ P(T \geq 2+3 \mid T \geq 2) = P(T \geq 3) = e^{-3\cdot 1} \approx 0.0498.
 \]</span> Pravdepodobnosť, že za tento čas nepríde žiadny návštevník, je podľa Poissonovho procesu: <span class="math display">\[
 P(N=0) = e^{-\lambda t} = e^{-3} \approx 0.0498.
 \]</span> Teda šanca je približne 4.98%.</p>
-<p><a href="#exr-normal" class="quarto-xref">Cvičenie&nbsp;<span>6.22</span></a></p>
+<p><a href="#exr-normal" class="quarto-xref">Cvičenie&nbsp;<span>6.14</span></a></p>
 <p>Zderivovaním a položením rovné nule dostaneme práve jedno riešenie, takže funkcia má jeden lokálny extrém a je to <span class="math inline">\(\mu.\)</span></p>
 <p>Funkcia je symetrická okolo <span class="math inline">\(\mu,\)</span> lebo <span class="math inline">\(f_X(\mu+a) = f_X(\mu-a),\)</span> takže medián je <span class="math inline">\(\mu.\)</span></p>
-<p><a href="#exr-zajo" class="quarto-xref">Cvičenie&nbsp;<span>6.29</span></a></p>
-<div class="cell" data-layout-align="center">
-<div class="cell-output-display">
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="fig_zajo2.png" class="img-fluid figure-img" style="width:80.0%"></p>
-<figcaption>Zdroj: https://miramuseai.net</figcaption>
-</figure>
-</div>
-</div>
-</div>
+<p><a href="#exr-zajo" class="quarto-xref">Cvičenie&nbsp;<span>6.15</span></a></p>
 </div>
 </div>
 </div>
@@ -1471,7 +1248,7 @@ P(N=0) = e^{-\lambda t} = e^{-3} \approx 0.0498.
 <!-- $$\text{E}[Y], \text{Var}[Y], P(Y \leq 3), P(Y \in (2,5]).$$ -->
 <!-- ::: -->
 <!-- ::: {.exercise name="DÚ 5 BONUS (nepovinná úloha)"} -->
-<!-- Nech $F_Y(t)$ je kumulatívna distribučná funkcia spojite rozdelenej náhodnej premennej $Y.$ Nech naviac $F_Y(t)$ je všade rastúca. Zistite aké má rozdelenie $X = F_Y(Y).$ -->
+<!-- Nech $F_Y(t)$ je kumulatívna distribučná funkcia spojite rozdelenej náhodnej premennej $Y.$ Nech navyše $F_Y(t)$ je všade rastúca. Zistite aké má rozdelenie $X = F_Y(Y).$ -->
 <!-- ::: -->
 <!-- ::: {.exercise name="DÚ 5 BONUS 2 (ešte viac nepovinná Veľkonočná úloha)"} -->
 <!-- Vyfarbite Vašimi obľúbenými Veľkonočnými farbami. -->
@@ -1584,7 +1361,7 @@ P(N=0) = e^{-\lambda t} = e^{-3} \approx 0.0498.
 <!-- 0, & \text{inak}. -->
 <!-- \end{cases} -->
 <!-- \end{equation*} -->
-<!-- Nech naviac -->
+<!-- Nech navyše -->
 <!-- \begin{equation*} -->
 <!-- Y = g(X)= -->
 <!-- \begin{cases} -->
